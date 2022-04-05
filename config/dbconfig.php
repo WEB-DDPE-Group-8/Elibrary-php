@@ -1,6 +1,6 @@
 <?PHP 
     $servername='localhost';
-    $usernam='tibex';
-    $password='1234qwerty';
+    $usernam='root';
+    $password='';
     $dbname = "a2zlibrary";
 ?>
