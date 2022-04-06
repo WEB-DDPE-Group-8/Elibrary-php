@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2022 at 03:48 PM
+-- Generation Time: Apr 06, 2022 at 12:47 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -84,6 +84,60 @@ CREATE TABLE `cart` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `login`
+--
+
+CREATE TABLE `login` (
+  `UserID` int(11) NOT NULL,
+  `UserName` varchar(100) NOT NULL,
+  `Email` varchar(50) NOT NULL,
+  `PhoneNumber` int(14) NOT NULL,
+  `FirstName` varchar(100) NOT NULL,
+  `LastName` varchar(100) NOT NULL,
+  `Password` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`UserID`, `UserName`, `Email`, `PhoneNumber`, `FirstName`, `LastName`, `Password`) VALUES
+(1, 'Tibex', 'tibesolomomn7@gmail.com', 923621874, 'Tibebe', 'solomon', ''),
+(2, 'Tsion', 'tsion@gmail.com', 911111111, 'Tsion', 'Tesfaye', ''),
+(3, 'Selina', 'selina@gmail.com', 911111111, 'Selina', 'lname', ''),
+(4, 'Betty', 'betty@gmail.com', 911111111, 'Betty', 'lname', ''),
+(5, 'Tesfa', 'tesfa@gmail.com', 911425020, 'Tesfa', 'Amsalu', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `signup`
+--
+
+CREATE TABLE `signup` (
+  `UserID` int(11) NOT NULL,
+  `UserName` varchar(100) NOT NULL,
+  `Email` varchar(50) NOT NULL,
+  `PhoneNumber` int(14) NOT NULL,
+  `FirstName` varchar(100) NOT NULL,
+  `LastName` varchar(100) NOT NULL,
+  `Password` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `signup`
+--
+
+INSERT INTO `signup` (`UserID`, `UserName`, `Email`, `PhoneNumber`, `FirstName`, `LastName`, `Password`) VALUES
+(1, 'Tibex', 'tibesolomomn7@gmail.com', 923621874, 'Tibebe', 'solomon', ''),
+(2, 'Tsion', 'tsion@gmail.com', 911111111, 'Tsion', 'Tesfaye', ''),
+(3, 'Selina', 'selina@gmail.com', 911111111, 'Selina', 'lname', ''),
+(4, 'Betty', 'betty@gmail.com', 911111111, 'Betty', 'lname', ''),
+(5, 'Tesfa', 'tesfa@gmail.com', 911425020, 'Tesfa', 'Amsalu', '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -133,6 +187,20 @@ ALTER TABLE `cart`
   ADD KEY `Author` (`Author`);
 
 --
+-- Indexes for table `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`UserID`),
+  ADD KEY `Email_isAdmin` (`Email`);
+
+--
+-- Indexes for table `signup`
+--
+ALTER TABLE `signup`
+  ADD PRIMARY KEY (`UserID`),
+  ADD KEY `Email_isAdmin` (`Email`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -154,6 +222,18 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `books`
   MODIFY `BookID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `login`
+--
+ALTER TABLE `login`
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `signup`
+--
+ALTER TABLE `signup`
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`
