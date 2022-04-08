@@ -7,9 +7,9 @@
         
         <link rel="shortcut icon" href="./multimedia/resources/logo/logo.png"/>
 
-        <link rel="stylesheet" type="text/css" href="style.css"/>
-        <link rel="stylesheet" type="text/css" href="footer.css"/>
-        <link rel="stylesheet" type="text/css" href="index.css"/>
+        <link rel="stylesheet" type="text/css" href="css/style.css"/>
+        <link rel="stylesheet" type="text/css" href="css/footer.css"/>
+        <link rel="stylesheet" type="text/css" href="css/index.css"/>
     
         <script src="user.js" defer> </script>
 

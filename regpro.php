@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>registration form</title>
 
-        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <link rel="stylesheet" type="text/css" href="css/style.css"/>
         <link rel="shortcut icon" href="./multimedia/resources/logo/logo.png"/>
         <script src= "./js/toggle.js" defer><script>
 

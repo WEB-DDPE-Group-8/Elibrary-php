@@ -9,9 +9,9 @@
     <link rel="shortcut icon" href="./resources/logo/logo.png"/>
     <!-- <script src="user.js"></script> -->
     <script src="addtocart.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css"/>
-    <link rel="stylesheet" type="text/css" href="footer.css"/>
-    <link rel="stylesheet" type="text/css" href="index.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/footer.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
 
 
 </head>
