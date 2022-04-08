@@ -11,22 +11,17 @@ $phonenumber = 7125020;
     // $password='';
     // $dbname = "a2zlibrary";
 
-    $conn = mysqli_connect($servername,$usernam,$password,$dbname);
-      if(!$conn){
-          die('Could not Connect MySql Server:' .mysql_error());
-        }
-
 if(isset($_POST["req_user"])) 
 {
-    $username = mysqli_real_escape_string($conn,$_POST['username']);
-    $firstname = mysqli_real_escape_string($conn,$_POST['firstname']);
-    $lastname = mysqli_real_escape_string($conn,$_POST['lastname']);
-    $pass = mysqli_real_escape_string($conn,$_POST['pass']);
-    $pass2 = mysqli_real_escape_string($conn,$_POST['pass2']);
-    // $phonenumber = mysqli_real_escape_string($conn,$_POST['phonenumber']);
-    $admin_code = mysqli_real_escape_string($conn,$_POST['admin_code']);
+    $username = mysqli_real_escape_string($db,$_POST['username']);
+    $firstname = mysqli_real_escape_string($db,$_POST['firstname']);
+    $lastname = mysqli_real_escape_string($db,$_POST['lastname']);
+    $pass = mysqli_real_escape_string($db,$_POST['pass']);
+    $pass2 = mysqli_real_escape_string($db,$_POST['pass2']);
+    // $phonenumber = mysqli_real_escape_string($db,$_POST['phonenumber']);
+    $admin_code = mysqli_real_escape_string($db,$_POST['admin_code']);
 
-    $email = mysqli_real_escape_string($conn,$_POST['email']);
+    $email = mysqli_real_escape_string($db,$_POST['email']);
 
     $isAdmin = in_array($admin_code,$admincodes);//check if theres an admin code in admin code(s)
 
@@ -36,7 +31,7 @@ if(isset($_POST["req_user"]))
         (UserName,Email,PhoneNumber,FirstName,LastName,isAdmin) VALUES
         ('$username','$email','$phonenumber','$firstname','$lastname',1)";
     
-    //  mysqli_query($conn, $queryadmin);
+    //  mysqli_query($db, $queryadmin);
 
         $_SESSION['username'] = $username;
         $_SESSION['isAdmin']=$isAdmin;
@@ -48,7 +43,7 @@ if(isset($_POST["req_user"]))
         (UserName,Email,PhoneNumber,FirstName,LastName,isAdmin) VALUES
         ('$username','$email','$phonenumber','$firstname','$lastname',0)";
 
-    //  mysqli_query($conn, $queryuser);
+    //  mysqli_query($db, $queryuser);
 
         $_SESSION['username'] = $username;
         $_SESSION['isAdmin']=$isAdmin;
@@ -63,12 +58,12 @@ if(isset($_POST["req_user"]))
         if(strpos($_SERVER['REQUEST_URI'],"admin",) !== false)
     {
             echo "\n in if";
-            $cred = mysqli_real_escape_string($conn,$_POST['cred']);
-            $pass = mysqli_real_escape_string($conn,$_POST['pass']);
+            $cred = mysqli_real_escape_string($db,$_POST['cred']);
+            $pass = mysqli_real_escape_string($db,$_POST['pass']);
 
             $querycheck = "SELECT * from admin where Email='$cred' OR UserName='$cred' ";
             echo $querycheck;
-            $result = mysqli_query($conn, $querycheck);
+            $result = mysqli_query($db, $querycheck);
             
             foreach($result as $rows)
             {

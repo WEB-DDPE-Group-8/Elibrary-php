@@ -136,6 +136,13 @@ textarea
         <p>This page is for a user to upload any file in a pdf format to our servers</p><br/>
 </center>  
 
+
+
+
+  <div id="uploadform">
+            <form method="POST" action="upload page.php" enctype="multipart/form-data">
+
+   
 <div id="addbutton" style="float: right">                
             <label for="cover">
 
@@ -143,7 +150,7 @@ textarea
                 <div > 
                     <p>
                     <label for="cover"> <img id=blah src="./multimedia/resources/add-image.png" width="52" > <br/> Add Cover Page(s) </label>
-                    <input hidden id="cover" type=file accept="*.jpg">
+                    <input hidden id="cover" type=file name="file" accept="*.jpg">
     <script>
         cover.onchange = evt => {
             const [file] = cover.files
@@ -176,25 +183,19 @@ textarea
               
             
 </div>
-
-
-
-  <div id="uploadform">
-            <form>
-
         <p>
         <label for="bookname">Book Name</label>
-        <input type="text" id="bookname"  > 
+        <input type="text" name="bookname" id="bookname"> 
         </p>
 
         <p>
             <label for="author">Author</label>
-            <input placeholder="Anonymus" type="text" id="author"/>
+            <input placeholder="Anonymus" name="Author" type="text" id="author"/>
         </p>
 
         <p>
             <label for="date" >Date of publishing</label>
-            <input id="date" type="date" value="2020-02-22" ></input>
+            <input id="date" name="date" type="date" value="2020-02-22" ></input>
         </p>
             
 <p>
@@ -227,24 +228,28 @@ textarea
 
 <p>
         <label for="Desc" title="Describe what your book is about, the characters, the plot and the setting but be sure not to include spoilers">Description<br/></label>
-        <textarea id="Desc" rows="10" cols="30">
+        <textarea id="Desc" rows="10"  name="description" cols="30">
         </textarea>
 </p>
 
 <p>
         <label for=price >Price<br/> </label>
-        <b><em>$ </em></b><input id=price type=number >
+        <b><em>$ </em></b><input id=price type=number name="price" >
 </p>
 
 <p>
+    
+</div>
+<div > <center><input name="upload_book" type="submit" value="Submit" id=upld> </center> </div>
+</div>  
+
+<?php include("./lib/uploadbooks.php") ?> 
+
 </form>
      
        
 </p>
-
-</div>
-<div > <center><button id=upld>Submit</button> </center> </div>
-</div>      
+  
 
     </body>
     

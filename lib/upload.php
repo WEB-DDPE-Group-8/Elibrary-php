@@ -1,7 +1,7 @@
 <?php
 // Include the database configuration
 //not done yet
-include "dbconfig.php";
+// include "dbconfig.php";
 
 $statusmsg="";
 //  File upload directory
@@ -9,10 +9,10 @@ $targetDir = "uploads/";
 
 if(isset ($_POST["submit" ])) 
 {
-if(!empty ($_FILES[ "file"]["name" ])) {
+if(!empty ($_FILES[ "file"]["name" ])){
    $fileName = basename($_FILES["file"]["name" ]) ;
    $targetFilepath = $targetDir . $fileName;
-   $filetype= pathinfo($targetfilePath, PATHINFO_EXTENSION) ;
+   $filetype= pathinfo($targetfilePath, PATHINFO_EXTENSION);
 
    // Allow certain file formats
     $allowTypes=array("jpg", "png", "jpeg", 'gif', 'pdf');

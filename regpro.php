@@ -62,7 +62,7 @@
                    
                     <td align="center">
                    
-                           <input id= sub onclick="test()" type="submit" value="Submit">
+                           <input id= "sub" onclick="test()" type="submit" value="Submit">
                        
                     </td>
                     <td>
