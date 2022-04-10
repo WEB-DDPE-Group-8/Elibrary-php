@@ -25,10 +25,33 @@
         <h1></h1>
     </div>
 
+
+
 <div id="gallery">
-    <div></div>
-     <div class="img-gallery" >
-      <a onclick="setlookout(113)" href= "Description.php"><img  src=./multimedia/resources/books/13.jpg width="200" height=" 350" ></a>
+    <div>    
+    </div>
+     <div class="img-gallery">
+<?php 
+include("./config/dbconfig.php");
+$query = $db->query("Select * from images");
+
+if($query->num_rows > 0)
+{
+    while($row = $query->fetch_assoc())
+    {
+        $imageURL = 'uploads/'.$row["file_name"];
+?>
+ <a href="description.php"><img src="<?php echo $imageURL; ?>"width="200" height="350"/></a>
+ <?php 
+}//end of the while loop -->
+}//end if the if statement
+else {
+?>
+ <p>"NO images found..."</p>
+ <?php
+ }
+?>
+      <!-- <a onclick="setlookout(113)" href= "Description.php"><img  src=./multimedia/resources/books/13.jpg width="200" height=" 350" ></a>
       <a onclick="setlookout(112)" href= "Description.php"><img  src=./multimedia/resources/books/12.jpg width="200" height=" 350" ></a>
       <a onclick="setlookout(111)" href= "Description.php"><img  src=./multimedia/resources/books/11.jpg width="200" height=" 350"></a>
       <a onclick="setlookout(14)" href= "Description.php"><img  src=./multimedia/resources/books/4.jpg width="200" height=" 350" ></a>
@@ -45,7 +68,7 @@
       <a onclick="setlookout(113)" href= "Description.php"> <img  src=./multimedia/resources/books/13.jpg width="200" height=" 350" ></a>
       <a onclick="setlookout(112)" href= "Description.php"><img  src=./multimedia/resources/books/12.jpg width="200" height=" 350" ></a>
       <a onclick="setlookout(111)" href= "Description.php"> <img  src=./multimedia/resources/books/11.jpg width="200" height=" 350"></a>
-      <a onclick="setlookout(14)" href= "Description.php"><img  src=./multimedia/resources/books/4.jpg width="200" height=" 350" ></a>
+      <a onclick="setlookout(14)" href= "Description.php"><img  src=./multimedia/resources/books/4.jpg width="200" height=" 350" ></a> -->
       <div>
           
       </div>

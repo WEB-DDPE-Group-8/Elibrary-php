@@ -19,6 +19,7 @@ $targetDir = "uploads/";
 if(isset ($_POST["upload_book" ])) 
 {
 if(!empty ($_FILES["file"]["name"])){
+
    $fileName = basename($_FILES["file"]["name" ]) ;
   
    $targetFilePath = $targetDir . $fileName;
