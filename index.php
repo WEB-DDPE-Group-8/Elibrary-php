@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <!-- font awesome cdn link  -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="shortcut icon" href="././multimedia/resources/logo/logoname2.png"/>
     
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
@@ -11,13 +14,15 @@
     <link rel="stylesheet" type="text/css" href="css/footer.css"/>
     <link rel="stylesheet" type="text/css" href="css/team.css"/>
 
+    <link rel="stylesheet" href="books webstie/css/s.css">
+
    <script src="searchfunction.js" defer></script>
     <script src="user.js" defer></script>
     <script src="addtocart.js" defer></script>
 
     <title>Library</title>
 
-<style>
+<!-- <style>
 #search-box 
 {
   width: 430px;
@@ -50,16 +55,16 @@ header
     margin-bottom:40px;
 }
 
-</style>
+</style> -->
 
 </head>
 
 <body background="./multimedia/resources/banner-bg.jpg">
     <!-- header -->
  
-            <?php include("./inc/nav_bar.php")?>
+            <?php include("./books webstie/i.html")?>
      
-        <div class="search" align = center hidden>
+        <!-- <div class="search" align = center hidden>
             <form id="frm" style="margin-bottom:20px">
                 <input id="search-box" type="search" placeholder="Search for books..." list = "searchKey">
                 <datalist id="searchKey">
@@ -76,7 +81,7 @@ header
                  </form>
                
             
-        </div>
+        </div> -->
         
     <!-- home section -->
 <div id=all>
