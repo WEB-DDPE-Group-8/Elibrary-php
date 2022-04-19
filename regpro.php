@@ -6,7 +6,7 @@
 
         <link rel="stylesheet" type="text/css" href="css/style.css"/>
         <link rel="shortcut icon" href="./multimedia/resources/logo/logo.png"/>
-        <script src= "./js/toggle.js" defer><script>
+        <script src= "./js/toggle.js" defer></script>
 
     </head>
     <body background="./multimedia/resources/banner-bg.jpg" >
