@@ -29,26 +29,15 @@ if(isset($_POST["req_user"]))
         if($isAdmin){
     $queryadmin = "INSERT INTO user
         (UserName,Email,PhoneNumber,FirstName,LastName,isAdmin) VALUES
-        ('$username','$email','$phonenumber','$firstname','$lastname',1)";
+        ('$username','$email','$phonenumber','$firstname','$lastname',$isAdmin)";
     
-    //  mysqli_query($db, $queryadmin);
+        mysqli_query($db, $queryadmin);
 
         $_SESSION['username'] = $username;
         $_SESSION['isAdmin']=$isAdmin;
 
         header('location:index.php');
         }
-
-        $queryuser = "INSERT INTO user
-        (UserName,Email,PhoneNumber,FirstName,LastName,isAdmin) VALUES
-        ('$username','$email','$phonenumber','$firstname','$lastname',0)";
-
-    //  mysqli_query($db, $queryuser);
-
-        $_SESSION['username'] = $username;
-        $_SESSION['isAdmin']=$isAdmin;
-
-        header('location:index.php');
 }
         
         
@@ -61,7 +50,7 @@ if(isset($_POST["req_user"]))
             $cred = mysqli_real_escape_string($db,$_POST['cred']);
             $pass = mysqli_real_escape_string($db,$_POST['pass']);
 
-            $querycheck = "SELECT * from admin where Email='$cred' OR UserName='$cred' ";
+            $querycheck = "SELECT * from user where Email='$cred' OR UserName='$cred' ";
             echo $querycheck;
             $result = mysqli_query($db, $querycheck);
             

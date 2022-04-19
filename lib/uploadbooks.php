@@ -3,13 +3,13 @@
 
 if(isset($_POST["upload_book"])) 
 {
-    $bookname = mysqli_real_escape_string($db,$_POST['bookname']);
-    $Author = mysqli_real_escape_string($db,$_POST['Author']);
-    $date = mysqli_real_escape_string($db,$_POST['date']);
-    $genre = mysqli_real_escape_string($db,$_POST['genre']);
-    $lang = mysqli_real_escape_string($db,$_POST['lang']);
-    $description = mysqli_real_escape_string($db,$_POST['description']);
-    $price = mysqli_real_escape_string($db,$_POST['price']);
+    $bookname = $_POST['bookname'];
+    $Author = $_POST['Author'];
+    $date = $_POST['date'];
+    $genre = $_POST['genre'];
+    $lang = $_POST['lang'];
+    $description = $_POST['description'];
+    $price = $_POST['price'];
 
     
 $statusmsg="";
@@ -20,7 +20,7 @@ if(isset ($_POST["upload_book" ]))
 {
 if(!empty ($_FILES["file"]["name"])){
 
-   $fileName = basename($_FILES["file"]["name" ]) ;
+   $fileName = basename($_FILES["file"]["name"]) ;
   
    $targetFilePath = $targetDir . $fileName;
    echo $targetFilePath;
@@ -29,12 +29,13 @@ if(!empty ($_FILES["file"]["name"])){
    // Allow certain file formats
     $allowTypes=array("jpg", "png", "jpeg", 'gif', 'pdf');
 
-if (in_array ($filetype, $allowTypes) ){
+if (in_array ($filetype, $allowTypes))
+{
     // upload flle to server
     //  move_uploaded_file($_FILES["file"][ "tmp_name"], $targetFilePath);
 if (move_uploaded_file($_FILES["file"][ "tmp_name"], $targetFilePath) ) {
     // insert image tile name into database
-    $insert= $db->query("INSERT into images (file_name, uploaded_on) VALUES ('".$fileName."', NOW())") ;
+    $insert= $db->query("INSERT into books (Cover) VALUES ('.$fileName.')") ;
 if($insert)
 {
     // echo must be removed used only for debudding purposes only
@@ -48,7 +49,8 @@ else{
     echo  $statusMsg="sorry, there was an error uploading your file.";
 }
 }
-else{
+else
+{
     echo  $statustsg ='Sorry, only JPG, PEG, PNG, GIF, & PDF files are allowed to upload.';
 }
 }

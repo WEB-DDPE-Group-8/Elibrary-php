@@ -38,7 +38,7 @@
               </li>
   
               <li>
-                <a href="index.php">Create Account </a>
+                <a href="regpro.php">Create Account </a>
               </li>
               <li>
                 <a href="index.php#bod">About Us </a>
