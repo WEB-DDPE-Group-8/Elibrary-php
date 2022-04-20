@@ -21,19 +21,27 @@ if(isset($_POST["req_user"]))
     $isAdmin = in_array($admin_code,$admincodes);//check if theres an admin code in admin code(s)
 
     
-        if($isAdmin)
-        {
-    $queryadmin = "INSERT INTO user
-        (UserName,Email,PhoneNumber,FirstName,LastName,isAdmin) VALUES
-        ('$username','$email','$phonenumber','$firstname','$lastname',$isAdmin)";
+        // if($isAdmin)
+        // {
+$createcart = 'INSERT INTO cart (Books) values ("jnjdkgn")';
+
+//  mysqli_query($db,$createcart);
+
+$querylatestcart = "Select MAX('Cart-Id') from cart ";
+ $sil = mysqli_query($db,$querylatestcart);
+ $sil2 = mysqli_fetch_assoc($sil);
+echo print_r($sil2);
+//     $queryadmin = "INSERT INTO user
+//         (UserName,Email,PhoneNumber,FirstName,LastName,isAdmin,Cart_Id) VALUES
+//         ('$username','$email','$phonenumber','$firstname','$lastname',$isAdmin,$querylatestcart )";
     
-        mysqli_query($db, $queryadmin);
+//         mysqli_query($db, $queryadmin);
 
-        $_SESSION['username'] = $username;
-        $_SESSION['isAdmin']=$isAdmin;
+//         $_SESSION['username'] = $username;
+//         $_SESSION['isAdmin']=$isAdmin;
 
-        header('location:index2.php');
-        }
+        // header('location:index2.php');
+        // }
 }
         
         
