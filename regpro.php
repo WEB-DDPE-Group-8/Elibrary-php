@@ -128,12 +128,10 @@ class user {
       this.pass = pass;
       
     }
-  }
+  };
 
-            
 function rest()
 {
-
 if(pass.value == pass2.value)
 {
     var admin = new user(id=7,fname.value,lname.value,usrname.value,email.value,pass.value)
