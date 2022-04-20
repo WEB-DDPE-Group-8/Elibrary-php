@@ -6,11 +6,6 @@ $phonenumber = 7125020;
   
     INCLUDE("./config/dbconfig.php");
 
-    // $servername='localhost';
-    // $usernam='root';
-    // $password='';
-    // $dbname = "a2zlibrary";
-
 if(isset($_POST["req_user"])) 
 {
     $username = mysqli_real_escape_string($db,$_POST['username']);
@@ -26,7 +21,8 @@ if(isset($_POST["req_user"]))
     $isAdmin = in_array($admin_code,$admincodes);//check if theres an admin code in admin code(s)
 
     
-        if($isAdmin){
+        if($isAdmin)
+        {
     $queryadmin = "INSERT INTO user
         (UserName,Email,PhoneNumber,FirstName,LastName,isAdmin) VALUES
         ('$username','$email','$phonenumber','$firstname','$lastname',$isAdmin)";
@@ -36,7 +32,7 @@ if(isset($_POST["req_user"]))
         $_SESSION['username'] = $username;
         $_SESSION['isAdmin']=$isAdmin;
 
-        header('location:index.php');
+        header('location:index2.php');
         }
 }
         
@@ -47,20 +43,22 @@ if(isset($_POST["req_user"]))
         if(strpos($_SERVER['REQUEST_URI'],"admin",) !== false)
     {
             echo "\n in if";
-            $cred = mysqli_real_escape_string($db,$_POST['cred']);
-            $pass = mysqli_real_escape_string($db,$_POST['pass']);
+            $cred = $_POST['cred'];
+            $pass = $_POST['pass'];
+
 
             $querycheck = "SELECT * from user where Email='$cred' OR UserName='$cred' ";
-            echo $querycheck;
-            $result = mysqli_query($db, $querycheck);
             
+            $result = mysqli_query($db, $querycheck);
+           
             foreach($result as $rows)
             {
                 //iterate the results object to get the values needed
+                
             $_SESSION["username"] = $rows["UserName"];
-            $_SESSION["id"]= $_rows["id"];
-            $_SESSION["email"] =  $_rows["id"];
+            $_SESSION["email"] =  $rows["Email"];
             }      
+            header('location:admin-profile.php');
     }
 }
 ?>
