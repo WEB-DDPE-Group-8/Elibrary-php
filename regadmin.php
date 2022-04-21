@@ -15,14 +15,16 @@
     </head>
     <body background="./multimedia/resources/banner-bg.jpg" >
 
+    <?php include("inc/nav_bar.php") ?>
+
  
 
-        <P align="center">
-           <B>LIBRARY MANAGMENT SYSTEM<br>REGISTRATION FORM FOR ADMIN</B>
+        <P align="center" style = "margin = 64px;">
+           <h2>LIBRARY MANAGMENT SYSTEM<br>REGISTRATION FORM FOR ADMIN</h2>
         </P> 
         
-        <form id=form_action action="regadmin.php" method="POST">
-        <?php include("./db.php") ?>
+        <form id=form_action action="regadmin" method="POST">
+        <?php include("../lib/db.php") ?>
 
             <table align="center" bgcolor="transparent" height="450" width="450">
 
@@ -202,7 +204,7 @@ function test()
 
 </script> -->
 
-
+<?php include("./inc/footer.php") ?>
 
     </body>
     

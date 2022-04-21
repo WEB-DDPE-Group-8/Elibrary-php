@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="./resources/logo/logo.png"/>
 
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="css/footer.css"/>
+    <!-- <link rel="stylesheet" type="text/css" href="css/footer.css"/> -->
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
 
     <title>Purchase Succesful</title>
@@ -19,19 +19,19 @@
 
 <body background="resources/banner-bg.jpg">
 
-<table align="center" style="height:100%"" >
+<table align="center" style="height:300px; width = 300px; align = center;" >
     <tr>
-        <td valign="middle">
-            <p>Your purchase has been successful.</p>
+        <td >
+            <p style = "font-size: 21px">Your purchase has been successful.</p>
         </td>
     </tr>
     <tr>
 <td>            
-            <p>
+            <p style = "font-size: 21px">
                 <a href="index.php">Home</a>
             </p>
 
-            <p>
+            <p style = "font-size: 21px">
                 <a href="bookshelf.php">Discover more</a>
             </p>
 

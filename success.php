@@ -11,16 +11,16 @@
         <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
         <link rel="stylesheet" type="text/css" href="css/index.css"/>
-        <link rel="stylesheet" type="text/css" href="css/footer.css"/>
+        <!-- <link rel="stylesheet" type="text/css" href="css/footer.css"/> -->
     <title>
         Upload Successful
     </title>
     </head>
     <body background="resources/banner-bg.jpg">
 
-        <table align="center">
-            <tr>
-                <td valign="middle">
+        <table align="center" style="padding: 21px; margin: 21px 120px; font-size: 21px;" >
+            <tr height= 200px>
+                <td align-item="middle">
                     <p>You book was successfully submitted to an Admin</p>
                    <p>For more detals or help contact us at <a href="support@bookmail.org"> support@bookmail.org</a> </p>
 

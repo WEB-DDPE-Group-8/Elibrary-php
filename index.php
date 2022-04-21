@@ -35,7 +35,7 @@
             deserunt nostrum accusamus. Nam alias sit necessitatibus, aliquid ex
             minima at!
           </p>
-          <a href="#" class="btn">shop now</a>
+          <a href="successful purchase.php" class="btn">shop now</a>
         </div>
 
         <div class="swiper books-slider">
@@ -699,7 +699,7 @@
 
     <!-- blogs section ends -->
 
-    <!-- footer section starts  -->
+    <!-- footer section starts 
 
     <section class="footer">
       <div class="box-container">
@@ -764,6 +764,7 @@
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
     <!-- custom js file link  -->
-    <script src="js/script.js"></script>
+    <script src="js/script.js"></script> -->
+    <?php include("./inc/footer.php")  ?>
   </body>
 </html>

@@ -12,7 +12,7 @@
         <div> <a href="index.php#section5">&nbsp;&nbsp;<img src="./multimedia/resources/Events.png"  width= 36px height="auto" /> <br>Events</a></div>
         <div> <a href=
 <?php
-session_start();
+
 // if(isset($_SESSION['username']))   
 //         echo "cart.php";
 // else echo "login.php";
@@ -46,7 +46,7 @@ session_start();
 
     <header class="header">
       <div class="header-1">
-        <a href="#" class="logo"> <i class="fas fa-book"></i> bookly </a>
+        <a href="#" class="logo"> <i class="fas fa-book"></i> Book Store </a>
 
         <form action="" class="search-form">
           <input
@@ -63,14 +63,16 @@ session_start();
 
           <a href=
 "<?php
-
+session_start();
 if(isset($_SESSION['username'])) 
 {echo "cart.php";}
 else{echo "login.php";}
 ?>"
 class="fas fa-heart"></a>
+
           <a href=
           "<?php
+//session_start();
 if(isset($_SESSION['username'])) 
 {echo "cart.php";}
 else{echo "login.php";}
@@ -88,11 +90,12 @@ class="fas fa-shopping-cart"> <br>
 
       <div class="header-2">
         <nav class="navbar">
-          <a href="#home">home</a>
-          <a href="#featured">featured</a>
+          <a href="index.php">home</a>
+          <a href="bookshelf.php">featured</a>
           <a href="#arrivals">arrivals</a>
           <a href="#reviews">reviews</a>
           <a href="#blogs">blogs</a>
+          <a href="report.php">Statistics</a>
         </nav>
       </div>
     </header>
@@ -102,8 +105,8 @@ class="fas fa-shopping-cart"> <br>
     <!-- bottom navbar  -->
 
     <nav class="bottom-navbar">
-      <a href="#home" class="fas fa-home"></a>
-      <a href="#featured" class="fas fa-list"></a>
+      <a href="index.php" class="fas fa-home"></a>
+      <a href="bookshelf.php" class="fas fa-list"></a>
       <a href="#arrivals" class="fas fa-tags"></a>
       <a href="#reviews" class="fas fa-comments"></a>
       <a href="#blogs" class="fas fa-blog"></a>
@@ -138,9 +141,45 @@ class="fas fa-shopping-cart"> <br>
         </div>
         <input type="submit" value="sign in" name="log_user" class="btn" />
         <p>forget password ? <a href="#">click here</a></p>
-        <p>don't have an account ? <a href="regadmin.php">create one</a></p>
+        <p id="register">don't have an account ?
+          <!-- <button id= "reg-btn"> click here to register</button> -->
+           <a href="regadmin.php">create one</a></p>
       </form>
     </div>
+
+    <!-- register form -->
+    <div class="registration-form-container">
+      <div id="close-login-btn" class="fas fa-times"></div>
+<!--
+      <form action="./lib/db.php" method="POST" >
+      -->
+      <form action="">
+        <h3>sign in</h3>
+        <span>username</span>
+        <input
+          type="text"
+          name="cred"
+          class="box"
+          placeholder="enter your email"
+          id=""
+        />
+        <span>password</span>
+        <input
+          type="password"
+          name="pass"
+          class="box"
+          placeholder="enter your password"
+          id=""
+        />
+        <div class="checkbox">
+          <input type="checkbox" name="" id="remember-me" />
+          <label for="remember-me"> remember me</label>
+        </div>
+        <input type="submit" value="sign in" name="log_user" class="btn" />
+        <p>forget password ? <a href="#">click here</a></p>
+        <p>don't have an account ? <a href="regadmin.php">create one</a></p>
+      </form>
+    </div> 
 
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
