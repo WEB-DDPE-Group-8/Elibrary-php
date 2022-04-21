@@ -202,7 +202,7 @@ function test()
 
 </script> -->
 
-
+<?php include("./inc/footer.php") ?>
 
     </body>
     

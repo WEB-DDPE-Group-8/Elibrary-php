@@ -699,7 +699,7 @@
 
     <!-- blogs section ends -->
 
-    <!-- footer section starts  -->
+    <!-- footer section starts 
 
     <section class="footer">
       <div class="box-container">
@@ -764,6 +764,7 @@
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
     <!-- custom js file link  -->
-    <script src="js/script.js"></script>
+    <script src="js/script.js"></script> -->
+    <?php include("./inc/footer.php")  ?>
   </body>
 </html>
