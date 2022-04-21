@@ -8,11 +8,27 @@
         <link rel="shortcut icon" href="./resources/logo/logo.png"/>
 
         <link rel="stylesheet" type="text/css" href="css/style.css"/>
-        <link rel="stylesheet" type="text/css" href="css/footer.css"/>
+        <!-- <link rel="stylesheet" type="text/css" href="css/footer.css"/> -->
 
         <script src="user.js"></script>
         <script src="addtocart.js" defer></script>
         <script src="upload.js" defer></script>
+
+        
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+      href="css/min.css"
+    />
+
+    <!-- font awesome cdn link  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css" />
     
     <title>Upload</title>
 

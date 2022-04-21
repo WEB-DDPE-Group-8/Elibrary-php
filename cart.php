@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/carrt.css" async />
-    <link rel="stylesheet" type="text/css" href="css/footer.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="css/footer.css" /> -->
     <link rel="stylesheet" type="text/css" href="css/index.css" />
 
     <script src="user.js"></script>

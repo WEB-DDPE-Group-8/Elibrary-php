@@ -72,7 +72,9 @@
 <body>
     <body background="multimedia/resources/banner-bg.jpg">
             <!-- header -->
-            <?php include("./inc/nav_bar.php") ?>
+             <?php 
+            include("./inc/nav_bar.php");
+             ?> 
      
         <main>
             <div id="profilepic">
@@ -100,7 +102,10 @@
                     <h3>Contact me at:</h3>
                     <p>E-mail: <span id=emali_name>
                     <?php  
+                    if(isset($_SESSION['email']))
                         echo $_SESSION['email'];
+                    else
+                        echo "name@domain.com"
                       ?>
                     
                 </span></p>
@@ -124,10 +129,11 @@
                                         <button>
                                           <a  style="text-decoration: none;"  href="upload_page_admin.php">Upload a Book </a>  
                                         </button>
+                                        <a href="report.php">Report</a>
                                                         <br><br><br><br><br><br>
-                                         <button id=logout onclick="<?php unset($_SESSION['username']);?>">
-                                         Logout   
-                                        </button>
+                                         <form action="./lib/db.php" method="get">
+                                             <input type="submit" id="logout" name="logout" >
+                                         </form>
                                         
                                         </div>
                                         </center>
