@@ -95,6 +95,7 @@ class="fas fa-shopping-cart"> <br>
           <a href="#arrivals">arrivals</a>
           <a href="#reviews">reviews</a>
           <a href="#blogs">blogs</a>
+          <a href="report.php">Statistics</a>
         </nav>
       </div>
     </header>
@@ -140,15 +141,19 @@ class="fas fa-shopping-cart"> <br>
         </div>
         <input type="submit" value="sign in" name="log_user" class="btn" />
         <p>forget password ? <a href="#">click here</a></p>
-        <p>don't have an account ? <a href="regadmin.php">create one</a></p>
+        <p id="register">don't have an account ?
+          <!-- <button id= "reg-btn"> click here to register</button> -->
+           <a href="regadmin.php">create one</a></p>
       </form>
     </div>
 
     <!-- register form -->
-    <div class="login-form-container">
+    <div class="registration-form-container">
       <div id="close-login-btn" class="fas fa-times"></div>
-
-      <form action="./lib/db.php" method="POST">
+<!--
+      <form action="./lib/db.php" method="POST" >
+      -->
+      <form action="">
         <h3>sign in</h3>
         <span>username</span>
         <input

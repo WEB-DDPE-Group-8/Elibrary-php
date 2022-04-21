@@ -35,7 +35,7 @@
             deserunt nostrum accusamus. Nam alias sit necessitatibus, aliquid ex
             minima at!
           </p>
-          <a href="#" class="btn">shop now</a>
+          <a href="successful purchase.php" class="btn">shop now</a>
         </div>
 
         <div class="swiper books-slider">

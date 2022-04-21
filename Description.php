@@ -10,7 +10,7 @@
     <!-- <script src="user.js"></script> -->
     <script src="addtocart.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="css/footer.css"/>
+    <!-- <link rel="stylesheet" type="text/css" href="css/footer.css"/> -->
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
 
 
@@ -208,6 +208,8 @@ else
     }
 
              </script>
+
+<?php include("./inc/footer.php")  ?>
 
 </body>
 

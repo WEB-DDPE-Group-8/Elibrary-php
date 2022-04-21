@@ -40,9 +40,9 @@
 
 
          <form action="bookshelf.php" method="get">
-          <input type=number name=year >
-          <input type="submit" value="submit" name="submit">
-</form>
+              <input type=number name=year >
+              <input type="submit" value="submit" name="submit">
+        </form>
 
    
     <div class="css">

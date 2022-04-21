@@ -3,7 +3,7 @@
 
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
-    <link rel="stylesheet" type="text/css" href="css/footer.css"/>
+    <!-- <link rel="stylesheet" type="text/css" href="css/footer.css"/> -->
     <link rel="stylesheet" type="text/css" href="css/team.css"/>
 
 <?php include("./config/dbconfig.php");  

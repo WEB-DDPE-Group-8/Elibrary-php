@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="./multimedia/resources/logo/logo.png"/>
 
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="css/footer.css"/>
+    <!-- <link rel="stylesheet" type="text/css" href="css/footer.css"/> -->
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
 
     <script src="user.js"></script>
@@ -133,8 +133,8 @@
                                                         <br><br><br><br><br><br>
                                          <button id=logout onclick="
                                          <?php 
-                                         unset($_SESSION['username']);
-                                         unset($_SESSION['email']);
+                                        //  unset($_SESSION['username']);
+                                        //  unset($_SESSION['email']);
                                          ?>"
                                          >
                                          Logout   
