@@ -86,7 +86,7 @@
                       title="policy"
                       width=800
                       height=400
-src="privacypolicyonly.php" referrerpolicy="">
+                 src="privacypolicyonly.php" referrerpolicy="">
                      </iframe>
                      
                 </td>
