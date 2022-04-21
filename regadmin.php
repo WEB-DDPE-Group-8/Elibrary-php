@@ -19,7 +19,7 @@
 
         <P align="center">
            <B>LIBRARY MANAGMENT SYSTEM<br>REGISTRATION FORM FOR ADMIN</B>
-        </P>
+        </P> 
         
         <form id=form_action action="regadmin.php" method="POST">
         <?php include("./db.php") ?>
@@ -30,38 +30,43 @@
                 <tr>
                     <td>FIRST <br> Name<span class=ast> *</span></td>
                     <td>:</td>
-                    <td><input id=fname pattern="\w{2,15}" type="text" placeholder="First name" size="40" name="firstname"  ></td>
+                    <td>
+<input id=fname pattern="\w{2,15}" type="text" placeholder="First name" size="40" name="firstname"  ></td>
                 
                 </tr>
                 <tr>
                     <td >LAST <br>Name<span class=ast> *</span></td>
                     <td>:</td>
-                    <td><input id=lname pattern="\w{2,15}" name="lastname" type="text" placeholder="Last name" size="40"  ></td>
+                    <td>
+<input id=lname pattern="\w{2,15}" name="lastname" type="text" placeholder="Last name" size="40"  ></td>
                 
                 </tr>
                 
                 <tr>
                     <td>Email <span class=ast> *</span> </td>
                     <td>:</td>
-                    <td><input  pattern=[^@]+[@]+[^@]+\.[^@]+ id=email name="email" type="email" placeholder="name@domain.com" size="40"  ></td>
+                    <td>
+<input  pattern=[^@]+[@]+[^@]+\.[^@]+ id=email name="email" type="email" placeholder="name@domain.com" size="40"  ></td>
                 </tr>
                 <tr>
 				    <td >Phone Number</td>
 					<td>:</td>
                     <td>
-					   <input id=mob type="tel" name="phonenumber"   placeholder="(###)-(###)-(####)" size="40" pattern="\(\d{3}\)+\d{3}-?\d{4}"  />
+<input id=mob type="tel" name="phonenumber"   placeholder="(###)-(###)-(####)" size="40" pattern="\(\d{3}\)+\d{3}-?\d{4}"  />
 					</td>	
 			  </tr> 
               <tr>
                 <td >User name <span class=ast> *</span></td>
                 <td>:</td>
-                <td><input id=usrname pattern="\w{2,15}" name="username" type="text" placeholder="Userame" ></td>
+                <td>
+<input id=usrname pattern="\w{2,15}" name="username" type="text" placeholder="Userame" ></td>
             
             </tr>
                 <tr>
                     <td >Password  <span class=ast> *</span></td>
                     <td>:</td>
-                    <td><input id=pass type="password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+                    <td>
+<input id=pass type="password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
                     name="pass"
                      title="Number(s),Capitalized and Small letter(s) also symbols " 
                      placeholder="Password" min-length=4 max-length=14 size="40"   >
@@ -70,7 +75,8 @@
                 <tr>
                     <td >Confirm Password  <span class=ast> *</span></td>
                     <td>:</td>
-                    <td><input id=pass2 type="password"
+                    <td>
+<input id=pass2 type="password"
                     name="pass2"
                     pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"  placeholder="Confirm Password" size="40"  >
                         <i class="far fa-eye frr" id="togglePassword2" style="margin-left: -50px; cursor: pointer;"></i></td>
@@ -78,16 +84,15 @@
                 <tr>
                     <td >Admin<br>Code <span class=ast> *</span></td>
                     <td>:</td>
-                    <td><input id=code 
-                    name="admin_code"
-                    type="password" placeholder="Admin Code" size="40" pattern="\d{4}" ></td>
+                    <td>
+<input id=code name="admin_code" type="password" placeholder="Admin Code" size="40" pattern="\d{4}" ></td>
                 </tr>
                 <tr>   
                     <td align="center">
-                        <input id= sub onclick="test()" name="req_user" type="submit">
+<input id= sub onclick="test()" name="req_user" type="submit">
                     </td>
                     <td>
-                           <input type="reset"   value="Clear">
+<input type="reset"   value="Clear">
                     </td>
                 </tr>
                 <!-- end of form -->

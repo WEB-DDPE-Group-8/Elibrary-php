@@ -43,15 +43,16 @@
             </td>
         </tr>  
         </tr>
-        <form id=form_action></form>
+        <form action=logadmin.php method=post>
         <tr>
-            <td align="center"><input title="Enter a valid Username or an Email Address" id=email type="text" placeholder="Email or Username" size="45" required></td>
+            <?php include("./config/dbconfig.php"); include("./db.php")  ?>
+            <td align="center"><input name="cred" title="Enter a valid Username or an Email Address" id=email type="text" placeholder="Email or Username" size="45" required></td>
         </tr>
         <tr>
-            <td align="center"><input title="Enter a valid Password" id=pass type="password" placeholder="Password" size="45" required></td>
+            <td align="center"><input name="pass" title="Enter a valid Password" id=pass type="password" placeholder="Password" size="45" required></td>
         </tr>
         <tr>
-            <td align="center"> <button id=log  value="Log in">Log in</button> </td>
+            <td align="center"> <button type="submit" name="log_user" id=log value="Log in">Log in</button> </td>
           </form>
         </tr>
         <tr>

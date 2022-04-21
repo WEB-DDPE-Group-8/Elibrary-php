@@ -6,11 +6,6 @@ $phonenumber = 7125020;
   
     INCLUDE("./config/dbconfig.php");
 
-    // $servername='localhost';
-    // $usernam='root';
-    // $password='';
-    // $dbname = "a2zlibrary";
-
 if(isset($_POST["req_user"])) 
 {
     $username = mysqli_real_escape_string($db,$_POST['username']);
@@ -26,29 +21,27 @@ if(isset($_POST["req_user"]))
     $isAdmin = in_array($admin_code,$admincodes);//check if theres an admin code in admin code(s)
 
     
-        if($isAdmin){
-    $queryadmin = "INSERT INTO user
-        (UserName,Email,PhoneNumber,FirstName,LastName,isAdmin) VALUES
-        ('$username','$email','$phonenumber','$firstname','$lastname',1)";
+        // if($isAdmin)
+        // {
+$createcart = 'INSERT INTO cart (Books) values ("jnjdkgn")';
+
+//  mysqli_query($db,$createcart);
+
+$querylatestcart = "Select MAX('Cart-Id') from cart ";
+ $sil = mysqli_query($db,$querylatestcart);
+ $sil2 = mysqli_fetch_assoc($sil);
+echo print_r($sil2);
+//     $queryadmin = "INSERT INTO user
+//         (UserName,Email,PhoneNumber,FirstName,LastName,isAdmin,Cart_Id) VALUES
+//         ('$username','$email','$phonenumber','$firstname','$lastname',$isAdmin,$querylatestcart )";
     
-    //  mysqli_query($db, $queryadmin);
+//         mysqli_query($db, $queryadmin);
 
-        $_SESSION['username'] = $username;
-        $_SESSION['isAdmin']=$isAdmin;
+//         $_SESSION['username'] = $username;
+//         $_SESSION['isAdmin']=$isAdmin;
 
-        header('location:index.php');
-        }
-
-        $queryuser = "INSERT INTO user
-        (UserName,Email,PhoneNumber,FirstName,LastName,isAdmin) VALUES
-        ('$username','$email','$phonenumber','$firstname','$lastname',0)";
-
-    //  mysqli_query($db, $queryuser);
-
-        $_SESSION['username'] = $username;
-        $_SESSION['isAdmin']=$isAdmin;
-
-        header('location:index.php');
+        // header('location:index2.php');
+        // }
 }
         
         
@@ -58,20 +51,22 @@ if(isset($_POST["req_user"]))
         if(strpos($_SERVER['REQUEST_URI'],"admin",) !== false)
     {
             echo "\n in if";
-            $cred = mysqli_real_escape_string($db,$_POST['cred']);
-            $pass = mysqli_real_escape_string($db,$_POST['pass']);
+            $cred = $_POST['cred'];
+            $pass = $_POST['pass'];
 
-            $querycheck = "SELECT * from admin where Email='$cred' OR UserName='$cred' ";
-            echo $querycheck;
-            $result = mysqli_query($db, $querycheck);
+
+            $querycheck = "SELECT * from user where Email='$cred' OR UserName='$cred' ";
             
+            $result = mysqli_query($db, $querycheck);
+           
             foreach($result as $rows)
             {
                 //iterate the results object to get the values needed
+                
             $_SESSION["username"] = $rows["UserName"];
-            $_SESSION["id"]= $_rows["id"];
-            $_SESSION["email"] =  $_rows["id"];
+            $_SESSION["email"] =  $rows["Email"];
             }      
+            header('location:admin-profile.php');
     }
 }
 ?>

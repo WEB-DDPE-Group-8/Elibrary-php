@@ -98,7 +98,12 @@
             <div id= profile>        
                 <div>        
                     <h3>Contact me at:</h3>
-                    <p>E-mail: <span id=emali_name></span></p>
+                    <p>E-mail: <span id=emali_name>
+                    <?php  
+                        echo $_SESSION['email'];
+                      ?>
+                    
+                </span></p>
                 </div>    
                          
                                 <h3> <span id="prof_name"></span></h3>               
