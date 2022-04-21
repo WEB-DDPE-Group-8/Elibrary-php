@@ -4,7 +4,7 @@ session_start();
 $admincodes = array(1234,5678);
 $phonenumber = 7125020;
   
-    INCLUDE("./config/dbconfig.php");
+    INCLUDE("../config/dbconfig.php");
 
 if(isset($_POST["req_user"])) 
 {
@@ -47,26 +47,21 @@ echo print_r($sil2);
         
     if(isset($_POST['log_user']))
 {
-        echo $_SERVER['REQUEST_URI'];
-        if(strpos($_SERVER['REQUEST_URI'],"admin",) !== false)
+
+    $cred = $_POST['cred'];
+    $pass = $_POST['pass'];
+
+
+    $querycheck = "SELECT * from user where Email='$cred' OR UserName='$cred'" ;
+    
+    $result = mysqli_query($db, $querycheck);
+    
+    foreach($result as $rows)
     {
-            echo "\n in if";
-            $cred = $_POST['cred'];
-            $pass = $_POST['pass'];
-
-
-            $querycheck = "SELECT * from user where Email='$cred' OR UserName='$cred' ";
-            
-            $result = mysqli_query($db, $querycheck);
-           
-            foreach($result as $rows)
-            {
-                //iterate the results object to get the values needed
-                
-            $_SESSION["username"] = $rows["UserName"];
-            $_SESSION["email"] =  $rows["Email"];
-            }      
-            header('location:admin-profile.php');
-    }
+        //iterate the results object to get the values neede     
+    $_SESSION["username"] = $rows["UserName"];
+    $_SESSION["email"] =  $rows["Email"];
+    }      
+    header('location:../admin-profile.php');
 }
 ?>
