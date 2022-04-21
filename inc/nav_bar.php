@@ -12,7 +12,7 @@
         <div> <a href="index.php#section5">&nbsp;&nbsp;<img src="./multimedia/resources/Events.png"  width= 36px height="auto" /> <br>Events</a></div>
         <div> <a href=
 <?php
-
+session_start();
 // if(isset($_SESSION['username']))   
 //         echo "cart.php";
 // else echo "login.php";
@@ -63,7 +63,7 @@
 
           <a href=
 "<?php
-session_start();
+
 if(isset($_SESSION['username'])) 
 {echo "cart.php";}
 else{echo "login.php";}
@@ -71,7 +71,6 @@ else{echo "login.php";}
 class="fas fa-heart"></a>
           <a href=
           "<?php
-session_start();
 if(isset($_SESSION['username'])) 
 {echo "cart.php";}
 else{echo "login.php";}

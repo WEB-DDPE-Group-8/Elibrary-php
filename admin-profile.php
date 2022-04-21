@@ -131,14 +131,9 @@
                                         </button>
                                         <a href="report.php">Report</a>
                                                         <br><br><br><br><br><br>
-                                         <button id=logout onclick="
-                                         <?php 
-                                         unset($_SESSION['username']);
-                                         unset($_SESSION['email']);
-                                         ?>"
-                                         >
-                                         Logout   
-                                        </button>
+                                         <form action="./lib/db.php" method="get">
+                                             <input type="submit" id="logout" name="logout" >
+                                         </form>
                                         
                                         </div>
                                         </center>

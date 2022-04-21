@@ -8,15 +8,17 @@ $phonenumber = 7125020;
 
 if(isset($_POST["req_user"])) 
 {
-    $username = mysqli_real_escape_string($db,$_POST['username']);
-    $firstname = mysqli_real_escape_string($db,$_POST['firstname']);
-    $lastname = mysqli_real_escape_string($db,$_POST['lastname']);
-    $pass = mysqli_real_escape_string($db,$_POST['pass']);
-    $pass2 = mysqli_real_escape_string($db,$_POST['pass2']);
+    $username = $_POST['username'];
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $pass = $_POST['pass'];
+    $pass2 = $_POST['pass2'];
     // $phonenumber = mysqli_real_escape_string($db,$_POST['phonenumber']);
     $admin_code = mysqli_real_escape_string($db,$_POST['admin_code']);
 
     $email = mysqli_real_escape_string($db,$_POST['email']);
+
+    $pass = password_hash($pass, PASSWORD_DEFAULT);
 
     $isAdmin = in_array($admin_code,$admincodes);//check if theres an admin code in admin code(s)
 
@@ -25,7 +27,7 @@ if(isset($_POST["req_user"]))
         // {
 $createcart = 'INSERT INTO cart (Books) values ("jnjdkgn")';
 
-//  mysqli_query($db,$createcart);
+ $cart_idmysqli_query($db,$createcart);
 
 $querylatestcart = "Select MAX('Cart-Id') from cart ";
  $sil = mysqli_query($db,$querylatestcart);
@@ -41,6 +43,7 @@ echo print_r($sil2);
 //         $_SESSION['isAdmin']=$isAdmin;
 
         // header('location:index2.php');
+        // exit();
         // }
 }
         
@@ -63,5 +66,15 @@ echo print_r($sil2);
     $_SESSION["email"] =  $rows["Email"];
     }      
     header('location:../admin-profile.php');
+    exit();
+}
+
+if(isset($_GET['logout']))
+{   
+     unset($_SESSION['username']);
+     unset($_SESSION['email']);
+    session_destroy();
+     header('Location:/');
+     exit();
 }
 ?>
