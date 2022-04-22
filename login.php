@@ -19,7 +19,7 @@
       <br>
     <center>
 
-        <form action="admin-profile.php">
+        <form action="/Elibrary-php/admin-profile.php" method="post">
             <table align="center"  bgcolor="transparent"  >
                 <tr>
                     <td align="center"><h4  >LIBRARY MANAGENT SYSTEM<br></H4></td>

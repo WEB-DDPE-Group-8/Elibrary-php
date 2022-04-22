@@ -4,7 +4,7 @@ session_start();
 $admincodes = array(1234,5678);
 $phonenumber = 7125020;
   
-    INCLUDE("../config/dbconfig.php");
+    INCLUDE("./config/dbconfig.php");
 
 if(isset($_POST["req_user"])) 
 {
@@ -51,21 +51,31 @@ echo print_r($sil2);
     if(isset($_POST['log_user']))
 {
 
-    $cred = $_POST['cred'];
-    $pass = $_POST['pass'];
+    $cred = mysqli_real_escape_string($_POST['cred']);
+    $pass = mysqli_real_escape_string($_POST['pass']);
+
+    $cred = htmlentities($cred);
+    $pass = htmlentities($pass);
 
 
-    $querycheck = "SELECT * from user where Email='$cred' OR UserName='$cred'" ;
-    
+    $querycheck = "SELECT * from user where Email='$cred' OR UserName='$cred'" ;    
     $result = mysqli_query($db, $querycheck);
+
+    if($result){
+        foreach($result as $rows)
+            {
+                //iterate the results object to get the values neede     
+            $_SESSION["username"] = $rows["UserName"];
+            $_SESSION["email"] =  $rows["Email"];
+
+            }                         
+            header('location:./admin-profile.php');
+
+    } else {
+
+        echo "Password or Username is Incorrect.";
+    }
     
-    foreach($result as $rows)
-    {
-        //iterate the results object to get the values neede     
-    $_SESSION["username"] = $rows["UserName"];
-    $_SESSION["email"] =  $rows["Email"];
-    }      
-    header('location:../admin-profile.php');
     exit();
 }
 

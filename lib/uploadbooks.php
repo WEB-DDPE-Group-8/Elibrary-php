@@ -18,11 +18,15 @@ $targetDir = "uploads/";
 
 if(isset ($_POST["upload_book" ])) 
 {
+
+
 if(!empty ($_FILES["file"]["name"])){
 
-   $fileName = basename($_FILES["file"]["name"]) ;
+   $fileName = basename($_FILES["file"]["name"]);
   
-   $targetFilePath = $targetDir . $fileName;
+   mkdir("uploads/".$bookname , 0777 , true);
+
+   $targetFilePath = $targetDir.$bookname."/".$fileName;
    echo $targetFilePath;
    $filetype= pathinfo($targetFilePath, PATHINFO_EXTENSION);
 
@@ -43,7 +47,7 @@ if($insert)
 }
 else{
     echo  $statustsg="File upload failed, please try again.";
-}
+ }
 }
 else{
     echo  $statusMsg="sorry, there was an error uploading your file.";
@@ -57,6 +61,58 @@ else
 else{
     echo  $statusmsg="Please select a file to upload.";
 }
+
+
+////////////////////////////////////////////////////////////
+
+
+if(!empty ($_FILES["bookpdf"]["name"])){
+
+    $fileName = basename($_FILES["bookpdf"]["name"]);
+ 
+    $targetFilePath = $targetDir.$bookname."/".$fileName;
+    echo $targetFilePath;
+    $filetype= pathinfo($targetFilePath, PATHINFO_EXTENSION);
+ 
+    // Allow certain file formats
+     $allowTypes=array('pdf');
+ 
+ if (in_array ($filetype, $allowTypes))
+ {
+     // upload flle to server
+     //  move_uploaded_file($_FILES["file"][ "tmp_name"], $targetFilePath);
+ if (move_uploaded_file($_FILES["bookpdf"][ "tmp_name"], $targetFilePath) ) {
+
+    echo "<p style='font-size:35px;'> Uploaded Successfully </p>.";
+     // insert image tile name into database
+
+
+    $insert= $db->query("INSERT into books (Cover) VALUES ('.$fileName.')") ;
+ if($insert)
+ {
+     // echo must be removed used only for debudding purposes only
+   echo  $statusmsg="\n The file ".$fileName. " has been uploaded successfully";
+ }
+ else{
+     echo  $statustsg="File upload failed, please try again.";
+  }
+ }
+ else{
+     echo  $statusMsg="sorry, there was an error uploading your file.";
+   }
+ }
+ else
+ {
+     echo  $statustsg ='Sorry, only PDF files are allowed to upload.';
+ }
+ }
+ else{
+     echo  $statusmsg="Please select a file to upload.";
+ }
+
+
+
+////////////////////////////////////////////
 }
 
     echo $bookname;

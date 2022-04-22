@@ -92,8 +92,7 @@
                                             
                                         </label>
                                         
-                                    </figure>
-                               
+                                    </figure>                              
             
             </div>
 

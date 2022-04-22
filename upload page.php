@@ -140,33 +140,41 @@ textarea
 
 
   <div id="uploadform">
+
+
+
+
             <form method="POST" action="upload page.php" enctype="multipart/form-data">
 
    
-<div id="addbutton" style="float: right">                
+            <div id="addbutton" style="float: right">                
             <label for="cover">
 
 
                 <div > 
                     <p>
-                    <label for="cover"> <img id=blah src="./multimedia/resources/add-image.png" width="52" > <br/> Add Cover Page(s) </label>
-                    <input hidden id="cover" type=file name="file" accept="*.jpg">
-    <script>
-        cover.onchange = evt => {
-            const [file] = cover.files
-            if (file) {
-            blah.src = URL.createObjectURL(file)
-            }
-        }
-    </script>
-                    </p>
+
+                 <label for="cover">                        
+                    <img id=blah src="./multimedia/resources/add-image.png" width="52" >
+                    <br/> Add Cover Page(s)
+                 </label>
+
+                 <input hidden id="cover" type=file name="file" accept="*.jpg">
+               <script>
+                    cover.onchange = evt => {
+                        
+                        const [file] = cover.files
+                        if (file) {
+                        blah.src = URL.createObjectURL(file)
+                        }
+                    }
+                </script>
+           </p>
                 </div>
-
-
                 <div>
                     <p>
                         <label for="filec"> <img id=nm src="./multimedia/resources/add-file.png" width="52px"> <br/> Add Book  </label>
-                        <input id="filec" type="file"  hidden >
+                        <input id="filec" type="file" name="bookpdf"  hidden >
     <script>
         filec.onchange = evt => {
             const [file] = filec.files
@@ -185,7 +193,7 @@ textarea
 </div>
         <p>
         <label for="bookname">Book Name</label>
-        <input type="text" name="bookname" id="bookname"> 
+        <input type="text" name="bookname" id="bookname" /> 
         </p>
 
         <p>

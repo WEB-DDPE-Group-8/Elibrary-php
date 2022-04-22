@@ -43,9 +43,10 @@
             </td>
         </tr>  
         </tr>
-        <form action=logadmin.php method=post>
+        <form action="/Elibrary-php/logadmin.php" method="post">
         <tr>
-            <?php include("./config/dbconfig.php"); include("./db.php")  ?>
+            <?php include("./config/dbconfig.php"); 
+            include("./lib/db.php") ; ?>
             <td align="center"><input name="cred" title="Enter a valid Username or an Email Address" id=email type="text" placeholder="Email or Username" size="45" required></td>
         </tr>
         <tr>
