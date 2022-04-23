@@ -1,10 +1,10 @@
 <?php
-session_start();
+// session_start();
 
 $admincodes = array(1234,5678);
 $phonenumber = 7125020;
   
-    INCLUDE("../config/dbconfig.php");
+include ("config/dbconfig.php");
 
 if(isset($_POST["req_user"])) 
 {
@@ -14,38 +14,42 @@ if(isset($_POST["req_user"]))
     $pass = $_POST['pass'];
     $pass2 = $_POST['pass2'];
     // $phonenumber = mysqli_real_escape_string($db,$_POST['phonenumber']);
-    $admin_code = mysqli_real_escape_string($db,$_POST['admin_code']);
+    $admin_code =$_POST['admin_code'];
+    $email =$_POST['email'];
 
-    $email = mysqli_real_escape_string($db,$_POST['email']);
-
-    $pass = password_hash($pass, PASSWORD_DEFAULT);
+    $pass = password_hash($pass,PASSWORD_DEFAULT);
 
     $isAdmin = in_array($admin_code,$admincodes);//check if theres an admin code in admin code(s)
 
     
         // if($isAdmin)
         // {
-$createcart = 'INSERT INTO cart (Books) values ("jnjdkgn")';
+ $createcart = "INSERT INTO cart (Books) values ('jnjdkgn')";
 
- $cart_idmysqli_query($db,$createcart);
+  mysqli_query($db,$createcart);
 
-$querylatestcart = "Select MAX('Cart-Id') from cart ";
+ $querylatestcart = "Select MAX(Id) FROM cart ";
+
  $sil = mysqli_query($db,$querylatestcart);
+ 
  $sil2 = mysqli_fetch_assoc($sil);
-echo print_r($sil2);
-//     $queryadmin = "INSERT INTO user
-//         (UserName,Email,PhoneNumber,FirstName,LastName,isAdmin,Cart_Id) VALUES
-//         ('$username','$email','$phonenumber','$firstname','$lastname',$isAdmin,$querylatestcart )";
-    
-//         mysqli_query($db, $queryadmin);
+ 
+$cart_id = (int)$sil2 ['MAX(Id)'] ;
 
-//         $_SESSION['username'] = $username;
-//         $_SESSION['isAdmin']=$isAdmin;
+// echo print_r($sil2);
 
-        // header('location:index2.php');
+$queryadmin = " INSERT INTO user  (UserName,Email,PhoneNumber,FirstName,LastName,isAdmin,Cart_Id) values 
+('$username','$email','$phonenumber','$firstname','$lastname','0','$cart_id')";
+echo $queryadmin;
+        mysqli_query($db, $queryadmin);
+
+        $_SESSION['username'] = $username;
+        $_SESSION['isAdmin']=$isAdmin;
+
+        header('location:/index.php');
         // exit();
         // }
-}
+    }
         
         
     if(isset($_POST['log_user']))
@@ -55,9 +59,14 @@ echo print_r($sil2);
     $pass = $_POST['pass'];
 
 
-    $querycheck = "SELECT * from user where Email='$cred' OR UserName='$cred'" ;
+    $querycheck =
+   " 
+    SELECT * from user where Email='$cred' OR UserName='$cred' 
+    ";
     
     $result = mysqli_query($db, $querycheck);
+
+    echo print_r($result);
     
     foreach($result as $rows)
     {
@@ -71,10 +80,11 @@ echo print_r($sil2);
 
 if(isset($_GET['logout']))
 {   
-     unset($_SESSION['username']);
-     unset($_SESSION['email']);
+    //  unset($_SESSION['username']);
+    //  unset($_SESSION['email']);
     session_destroy();
-     header('Location:/');
+    // session_abort();
+     header('Location:index.php');
      exit();
 }
 ?>

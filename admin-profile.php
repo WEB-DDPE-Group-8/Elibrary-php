@@ -131,8 +131,8 @@
                                         </button>
                                         <a href="report.php">Report</a>
                                                         <br><br><br><br><br><br>
-                                         <form action="./lib/db.php" method="get">
-                                             <input type="submit" id="logout" name="logout" >
+                                         <form action="lib/db.php" method="GET">
+                                             <input type="submit" id="logout" name="logout" value="Logout">
                                          </form>
                                         
                                         </div>

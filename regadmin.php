@@ -23,9 +23,9 @@
            <h2>LIBRARY MANAGMENT SYSTEM<br>REGISTRATION FORM FOR ADMIN</h2>
         </P> 
         
-        <form id=form_action action="regadmin" method="POST">
-        <?php include("../lib/db.php") ?>
-
+        <form id=form_action action="regadmin.php" method="POST">
+        
+        <?php include("lib/db.php") ?>
             <table align="center" bgcolor="transparent" height="450" width="450">
 
                     <!-- beg of form -->
@@ -91,7 +91,7 @@
                 </tr>
                 <tr>   
                     <td align="center">
-<input id= sub onclick="test()" name="req_user" type="submit">
+<input id= sub name="req_user" type="submit">
                     </td>
                     <td>
 <input type="reset"   value="Clear">
