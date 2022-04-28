@@ -1,35 +1,3 @@
-<!-- 
-<header>
-
-    <div class="nav">
-
-        <div> <a href="#"> <br><img src="./multimedia/resources/logo/logoname2.png" alt="Book icon" width=40x height="auto"></a> </div>
-
-        <div> <a href="index.php"><img src="./multimedia/resources/hm.png"  width= 40px height="auto" /><br>Home</a> </div>
-        <div> <a href="index.php#section2">&nbsp;<img src="./multimedia/resources/feture.png"  width= 40px height="auto" /><br>Featured</a></div>
-        <div> <a href="bookshelf.php">&nbsp;&nbsp&nbsp;<img src="./multimedia/resources/cat.png"  width= 40px height="auto" /> <br>Book Shelf</a></div>
-        <div> <a href="index.php#section4">&nbsp;&nbsp;&nbsp;<img src="./multimedia/resources/icons/3061548-200.png"  width=40px height="auto" /> <br>Reviews</a></div>
-        <div> <a href="index.php#section5">&nbsp;&nbsp;<img src="./multimedia/resources/Events.png"  width= 36px height="auto" /> <br>Events</a></div>
-        <div> <a href=
-<?php
-
-// if(isset($_SESSION['username']))   
-//         echo "cart.php";
-// else echo "login.php";
-?>
-> <img src="./multimedia/resources/icons/cart.jfif.png" alt="Cart" width= 40px > <br>Cart  </a></div>
-        <div> <a href="profile.php"><img src="./multimedia/resources/icons/person.jfif.png" alt="User's picture" width= 40px height=auto><br><span id="usrname">
-        <?php 
-
-// if(isset($_SESSION['username']))   
-//         echo $_SESSION['username'];
-// else echo "@user"
-        ?> 
-        <a>
-    </div>    
-        </header> -->
-
-            <!-- header section starts  -->
 
             
             <link
@@ -43,6 +11,13 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
+
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <!-- <link rel="stylesheet" type="text/css" href="css/footer.css"/> -->
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+
+    <script src="user.js"></script>
+    <script src="Addtask.js" defer> </script>
 
     <header class="header">
       <div class="header-1">
@@ -95,6 +70,7 @@ class="fas fa-shopping-cart"> <br>
           <a href="#arrivals">arrivals</a>
           <a href="#reviews">reviews</a>
           <a href="#blogs">blogs</a>
+          <a href="events.php">Events</a>
           <a href="report.php">Statistics</a>
         </nav>
       </div>

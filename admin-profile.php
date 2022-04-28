@@ -146,7 +146,18 @@
             </div>
                                 
             </div>  
-            </main>     
+
+            <div>
+                <h3 style ="margin-top: 64px; font-size = 21px"> Purchased book section</h3>
+                <div>
+                    <!-- purchsed book -->
+                </div>
+
+                </table>
+            </div>
+            </main>  
+            
+            
 
             <?php include("./inc/footer.php") ?>
 </body>
