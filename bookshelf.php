@@ -36,46 +36,47 @@
 
 
          
-    <?php include("./inc/nav_bar.php")  ?>
-
-
-         <form action="bookshelf.php" method="get">
-              <input type=number name=year >
-              <input type="submit" value="submit" name="submit">
-        </form>
-
-   
-    <div class="css">
-        <h1></h1>
-    </div>
-
-
+    <?php include("./inc/nav_bar.php")  ?>   
 
 <div id="gallery">
     <div>    
     </div>
-     <div class="img-gallery">
-<?php 
-include("./config/dbconfig.php");
-if(isset($_GET["submit"]))
-{
-$year = $_GET["year"];
 
-$query = $db->query("Select * from books where year > $year");
+    <?php 
+include("./config/dbconfig.php");
+
+$query = $db->query("Select * from books");
 
 if($query->num_rows > 0)
 {
     while($row = $query->fetch_assoc())
     {
-        // $imageURL = 'uploads/'.$row["file_name"];
-        echo $row["Author"];
-        echo $row["Title"];
-        echo $row["Year"];
-        echo $row["Genre"];
-        echo $row["Description"]."\n";
-?>
- <!-- <a href="description.php"><img src="<?php echo $imageURL; ?>"width="200" height="350"/></a> -->
- <?php 
+        $imageURL = 'uploads/'.$row["Cover"];
+        ?>
+
+    <section class="featured" id="featured">
+  
+      <div class="swiper featured-slider">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide box">
+            <div class="icons">
+              <a href="cart.php" class="fas fa-heart"></a>
+              <a href=description.php?bookid=<?php echo $row["BookID"] ?> class="fas fa-eye"></a>
+            </div>
+            <div class="image">
+              <img src="<?php echo $imageURL; ?>" alt="" />
+            </div>
+            <div class="content">
+              <h3><?php echo $row["Title"] ?></h3>
+              <div class="price"><?php echo "\$".$row["Price"].".00" ?><span>$20.99</span>
+              </div>
+              <a href="#" class="btn">Buy Now</a>
+              <a href="#" class="btn">Add to Cart</a>
+            </div>
+          </div>
+</div>
+</section>
+<?php 
 }//end of the while loop -->
 }//end if the if statement
 else {
@@ -83,8 +84,8 @@ else {
  <p>"NO images found..."</p>
  <?php
  }
-}
 ?>
+
       <div>
           
       </div>

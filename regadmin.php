@@ -8,6 +8,7 @@
         <link rel="shortcut icon" href="./resources/logo/logo.png"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
+        <link rel="shortcut icon" href="./multimedia/resources/logo/logo.png"/>
         <link rel="stylesheet" type="text/css" href="css/style.css"/>
         
         <script src="./js/toggle.js" defer></script>
@@ -23,11 +24,21 @@
            <h2>LIBRARY MANAGMENT SYSTEM<br>REGISTRATION FORM FOR ADMIN</h2>
         </P> 
         
-        <form id=form_action action="regadmin.php" method="POST">
-        
-        <?php include("lib/db.php") ?>
+<form id=form_action action="regadmin.php" method="POST"> 
+        <?php 
+        include("lib/db.php"); 
+        ?>
             <table align="center" bgcolor="transparent" height="450" width="450">
-
+                <tr>
+                    <td> 
+    <?php
+    foreach($errors as $error)
+    {
+        echo $error;
+    }
+    ?>
+                    </td>
+                </tr>
                     <!-- beg of form -->
                 <tr>
                     <td>FIRST <br> Name<span class=ast> *</span></td>
@@ -41,20 +52,18 @@
                     <td>:</td>
                     <td>
 <input id=lname pattern="\w{2,15}" name="lastname" type="text" placeholder="Last name" size="40"  ></td>
-                
-                </tr>
-                
+                </tr>   
                 <tr>
                     <td>Email <span class=ast> *</span> </td>
                     <td>:</td>
                     <td>
-<input  pattern=[^@]+[@]+[^@]+\.[^@]+ id=email name="email" type="email" placeholder="name@domain.com" size="40"  ></td>
+<input id=email name="email" type="email" placeholder="name@domain.com" size="40"  ></td>
                 </tr>
                 <tr>
 				    <td >Phone Number</td>
 					<td>:</td>
                     <td>
-<input id=mob type="tel" name="phonenumber"   placeholder="(###)-(###)-(####)" size="40" pattern="\(\d{3}\)+\d{3}-?\d{4}"  />
+<input id=mob type="tel" name="phonenumber"   size="40"   />
 					</td>	
 			  </tr> 
               <tr>
@@ -68,7 +77,7 @@
                     <td >Password  <span class=ast> *</span></td>
                     <td>:</td>
                     <td>
-<input id=pass type="password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+<input id=pass type="password"
                     name="pass"
                      title="Number(s),Capitalized and Small letter(s) also symbols " 
                      placeholder="Password" min-length=4 max-length=14 size="40"   >
@@ -80,7 +89,7 @@
                     <td>
 <input id=pass2 type="password"
                     name="pass2"
-                    pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"  placeholder="Confirm Password" size="40"  >
+                    placeholder="Confirm Password" size="40"  >
                         <i class="far fa-eye frr" id="togglePassword2" style="margin-left: -50px; cursor: pointer;"></i></td>
                 </tr>
                 <tr>
@@ -91,7 +100,7 @@
                 </tr>
                 <tr>   
                     <td align="center">
-<input id= sub name="req_user" type="submit">
+<input id= sub name="reg_user" type="submit">
                     </td>
                     <td>
 <input type="reset"   value="Clear">

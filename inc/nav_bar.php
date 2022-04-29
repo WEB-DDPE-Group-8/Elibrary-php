@@ -1,56 +1,72 @@
 
+ 
+        <link
+        rel="stylesheet"
+        href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+        
+        />
+        <script src="js/script.js" defer></script>
+        <!-- font awesome cdn link  -->
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        />
+        <link rel="stylesheet" href="css/style.css" />
+        
 
+        <header class="header">
+          <div class="header-1">
+            <a href="#" class="logo"> <i class="fas fa-book"></i> Book Store </a>
 
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
-      href="css/min.css"
-    />
+            <form action="" class="search-form">
+              <input
+                type="search"
+                name=""
+                placeholder="search here..."
+                id="search-box"
+              />
+              <label for="search-box" class="fas fa-search"></label>
+            </form>
 
-    <!-- font awesome cdn link  -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
+            <div class="icons">
+              <div id="search-btn" class="fas fa-search"></div>
+            
+            <a href=
+            <?php
 
-    <header class="header">
-      <div class="header-1">
-        <a href="#" class="logo"> <i class="fas fa-book"></i> Book Store </a>
+      session_start();
+      if(isset($_SESSION['username'])) 
+      {
+        echo "cart.php";
+      }
+      else{
+        echo "login.php";
+      };
 
-        <form action="" class="search-form">
-          <input
-            type="search"
-            name=""
-            placeholder="search here..."
-            id="search-box"
-          />
-          <label for="search-box" class="fas fa-search"></label>
-        </form>
-
-        <div class="icons">
-          <div id="search-btn" class="fas fa-search"></div>
-
-<?php
-
-// if(isset($_SESSION['username'])) 
-// {echo "cart.php";}
-// else
-// {echo "login.php";}
-
-
-// <<<_END
 ?>
- <div lass="fas fa-shopping-cart"><br></a>
-            <div id="login-btn" class="fas fa-user">
-              <br> 
-            </div>
-<!-- //  _END; -->
-    <?php     
+    class="fas fa-heart"></a>
+
+
+
+
+    <a href=
+    <?php
+    if(isset($_SESSION["username"]))
+    echo "cart.php" ;
+    else
+    {echo "login.php";}
+    ?>
+    class="fas fa-shopping-cart"><br></a>
+               
+    <div id="login-btn" class="fas fa-user">
+                  <br>
+                </div>
+                <?php
+
             if(isset($_SESSION["username"]))
             echo $_SESSION["username"] ;
-// <<<_END 
 ?>
-        </div>
+</div>
         </div>
 
         <div class="header-2">
@@ -59,6 +75,7 @@
             <a href="bookshelf.php">featured</a>
             <a href="#arrivals">arrivals</a>
             <a href="#reviews">reviews</a>
+            <a href="file_manipulation.php">File Manipulation</a>
             <a href="#blogs">blogs</a>
             <a href="report.php">Statistics</a>
           </nav>
@@ -82,7 +99,12 @@
       <div class="login-form-container">
         <div id="close-login-btn" class="fas fa-times"></div>
 
-        <form action="./lib/db.php" method="POST">
+       
+
+        <div>
+
+        </div>
+        <form action="lib/db.php" method="POST">
           <h3>sign in</h3>
           <span>username</span>
           <input
@@ -115,7 +137,7 @@
       <!-- register form
       <div class="registration-form-container">
         <div id="close-login-btn" class="fas fa-times"></div>
-  <!--
+
         <form action="./lib/db.php" method="POST" >
         -->
         <!-- <form action="">
@@ -147,54 +169,39 @@
       </div>  --> 
 
   <!-- custom js file link  -->
-<!-- _END;
+  <?php
 
-  if(false)
-  {
-header("location:index.php");
-    
-  //   echo " -->
-  // <script>
-  
-  
-  // let loginForm = document.querySelector('.login-form-container');
-  
-  // document.querySelector('#login-btn').onclick = () =>
-  // {
-
-  //   // location.href('index.php') ;
-  //  // loginForm.classList.toggle('active');
-  // };
-  
-  // document.querySelector('#close-login-btn').onclick = () => {
-  //   loginForm.classList.remove('active');
-  // };
-  // </script>
-  <!-- // ";
-  }
-  
-  else{
-        header("location:index.php");
-        // echo  <<<_END
-        // <script>
-       
-        
-        // let loginForm = document.querySelector('.login-form-container');
+  if(!isset($_SESSION['username']))
+{
+   echo "
+   <script>
+   
+   let loginForm = document.querySelector('.login-form-container');
+   
+   document.querySelector('#login-btn').onclick = () =>
+   {
+   loginForm.classList.toggle('active');
+   };
+   
+   document.querySelector('#close-login-btn').onclick = () => {
+   loginForm.classList.remove('active');
+   };
+   </script>
+   ";
+}
+  else
+{
+  //  header("location:admin-profile.php");
+        // ob_start();
+        // header("location:index.php");
+echo  <<<_END
+       <script>
       
-        // document.querySelector('#login-btn').onclick = () =>
-        // {
-        //   location.href('index.php') ;
-        // };
-        // </script>
-        // _END; -->
-  <!-- }
-
-?> -->
- 
-
-  
-
-
-
-
-
+     document.querySelector('#login-btn').onclick = () =>
+     {
+         location.href='admin-profile.php';
+     };
+         </script>
+_END; 
+}
+?>
