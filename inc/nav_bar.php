@@ -18,10 +18,10 @@
           <div class="header-1">
             <a href="#" class="logo"> <i class="fas fa-book"></i> Book Store </a>
 
-            <form action="" class="search-form">
+            <form action=""  class="search-form" method="GET">
               <input
                 type="search"
-                name=""
+                name="search"
                 placeholder="search here..."
                 id="search-box"
               />
@@ -62,10 +62,12 @@
                   <br>
                 </div>
                 <?php
-
             if(isset($_SESSION["username"]))
             echo $_SESSION["username"] ;
+            else
+            echo "@user"
 ?>
+
 </div>
         </div>
 
@@ -205,3 +207,25 @@ echo  <<<_END
 _END; 
 }
 ?>
+
+<?php
+/**@var \PDO $pdo*/
+
+
+    $pdo = new PDO('mysql:host=localhost;dbname=a2zlibrary', 'root');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $books = [];
+    $search = $_GET['search']?? '';
+
+    if($search){
+        $statement = $pdo->prepare('SELECT * FROM books WHERE Title LIKE :title');
+        $statement->bindValue('title', "%$search%");
+        $statement->execute();
+        $books = $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+    else{
+      $statement= $pdo->prepare('SELECT * FROM books');
+      $statement->execute();
+      $books = $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+

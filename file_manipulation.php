@@ -167,6 +167,7 @@ if(isset($_POST['btn8']))
     move();
 }
 ?>
+<div class="form">
 <h1>
 <form action="file_manipulation.php"  method="post">
 
@@ -182,14 +183,25 @@ if(isset($_POST['btn8']))
 
 <button class="btn" name="btn6" >Delete All Statistical info</button></br></br></br>
 
-<input type="text" id="bookname" name="newname" id=""></br>
+<input type="text" id="search-box" placeholder="Enter new foler name for reports..." name="newname"></br>
 <button class="btn" name="btn7" >Rename Report Statistical info</button></br>
 
 
 <button class="btn" name="btn8" >Move Report Statistical info</button></br> 
 
 </form>
-
+</div>
 <?php
 include("inc/footer.php");
 ?>
+
+<style>
+
+#search-box
+{
+border-style: solid;
+border-radius: 5%;
+border-color: green;
+/* background-color: green; */
+}
+</style>
