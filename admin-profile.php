@@ -1,3 +1,9 @@
+<?php
+if(isset($_SESSION["username"]))
+{
+header("location:login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,8 +19,8 @@
     <link rel="stylesheet" type="text/css" href="css/footer.css"/>
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
 
-    <script src="user.js"></script>
-    <script src="Addtask.js" defer> </script>
+    <!-- <script src="user.js"></script>
+    <script src="Addtask.js" defer> </script> -->
 
     <style>
 
@@ -78,13 +84,13 @@
      
         <main>
             <div id="profilepic">
-   
+
                 <Div>           
                     
                     <img src="multimedia/resources/icons/location.png" alt="location icon" height = "150px">
                     <span> Ethiopia, AA</span>
                 </Div> 
-                          
+                            
                                     <figure>
                                         <label for="cover">
                                             <img src="./multimedia/resources/icons/person.jfif.png" alt="name of user">
@@ -92,8 +98,12 @@
                                             
                                         </label>
                                         
+<<<<<<< HEAD
                                     </figure>                              
             
+=======
+                                    </figure>     
+>>>>>>> main
             </div>
 
             <div id= profile>        
@@ -102,14 +112,18 @@
                     <p>E-mail: <span id=emali_name>
                     <?php  
                     if(isset($_SESSION['email']))
-                        echo $_SESSION['email'];
+                    {
+                        echo $_SESSION["email"];
+                    }
                     else
-                        echo "name@domain.com"
-                      ?>
+                    {
+                        echo "Name@domain.com";
+                    }
+                        ?>
                     
                 </span></p>
                 </div>    
-                         
+                            
                                 <h3> <span id="prof_name"></span></h3>               
             </div>
             
@@ -121,26 +135,26 @@
                 <ul id="list"></ul>
 
             </div>
-            <div id="Upload">
-              <br><br><br>
-                                 <center>
-                                    <div id=btnsss>
-                                        <button>
-                                          <a  style="text-decoration: none;"  href="upload_page_admin.php">Upload a Book </a>  
-                                        </button>
-                                        <a href="report.php">Report</a>
-                                                        <br><br><br><br><br><br>
-                                         <form action="./lib/db.php" method="get">
-                                             <input type="submit" id="logout" name="logout" >
-                                         </form>
-                                        
-                                        </div>
-                                        </center>
-                                    </div>           
-            </div>
-                                
-            </div>  
-            </main>     
+    <div id="Upload">
+        <br><br><br>
+    <center>
+        <div id=btnsss>
+        <button>
+            <a  style="text-decoration: none;"  href="upload_page_admin.php">Upload a Book </a>  
+        </button>
+        <BR>
+        
+    <form action="./lib/db.php" method="GET">
+        <input type="submit" id="logout" name="log_out" value="Logout">
+    </form>
+        
+        </div>
+        </center>
+        </div>           
+    </div>
+                        
+    </div>  
+    </main>     
 
             <?php include("./inc/footer.php") ?>
 </body>

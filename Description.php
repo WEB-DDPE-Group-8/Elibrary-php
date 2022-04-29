@@ -18,9 +18,7 @@
 
 <body background="resources/banner-bg.jpg">
           <!-- header -->
-         <?php  include("./inc/nav_bar.php") ?>
-
-<table align="center">
+          <table align="center">
     <tr>
         <td>
 
@@ -33,26 +31,51 @@
         <td>
     <div>
         <ul>
-          
-            <p><b>Title:</b><br> <span id=name> kjsdbkfjdb </span></p>
-             <p><b>Author:</b><br><span id=auth>Jon Duckett</span></p>
-            
+<?php  
+    include("./inc/nav_bar.php");
+    include("./config/dbconfig.php");
+    
+    // $row = [];
+
+         if( isset($_GET["bookid"]))
+         {
+            $Id = $_GET["bookid"];
+            $query = $db->query("Select * from books where BookID= $Id ");
+                    
+        if($query->num_rows > 0)
+        {
+          $GLOBALS['row'] = $query->fetch_assoc()
+         ?>
+            <p><b>Title:</b><br> <span id=name> <?php echo $row["Title"] ?> </span></p>
+            <p><b>Author:</b><br><span id=auth><?php echo $row["Author"] ?></span></p>
             <p><b>Description:</b><br>
-              <span  id="descr">A full-color introduction to the basics of HTML and CSS from the publishers of Wrox!
-                Every day, more and more people want to learn some HTML and CSS. Joining the professional web designers and programmers are new audiences who need to know a little bit of code at work (update a content management system or e-commerce store) and those who want to make their personal blogs more attractive. Many books teaching HTML and CSS are dry and only written for those who want to become programmers, which is why this book takes an entirely new approach.
-                Introduces HTML and CSS in a way that makes them accessible to everyone—hobbyists, students, and professionals—and it’s full-color throughout
-               Utilizes information graphics and lifestyle photography to explain the topics in a simple way that is engaging
-                Boasts a unique structure that allows you to progress through the chapters from beginning to end or just dip into topics of particular interest at your leisure
-                This educational book is one that you will enjoy picking up, reading, then referring back to. It will make you wish other technical topics were presented in such a simple, attractive and engaging way!
+              <span  id="descr"><?php echo $row["Description"] ?>
               </span> </p>
-            <p><b>Language:</b><br><span id="lang" >English</p>
-            <p><b>Genre:</b><br><span id="cat"></span>Tech </span></p>
-            <p><b>Price:</b><br>ETB <span  id="pr"> 100</span></p>
+            <p><b>Language:</b><br><span id="lang" ><?php echo $row["Language"] ?></p>
+            <p><b>Genre:</b><br><span id="cat"></span><?php echo $row["Genre"] ?> </span></p>
+            <p><b>Price:</b><br>ETB <span  id="pr"> <?php echo $row["Price"] ?></span></p>
             
         </ul>
     </div>
     </td>
 </tr>
+<?php
+        }
+        else
+        {
+?>
+<P> No book Found  </P>
+<?php
+        }
+?>
+<?php
+        }
+        else{
+?>
+<p> no book id </p>
+<?php
+        }
+?>
 </table>
 
 <table align="center">
@@ -61,7 +84,8 @@
             <br><br><br>
 
             <button id=addto>Add to cart</a></button><br>
-            <script>
+
+            <!-- <script>
               var addto = document.getElementById("addto")
               addto.addEventListener("click",function()
               {
@@ -82,7 +106,7 @@ mig = JSON.parse(localStorage.getItem("History"))
             alert("Item already in cart")
         }
               })
-            </script>
+            </script> -->
             <button id=share onclick=sharef() ><a   style="text-decoration: none;"> Share</a> </button>
         </td>
     </tr>
@@ -91,11 +115,12 @@ mig = JSON.parse(localStorage.getItem("History"))
 
 <p><big>Readers also liked</big></p>
 <hr size =12px color =grey>
-<a onclick=setlookout(12) href= "Description.php"><img  src="resources/books/2.jpg" width=255 height="400px"></a> 
-<a onclick=setlookout(11) href= "Description.php"><img  src="resources/books/1.jpg" width=255 height="400px"></a> 
-<a onclick=setlookout(110) href= "Description.php"><img  src="resources/books/10.jpg" width=255 height="400px"></a> 
-<a onclick=setlookout(112) href= "Description.php"><img  src="resources/books/12.jpg" width=255 height="400px"></a> 
-<a onclick=setlookout(13) href= "Description.php"><img  src="resources/books/3.jpg" width=255 height="400px"></a> 
+<?php
+$genre = $row['Genre'];
+ $related = $db->query("Select * from books Where Genre LIKE 'Fantasy'");
+ $related = $related->fetch_assoc();
+?>
+<a  href= "Description.php?<?php echo $related["BookID"] ?>"><img  src="resources/books/2.jpg" width=255 height="400px"></a> 
 
 <hr size =12px color =grey>
 <br>
@@ -174,7 +199,7 @@ mig = JSON.parse(localStorage.getItem("History"))
 
 <?php include("./footer.php") ?>
 
-<script>
+<!-- <script>
 // console.log("book key "+ localStorage.getItem("History"))
     
 var hist = JSON.parse(localStorage.getItem("History"))
@@ -207,7 +232,7 @@ else
     alert("book key not found")
     }
 
-             </script>
+             </script> -->
 
 <?php include("./inc/footer.php")  ?>
 

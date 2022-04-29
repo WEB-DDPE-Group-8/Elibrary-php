@@ -22,9 +22,6 @@
       <br>
       <br>
       <br>
-    
-
-
     <table align="center"  bgcolor="transparent"  >
         <tr>
             <td align="center"><h4 >A<sup>2</sup>Z<br>ADMIN LOGIN FORM</H4></td>
@@ -43,14 +40,32 @@
             </td>
         </tr>  
         </tr>
+<<<<<<< HEAD
         <form action="/Elibrary-php/logadmin.php" method="post">
         <tr>
             <?php include("./config/dbconfig.php"); 
             include("./lib/db.php") ; ?>
             <td align="center"><input name="cred" title="Enter a valid Username or an Email Address" id=email type="text" placeholder="Email or Username" size="45" required></td>
+=======
+        <form action=logadmin.php method=post>
+            <tr>
+        <td>
+
+            <?php include("lib/db.php");
+
+            foreach($errors as $error)
+            {
+                echo $error;
+            }
+            ?>
+            </td>
+>>>>>>> main
         </tr>
         <tr>
-            <td align="center"><input name="pass" title="Enter a valid Password" id=pass type="password" placeholder="Password" size="45" required></td>
+            <td align="center"><input name="cred" title="Enter a valid Username or an Email Address" id=email type="text" placeholder="Email or Username" size="45" ></td>
+        </tr>
+        <tr>
+            <td align="center"><input name="pass" title="Enter a valid Password" id=pass type="password" placeholder="Password" size="45" ></td>
         </tr>
         <tr>
             <td align="center"> <button type="submit" name="log_user" id=log value="Log in">Log in</button> </td>

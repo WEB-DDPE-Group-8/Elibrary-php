@@ -16,34 +16,52 @@ $queries = array(
 "select  Title,Author,Year,Description,Language from books where Likes > 0",
 "select  Title,Author,Year,Description,Language from books where Dislikes > 100"
 );
-
+$myfile = fopen("report.txt", "w") or die("Unable to open file!");
      for($query=0 ; $query<count($queries) ; $query++)
      {
         $download = $db -> query($queries[$query]);
          echo "<h1>$header[$query]</h1>" ;
-    while ($download2= $download->fetch_assoc())
+         $head = $header[$query]."\n";
+         fwrite($myfile, $head);
+    while ($download2 = $download->fetch_assoc())
     {
-?>
-<table>
- 
-    <tr>
-        <td>
+        ?>
+        <table>
+            <tr>
+                <td>
+        <?php
+        foreach($download2 as $e)
+        {
+            echo $e.","."\n";
+            $body = $e.",";
+            fwrite($myfile, $body);
+            ?> 
+            
 
- <?php
- foreach($download2 as $e)
- echo $e."\n";?> 
-</td>
-<td></td>
-<td><?php
-//  echo print_r($download2) ."\n";
-//  echo $download2["COUNT"]
- ?>   </td> 
-</tr>
-</table>
-   
- <?php   }
-  };
+            </td>
+            <td></td>
+            <td>
+                <?php
+                };
+                fwrite($myfile, "\n");?>   
+               </td> 
+            </tr>
+        </table>
+        
+        <?php   
+    }
+    
+    }
+    fclose($myfile);
 ?>
+
+<?php
+// $txt = "John Doe\n";
+// fwrite($myfile, $txt);
+// $txt = "Jane Doe\n";
+// fwrite($myfile, $txt);
+// fclose($myfile);
+?> 
 
 <?php include("./inc/footer.php") ?>
 

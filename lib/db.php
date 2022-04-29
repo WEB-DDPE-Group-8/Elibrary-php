@@ -1,55 +1,110 @@
 <?php
-session_start();
+require_once ("config/dbconfig.php");
+
 
 $admincodes = array(1234,5678);
 $phonenumber = 7125020;
   
+<<<<<<< HEAD
     INCLUDE("./config/dbconfig.php");
+=======
+$errors= array();
+>>>>>>> main
 
-if(isset($_POST["req_user"])) 
+if(isset($_POST["reg_user"])) 
 {
+    // $admin_code = "default";
     $username = $_POST['username'];
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
+    $phonenumber = $_POST["phonenumber"];
+    $email = $_POST["email"];
+
+    if(empty($firstname)) 
+    {
+        array_push($errors,"First Name Required");
+        return 0;
+    }
+
+    if(empty($lastname))
+    {
+        array_push($errors,"Last Name Required");
+        return 0;
+    }
+
+    if(empty($username))
+    {
+        array_push($errors,"User Name Required");
+        return 0;
+    }
+
+    if(empty($email))
+    {
+        array_push($errors,"User Name Required");
+        return 0;
+    }
+
+    if(empty($phonenumber))
+    {
+        array_push($errors,"User Name Required");
+        return 0;
+    }
+
     $pass = $_POST['pass'];
     $pass2 = $_POST['pass2'];
-    // $phonenumber = mysqli_real_escape_string($db,$_POST['phonenumber']);
-    $admin_code = mysqli_real_escape_string($db,$_POST['admin_code']);
 
-    $email = mysqli_real_escape_string($db,$_POST['email']);
+    if(empty($pass) || empty($pass2))
+    {
+        array_push($errors,"Password field is missing");
+        return 0;
+    }
 
-    $pass = password_hash($pass, PASSWORD_DEFAULT);
+    if($pass !== $pass2)
+    {
+        array_push($errors,"The two passwords you entered don't match");
+        return 0;
+    }
 
-    $isAdmin = in_array($admin_code,$admincodes);//check if theres an admin code in admin code(s)
+    $admin_code = $_POST['admin_code'];
+    $isAdmin = in_array($admin_code,$admincodes);
 
-    
-        // if($isAdmin)
-        // {
-$createcart = 'INSERT INTO cart (Books) values ("jnjdkgn")';
+    if($isAdmin == false)
+    {
+        array_push($errors,"The Admin code you entered is wrong");
+        return 0;
+    }
 
- $cart_idmysqli_query($db,$createcart);
+    {
+        $createcart = "INSERT INTO cart (Books) values ('jnjdkgn') ";
+        mysqli_query($db,$createcart);
 
-$querylatestcart = "Select MAX('Cart-Id') from cart ";
- $sil = mysqli_query($db,$querylatestcart);
- $sil2 = mysqli_fetch_assoc($sil);
-echo print_r($sil2);
-//     $queryadmin = "INSERT INTO user
-//         (UserName,Email,PhoneNumber,FirstName,LastName,isAdmin,Cart_Id) VALUES
-//         ('$username','$email','$phonenumber','$firstname','$lastname',$isAdmin,$querylatestcart )";
-    
-//         mysqli_query($db, $queryadmin);
+        $querylatestcart = "Select MAX(Id) FROM cart";
 
-//         $_SESSION['username'] = $username;
-//         $_SESSION['isAdmin']=$isAdmin;
-
-        // header('location:index2.php');
-        // exit();
-        // }
-}
+        $cart = mysqli_query($db,$querylatestcart);
         
+        $cartData = mysqli_fetch_assoc($cart);
         
-    if(isset($_POST['log_user']))
+        $cart_id = (int)$cartData ['MAX(Id)'] ;
+
+        // echo print_r($sil2);
+        $pass = password_hash($pass,PASSWORD_DEFAULT);
+        $queryadmin = " INSERT INTO user  (UserName,Password,Email,PhoneNumber,FirstName,LastName,isAdmin,Cart_Id) values 
+        ('$username','$pass','$email','$phonenumber','$firstname','$lastname','$isAdmin','$cart_id') ";
+            
+        mysqli_query($db, $queryadmin);
+
+        $_SESSION["username"] = $username;
+        $_SESSION["isAdmin"]=$isAdmin;
+
+        header('location:/index.php');
+        exit();
+    }
+ };
+
+             
+if(isset($_POST['log_user']))
 {
+<<<<<<< HEAD
 
     $cred = mysqli_real_escape_string($_POST['cred']);
     $pass = mysqli_real_escape_string($_POST['pass']);
@@ -77,14 +132,58 @@ echo print_r($sil2);
     }
     
     exit();
+=======
+    $cred = $_POST['cred'];
+    $pass = $_POST['pass'];
+    
+    if(empty($cred) || empty($pass))
+ {
+        array_push($errors,"Missing Field(s)");
+ }
+
+    if(count($errors)==0)
+ {
+    $querycheck =" SELECT UserName,Email,Password from user where Email='$cred' OR UserName='$cred' ";
+    
+    $result = mysqli_query($db, $querycheck);
+ 
+    if(mysqli_num_rows($result) == 1)
+    {
+        $userData = mysqli_fetch_assoc($result);  
+        if($userData["Password"] == $pass)
+        {
+            foreach($userData as $rows)
+            {
+                //iterate the results object to get the values neede     
+                $_SESSION["username"] = $userData["UserName"];
+                $_SESSION["email"] =  $userData["Email"];
+            }      
+                header('location:../admin-profile.php');
+            exit();
+        }
+        else
+        {
+            array_push($errors,"Invalid Password");
+        }
+    }
+    else
+    {
+        array_push($errors,"Invalid username");
+    }
+ }
+>>>>>>> main
 }
 
-if(isset($_GET['logout']))
+
+if(isset($_POST['log_out']))
 {   
-     unset($_SESSION['username']);
-     unset($_SESSION['email']);
-    session_destroy();
-     header('Location:/');
-     exit();
+    ECHO "JDHFJK";
+    var_dump($_SERVER['REQUEST_METHOD']);
+    unset($_SESSION['username']);
+    unset($_SESSION['email']);
+    // session_start() ;
+    // session_destroy();
+    //  header('Location:index.php');
+    //  exit();
 }
 ?>
