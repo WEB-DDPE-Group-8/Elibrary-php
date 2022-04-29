@@ -18,26 +18,27 @@
 
     <script src="user.js"></script>
     <script src="Addtask.js" defer> </script>
+    <!-- header("Location: index.php) -->
 
     <header class="header">
       <div class="header-1">
         <a href="#" class="logo"> <i class="fas fa-book"></i> Book Store </a>
 
-        <form action="" class="search-form">
+        <form action="" method = "get" class="search-form">
           <input
             type="search"
-            name=""
+            name="search"
             placeholder="search here..."
             id="search-box"
           />
-          <label for="search-box" class="fas fa-search"></label>
+          <button class="fas fa-search" type="submit"></button>
         </form>
 
         <div class="icons">
           <div id="search-btn" class="fas fa-search"></div>
 
           <a href=
-"<?php
+          "<?php
 session_start();
 if(isset($_SESSION['username'])) 
 {echo "cart.php";}
@@ -161,5 +162,27 @@ class="fas fa-shopping-cart"> <br>
 <script src="js/script.js"></script>
 
 
+
+
+<?php
+/**@var \PDO $pdo*/
+
+
+    // $pdo = new PDO('mysql:host=localhost;port;dbname=a2zlibrary', 'root', '');
+    // $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // $search = $_GET['search']?? '';
+    // if($search){
+    //     $statement = $pdo->prepare('SELECT * FROM books WHERE Title LIKE : title');
+    //     $statement->bindValue('title', "%$search%");
+    // }
+    // else{
+    //   $statement-> $pdo->prepare('SELECT * FROM books ORDER BY title');
+    //   $statement->execute();
+    //   $books = $statement->fetchAll(PDO::FETCH_ASSOC);
+    // }
+
+
+    ?> 
 
 

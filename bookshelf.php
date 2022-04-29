@@ -86,6 +86,22 @@ else {
 }
 ?>
       <div>
+        <table>
+          <tr>
+            <th> title</th>
+            <th>Author</th>
+            <th>cover</th>
+            <th>price</th>
+          </tr>
+<?php foreach($books as $books){?>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        <?php }  ?>
+        </table>
           
       </div>
         </div>
