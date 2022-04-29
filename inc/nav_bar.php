@@ -163,7 +163,7 @@ class="fas fa-shopping-cart"> <br>
 
 
 
-
+<!-- 
 <?php
 /**@var \PDO $pdo*/
 
@@ -173,8 +173,10 @@ class="fas fa-shopping-cart"> <br>
 
     // $search = $_GET['search']?? '';
     // if($search){
-    //     $statement = $pdo->prepare('SELECT * FROM books WHERE Title LIKE : title');
+    //     $statement = $pdo->prepare('SELECT * FROM books WHERE Title LIKE :title');
     //     $statement->bindValue('title', "%$search%");
+    //     $statement->execute();
+    //     $books = $statement->fetchAll(PDO::FETCH_ASSOC);
     // }
     // else{
     //   $statement-> $pdo->prepare('SELECT * FROM books ORDER BY title');
@@ -182,7 +184,6 @@ class="fas fa-shopping-cart"> <br>
     //   $books = $statement->fetchAll(PDO::FETCH_ASSOC);
     // }
 
-
-    ?> 
+     ?>  -->
 
 
