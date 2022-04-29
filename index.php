@@ -23,9 +23,10 @@
   </head>
   <body>
     <!-- home section starts  -->
+    <?php
 
-    <?php include("./inc/nav_bar.php")  ?>
-
+    include("./inc/nav_bar.php") ;
+?>
     <section class="home" id="home">
       <div class="row">
         <div class="content">
@@ -765,6 +766,10 @@
 
     <!-- custom js file link  -->
     <script src="js/script.js"></script> -->
-    <?php include("./inc/footer.php")  ?>
-  </body>
-</html>
+    <?php
+     include("./inc/footer.php") ;
+    ?>
+     </body>
+     </html>
+
+
