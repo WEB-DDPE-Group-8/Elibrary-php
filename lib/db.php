@@ -5,11 +5,8 @@ require_once ("config/dbconfig.php");
 $admincodes = array(1234,5678);
 $phonenumber = 7125020;
   
-<<<<<<< HEAD
     INCLUDE("./config/dbconfig.php");
-=======
 $errors= array();
->>>>>>> main
 
 if(isset($_POST["reg_user"])) 
 {
@@ -104,35 +101,6 @@ if(isset($_POST["reg_user"]))
              
 if(isset($_POST['log_user']))
 {
-<<<<<<< HEAD
-
-    $cred = mysqli_real_escape_string($_POST['cred']);
-    $pass = mysqli_real_escape_string($_POST['pass']);
-
-    $cred = htmlentities($cred);
-    $pass = htmlentities($pass);
-
-
-    $querycheck = "SELECT * from user where Email='$cred' OR UserName='$cred'" ;    
-    $result = mysqli_query($db, $querycheck);
-
-    if($result){
-        foreach($result as $rows)
-            {
-                //iterate the results object to get the values neede     
-            $_SESSION["username"] = $rows["UserName"];
-            $_SESSION["email"] =  $rows["Email"];
-
-            }                         
-            header('location:./admin-profile.php');
-
-    } else {
-
-        echo "Password or Username is Incorrect.";
-    }
-    
-    exit();
-=======
     $cred = $_POST['cred'];
     $pass = $_POST['pass'];
     
@@ -171,7 +139,6 @@ if(isset($_POST['log_user']))
         array_push($errors,"Invalid username");
     }
  }
->>>>>>> main
 }
 
 
