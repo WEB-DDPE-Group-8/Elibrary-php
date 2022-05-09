@@ -34,6 +34,7 @@ if(isset ($_POST["upload_book"]))
     {
         $fileName = basename($_FILES["file"]["name"]);
         $path="../uploads/".$bookname;
+        
         if(!is_dir($path.'/'.$bookname))
         {
             mkdir($path, 0777 , true);
@@ -74,7 +75,7 @@ if(isset ($_POST["upload_book"]))
     {
         $fileName = basename($_FILES["bookpdf"]["name"]);
 
-        $targetFileBook = $targetDir."/".$bookname."/".$fileName;
+        $targetFileBook = $targetDir.$bookname."/".$fileName;
     
         $filetype= pathinfo($targetFileBook, PATHINFO_EXTENSION);
 
@@ -102,7 +103,7 @@ if(isset ($_POST["upload_book"]))
     }
 
         $insert= $db->query("INSERT INTO books(UserID,Title,Author,Year,Genre,Description,Language,Price,Cover,Book)
-        VALUES(1,'$Title','$Author','$date',' $genre','$description','$lang','$price','$targetFileCover',' $targetFileBook')");
+        VALUES(1,'$Title','$Author','$date',' $genre','$description','$lang','$price','$targetFileCover','$targetFileBook')");
  if($insert)
  {
      // echo must be removed used only for debudding purposes only
