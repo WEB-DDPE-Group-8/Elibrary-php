@@ -1,5 +1,10 @@
 <?php
-require_once ("../config/dbconfig.php");
+session_start();
+
+// include "../config/globals.php";
+
+include ("../config/dbconfig.php");
+// include("config/dbconfig.php");
 
 
 $admincodes = array(1234,5678);
@@ -9,10 +14,9 @@ $errors= array();
 
 if(isset($_POST["reg_user"])) 
 {
-    // $admin_code = "default";
-    $username = $_POST['username'];
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
+    $username = $_POST["username"];
+    $firstname = $_POST["firstname"];
+    $lastname = $_POST["lastname"];
     $phonenumber = $_POST["phonenumber"];
     $email = $_POST["email"];
 
@@ -46,8 +50,8 @@ if(isset($_POST["reg_user"]))
         return 0;
     }
 
-    $pass = $_POST['pass'];
-    $pass2 = $_POST['pass2'];
+    $pass = $_POST["pass"];
+    $pass2 = $_POST["pass2"];
 
     if(empty($pass) || empty($pass2))
     {
@@ -91,26 +95,37 @@ if(isset($_POST["reg_user"]))
 
         $_SESSION["username"] = $username;
         $_SESSION["isAdmin"]=$isAdmin;
+        $_SESSION["email"] =  $email;
 
-        header('location:/index.php');
+        $_SESSION["FirstName"]=$firstname;
+        $_SESSION["LastName"]=$lastname;
+        $_SESSION["PhoneNumber"]=$phonenumber;
+        
+        // $_SESSION["Cart_Id"]=$userData["Cart_Id"];
+        // $_SESSION["CreditCard"]=$userData["CreditCard"];
+
+        // $_SESSION["Interests"]=$userData["Interests"];
+
+        header('location:../public/profile.php');
         exit();
     }
  };
-
-             
-if(isset($_POST['log_user']))
+ 
+ 
+if(isset($_POST["log_user"]))
 {
-    $cred = $_POST['cred'];
+    $cred = $_POST["cred"];
     $pass = $_POST['pass'];
     
     if(empty($cred) || empty($pass))
  {
         array_push($errors,"Missing Field(s)");
+        return 0;
  }
 
     if(count($errors)==0)
  {
-    $querycheck =" SELECT UserName,Email,Password from user where Email='$cred' OR UserName='$cred' ";
+    $querycheck =" SELECT * from user where Email='$cred' OR UserName='$cred' ";
     
     $result = mysqli_query($db, $querycheck);
     // $result = mysqli_fetch_assoc($result);
@@ -126,34 +141,45 @@ if(isset($_POST['log_user']))
                 //iterate the results object to get the values neede     
                 $_SESSION["username"] = $userData["UserName"];
                 $_SESSION["email"] =  $userData["Email"];
-        
+                $_SESSION["isAdmin"]=$userData["isAdmin"];
+                $_SESSION["FirstName"]=$userData["FirstName"];
+                $_SESSION["LastName"]=$userData["LastName"];
+                $_SESSION["PhoneNumber"]=$userData["PhoneNumber"];
+                $_SESSION["Interests"]=$userData["Interests"];
+                $_SESSION["Cart_Id"]=$userData["Cart_Id"];
+                $_SESSION["CreditCard"]=$userData["CreditCard"];
+                
+
             }      
-        //    echo $_SESSION["email"];
-                header('location:../admin-profile.php');
+            // echo $_SESSION["email"];
+                header("location:../public/profile.php");
             // exit;
         }
         else
         {
             array_push($errors,"Invalid Password");
+            return 0;
         }
     }
     else
     {
         array_push($errors,"Invalid username");
+        return 0;
     }
  }
+ else
+ {
+    array_push($errors,"An error has occured");
+ }
+
 }
 
 
-if(isset($_POST['log_out']))
+if(isset($_POST["log_out"]))
 {   
-    ECHO "JDHFJK";
-    var_dump($_SERVER['REQUEST_METHOD']);
-    unset($_SESSION['username']);
-    unset($_SESSION['email']);
-    // session_start() ;
-    // session_destroy();
-    //  header('Location:index.php');
-    //  exit();
+    session_unset();
+    session_destroy();
+    header("Location:../index.php");
+     exit();
 }
 ?>

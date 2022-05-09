@@ -1,12 +1,12 @@
 
-<?php include("./inc/nav_bar.php") ?>
+<?php include("../inc/nav_bar.php") ?>
 
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
     <!-- <link rel="stylesheet" type="text/css" href="css/footer.css"/> -->
     <link rel="stylesheet" type="text/css" href="css/team.css"/>
 
-<?php include("./config/dbconfig.php");  
+<?php include("../config/dbconfig.php");  
 $header = array("Downloads","Year","Language","Likes","Dislikes");
 
 $queries = array(
@@ -63,5 +63,5 @@ $myfile = fopen("report.txt", "w") or die("Unable to open file!");
 // fclose($myfile);
 ?> 
 
-<?php include("./inc/footer.php") ?>
+<?php include("../inc/footer.php") ?>
 
