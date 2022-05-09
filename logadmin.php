@@ -5,24 +5,24 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="shortcut icon" href="../multimedia/resources/logo/logo.png"/>
+        <link rel="shortcut icon" href="./multimedia/resources/logo/logo.png"/>
         
-        <link rel="stylesheet" type="text/css" href="../css/style.css"/>
-        <link rel="stylesheet" type="text/css" href="../css/footer.css"/>
-        <link rel="stylesheet" type="text/css" href="../css/index.css"/>
+        <link rel="stylesheet" type="text/css" href="css/style.css"/>
+        <link rel="stylesheet" type="text/css" href="css/footer.css"/>
+        <link rel="stylesheet" type="text/css" href="css/index.css"/>
     
-        <script src="../js/user.js" defer> </script>
+        <script src="user.js" defer> </script>
 
         <title>Admin Login Form</title>
     </head>
-    <body background="../multimedia/resources/banner-bg.jpg" >
+    <body background="./multimedia/resources/banner-bg.jpg" >
       <br>
       <br>
       <br>
       <br>
       <br>
       <br>
-    <table align="center"  bgcolor="transparent">
+    <table align="center"  bgcolor="transparent"  >
         <tr>
             <td align="center"><h4 >A<sup>2</sup>Z<br>ADMIN LOGIN FORM</H4></td>
         </tr>
@@ -44,7 +44,7 @@
             <tr>
         <td>
 
-            <?php include("../lib/db.php");
+            <?php include("lib/db.php");
 
             foreach($errors as $error)
             {
@@ -60,7 +60,8 @@
             <td align="center"><input name="pass" title="Enter a valid Password" id=pass type="password" placeholder="Password" size="45" ></td>
         </tr>
         <tr>
-            <td align="center"> <button class="btn" type="submit" name="log_user" id=log value="Log in">Log in</button> </td>
+            <td align="center"> <button type="submit" name="log_user" id=log value="Log in">Log in</button> </td>
+          </form>
         </tr>
         <tr>
             <td align="center">
@@ -68,9 +69,9 @@
             </td>
         </tr>
     </table>
-        </form>
+
        
-    <?php include("../inc/footer.php") ?>
+    <?php include("./inc/footer.php") ?>
             
           
     </body>

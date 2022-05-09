@@ -1,3 +1,4 @@
+<?php?>
 <html>
     <head>
     <title>Book Shelf</title>
@@ -16,7 +17,8 @@
     <link
       rel="stylesheet"
       href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
-      />
+      href="css/min.css"
+    />
 
     <!-- font awesome cdn link  -->
     <link
@@ -25,7 +27,7 @@
     />
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
 
 </head>
 
@@ -34,23 +36,20 @@
          
     <?php 
 
-  include("../inc/nav_bar.php");
+  include("./inc/nav_bar.php");
 
   foreach($books as $book)
   {
         
     ?>
-      <!-- custom js file link  -->
-  <script src="../js/script.js"></script> 
-
     <section class="featured" id="featured">
-   
+  
       <div class="swiper featured-slider">
         <div class="swiper-wrapper">
           <div class="swiper-slide box">
             <div class="icons">
               <a href="cart.php" class="fas fa-heart"></a>
-              <a href=../public/description.php?bookid=<?php 
+              <a href=description.php?bookid=<?php 
               echo $book["BookID"] ;
               ?> class="fas fa-eye"></a>
             </div>
@@ -83,7 +82,7 @@
 </div>
 </div>  
           
-<?php include("../inc/footer.php") ?>
+<?php include("./inc/footer.php") ?>
 
 </body>
 

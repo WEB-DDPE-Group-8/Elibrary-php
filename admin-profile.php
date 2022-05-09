@@ -1,6 +1,8 @@
 <?php
-
-include "../config/globals.php";
+if(isset($_SESSION["username"]))
+{
+header("location:login.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,24 +79,17 @@ include "../config/globals.php";
     <body background="multimedia/resources/banner-bg.jpg">
             <!-- header -->
              <?php 
-             
-              if(isset($_SESSION["username"]))
-              {
-                  header("location:$root/login.php");
-              }
-            include("../inc/nav_bar.php");
-           
-           
-            ?>
+            include("./inc/nav_bar.php");
+             ?> 
      
         <main>
             <div id="profilepic">
 
-                <div>           
+                <Div>           
                     
                     <img src="multimedia/resources/icons/location.png" alt="location icon" height = "150px">
                     <span> Ethiopia, AA</span>
-                </div> 
+                </Div> 
                             
                                     <figure>
                                         <label for="cover">
@@ -111,7 +106,7 @@ include "../config/globals.php";
                     <h3>Contact me at:</h3>
                     <p>E-mail: <span id=emali_name>
                     <?php  
-                    if(isset($_SESSION["username"]))
+                    if(isset($_SESSION['email']))
                     {
                         echo $_SESSION["email"];
                     }
@@ -139,13 +134,13 @@ include "../config/globals.php";
         <br><br><br>
     <center>
         <div id=btnsss>
-        <button class=btn>
+        <button>
             <a  style="text-decoration: none;"  href="upload_page_admin.php">Upload a Book </a>  
         </button>
         <BR>
         
-    <form action="../lib/db.php" method="POST">
-        <input type="submit" id="logout" class="btn" name="log_out" value="Logout">
+    <form action="./lib/db.php" method="GET">
+        <input type="submit" id="logout" name="log_out" value="Logout">
     </form>
         
         </div>
@@ -156,6 +151,6 @@ include "../config/globals.php";
     </div>  
     </main>     
 
-            <?php include("../inc/footer.php") ?>
+            <?php include("./inc/footer.php") ?>
 </body>
 </html>

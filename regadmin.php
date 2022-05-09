@@ -14,9 +14,11 @@
         <script src="./js/toggle.js" defer></script>
         <title>registration form</title>
     </head>
-    <body background="../multimedia/resources/banner-bg.jpg" >
+    <body background="./multimedia/resources/banner-bg.jpg" >
 
-    <?php include("../inc/nav_bar.php") ?>
+    <?php include("inc/nav_bar.php") ?>
+
+ 
 
         <P align="center" style = "margin = 64px;">
            <h2>LIBRARY MANAGMENT SYSTEM<br>REGISTRATION FORM FOR ADMIN</h2>
@@ -24,7 +26,7 @@
         
 <form id=form_action action="regadmin.php" method="POST"> 
         <?php 
-        include("../lib/db.php"); 
+        include("lib/db.php"); 
         ?>
             <table align="center" bgcolor="transparent" height="450" width="450">
                 <tr>
@@ -98,16 +100,16 @@
                 </tr>
                 <tr>   
                     <td align="center">
-<input id= sub name="reg_user" class="btn" value="Submit" type="submit">
+<input id= sub name="reg_user" type="submit">
                     </td>
                     <td>
-<input type="reset" class="btn"   value="Clear">
+<input type="reset"   value="Clear">
                     </td>
                 </tr>
                 <!-- end of form -->
             </table>
              <P align="center">
-                <B>Already a member<br><a class="btn" href="login.php">Log in</a></B>
+                <B>Already a member<br><a href="login.php">Log in</a></B>
              </P>
         </form>
         
@@ -115,7 +117,7 @@
             <tr>
                 <td>
                     
-                    <details class="btn">
+                    <details>
                         <summary>Our Privacy policy</summary>
                         <iframe id="inlineFrame"
       title="Privacy Policy"
@@ -126,7 +128,6 @@
                     </details>
                   </td>
             </tr>
-</table>
 
 <!-- registration -->
 
@@ -212,7 +213,7 @@ function test()
 
 </script> -->
 
-<?php include("../inc/footer.php") ?>
+<?php include("./inc/footer.php") ?>
 
     </body>
     

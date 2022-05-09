@@ -1,10 +1,10 @@
 <h1>
 <?php
-include("../inc/nav_bar.php");
+include("inc/nav_bar.php");
 
 function report_text()
 {
-    include("..//config/dbconfig.php");
+    include("./config/dbconfig.php");
     $header = array("Downloads >2","Year>2005","Language","Likes > 0","Dislikes>100");
     $queries = array(
     "select  Title,Author,Year,Description,Language from books where Downloads > 2",
@@ -192,7 +192,7 @@ if(isset($_POST['btn8']))
 </form>
 </div>
 <?php
-include("../inc/footer.php");
+include("inc/footer.php");
 ?>
 
 <style>

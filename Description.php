@@ -8,17 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./resources/logo/logo.png"/>
     <!-- <script src="user.js"></script> -->
-    <script src="../js/addtocart.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <script src="addtocart.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <!-- <link rel="stylesheet" type="text/css" href="css/footer.css"/> -->
-    <link rel="stylesheet" type="text/css" href="../css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
 
 
 </head>
 
-<body background="../multimedia/resources/banner-bg.jpg">
+<body background="resources/banner-bg.jpg">
 <?php
-include("../inc/nav_bar.php");
+include("./inc/nav_bar.php");
 ?>
           <!-- header -->
           <table align="center">
@@ -36,7 +36,7 @@ include("../inc/nav_bar.php");
         <ul>
 <?php  
    
-    include("../config/dbconfig.php");
+    include("./config/dbconfig.php");
     
     // $row = [];
 
@@ -85,7 +85,7 @@ include("../inc/nav_bar.php");
     <tr>
         <td align="center">
             <br><br><br>
-<form method="POST" action="">
+
             <button id=addto>Add to cart</a></button><br>
 
             <!-- <script>
@@ -200,6 +200,7 @@ $genre = $row['Genre'];
 </div>
 </details>
 
+<?php include("./footer.php") ?>
 
 <!-- <script>
 // console.log("book key "+ localStorage.getItem("History"))
@@ -236,7 +237,7 @@ else
 
              </script> -->
 
-<?php include("../inc/footer.php")  ?>
+<?php include("./inc/footer.php")  ?>
 
 </body>
 
