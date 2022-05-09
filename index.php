@@ -27,6 +27,7 @@
 
     include("./inc/nav_bar.php") ;
 ?>
+    <script src = "js/script.js" defer></script>
     <section class="home" id="home">
       <div class="row">
         <div class="content">
