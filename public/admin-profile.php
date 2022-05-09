@@ -1,8 +1,6 @@
 <?php
-if(isset($_SESSION["username"]))
-{
-header("location:login.php");
-}
+
+include "../config/globals.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -79,17 +77,24 @@ header("location:login.php");
     <body background="multimedia/resources/banner-bg.jpg">
             <!-- header -->
              <?php 
-            include("./inc/nav_bar.php");
-             ?> 
+             
+              if(isset($_SESSION["username"]))
+              {
+                  header("location:$root/login.php");
+              }
+            include("../inc/nav_bar.php");
+           
+           
+            ?>
      
         <main>
             <div id="profilepic">
 
-                <Div>           
+                <div>           
                     
                     <img src="multimedia/resources/icons/location.png" alt="location icon" height = "150px">
                     <span> Ethiopia, AA</span>
-                </Div> 
+                </div> 
                             
                                     <figure>
                                         <label for="cover">
@@ -106,7 +111,7 @@ header("location:login.php");
                     <h3>Contact me at:</h3>
                     <p>E-mail: <span id=emali_name>
                     <?php  
-                    if(isset($_SESSION['email']))
+                    if(isset($_SESSION["username"]))
                     {
                         echo $_SESSION["email"];
                     }
@@ -134,13 +139,13 @@ header("location:login.php");
         <br><br><br>
     <center>
         <div id=btnsss>
-        <button>
+        <button class=btn>
             <a  style="text-decoration: none;"  href="upload_page_admin.php">Upload a Book </a>  
         </button>
         <BR>
         
-    <form action="./lib/db.php" method="GET">
-        <input type="submit" id="logout" name="log_out" value="Logout">
+    <form action="../lib/db.php" method="POST">
+        <input type="submit" id="logout" class="btn" name="log_out" value="Logout">
     </form>
         
         </div>
@@ -151,6 +156,6 @@ header("location:login.php");
     </div>  
     </main>     
 
-            <?php include("./inc/footer.php") ?>
+            <?php include("../inc/footer.php") ?>
 </body>
 </html>

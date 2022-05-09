@@ -11,22 +11,22 @@ header("location:login.php");
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./resources/logo/logo.png" />
 
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" type="text/css" href="css/carrt.css" async />
-    <!-- <link rel="stylesheet" type="text/css" href="css/footer.css" /> -->
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="shortcut icon" href="../multimedia/resources/logo/logo.png" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/carrt.css" async />
+    <link rel="stylesheet" type="text/css" href="../css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="../css/index.css" />
 
-    <script src="user.js"></script>
-    <script src="addtocart.js"></script>
+    <script src="../js/user.js"></script>
+    <script src="../js/addtocart.js"></script>
 
     <title>Cart</title>
   </head>
 
   <body background="resources/banner-bg.jpg">
     <!-- header -->
-    <?php include("./inc/nav_bar.php") ?>
+    <?php include("../inc/nav_bar.php") ?>
     
     <div id="outer" class="shop-items"></div>
 
@@ -46,9 +46,9 @@ header("location:login.php");
         PURCHASE
       </button>
     </section>
-    <button onclick="clean()">Empty my cart</button>
+    <button class="btn" onclick="clean()">Empty my cart</button>
     
-    <?php include("./inc/footer.php") ?>
+    <?php include("../inc/footer.php") ?>
 
     <script src="cart.js" defer></script>
   </body>

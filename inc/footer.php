@@ -1,5 +1,3 @@
- <?php?>
- 
     <section class="footer">
       <div class="box-container">
         <div class="box">
@@ -14,18 +12,19 @@
 
         <div class="box">
           <h3>quick links</h3>
-          <a href="index.php"> <i class="fas fa-arrow-right"></i> home </a>
-          <a href="bookshelf.php"> <i class="fas fa-arrow-right"></i> featured </a>
-          <a href="#"> <i class="fas fa-arrow-right"></i> arrivals </a>
-          <a href="#"> <i class="fas fa-arrow-right"></i> reviews </a>
-          <a href="#"> <i class="fas fa-arrow-right"></i> blogs </a>
+          <a href="/html/index.php"> <i class="fas fa-arrow-right"></i> home </a>
+          <a href="/html/public/bookshelf.php"> <i class="fas fa-arrow-right"></i> BookShelf </a>
+          <a href="/html/index.php#featured"> <i class="fas fa-arrow-right"></i> featured </a>
+          <a href="/html/index.php#arrivals"> <i class="fas fa-arrow-right"></i> arrivals </a>
+          <a href="/html/index.php#reviews"> <i class="fas fa-arrow-right"></i> reviews </a>
+          <a href="/html/index.php#blogs"> <i class="fas fa-arrow-right"></i> blogs </a>
         </div>
 
         <div class="box">
           <h3>extra links</h3>
-          <a href="admin-profile.php"> <i class="fas fa-arrow-right"></i> account info </a>
+          <a href="/html/public/profile.php"> <i class="fas fa-arrow-right"></i> account info </a>
           <a href="cart.php"> <i class="fas fa-arrow-right"></i> items in cart</a>
-          <a href="privacypolicyonly.php"> <i class="fas fa-arrow-right"></i> privacy policy </a>
+          <a href="/html/public/privacypolicyonly.php"> <i class="fas fa-arrow-right"></i> privacy policy </a>
           <a href="#"> <i class="fas fa-arrow-right"></i> payment method </a>
           <a href="#"> <i class="fas fa-arrow-right"></i> our serivces </a>
         </div>

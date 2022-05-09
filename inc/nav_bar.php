@@ -1,4 +1,10 @@
+<?php
+ session_start();
+//  include "config/globals.php";
+$root = realpath($_SERVER["DOCUMENT_ROOT"]);
+$root = $root."/html";
 
+?>
  
         <link
         rel="stylesheet"
@@ -11,7 +17,7 @@
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         />
-        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="/html/css/style.css" />
         
 
         <header class="header">
@@ -33,28 +39,23 @@
             
             <a href=
             <?php
-
-      session_start();
       if(isset($_SESSION['username'])) 
       {
-        echo "cart.php";
+        echo "/html/public/cart.php";
       }
       else{
-        echo "login.php";
+        echo "/html/public/login.php";
       };
-
 ?>
-    class="fas fa-heart"></a>
-
-
-
+    class="fas fa-heart">
+  </a>
 
     <a href=
     <?php
     if(isset($_SESSION["username"]))
-    echo "cart.php" ;
+    echo "/html/public/cart.php" ;
     else
-    {echo "login.php";}
+    {echo "/html/public/login.php";}
     ?>
     class="fas fa-shopping-cart"><br></a>
                
@@ -65,7 +66,7 @@
             if(isset($_SESSION["username"]))
             echo $_SESSION["username"] ;
             else
-            echo "@user"
+            echo "@user";
 ?>
 
 </div>
@@ -73,13 +74,14 @@
 
         <div class="header-2">
           <nav class="navbar">
-            <a href="index.php">home</a>
-            <a href="bookshelf.php">featured</a>
-            <a href="#arrivals">arrivals</a>
-            <a href="#reviews">reviews</a>
-            <a href="file_manipulation.php">File Manipulation</a>
-            <a href="#blogs">blogs</a>
-            <a href="report.php">Statistics</a>
+            <a href="/html/index.php">home</a>
+            <a href="/html/index.php#featured">featured</a>
+            <a href="/html/public/bookshelf.php">BookShelf</a>
+            <a href=/html/index.php#arrivals>arrivals</a>
+            <a href="/html/index.php#reviews">reviews</a>
+            <a href="/html/public/file_manipulation.php">File Manipulation</a>
+            <a href="/html/index.php#blogs">blogs</a>
+            <a href="/html/public/report.php">Statistics</a>
           </nav>
         </div>
       </header>
@@ -89,22 +91,22 @@
       <!-- bottom navbar  -->
 
       <nav class="bottom-navbar">
-        <a href="index.php" class="fas fa-home"></a>
-        <a href="bookshelf.php" class="fas fa-list"></a>
-        <a href="#arrivals" class="fas fa-tags"></a>
-        <a href="#reviews" class="fas fa-comments"></a>
-        <a href="#blogs" class="fas fa-blog"></a>
+      <a href="/html/index.php" class="fas fa-home">home</a>
+            <a href="/html/index.php#featured" class="fas fa-list">featured</a>
+            <a href="/html/public/bookshelf.php" >BookShelf</a>
+            <a href="/html/index.php#arrivals" class="fas fa-tags"> arrivals</a>
+            <a href="/html/index.php#reviews" class="fas fa-comments" >reviews</a>
+            <a href="/html/public/file_manipulation.php" >File Manipulation</a>
+            <a href="/html/index.php#blogs" class="fas fa-blog">blogs</a>
+            <a href="/html/public/report.php" >Statistics</a>
       </nav>
 
       <!-- login form  -->
 
       <div class="login-form-container">
         <div id="close-login-btn" class="fas fa-times"></div>
-
-        <div>
-
-        </div>
-        <form action="lib/db.php" method="POST">
+        
+        <form action="/html/lib/db.php" method="POST">
           <h3>sign in</h3>
           <span>username</span>
           <input
@@ -124,24 +126,22 @@
           />
           <div class="checkbox">
             <input type="checkbox" name="" id="remember-me" />
-            <label for="remember-me"> remember me</label>
+            <label for="remember-me">remember me</label>
           </div>
           <input type="submit" value="sign in" name="log_user" class="btn" />
-          <p>forget password ? <a href="#">click here</a></p>
+          <p>forgot password ? <a href="#">click here</a></p>
           <p id="register">don't have an account ?
             <!-- <button id= "reg-btn"> click here to register</button> -->
-            <a href="register.php">create one</a></p>
+            <a href="/html/public/regadmin.php">create one</a></p>
         </form>
       </div>
-
-
-
-  <!-- custom js file link  -->
+      
   <?php
 
-  if(!isset($_SESSION['username']))
+  if(!isset($_SESSION["username"]))
 {
-   echo "
+   echo 
+   <<<_END
    <script>
    
    let loginForm = document.querySelector('.login-form-container');
@@ -155,19 +155,20 @@
    loginForm.classList.remove('active');
    };
    </script>
-   ";
+   _END;
 }
   else
 {
   //  header("location:admin-profile.php");
         // ob_start();
         // header("location:index.php");
-echo  <<<_END
+echo  
+<<<_END
        <script>
       
      document.querySelector('#login-btn').onclick = () =>
      {
-         location.href='admin-profile.php';
+         location.href='/html/public/profile.php';
      };
          </script>
 _END; 

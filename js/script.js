@@ -4,7 +4,6 @@ document.querySelector("#search-btn").onclick = () => {
   searchForm.classList.toggle("active");
 };
 
-
 window.onscroll = () => {
   searchForm.classList.remove("active");
 
@@ -145,4 +144,3 @@ var swiper = new Swiper(".blogs-slider", {
     },
   },
 });
-

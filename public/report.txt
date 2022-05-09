@@ -1,18 +1,30 @@
-Downloads >2
+Downloads
 Harry Potter,JK Rowlings,2005,A boy who knows magic,British English,
 Harry Potter2,JK Rowlings,2010,A boy who knows magic,British English,
 Harry Potter3,JK Rowlings,2012,A boy who knows magic,British English,
-Year>2005
+Year
+hbjnkm,,2020,        ,English,
 Harry Potter2,JK Rowlings,2010,A boy who knows magic,British English,
 Harry Potter3,JK Rowlings,2012,A boy who knows magic,British English,
+,,2020,        ,English,
+,,2020,        ,English,
+,,2020,        ,English,
+vbn,,2020,        ,English,
+vbn,,2020,        ,English,
+bnm,,2020,        ,English,
+nmk,,2020,        ,English,
+nmk,,2020,        ,English,
+nmk,,2020,        ,English,
+lll,,2020,        ,English,
 Language
 American English,1,
 British English,3,
-Likes > 0
+English,11,
+Likes
 Harry Potter,JK Rowlings,2005,A boy who knows magic,British English,
 Harry Potter2,JK Rowlings,2010,A boy who knows magic,British English,
 Harry Potter3,JK Rowlings,2012,A boy who knows magic,British English,
 Back to the future,JK Rowlings,2004,A boy who cars time travel,American English,
-Dislikes>100
+Dislikes
 Harry Potter,JK Rowlings,2005,A boy who knows magic,British English,
 Harry Potter2,JK Rowlings,2010,A boy who knows magic,British English,

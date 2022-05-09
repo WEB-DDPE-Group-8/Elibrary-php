@@ -9,7 +9,6 @@
     <link
       rel="stylesheet"
       href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
-      href="css/min.css"
     />
 
     <!-- font awesome cdn link  -->
@@ -20,14 +19,18 @@
 
     <!-- custom css file link  -->
     <link rel="stylesheet" href="css/style.css" />
+    <!-- <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script> -->
+
+
   </head>
   <body>
     <!-- home section starts  -->
     <?php
 
-    include("./inc/nav_bar.php") ;
+    include("inc/nav_bar.php") ;
 ?>
-    <script src = "js/script.js" defer></script>
+<!-- custom js file link  -->
+<script src="js/script.js"></script> 
     <section class="home" id="home">
       <div class="row">
         <div class="content">
@@ -264,7 +267,7 @@
               <a href="#" class="fas fa-eye"></a>
             </div>
             <div class="image">
-              <img src="image/book-10.png" alt="" />
+              <img src="./image/book-10.png" alt="" />
             </div>
             <div class="content">
               <h3>featured books</h3>
@@ -755,18 +758,15 @@
       </div>
     </section>
 
-    <!-- footer section ends -->
+     footer section ends -->
 
     <!-- loader  -->
-
-    <!-- <div class="loader-container">
+<!-- 
+    <div class="loader-container">
       <img src="image/loader-img.gif" alt="" />
-    </div> -->
+    </div>  -->
 
-    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-
-    <!-- custom js file link  -->
-    <script src="js/script.js"></script> -->
+  
     <?php
      include("./inc/footer.php") ;
     ?>

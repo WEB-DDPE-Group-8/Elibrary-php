@@ -13,12 +13,12 @@ header("location:login.php");
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="./resources/logo/logo.png"/>
 
-        <link rel="stylesheet" type="text/css" href="css/style.css"/>
-        <link rel="stylesheet" type="text/css" href="css/footer.css"/>
+        <!-- <link rel="stylesheet" type="text/css" href="../css/style.css"/> -->
+        <link rel="stylesheet" type="text/css" href="../css/footer.css"/>
 
-        <script src="user.js"></script>
-        <script src="addtocart.js" defer></script>
-        <script src="upload.js" defer></script>
+        <script src="../js/user.js"></script>
+        <script src="../js/addtocart.js" defer></script>
+        <script src="../js/upload.js" defer></script>
     
     <title>Upload</title>
 
@@ -134,9 +134,9 @@ textarea
 
     </head>
 
-<body background="./multimedia/resources/banner-bg.jpg">
+<body background="../multimedia/resources/banner-bg.jpg">
              <!-- header -->
-           <?php include("./inc/nav_bar.php")  ?>
+           <?php include("../inc/nav_bar.php")  ?>
  <div id="cont">    
 <center>
         <p>This page is for a user to upload any file in a pdf format to our servers</p><br/>
@@ -249,7 +249,7 @@ textarea
 <div > <center><input name="upload_book" type="submit" value="Submit" id=upld> </center> </div>
 </div>  
 
-<?php include("./lib/uploadbooks.php") ?> 
+<?php include("../lib/uploadbooks.php") ?> 
 
 </form>
      
@@ -259,6 +259,6 @@ textarea
 
     </body>
     
-    <?php include("./inc/footer.php") ?>
+    <?php include("../inc/footer.php") ?>
 
 </html>
