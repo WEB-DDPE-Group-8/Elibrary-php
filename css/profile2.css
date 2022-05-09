@@ -406,8 +406,6 @@ a > code {
 
 .col {
   max-width: 100%;
-  
-  margin-top:500px;
   flex-basis: 0;
   flex-grow: 1;
 }
@@ -1550,7 +1548,6 @@ a.text-white:focus {
 }
 
 .card-profile-stats {
-  margin-top: -500px;
   padding: 1rem 0;
 }
 

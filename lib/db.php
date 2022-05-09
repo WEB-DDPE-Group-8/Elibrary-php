@@ -12,17 +12,24 @@ $phonenumber = 7125020;
   
 $errors= array();
 
-if(isset($_POST["reg_user"])) 
+if(isset($_POST["register"])) 
 {
     $username = $_POST["username"];
     $firstname = $_POST["firstname"];
     $lastname = $_POST["lastname"];
     $phonenumber = $_POST["phonenumber"];
     $email = $_POST["email"];
+    $dob = $_POST["dob"];
+    $gender = $_POST["gender"];
 
     if(empty($firstname)) 
     {
         array_push($errors,"First Name Required");
+        return 0;
+    }
+    if(empty($gender)) 
+    {
+        array_push($errors,"Gender Required");
         return 0;
     }
 

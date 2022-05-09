@@ -132,7 +132,7 @@ $root = $root."/html";
           <p>forgot password ? <a href="#">click here</a></p>
           <p id="register">don't have an account ?
             <!-- <button id= "reg-btn"> click here to register</button> -->
-            <a href="/html/public/regadmin.php">create one</a></p>
+            <a href="/html/public/register.php">create one</a></p>
         </form>
       </div>
       

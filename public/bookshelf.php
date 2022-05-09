@@ -7,11 +7,11 @@
     <link rel="shortcut icon" href="./multimedia/resources/logo/logo.png"/>
     <script src="user.js" defer></script>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="css/bookshelf.css"/>
+    <!-- <link rel="stylesheet" type="text/css" href="css/bookshelf.css"/> -->
      <!-- <link rel="stylesheet" type="text/css" href="css/footer.css"/> -->
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
 
-    <script src="addtocart.js" defer></script>
+    <!-- <script src="addtocart.js" defer></script> -->
 
     <link
       rel="stylesheet"
@@ -36,18 +36,22 @@
 
   include("../inc/nav_bar.php");
 
-  foreach($books as $book)
-  {
+ 
         
     ?>
       <!-- custom js file link  -->
-  <script src="../js/script.js"></script> 
+  <script src="../js/script.js" defer></script> 
 
     <section class="featured" id="featured">
-   
+
       <div class="swiper featured-slider">
         <div class="swiper-wrapper">
+        <?php
+                foreach($books as $book)
+                {
+            ?>
           <div class="swiper-slide box">
+           
             <div class="icons">
               <a href="cart.php" class="fas fa-heart"></a>
               <a href=../public/description.php?bookid=<?php 
@@ -67,22 +71,34 @@
               echo $book["Title"];
                ?>
                </h3>
+
               <div class="price"><?php
                echo "\$".$book["Price"].".00" ;
                ?>
               </div>
+
               <a href="#" class="btn">Buy Now</a>
               <a href="#" class="btn">Add to Cart</a>
-            </div>
+              </div>
+    
           </div>
-</div>
-</section>
-<?php 
+          <?php 
 }
-?>
+?>  
+          </div>
+          </div>
+          </div>
+          <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
 </div>
-</div>  
-          
+
+
+</section>
+ 
+        
+<div class="loader-container">
+      <img src="image/loader-img.gif" alt="" />
+    </div>
 <?php include("../inc/footer.php") ?>
 
 </body>
