@@ -101,8 +101,6 @@
       <div class="login-form-container">
         <div id="close-login-btn" class="fas fa-times"></div>
 
-       
-
         <div>
 
         </div>
@@ -132,43 +130,11 @@
           <p>forget password ? <a href="#">click here</a></p>
           <p id="register">don't have an account ?
             <!-- <button id= "reg-btn"> click here to register</button> -->
-            <a href="regadmin.php">create one</a></p>
+            <a href="register.php">create one</a></p>
         </form>
       </div>
 
-      <!-- register form
-      <div class="registration-form-container">
-        <div id="close-login-btn" class="fas fa-times"></div>
 
-        <form action="./lib/db.php" method="POST" >
-        -->
-        <!-- <form action="">
-          <h3>sign in</h3>
-          <span>username</span>
-          <input
-            type="text"
-            name="cred"
-            class="box"
-            placeholder="enter your email"
-            id=""
-          />
-          <span>password</span>
-          <input
-            type="password"
-            name="pass"
-            class="box"
-            placeholder="enter your password"
-            id=""
-          />
-          <div class="checkbox">
-            <input type="checkbox" name="" id="remember-me" />
-            <label for="remember-me"> remember me</label>
-          </div>
-          <input type="submit" value="sign in" name="log_user" class="btn" />
-          <p>forget password ? <a href="#">click here</a></p>
-          <p>don't have an account ? <a href="regadmin.php">create one</a></p>
-        </form>
-      </div>  --> 
 
   <!-- custom js file link  -->
   <?php
