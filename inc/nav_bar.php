@@ -91,13 +91,14 @@ $root = $root."/html";
       <!-- bottom navbar  -->
 
       <nav class="bottom-navbar">
-            <a href="/html/index.php">home</a>
-            <a href="/html/public/bookshelf.php">featured</a>
-            <a href=/html/index.php#arrivals">arrivals</a>
-            <a href="/html/index.php#reviews">reviews</a>
-            <a href="/html/public/file_manipulation.php">File Manipulation</a>
-            <a href="/html/index.php#blogs">blogs</a>
-            <a href="/html/public/report.php">Statistics</a>
+      <a href="/html/index.php" class="fas fa-home">home</a>
+            <a href="/html/index.php#featured" class="fas fa-list">featured</a>
+            <a href="/html/public/bookshelf.php" >BookShelf</a>
+            <a href="/html/index.php#arrivals" class="fas fa-tags"> arrivals</a>
+            <a href="/html/index.php#reviews" class="fas fa-comments" >reviews</a>
+            <a href="/html/public/file_manipulation.php" >File Manipulation</a>
+            <a href="/html/index.php#blogs" class="fas fa-blog">blogs</a>
+            <a href="/html/public/report.php" >Statistics</a>
       </nav>
 
       <!-- login form  -->

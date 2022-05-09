@@ -761,10 +761,10 @@
      footer section ends -->
 
     <!-- loader  -->
-
-    <!-- <div class="loader-container">
+<!-- 
+    <div class="loader-container">
       <img src="image/loader-img.gif" alt="" />
-    </div> -->
+    </div>  -->
 
   
     <?php

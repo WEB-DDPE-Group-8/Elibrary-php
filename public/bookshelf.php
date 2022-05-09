@@ -42,8 +42,9 @@
     ?>
       <!-- custom js file link  -->
   <script src="../js/script.js"></script> 
+
     <section class="featured" id="featured">
-  
+   
       <div class="swiper featured-slider">
         <div class="swiper-wrapper">
           <div class="swiper-slide box">
