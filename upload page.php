@@ -257,7 +257,7 @@ textarea
 <div > <center><input name="upload_book" type="submit" value="Submit" id=upld> </center> </div>
 </div>  
 
-<?php include("./lib/uploadbooks.php") ?> 
+<?php include("lib/uploadbooks.php") ?> 
 
 </form>
      

@@ -40,26 +40,11 @@
             </td>
         </tr>  
         </tr>
-<<<<<<< HEAD
         <form action="/Elibrary-php/logadmin.php" method="post">
         <tr>
             <?php include("./config/dbconfig.php"); 
             include("./lib/db.php") ; ?>
-            <td align="center"><input name="cred" title="Enter a valid Username or an Email Address" id=email type="text" placeholder="Email or Username" size="45" required></td>
-=======
-        <form action=logadmin.php method=post>
-            <tr>
-        <td>
-
-            <?php include("lib/db.php");
-
-            foreach($errors as $error)
-            {
-                echo $error;
-            }
-            ?>
-            </td>
->>>>>>> main
+           
         </tr>
         <tr>
             <td align="center"><input name="cred" title="Enter a valid Username or an Email Address" id=email type="text" placeholder="Email or Username" size="45" ></td>

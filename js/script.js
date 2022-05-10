@@ -4,15 +4,6 @@ document.querySelector("#search-btn").onclick = () => {
   searchForm.classList.toggle("active");
 };
 
-let registrationForm = document.querySelector(".registration-form-container");
-
-document.querySelector("#reg-btn").onclick = () => {
-  registrationForm.classList.toggle("active-reg");
-};
-
-document.querySelector("#close-login-btn").onclick = () => {
-  registrationForm.classList.remove("active-reg");
-};
 
 window.onscroll = () => {
   searchForm.classList.remove("active");
@@ -154,3 +145,4 @@ var swiper = new Swiper(".blogs-slider", {
     },
   },
 });
+

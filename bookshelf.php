@@ -33,27 +33,15 @@
 
 <body background=./multimedia/resources/banner-bg.jpg>
           <!-- header -->
-
-
          
-    <?php include("./inc/nav_bar.php")  ?>   
-
-<div id="gallery">
-    <div>    
-    </div>
-
     <?php 
-include("./config/dbconfig.php");
 
-$query = $db->query("Select * from books");
+  include("./inc/nav_bar.php");
 
-if($query->num_rows > 0)
-{
-    while($row = $query->fetch_assoc())
-    {
-        $imageURL = 'uploads/'.$row["Cover"];
-        ?>
-
+  foreach($books as $book)
+  {
+        
+    ?>
     <section class="featured" id="featured">
   
       <div class="swiper featured-slider">
@@ -61,14 +49,26 @@ if($query->num_rows > 0)
           <div class="swiper-slide box">
             <div class="icons">
               <a href="cart.php" class="fas fa-heart"></a>
-              <a href=description.php?bookid=<?php echo $row["BookID"] ?> class="fas fa-eye"></a>
+              <a href=description.php?bookid=<?php 
+              echo $book["BookID"] ;
+              ?> class="fas fa-eye"></a>
             </div>
             <div class="image">
-              <img src="<?php echo $imageURL; ?>" alt="" />
+              <img src="
+              <?php 
+              echo $book["Cover"];
+                ?>
+                " alt="" />
             </div>
             <div class="content">
-              <h3><?php echo $row["Title"] ?></h3>
-              <div class="price"><?php echo "\$".$row["Price"].".00" ?><span>$20.99</span>
+              <h3>
+                <?php 
+              echo $book["Title"];
+               ?>
+               </h3>
+              <div class="price"><?php
+               echo "\$".$book["Price"].".00" ;
+               ?>
               </div>
               <a href="#" class="btn">Buy Now</a>
               <a href="#" class="btn">Add to Cart</a>
@@ -77,19 +77,9 @@ if($query->num_rows > 0)
 </div>
 </section>
 <?php 
-}//end of the while loop -->
-}//end if the if statement
-else {
+}
 ?>
- <p>"NO images found..."</p>
- <?php
- }
-?>
-
-      <div>
-          
-      </div>
-        </div>
+</div>
 </div>  
           
 <?php include("./inc/footer.php") ?>

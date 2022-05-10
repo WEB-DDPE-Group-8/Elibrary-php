@@ -18,10 +18,10 @@
           <div class="header-1">
             <a href="#" class="logo"> <i class="fas fa-book"></i> Book Store </a>
 
-            <form action="" class="search-form">
+            <form action=""  class="search-form" method="GET">
               <input
                 type="search"
-                name=""
+                name="search"
                 placeholder="search here..."
                 id="search-box"
               />
@@ -62,10 +62,12 @@
                   <br>
                 </div>
                 <?php
-
             if(isset($_SESSION["username"]))
             echo $_SESSION["username"] ;
+            else
+            echo "@user"
 ?>
+
 </div>
         </div>
 
@@ -99,8 +101,6 @@
       <div class="login-form-container">
         <div id="close-login-btn" class="fas fa-times"></div>
 
-       
-
         <div>
 
         </div>
@@ -130,43 +130,11 @@
           <p>forget password ? <a href="#">click here</a></p>
           <p id="register">don't have an account ?
             <!-- <button id= "reg-btn"> click here to register</button> -->
-            <a href="regadmin.php">create one</a></p>
+            <a href="register.php">create one</a></p>
         </form>
       </div>
 
-      <!-- register form
-      <div class="registration-form-container">
-        <div id="close-login-btn" class="fas fa-times"></div>
 
-        <form action="./lib/db.php" method="POST" >
-        -->
-        <!-- <form action="">
-          <h3>sign in</h3>
-          <span>username</span>
-          <input
-            type="text"
-            name="cred"
-            class="box"
-            placeholder="enter your email"
-            id=""
-          />
-          <span>password</span>
-          <input
-            type="password"
-            name="pass"
-            class="box"
-            placeholder="enter your password"
-            id=""
-          />
-          <div class="checkbox">
-            <input type="checkbox" name="" id="remember-me" />
-            <label for="remember-me"> remember me</label>
-          </div>
-          <input type="submit" value="sign in" name="log_user" class="btn" />
-          <p>forget password ? <a href="#">click here</a></p>
-          <p>don't have an account ? <a href="regadmin.php">create one</a></p>
-        </form>
-      </div>  --> 
 
   <!-- custom js file link  -->
   <?php
@@ -205,3 +173,25 @@ echo  <<<_END
 _END; 
 }
 ?>
+
+<?php
+/**@var \PDO $pdo*/
+
+
+    $pdo = new PDO('mysql:host=localhost;dbname=a2zlibrary', 'root');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $books = [];
+    $search = $_GET['search']?? '';
+
+    if($search){
+        $statement = $pdo->prepare('SELECT * FROM books WHERE Title LIKE :title');
+        $statement->bindValue('title', "%$search%");
+        $statement->execute();
+        $books = $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+    else{
+      $statement= $pdo->prepare('SELECT * FROM books');
+      $statement->execute();
+      $books = $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+

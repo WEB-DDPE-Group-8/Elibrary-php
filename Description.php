@@ -17,6 +17,9 @@
 </head>
 
 <body background="resources/banner-bg.jpg">
+<?php
+include("./inc/nav_bar.php");
+?>
           <!-- header -->
           <table align="center">
     <tr>
@@ -32,7 +35,7 @@
     <div>
         <ul>
 <?php  
-    include("./inc/nav_bar.php");
+   
     include("./config/dbconfig.php");
     
     // $row = [];

@@ -1,5 +1,5 @@
 <?php
-    include("config/dbconfig.php");
+    include('./config/dbconfig.php');
 
 if(isset($_POST["upload_book"])) 
 {
@@ -128,3 +128,8 @@ VALUES('$Title','$Author','$date',' $genre','$description','$lang','$price','$ta
 
     //echo $bookname;
 ?>
+
+
+
+
+

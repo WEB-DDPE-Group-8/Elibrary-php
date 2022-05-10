@@ -114,10 +114,12 @@ if(isset($_POST['log_user']))
     $querycheck =" SELECT UserName,Email,Password from user where Email='$cred' OR UserName='$cred' ";
     
     $result = mysqli_query($db, $querycheck);
+    // $result = mysqli_fetch_assoc($result);
  
     if(mysqli_num_rows($result) == 1)
     {
-        $userData = mysqli_fetch_assoc($result);  
+        $userData = mysqli_fetch_assoc($result);
+
         if($userData["Password"] == $pass)
         {
             foreach($userData as $rows)
@@ -125,9 +127,11 @@ if(isset($_POST['log_user']))
                 //iterate the results object to get the values neede     
                 $_SESSION["username"] = $userData["UserName"];
                 $_SESSION["email"] =  $userData["Email"];
+        
             }      
+        //    echo $_SESSION["email"];
                 header('location:../admin-profile.php');
-            exit();
+            // exit;
         }
         else
         {
