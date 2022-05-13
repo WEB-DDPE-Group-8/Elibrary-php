@@ -66,12 +66,10 @@ $root = $root."/html";
             if(isset($_SESSION["username"]))
             echo $_SESSION["username"] ;
             else
-            echo "@user";
+             echo "@user";
 ?>
-
-</div>
+</div
         </div>
-
         <div class="header-2">
           <nav class="navbar">
             <a href="/html/index.php">home</a>
@@ -82,7 +80,13 @@ $root = $root."/html";
             <a href="/html/public/file_manipulation.php">File Manipulation</a>
             <a href="/html/index.php#blogs">blogs</a>
             <a href="/html/public/report.php">Statistics</a>
-            <a href="/html/admin/admin page.php">Statistics</a>
+            <?php
+             if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]=="1") 
+             {
+             ?>
+            <a href="/html/admin/admin page.php">Dashboard</a>
+            <?php 
+          } ?>
           </nav>
         </div>
       </header>

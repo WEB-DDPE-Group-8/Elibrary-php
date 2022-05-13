@@ -246,7 +246,7 @@ include "../inc/nav_bar.php";
                   </div>
                   <div>
                     <button type="submit" name="log_out" class="btn">Log out<button>
-                      <a class=btn href="./upload page.php">Upload a Book</a>
+                      <a class=btn href="upload page.php">Upload a Book</a>
                   </div>
                 </div>
               </form>

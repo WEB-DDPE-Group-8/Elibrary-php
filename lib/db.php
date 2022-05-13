@@ -101,7 +101,7 @@ if(isset($_POST["register"]))
         mysqli_query($db, $queryadmin);
 
         $_SESSION["username"] = $username;
-        $_SESSION["isAdmin"]=$isAdmin;
+        $_SESSION["isAdmin"] = $isAdmin;
         $_SESSION["email"] =  $email;
 
         $_SESSION["FirstName"]=$firstname;
