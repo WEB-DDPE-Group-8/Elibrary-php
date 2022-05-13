@@ -10,10 +10,14 @@
   background-color: #212121;
   border-top: 1px solid #e5e5e5;
   bottom: 0px;
-  height:max-content;
+  height: max-content;
   /* left: */
   /* top:0px; */
   /* position:absolute; */
+}
+
+.box-container {
+  display: flex;
 }
 
 /* .footer > * {
@@ -26,7 +30,7 @@
 }
 
 .footer__logo {
-  font-family: 'Pacifico', cursive;
+  font-family: "Pacifico", cursive;
   font-weight: 400;
   text-transform: lowercase;
   font-size: 1.5rem;
@@ -78,7 +82,7 @@
 
 .footer__nav {
   display: flex;
-    flex-flow: row wrap;
+  flex-flow: row wrap;
 }
 
 .footer__nav > * {
@@ -95,7 +99,7 @@
   flex-wrap: wrap;
   color: #999;
 }
-  
+
 .legal__links {
   display: flex;
   align-items: center;
@@ -116,23 +120,21 @@
     flex: 1;
   }
 
-  
   .footer__addr {
     flex: 1 0px;
   }
-  
+
   .footer__nav {
     flex: 2 0px;
   }
 }
 
-footer >div> div >ul > li{
-  list-style-type:none;
-  justify-content:flex-start;
+footer > div > div > ul > li {
+  list-style-type: none;
+  justify-content: flex-start;
 }
 
-footer >div
-{
+footer > div {
   display: flex;
   justify-content: space-around;
 }

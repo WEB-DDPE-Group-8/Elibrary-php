@@ -119,7 +119,7 @@ mig = JSON.parse(localStorage.getItem("History"))
 <p><big>Readers also liked</big></p>
 <hr size =12px color =grey>
 <?php
-$genre = $row['Genre'];
+ $genre = $row['Genre'];
  $related = $db->query("Select * from books Where Genre LIKE 'Fantasy'");
  $related = $related->fetch_assoc();
 ?>
@@ -128,77 +128,36 @@ $genre = $row['Genre'];
 <hr size =12px color =grey>
 <br>
 
+<?php
+    $review = $db->query("Select * from reviews where BookID = $row[BookID]");
+
+    $review = $db->query('SELECT 
+    user.UserName, reviews.content,reviews.reaction
+FROM 
+    user
+INNER JOIN 
+    reviews 
+ON
+    user.UserID=reviews.UserID');
+    $review = mysqli_fetch_assoc($review);
+   ?>
 
 <p>Comments</p>
 
 <div >
-   
-    <img src="resources/icons/person.jfif.png" height="50px">
-    <p> <b>Someone</b></p>
-    
-    <p>
-        This book was really insightful and helped me learn the basics of which I was having a hard time grasping.
-    </p>
+    <!-- <img src="resources/icons/person.jfif.png" height="50px"> -->
 
-    <img src="resources/icons/person.jfif.png" height="50px">
-    <p> <b>Someone</b></p>
+    <p> 
+        <?php 
+    for($i =0;$i<13;$i++)
+    {
+    echo $review['UserName'] ?> </b></p>
+    <p> <?php echo $review['content'] ?> </p>
+    <?php
+     }
+     ?>
     
-    <p>
-        This book was really insightful and helped me learn the basics of which I was having a hard time grasping.
-    </p>
 
-<details>
-    <summary>Read More</summary>
-
-    <img src="resources/icons/person.jfif.png" height="50px">
-    <p> <b>Someone</b></p>
-    
-    <p>
-        This book was really insightful and helped me learn the basics of which I was having a hard time grasping.
-    </p>
-
-    
-    <img src="resources/icons/person.jfif.png" height="50px">
-    <p> <b>Someone</b></p>
-    
-    <p>
-        This book was really insightful and helped me learn the basics of which I was having a hard time grasping.
-    </p>
-
-    
-    <img src="resources/icons/person.jfif.png" height="50px">
-    <p> <b>Someone</b></p>
-    
-    <p>
-        This book was really insightful and helped me learn the basics of which I was having a hard time grasping.
-    </p>
-
-    
-    <img src="resources/icons/person.jfif.png" height="50px">
-    <p> <b>Someone</b></p>
-    
-    <p>
-        This book was really insightful and helped me learn the basics of which I was having a hard time grasping.
-    </p>
-
-    
-    <img src="resources/icons/person.jfif.png" height="50px">
-    <p> <b>Someone</b></p>
-    
-    <p>
-        This book was really insightful and helped me learn the basics of which I was having a hard time grasping.
-    </p>
-
-    
-    <img src="resources/icons/person.jfif.png" height="50px">
-    <p> <b>Someone</b></p>
-    
-    <p>
-        This book was really insightful and helped me learn the basics of which I was having a hard time grasping.
-    </p>
-
-</div>
-</details>
 
 
 <!-- <script>

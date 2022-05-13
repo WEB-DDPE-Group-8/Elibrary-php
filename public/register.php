@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <title>Registration</title>
     <link rel="stylesheet" href="../css/register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+    <script src="../js/toggle.js" defer></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
  
   </head>
@@ -128,11 +131,11 @@
             </div>
             <div class="field password">
               <div class="label">Password</div>
-              <input name="pass" type="password">
+              <input name="pass" class="pass" type="password"><i class="far fa-eye" id="togglePassword" style="margin-left: -50px; margin-top: 25px; cursor: pointer;"></i>
             </div>
             <div class="field password">
               <div class="label">Password</div>
-              <input name="pass2" type="password">
+              <input name="pass2" class="pass2" type="password"><i class="far fa-eye" id="togglePassword2" style="margin-left: -50px; margin-top: 25px; cursor: pointer;"></i>
             </div>
             <div class="field btns">
               <button class="prev-3 prev">Previous</button>

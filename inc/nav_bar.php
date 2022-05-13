@@ -82,6 +82,7 @@ $root = $root."/html";
             <a href="/html/public/file_manipulation.php">File Manipulation</a>
             <a href="/html/index.php#blogs">blogs</a>
             <a href="/html/public/report.php">Statistics</a>
+            <a href="/html/admin/admin page.php">Statistics</a>
           </nav>
         </div>
       </header>

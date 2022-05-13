@@ -1,7 +1,7 @@
 const togglePassword = document.querySelector('#togglePassword');
 const togglePassword2 = document.querySelector('#togglePassword2');
-  var password = document.querySelector('#pass');
-  var password2 = document.querySelector('#pass2');
+  var password = document.querySelector('.pass');
+  var password2 = document.querySelector('.pass2');
 
 togglePassword.addEventListener('click', function (e) {
     // toggle the type attribute

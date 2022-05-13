@@ -91,7 +91,7 @@ if(isset($_POST["register"]))
         
         $cartData = mysqli_fetch_assoc($cart);
         
-        $cart_id = (int)$cartData ['MAX(Id)'] ;
+        $cart_id = (int)$cartData['MAX(Id)'];
 
         // echo print_r($sil2);
         $pass = password_hash($pass,PASSWORD_DEFAULT);

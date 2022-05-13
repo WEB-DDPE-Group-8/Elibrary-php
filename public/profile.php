@@ -128,7 +128,7 @@ include "../inc/nav_bar.php";
                       <span class="description">Uplods</span>
                     </div>
                     <div>
-                      <span class="heading"> <?php echo $_SESSION["username"] ?></span>
+                      <span class="heading"> <?php if($_SESSION["isAdmin"]==1)echo "Admin"; else echo "user"; ?></span>
                       <span class="description">Role</span>
                     </div>
                     <div>

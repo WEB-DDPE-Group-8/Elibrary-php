@@ -19,6 +19,7 @@
 
     <!-- custom css file link  -->
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/footer.css" />
     <!-- <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script> -->
 
 
