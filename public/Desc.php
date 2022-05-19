@@ -16,6 +16,7 @@
   </head>
   <body>
     <?php include("../inc/nav_bar.php") ?>
+
     <div class="card-wrapper">
       <div class="card">
         <!-- card left -->
@@ -23,38 +24,36 @@
           <div class="img-display">
             <div class="img-showcase">
               <img src="shoes_images/shoe_1.jpg" alt="shoe image" />
-              <img src="shoes_images/shoe_2.jpg" alt="shoe image" />
-              <img src="shoes_images/shoe_3.jpg" alt="shoe image" />
-              <img src="shoes_images/shoe_4.jpg" alt="shoe image" />
+              
             </div>
           </div>
-          <div class="img-select">
+          <!-- <div class="img-select">
             <div class="img-item">
               <a href="#" data-id="1">
-                <img src="shoes_images/shoe_1.jpg" alt="shoe image" />
+                <!-- <img src="shoes_images/shoe_1.jpg" alt="shoe image" /> -->
               </a>
             </div>
             <div class="img-item">
               <a href="#" data-id="2">
-                <img src="shoes_images/shoe_2.jpg" alt="shoe image" />
+                <!-- <img src="shoes_images/shoe_2.jpg" alt="shoe image" /> -->
               </a>
             </div>
             <div class="img-item">
               <a href="#" data-id="3">
-                <img src="shoes_images/shoe_3.jpg" alt="shoe image" />
+                <!-- <img src="shoes_images/shoe_3.jpg" alt="shoe image" /> -->
               </a>
             </div>
             <div class="img-item">
               <a href="#" data-id="4">
-                <img src="shoes_images/shoe_4.jpg" alt="shoe image" />
+                <!-- <img src="shoes_images/shoe_4.jpg" alt="shoe image" /> -->
               </a>
             </div>
           </div>
-        </div>
+        </div> -->
         <!-- card right -->
         <?php  
    
-    include("../config/dbconfig.php");
+          include("../config/dbconfig.php");
  
          if( isset($_GET["bookid"]))
          {
@@ -134,7 +133,9 @@
     </div>
 
 
-    <?php include("../inc/footer.php") ?>
+    <?php 
+    include "comments.php";
+    include("../inc/footer.php") ?>
     <script src="../js/desc.js"></script>
 
   </body>

@@ -4,19 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./multimedia/resources/logo/logo.png"/>
-    <script src="user.js" defer></script>
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
-    <!-- <link rel="stylesheet" type="text/css" href="css/bookshelf.css"/> -->
-     <!-- <link rel="stylesheet" type="text/css" href="css/footer.css"/> -->
-    <link rel="stylesheet" type="text/css" href="css/index.css"/>
-
-    <!-- <script src="addtocart.js" defer></script> -->
-
-    <link
+    <link rel="shortcut icon" href="../multimedia/resources/logo/logo.png"/>
+    
+    <!-- <link rel="stylesheet" type="text/css" href="css/style.css"/> -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/index.css"/> -->
+    <!-- <link
       rel="stylesheet"
       href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
-      />
+      /> -->
 
     <!-- font awesome cdn link  -->
     <link
@@ -25,20 +20,24 @@
     />
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="../css/style.css" />
+    <!-- <link rel="stylesheet" href="../css/style.css" /> -->
+
+    <script src="user.js" defer></script>
+    <style>
+  .pagination{
+   padding:8px 16px;
+   border:1px solid #ccc;
+   color:#333;
+   font-weight:bold;
+  }
+  </style>
 
 </head>
 
 <body background=./multimedia/resources/banner-bg.jpg>
           <!-- header -->
          
-    <?php 
-
-  include("../inc/nav_bar.php");
-
- 
-        
-    ?>
+    <?php include("../inc/nav_bar.php"); ?>
       <!-- custom js file link  -->
   <script src="../js/script.js" defer></script> 
 
@@ -94,11 +93,60 @@
 
 
 </section>
+
+<div align="center">
+    <br />
+    <?php
+    $page_query= $pdo->prepare(
+      "
+      SELECT * FROM books ORDER BY BookID DESC
+      ");
+    $page_query->execute();
+    $page_result = $page_query->fetchColumn();
+
+    // $page_query = "SELECT * FROM books ORDER BY BookID DESC";
+    // $page_result = mysqli_query($db, $page_query);
+    // include "../config/dbconfig.php";
+
+    // $page_query = "SELECT * FROM books ORDER BY BookID DESC";
+    // $page_result = mysqli_query($db, $page_query);
+    // $total_records = mysqli_num_rows($page_result);
+    // $total_pages = ceil($total_records/$record_per_page);
+
+    // $total_records = mysql_num_rows($page_result);
+    $total_records = $page_result;
+    
+    $total_pages = ceil($total_records/$record_per_page);
+    $start_loop = $page;
+    $difference = $total_pages - $page;
+    if($difference <= 5)
+    {
+     $start_loop = $total_pages - 5;
+    }
+    $end_loop = $start_loop + 4;
+    if($page > 1)
+    {
+     echo "<a class=pagination href='bookshelf.php?page=1'>First</a>";
+     echo "<a class=pagination href='bookshelf.php?page=".($page - 1)."'> << </a>";
+    }
+    for($i=$start_loop; $i<=$end_loop; $i++)
+    {     
+     echo "<a class=pagination href='bookshelf.php?page=".$i."'>".$i."</a>";
+    }
+    if($page <= $end_loop)
+    {
+     echo "<a class=pagination href='bookshelf.php?page=".($page + 1)."'> >></a>";
+     echo "<a class=pagination href='bookshelf.php?page=".$total_pages."'>Last</a>";
+    }
+    ?>
+    </div>
  
-        
+<!--         
 <div class="loader-container">
       <img src="image/loader-img.gif" alt="" />
-    </div>
+</div> -->
+
+
 <?php include("../inc/footer.php") ?>
 
 </body>

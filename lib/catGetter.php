@@ -4,7 +4,7 @@ $cat=[];
 
 include ("../config/globals.php");
 
-include "$root/config/dbconfig.php";
+// include "$root/config/dbconfig.php";
 
 $USER = $_SESSION["username"];
 
@@ -25,14 +25,12 @@ if($_SERVER['REQUEST_METHOD'] == 'GET')
         $statement = $pdo->prepare
         (
             <<<_END
-            UPDATE user set Interests = '$cat' WHERE UserName= '$USER'
+                UPDATE user set Interests = '$cat' WHERE UserName= '$USER'
             _END
         
         );
         $statement->execute();
         // $books = $statement->fetchAll(PDO::FETCH_ASSOC);
-        header("location:../index.php");
+        header("location:../public/profile.php");
     }
 }
-
-?>

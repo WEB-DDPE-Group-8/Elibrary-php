@@ -1,5 +1,6 @@
 <?php
-    include("../config/dbconfig.php");
+   include_once ("../config/dbconfig.php");
+    
 
 if(isset($_POST["upload_book"])) 
 {
@@ -10,10 +11,9 @@ if(isset($_POST["upload_book"]))
     $lang = $_POST['lang'];
     $description = $_POST['description'];
     $price = $_POST['price'];
+
     $statusmsg="";
-
 //  File upload directory
-
 $targetDir = "../uploads/";
 
   if(isset($_POST['upload_book']))
@@ -25,16 +25,22 @@ $targetDir = "../uploads/";
     $description = $_POST['description'];
     $lang = $_POST['lang'];
     $price=$_POST['price'];
+    //   $sql_query="INSERT INTO books(Title,Author,Year,Genre,Description,Language,Price)
+    //   VALUES('$Title','$Author','$date',' $genre','$description',$lang','$price)";
+    //   if(mysqli_query($conn,$sql_query))
+    //   {
+    //       echo "new detais entry inserted succesfully!";
+    //   }  
+    //   mysqli_close($conn);
   }
 
 
-if(isset ($_POST["upload_book"])) 
+if(isset ($_POST["upload_book" ])) 
 {
     if(!empty ($_FILES["file"]["name"]))
     {
         $fileName = basename($_FILES["file"]["name"]);
         $path="../uploads/".$bookname;
-        
         if(!is_dir($path.'/'.$bookname))
         {
             mkdir($path, 0777 , true);
@@ -52,7 +58,7 @@ if(isset ($_POST["upload_book"]))
             //  move_uploaded_file($_FILES["file"][ "tmp_name"], $targetFilePath);
         if (move_uploaded_file($_FILES["file"][ "tmp_name"], $targetFileCover) ) {
             // insert image tile name into database
-            echo $statusMsg="Moved uploaded files";
+            echo $statusMsg="moved uploaded files";
         }
         else{
             echo  $statusMsg="sorry, there was an error uploading your file.";
@@ -86,15 +92,14 @@ if(isset ($_POST["upload_book"]))
     {
         //upload flle to server
         // move_uploaded_file($_FILES["file"][ "tmp_name"], $targetFilePath);
-        if (move_uploaded_file($_FILES["bookpdf"][ "tmp_name"],$targetFileBook) ) 
-        {
+        if (move_uploaded_file($_FILES["bookpdf"][ "tmp_name"],$targetFileBook) ) {
+
         echo "<p style='font-size:35px;'> Uploaded Successfully </p>.";
         // insert image tile name into database
-        }
-        else
-        {
-            echo  $statusMsg="Sorry, there was an error uploading your file.";
-        }
+    }
+    else{
+        echo  $statusMsg="sorry, there was an error uploading your file.";
+    }
     }
     else
     {
@@ -102,15 +107,14 @@ if(isset ($_POST["upload_book"]))
     }
     }
 
-        $insert= $db->query("INSERT INTO books(UserID,Title,Author,Year,Genre,Description,Language,Price,Cover,Book)
-        VALUES(1,'$Title','$Author','$date',' $genre','$description','$lang','$price','$targetFileCover','$targetFileBook')");
+$insert= $db->query("INSERT INTO books(Title,Author,Year,Genre,Description,Language,Price,Cover,UserID,Book)
+VALUES('$Title','$Author','$date',' $genre','$description','$lang','$price','$targetFileCover',$_SESSION[UserID],'$targetFileBook')");
  if($insert)
  {
      // echo must be removed used only for debudding purposes only
-    echo  $statusmsg="\n The file ".$fileName. " has been uploaded successfully";
+ echo  $statusmsg="\n The file ".$fileName. " has been uploaded successfully";
  }
- else
- {
+ else{
      echo  $statustsg="File upload failed, please try again.";
  }
 }
@@ -118,6 +122,15 @@ if(isset ($_POST["upload_book"]))
         echo  $statusmsg="Please select a file to upload.";
     }
 
+
+
+////////////////////////////////////////////
 }
 
+    //echo $bookname;
 ?>
+
+
+
+
+

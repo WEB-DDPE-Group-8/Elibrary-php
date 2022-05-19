@@ -1,4 +1,4 @@
-Downloads
+Downloads >2
 Da Vinci Code,The,Brown, Dan,Monday, March 1, 2004,Inspired by a true story and told through the startlingly sincere voice of a young narrator, Caroline, Peter Rock's My Abandonment is a riveting journey into life at the margins, and a mesmerizing tale of survival and hope.,English,
 Fifty Shades of Grey,James, E. L.,Thursday, April 12, 2012,Inspired by a true story and told through the startlingly sincere voice of a young narrator, Caroline, Peter Rock's My Abandonment is a riveting journey into life at the margins, and a mesmerizing tale of survival and hope.,English,
 Angels and Demons,Brown, Dan,Tuesday, July 1, 2003,Inspired by a true story and told through the startlingly sincere voice of a young narrator, Caroline, Peter Rock's My Abandonment is a riveting journey into life at the margins, and a mesmerizing tale of survival and hope.,English,
@@ -17,18 +17,13 @@ God Delusion,The,Dawkins, Richard,Monday, May 21, 2007,Inspired by a true story 
 "Beano" Annual,The,0,Wednesday, September 1, 2004,Inspired by a true story and told through the startlingly sincere voice of a young narrator, Caroline, Peter Rock's My Abandonment is a riveting journey into life at the margins, and a mesmerizing tale of survival and hope.,Chinese,
 Lost Boy,The:A Foster Child's Search for the Love of a Family,Pelzer, Dave,Saturday, April 7, 2001,Inspired by a true story and told through the startlingly sincere voice of a young narrator, Caroline, Peter Rock's My Abandonment is a riveting journey into life at the margins, and a mesmerizing tale of survival and hope.,English,
 Jamie's Ministry of Food:Anyone Can Learn to Cook in 24 Hours,Oliver, Jamie,Friday, October 3, 2008,Inspired by a true story and told through the startlingly sincere voice of a young narrator, Caroline, Peter Rock's My Abandonment is a riveting journey into life at the margins, and a mesmerizing tale of survival and hope.,Polish,
-Year
-,,2020-02-22,        ,English,
-A book on how to read,,2020-02-22,        ,English,
-3rd ,,2020-02-22,        ,English,
-book name2,anon,2020-02-22,        ,English,
-It works,anon,2020-02-22,        ,English,
+Year>2005
 Language
 	Mandarin,1,
 Chinese,3,
-English,40,
+English,35,
 Espa?ol,1,
 Hindi,1,
 Polish,2,
-Likes
-Dislikes
+Likes > 0
+Dislikes>100

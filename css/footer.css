@@ -1,28 +1,29 @@
-.footer {
+.footer  {
   display: flex;
-  margin-top: 100px;
   margin-right: -10px;
   margin-left: -10px;
-  margin-bottom: -10px;
-  flex-flow: row wrap;
+  flex-flow: row ;
   padding: 30px 30px 20px 30px;
   color: #2f2f2f;
   background-color: #212121;
-  border-top: 1px solid #e5e5e5;
   bottom: 0px;
   height: max-content;
-  /* left: */
-  /* top:0px; */
+
+  top:0px;
   /* position:absolute; */
+}
+
+.space{
+   margin-top: 100px;
 }
 
 .box-container {
   display: flex;
 }
 
-/* .footer > * {
+.footer > * {
   flex:  1 100%;
-} */
+}
 
 .footer__addr {
   margin-right: 1.25em;

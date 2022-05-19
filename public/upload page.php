@@ -14,7 +14,6 @@ header("location:login.php");
         <link rel="shortcut icon" href="./resources/logo/logo.png"/>
 
         <!-- <link rel="stylesheet" type="text/css" href="../css/style.css"/> -->
-        <link rel="stylesheet" type="text/css" href="../css/footer.css"/>
 
         <script src="../js/user.js"></script>
         <script src="../js/addtocart.js" defer></script>
@@ -172,7 +171,7 @@ textarea
                 <div>
                     <p>
                         <label for="filec"> <img id=nm src="./multimedia/resources/add-file.png" width="52px"> <br/> Add Book  </label>
-                        <input id="filec" type="file"  hidden >
+                        <input id="filec" name="bookpdf" type="file"  hidden >
     <script>
         filec.onchange = evt => {
             const [file] = filec.files

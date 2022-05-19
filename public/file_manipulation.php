@@ -1,4 +1,12 @@
-<h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
 <?php
 include("../inc/nav_bar.php");
 
@@ -168,7 +176,7 @@ if(isset($_POST['btn8']))
 }
 ?>
 <div class="form">
-<h1>
+
 <form action="file_manipulation.php"  method="post">
 
 <button class="btn" name="btn1" >Generate Report Statistical info</button> <br>
@@ -191,17 +199,20 @@ if(isset($_POST['btn8']))
 
 </form>
 </div>
+
 <?php
 include("../inc/footer.php");
 ?>
 
 <style>
-
+/* 
 #search-box
 {
 border-style: solid;
 border-radius: 5%;
 border-color: green;
 /* background-color: green; */
-}
+/* }  */
 </style>
+</body>
+</html>

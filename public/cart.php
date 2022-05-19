@@ -15,7 +15,6 @@ header("location:login.php");
     <link rel="shortcut icon" href="../multimedia/resources/logo/logo.png" />
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
     <link rel="stylesheet" type="text/css" href="../css/carrt.css" async />
-    <link rel="stylesheet" type="text/css" href="../css/footer.css" />
     <link rel="stylesheet" type="text/css" href="../css/index.css" />
 
     <script src="../js/user.js"></script>

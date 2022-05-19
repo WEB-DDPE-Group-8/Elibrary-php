@@ -129,73 +129,33 @@ mig = JSON.parse(localStorage.getItem("History"))
 <br>
 
 <?php
-    $review = $db->query("Select * from reviews where BookID = $row[BookID]");
+    // $review = $db->query("Select * from reviews where BookID = $row[BookID]");
 
-    $review = $db->query('SELECT 
-    user.UserName, reviews.content,reviews.reaction
-FROM 
-    user
-INNER JOIN 
-    reviews 
-ON
-    user.UserID=reviews.UserID');
-    $review = mysqli_fetch_assoc($review);
+    $reviews = $db->query("SELECT 
+   user.UserID,user.UserName,reviews.UserID, reviews.Content,reviews.reaction
+    FROM 
+        reviews
+    INNER JOIN 
+        user 
+    ON
+        user.UserID=reviews.UserID
+    Where
+    BookID =$Id
+    "
+                        );
+    // $reviews = mysqli_fetch_assoc($review);
+    $reviews->fetch_assoc();
    ?>
 
-<p>Comments</p>
-
-<div >
-    <!-- <img src="resources/icons/person.jfif.png" height="50px"> -->
-
-    <p> 
-        <?php 
-    for($i =0;$i<13;$i++)
-    {
-    echo $review['UserName'] ?> </b></p>
-    <p> <?php echo $review['content'] ?> </p>
-    <?php
-     }
-     ?>
-    
+<p>Comments</p>    
 
 
+    <?php 
 
-<!-- <script>
-// console.log("book key "+ localStorage.getItem("History"))
-    
-var hist = JSON.parse(localStorage.getItem("History"))
-var rem = document.getElementById("p1");
-var div = document.getElementById("book")
-var p = document.getElementById("p1");
-         
-        //  var bookimg = document.createElement("p");
-var bookimg = document.createElement("img");
-
-console.log(localStorage.getItem(hist))
-if(localStorage.getItem(hist))
-{
-var infn = JSON.parse(localStorage.getItem(hist))
-// console.log(name)
-// console.log(infn.title)
-bookimg.src=infn.impath
-document.getElementById("name").textContent=infn.title.toUpperCase()
-document.getElementById("descr").textContent=infn.desc
-document.getElementById("auth").textContent=infn.auth
-document.getElementById("lang").textContent=infn.lang
-document.getElementById("descr").textContent=infn.desc
-document.getElementById("cat").textContent=infn.cat
-document.getElementById("pr").textContent=infn.price
-div.appendChild(bookimg);
-// console.dir(name)
-}
-else
-    {
-    alert("book key not found")
-    }
-
-             </script> -->
-
-<?php include("../inc/footer.php")  ?>
+        include "comments poster.php";
+        include "comments.php";
+        include("../inc/footer.php")  
+    ?>
 
 </body>
 

@@ -39,25 +39,25 @@ $root = $root."/html";
             
             <a href=
             <?php
-      if(isset($_SESSION['username'])) 
-      {
-        echo "/html/public/cart.php";
-      }
-      else{
-        echo "/html/public/login.php";
-      };
-?>
-    class="fas fa-heart">
-  </a>
+              if(isset($_SESSION['username'])) 
+              {
+                echo "/html/public/cart.php";
+              }
+              else{
+                echo "/html/public/login.php";
+              };
+               ?>
+            class="fas fa-heart">
+          </a>
 
-    <a href=
-    <?php
-    if(isset($_SESSION["username"]))
-    echo "/html/public/cart.php" ;
-    else
-    {echo "/html/public/login.php";}
-    ?>
-    class="fas fa-shopping-cart"><br></a>
+          <a href=
+          <?php
+           if(isset($_SESSION["username"]))
+               echo "/html/public/cart.php" ;
+            else
+               {echo "/html/public/login.php";}
+          ?>
+          class="fas fa-shopping-cart"><br></a>
                
     <div id="login-btn" class="fas fa-user">
                   <br>
@@ -68,8 +68,10 @@ $root = $root."/html";
             else
              echo "@user";
 ?>
-</div
-        </div>
+</div>
+            </div>
+            </div>
+        
         <div class="header-2">
           <nav class="navbar">
             <a href="/html/index.php">home</a>
@@ -85,8 +87,9 @@ $root = $root."/html";
              {
              ?>
             <a href="/html/admin/admin page.php">Dashboard</a>
-            <?php 
-          } ?>
+           <?php 
+            };
+           ?>
           </nav>
         </div>
       </header>
@@ -143,7 +146,7 @@ $root = $root."/html";
       
   <?php
 
-  if(!isset($_SESSION["username"]))
+  if(!isset($_SESSION['username']))
 {
    echo 
    <<<_END
@@ -182,22 +185,66 @@ _END;
 
 <?php
 /**@var \PDO $pdo*/
+    // $connect =$db;
+    $record_per_page = 5;
+    $page = '';
+    // if(isset($_GET["page"]))
+    // {
+    // $page = $_GET["page"];
+    // }
+    // else
+    // {
+    // $page = 1;
+    // }
+
+    // $start_from = ($page-1)*$record_per_page;
+
+    // $query = "SELECT * FROM books order by BookID DESC LIMIT $start_from, $record_per_page";
+    // $result = mysqli_query($connect, $query);
 
 
     $pdo = new PDO('mysql:host=localhost;dbname=a2zlibrary', 'root');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $books = [];
-    $search = $_GET['search']?? '';
+    // $books = [];
+    $search = $_GET['search'] ?? '';
 
     if($search){
-        $statement = $pdo->prepare('SELECT * FROM books WHERE Title LIKE :title');
+      $record_per_page = 5;
+      $page = '';
+      if(isset($_GET["page"]))
+      {
+      $page = $_GET["page"];
+      }
+      else
+      {
+      $page = 1;
+      }
+
+        $start_from = ($page-1)*$record_per_page;
+        $statement = $pdo->prepare("SELECT * FROM books WHERE Title LIKE :title order by BookID DESC LIMIT $start_from, $record_per_page ");
         $statement->bindValue('title', "%$search%");
         $statement->execute();
         $books = $statement->fetchAll(PDO::FETCH_ASSOC);
     }
     else{
-      $statement= $pdo->prepare('SELECT * FROM books');
+      $record_per_page = 5;
+      $page = '';
+      if(isset($_GET["page"]))
+      {
+      $page = $_GET["page"];
+      }
+      else
+      {
+      $page = 1;
+      }
+
+      $start_from = ($page-1)*$record_per_page;
+      $statement= $pdo->prepare(
+        "
+              SELECT * FROM books order by BookID DESC LIMIT $start_from, $record_per_page 
+        ");
       $statement->execute();
       $books = $statement->fetchAll(PDO::FETCH_ASSOC);
+      
     }
 

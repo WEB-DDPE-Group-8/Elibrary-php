@@ -18,7 +18,10 @@
             foreach($errors as $error)
             {
               ?>
-          <p class="error"><?php echo $error;}?></p>
+          <p class="error"><?php echo $error;
+            }
+       ?>
+            </p>
 
       <div class="progress-bar">
         <div class="step">
@@ -112,8 +115,8 @@
             <div class="field">
               <div class="label">Gender</div>
               <select name="gender">
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
                 <option value="Other">Other</option>
               </select>
             </div>
@@ -139,7 +142,7 @@
             </div>
             <div class="field btns">
               <button class="prev-3 prev">Previous</button>
-              <button type="submit" name="register" class="submit">Submit</button>
+              <button type="submit" name="register" onclick=preventDefault() class="submit">Submit</button>
             </div>
           </div>
         </form>
