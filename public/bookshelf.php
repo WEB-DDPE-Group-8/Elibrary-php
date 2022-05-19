@@ -38,6 +38,8 @@
           <!-- header -->
          
     <?php include("../inc/nav_bar.php"); ?>
+
+
       <!-- custom js file link  -->
   <script src="../js/script.js" defer></script> 
 
@@ -46,6 +48,7 @@
       <div class="swiper featured-slider">
         <div class="swiper-wrapper">
         <?php
+        include '../lib/cart-inc.php';
                 foreach($books as $book)
                 {
             ?>
@@ -76,10 +79,9 @@
                ?>
               </div>
 
-              <a href="#" class="btn">Buy Now</a>
-              <a href="#" class="btn">Add to Cart</a>
+              <a href="<?php echo $book["Book"]?>" class="btn">Buy Now</a>
+              <a href="?<?php echo 'BookID='.$book["BookID"]?>?<?php echo 'Price='.$book['Price']?>" class="btn">Add to Cart</a>
               </div>
-    
           </div>
           <?php 
 }
