@@ -56,7 +56,7 @@
            
             <div class="icons">
               <a href="cart.php" class="fas fa-heart"></a>
-              <a href=../public/description.php?bookid=<?php 
+              <a href=../public/desc.php?bookid=<?php 
               echo $book["BookID"] ;
               ?> class="fas fa-eye"></a>
             </div>

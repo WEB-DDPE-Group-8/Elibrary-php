@@ -116,45 +116,13 @@ mig = JSON.parse(localStorage.getItem("History"))
 </table>
 <br><br><br>
 
-<p><big>Readers also liked</big></p>
-<hr size =12px color =grey>
-<?php
- $genre = $row['Genre'];
- $related = $db->query("Select * from books Where Genre LIKE 'Fantasy'");
- $related = $related->fetch_assoc();
-?>
-<a  href= "Description.php?<?php echo $related["BookID"] ?>"><img  src="resources/books/2.jpg" width=255 height="400px"></a> 
-
-<hr size =12px color =grey>
-<br>
-
-<?php
-    // $review = $db->query("Select * from reviews where BookID = $row[BookID]");
-
-    $reviews = $db->query("SELECT 
-   user.UserID,user.UserName,reviews.UserID, reviews.Content,reviews.reaction
-    FROM 
-        reviews
-    INNER JOIN 
-        user 
-    ON
-        user.UserID=reviews.UserID
-    Where
-    BookID =$Id
-    "
-                        );
-    // $reviews = mysqli_fetch_assoc($review);
-    $reviews->fetch_assoc();
-   ?>
-
-<p>Comments</p>    
-
-
-    <?php 
-
+<?php 
+    
+        include '../lib/relatedGetter.php';
+        include '../lib/reviewGetter.php';
         include "comments poster.php";
         include "comments.php";
-        include("../inc/footer.php")  
+        include "../inc/footer.php"; 
     ?>
 
 </body>

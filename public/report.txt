@@ -20,13 +20,12 @@ Jamie's Ministry of Food:Anyone Can Learn to Cook in 24 Hours,Oliver, Jamie,Frid
 Year
 ,,2020-02-22,        ,English,
 A book on how to read,,2020-02-22,        ,English,
-3rd ,,2020-02-22,        ,English,
 book name2,anon,2020-02-22,        ,English,
 It works,anon,2020-02-22,        ,English,
 Language
 	Mandarin,1,
 Chinese,3,
-English,40,
+English,39,
 Espa?ol,1,
 Hindi,1,
 Polish,2,

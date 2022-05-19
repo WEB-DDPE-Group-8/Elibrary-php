@@ -134,7 +134,10 @@
 
 
     <?php 
-    include "comments.php";
+    // include '../lib/relatedGetter.php';
+    include '../lib/reviewGetter.php';
+    include '../public/comments poster.php';
+    include '../public/comments.php';
     include("../inc/footer.php") ?>
     <script src="../js/desc.js"></script>
 
