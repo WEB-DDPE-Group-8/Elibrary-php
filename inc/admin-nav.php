@@ -11,12 +11,12 @@
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         />
-        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="../css/style.css" />
         
 
         <header class="header">
           <div class="header-1">
-            <a href="#" class="logo"> <i class="fas fa-book"></i> Book Store </a>
+            <a href="#" class="logo"> AdminPanel</a>
 
             <form action=""  class="search-form" method="GET">
               <input
@@ -34,14 +34,14 @@
             <a href=
             <?php
 
-       session_start();
-      if(isset($_SESSION['username'])) 
-      {
-        echo "cart.php";
-      }
-      else{
-        echo "login.php";
-      };
+      // session_start();
+      // if(isset($_SESSION['username'])) 
+      // {
+      //   echo "cart.php";
+      // }
+      // else{
+      //   echo "login.php";
+      // };
 
 ?>
     class="fas fa-heart"></a>
@@ -73,67 +73,34 @@
 
         <div class="header-2">
           <nav class="navbar">
-            <a href="index.php">home</a>
-            <a href="bookshelf.php">featured</a>
-            <a href="#arrivals">arrivals</a>
-            <a href="#reviews">reviews</a>
-            <a href="file_manipulation.php">File Manipulation</a>
-            <a href="#blogs">blogs</a>
-            <a href="report.php">Statistics</a>
+            <a href="../index.php">home</a>
+            <a href="admin_page.php">DashBoard</a>
+            <a href="admin_products.php">Book upload</a>
+            <a href="admin_orders.php">Orders</a>
+            <a href="admin_users.php">Users</a>
+            <a href="admin_contacts.php">Messages</a>
+
           </nav>
         </div>
       </header>
+
 
       <!-- header section ends -->
 
       <!-- bottom navbar  -->
 
       <nav class="bottom-navbar">
-        <a href="index.php" class="fas fa-home"></a>
-        <a href="bookshelf.php" class="fas fa-list"></a>
-        <a href="#arrivals" class="fas fa-tags"></a>
-        <a href="#reviews" class="fas fa-comments"></a>
-        <a href="#blogs" class="fas fa-blog"></a>
+        <a href="../index.php" class="fas fa-home"></a>
+        <a href="admin_page.php" class="fas fa-list"></a>
+        <a href="admin_product.php" class="fas fa-tags"></a>
+        <a href="admin_orders.php" class="fas fa-comments"></a>
+        <a href="admin_users.php" class="fas fa-blog"></a>
+        <a href="admin_contact.php" class="fas fa-blog"></a>
       </nav>
 
       <!-- login form  -->
 
-      <div class="login-form-container">
-        <div id="close-login-btn" class="fas fa-times"></div>
-
-        <div>
-
-        </div>
-        <form action="lib/db.php" method="POST">
-          <h3>sign in</h3>
-          <span>username</span>
-          <input
-            type="text"
-            name="cred"
-            class="box"
-            placeholder="enter your email"
-            id=""
-          />
-          <span>password</span>
-          <input
-            type="password"
-            name="pass"
-            class="box"
-            placeholder="enter your password"
-            id=""
-          />
-          <div class="checkbox">
-            <input type="checkbox" name="" id="remember-me" />
-            <label for="remember-me"> remember me</label>
-          </div>
-          <input type="submit" value="sign in" name="log_user" class="btn" />
-          <p>forget password ? <a href="#">click here</a></p>
-          <p id="register">don't have an account ?
-            <!-- <button id= "reg-btn"> click here to register</button> -->
-            <a href="register.php">create one</a></p>
-        </form>
-      </div>
-
+      
 
 
   <!-- custom js file link  -->

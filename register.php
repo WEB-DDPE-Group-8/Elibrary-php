@@ -1,22 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register</title>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Registration</title>
     <link rel="stylesheet" href="css/register.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
-    <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-        />
-        <link rel="stylesheet" href="css/style.css" />
+   
     
   </head>
   <body class = "reg">
-    <main>
     <div class="container">
       <header>Signup Form</header>
       <div class="progress-bar">
@@ -80,7 +73,7 @@
               <input type="text">
             </div>
             <div class="field">
-              <button class="prev-101 prev">Previous</button>
+              <button class="prev-101 prev">Previous</button> 
               <button class="firstNext-1 next">Next</button>
               
             </div>
@@ -144,9 +137,7 @@
         </form>
       </div>
     </div>
-    </main>
     <script src="js/register.js" ></script>
-
 
   </body>
 </html>
