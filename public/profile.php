@@ -174,12 +174,20 @@ include "../inc/nav_bar.php";
             </div>
           </div>
         </div>
+           <?php include '../admin/tasks.php';  ?>
       </div>
     </div>
   </div>
+
+
+ 
+
+
   <?php
-include "../inc/footer.php";
+  include "../inc/footer.php";
   ?>
+
+
 
 </body>
 </html>
