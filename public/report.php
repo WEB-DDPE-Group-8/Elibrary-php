@@ -113,8 +113,7 @@ function validateFile() {
 <!-- book upload section -->
 <?php
 
-require_once '../admin/csv-to-mysql/list.php'; 
-
+require_once "../admin/book-list.php";
 $BookModel = new BookModel();
 
 if (isset($_POST["importbook"])) {

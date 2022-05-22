@@ -17,7 +17,8 @@ $errors= array();
 
 if(isset($_POST["register"])) 
 {
-    if(!empty($firstname)) 
+    try{
+    if(empty($_POST["firstname"])) 
     {
         array_push($errors,"First Name Required");
         return 0;
@@ -30,20 +31,20 @@ if(isset($_POST["register"]))
           }
     }
 
-    // if(!empty($gender)) 
-    // {
-    //     array_push($errors,"Gender Required");
-    //     return 0;
-    // }
-    // else{
-    //     $gender =test_input($_POST["gender"]);
-    //     if (!preg_match("/^(?:m|M|male|Male|f|F|female|Female)$ /",$gender)) {
-    //         array_push($errors,"Wrong input for gender try refreshing this page");
-    //         return 0;
-    //       }
-    // }
+    if(empty($_POST["gender"])) 
+    {
+        array_push($errors,"Gender Required");
+        return 0;
+    }
+    else{
+        $gender =test_input($_POST["gender"]);
+        if (!preg_match("/^[?:m|M|male|Male|f|F|female|Female|O|o]$/",$gender)) {
+            array_push($errors,$gender."Wrong input for gender try refreshing this page");
+            return 0;
+          }
+    }
 
-    if(!empty($lastname))
+    if(empty($_POST["lastname"]))
     {
         array_push($errors,"Last Name Required");
         return 0;
@@ -56,7 +57,7 @@ if(isset($_POST["register"]))
           }
     }
 
-    if(!empty($username))
+    if(empty($_POST["username"]))
     {
         array_push($errors,"User Name Required");
         return 0;
@@ -65,12 +66,12 @@ if(isset($_POST["register"]))
 
         $username  =test_input($_POST["username"]);
         if (!preg_match("/^([\w][\w\-_\x{0020}]{3,10}[\w])$/",$username)) {
-            array_push($errors,"User Name error,Only letters and white space allowed");
+            array_push($errors,"User Name error <br> Only letters and white space allowed <br> 3-10 characters");
             return 0;
           }
     }
 
-    if(!empty($email))
+    if(empty($_POST["email"]))
     {
         array_push($errors,"User Name Required");
         return 0;
@@ -83,21 +84,21 @@ if(isset($_POST["register"]))
           }
     }
 
-    if(!empty($phonenumber))
+    if(empty($_POST["phonenumber"]))
     {
-        array_push($errors,"User Name Required");
+        array_push($errors,"Phone number Required");
         return 0;
     }
     else{
 
-        $phonenumber  =test_input($_POST["phonenumber"]);
-        // if (!preg_match("/^([\w][\w\-_\u0020]{4,18}[\w])$/",$username)) {
-        //     array_push($errors,"Invalid User Name");
-        //     return 0;
-        //  
+        $phonenumber =test_input($_POST["phonenumber"]);
+        if (!preg_match('/^[0-9]{11}+$/',$phonenumber)){
+            array_push($errors,"Invalid Phone Number: <br>requires 11 digits");
+            return 0;
+        }
     }
 
-    if(!empty($pass) || !empty($pass2))
+    if(empty($_POST["pass"]) || empty($_POST["pass2"]))
     {
         array_push($errors,"Password field is missing");
         return 0;
@@ -121,10 +122,10 @@ if(isset($_POST["register"]))
             }
     }
 
-    // if(!empty($dob)){
-    //     array_push($errors,"Dob field is missing");
-    //     return 0;
-    // "}"
+    if(empty($_POST["dob"])) {
+        array_push($errors,$_POST["dob"]."Dob field is missing");
+        return 0;
+    }
 
     if(empty($_POST["role"])){ 
 
@@ -135,7 +136,7 @@ if(isset($_POST["register"]))
         $role =  test_input($_POST['role']);
         if($role == "admin")
         {
-            if(!empty($admin_code))
+            if(empty($admin_code))
             {
                 $admin_code =  test_input($_POST['admin_code']);
                 $isAdmin = in_array($admin_code,$admincodes);
@@ -144,7 +145,10 @@ if(isset($_POST["register"]))
                             array_push($errors,"The Admin code you entered is wrong");
                             return 0;
                         }
-            }
+            } else { array_push($errors,"Please enter an admin code"); return 0;}
+        }
+        else{
+            $isAdmin = false;
         }
     }
 
@@ -154,11 +158,8 @@ if(isset($_POST["register"]))
         mysqli_query($db,$createcart);
 
         $querylatestcart = "Select MAX(Id) FROM cart";
-
         $cart = mysqli_query($db,$querylatestcart);
-        
         $cartData = mysqli_fetch_assoc($cart);
-        
         $cart_id = (int)$cartData['MAX(Id)'];
 
         $pass = password_hash($pass,PASSWORD_DEFAULT);
@@ -168,21 +169,35 @@ if(isset($_POST["register"]))
             
         mysqli_query($db, $queryadmin);
 
+        $_SESSION["cart_id"] = $cart_id;
         $_SESSION["username"] = $username;
-        $_SESSION["isadmin"] = $isAdmin;
+        $_SESSION["role"] = $isAdmin;
         $_SESSION["email"] =  $email;
-
         $_SESSION["firstname"]=$firstname;
         $_SESSION["lastname"]=$lastname;
-        $_SESSION["PhoneNumber"]=$phonenumber;
-        
-        $_SESSION["Cart_Id"]=$userData["Cart_Id"];
+        $_SESSION["phonenumber"]=$phonenumber;
 
-        // $_SESSION["CreditCard"]=$userData["CreditCard"];
-        // $_SESSION["Interests"]=$userData["Interests"];
+        $querylatestuser = "Select MAX(Id) FROM user";
+        $user = mysqli_query($db,$querylatestuser);
+        $userData = mysqli_fetch_assoc($user);
+        $user_id = (int)$userData['MAX(Id)'];
+        
+        $_SESSION["UserID"] =$user_id["UserID"];
+
+        // $_SESSION["creditard"]=$userData["CreditCard"];
+        // $_SESSION["interests"]=$userData["Interests"];
 
         header('location:../public/catSelector.php');
         exit();
+        }
+    }
+    catch (mysqli_sql_exception $e) {
+
+        if(str_contains($e, "Duplicate entry")) {
+            array_push($errors,"UserName already Taken");
+            return 0;
+        }
+            die("Error inserting user details into database: " .  $e->getMessage());
     }
 };
  

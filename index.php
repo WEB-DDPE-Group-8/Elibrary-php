@@ -47,22 +47,22 @@
         <div class="swiper books-slider">
           <div class="swiper-wrapper">
             <a href="#" class="swiper-slide"
-              ><img src="image/book-1.png" alt=""
+              ><img src="image/1.png" alt=""
             /></a>
             <a href="#" class="swiper-slide"
-              ><img src="image/book-2.png" alt=""
+              ><img src="image/2.png" alt=""
             /></a>
             <a href="#" class="swiper-slide"
-              ><img src="image/book-3.png" alt=""
+              ><img src="image/3.png" alt=""
             /></a>
             <a href="#" class="swiper-slide"
-              ><img src="image/book-4.png" alt=""
+              ><img src="image/4.png" alt=""
             /></a>
             <a href="#" class="swiper-slide"
-              ><img src="image/book-5.png" alt=""
+              ><img src="image/5.png" alt=""
             /></a>
             <a href="#" class="swiper-slide"
-              ><img src="image/book-6.png" alt=""
+              ><img src="image/6.png" alt=""
             /></a>
           </div>
           <img src="image/stand.png" class="stand" alt="" />
@@ -112,7 +112,7 @@
 
     <!-- featured section starts  -->
 
-    <section class="featured" id="featured">
+  
       <h1 class="heading"><span>featured books</span></h1>
 
       <div class="swiper featured-slider">
@@ -124,7 +124,7 @@
               <a href="#" class="fas fa-eye"></a>
             </div>
             <div class="image">
-              <img src="image/book-1.png" alt="" />
+              <img src="image/1.png" alt="" />
             </div>
             <div class="content">
               <h3>featured books</h3>
@@ -140,7 +140,7 @@
               <a href="#" class="fas fa-eye"></a>
             </div>
             <div class="image">
-              <img src="image/book-2.png" alt="" />
+              <img src="image/2.png" alt="" />
             </div>
             <div class="content">
               <h3>featured books</h3>
@@ -156,7 +156,7 @@
               <a href="#" class="fas fa-eye"></a>
             </div>
             <div class="image">
-              <img src="image/book-3.png" alt="" />
+              <img src="image/3.png" alt="" />
             </div>
             <div class="content">
               <h3>featured books</h3>
@@ -172,7 +172,7 @@
               <a href="#" class="fas fa-eye"></a>
             </div>
             <div class="image">
-              <img src="image/book-4.png" alt="" />
+              <img src="image/4.png" alt="" />
             </div>
             <div class="content">
               <h3>featured books</h3>
@@ -188,7 +188,7 @@
               <a href="#" class="fas fa-eye"></a>
             </div>
             <div class="image">
-              <img src="image/book-5.png" alt="" />
+              <img src="image/5.png" alt="" />
             </div>
             <div class="content">
               <h3>featured books</h3>
@@ -204,7 +204,7 @@
               <a href="#" class="fas fa-eye"></a>
             </div>
             <div class="image">
-              <img src="image/book-6.png" alt="" />
+              <img src="image/6.png" alt="" />
             </div>
             <div class="content">
               <h3>featured books</h3>
@@ -220,7 +220,7 @@
               <a href="#" class="fas fa-eye"></a>
             </div>
             <div class="image">
-              <img src="image/book-7.png" alt="" />
+              <img src="image/7.png" alt="" />
             </div>
             <div class="content">
               <h3>featured books</h3>
@@ -236,7 +236,7 @@
               <a href="#" class="fas fa-eye"></a>
             </div>
             <div class="image">
-              <img src="image/book-8.png" alt="" />
+              <img src="image/8.png" alt="" />
             </div>
             <div class="content">
               <h3>featured books</h3>
@@ -252,7 +252,7 @@
               <a href="#" class="fas fa-eye"></a>
             </div>
             <div class="image">
-              <img src="image/book-9.png" alt="" />
+              <img src="image/9.png" alt="" />
             </div>
             <div class="content">
               <h3>featured books</h3>
@@ -268,7 +268,7 @@
               <a href="#" class="fas fa-eye"></a>
             </div>
             <div class="image">
-              <img src="./image/book-10.png" alt="" />
+              <img src="./image/10.png" alt="" />
             </div>
             <div class="content">
               <h3>featured books</h3>
@@ -312,7 +312,7 @@
         <div class="swiper-wrapper">
           <a href="#" class="swiper-slide box">
             <div class="image">
-              <img src="image/book-1.png" alt="" />
+              <img src="image/1.png" alt="" />
             </div>
             <div class="content">
               <h3>new arrivals</h3>
@@ -329,7 +329,7 @@
 
           <a href="#" class="swiper-slide box">
             <div class="image">
-              <img src="image/book-2.png" alt="" />
+              <img src="image/2.png" alt="" />
             </div>
             <div class="content">
               <h3>new arrivals</h3>
@@ -346,7 +346,7 @@
 
           <a href="#" class="swiper-slide box">
             <div class="image">
-              <img src="image/book-3.png" alt="" />
+              <img src="image/3.png" alt="" />
             </div>
             <div class="content">
               <h3>new arrivals</h3>
@@ -363,7 +363,7 @@
 
           <a href="#" class="swiper-slide box">
             <div class="image">
-              <img src="image/book-4.png" alt="" />
+              <img src="image/4.png" alt="" />
             </div>
             <div class="content">
               <h3>new arrivals</h3>
@@ -380,7 +380,7 @@
 
           <a href="#" class="swiper-slide box">
             <div class="image">
-              <img src="image/book-5.png" alt="" />
+              <img src="image/5.png" alt="" />
             </div>
             <div class="content">
               <h3>new arrivals</h3>
@@ -401,7 +401,7 @@
         <div class="swiper-wrapper">
           <a href="#" class="swiper-slide box">
             <div class="image">
-              <img src="image/book-6.png" alt="" />
+              <img src="image/6.png" alt="" />
             </div>
             <div class="content">
               <h3>new arrivals</h3>
@@ -418,7 +418,7 @@
 
           <a href="#" class="swiper-slide box">
             <div class="image">
-              <img src="image/book-7.png" alt="" />
+              <img src="image/7.png" alt="" />
             </div>
             <div class="content">
               <h3>new arrivals</h3>
@@ -435,7 +435,7 @@
 
           <a href="#" class="swiper-slide box">
             <div class="image">
-              <img src="image/book-8.png" alt="" />
+              <img src="image/8.png" alt="" />
             </div>
             <div class="content">
               <h3>new arrivals</h3>
@@ -452,7 +452,7 @@
 
           <a href="#" class="swiper-slide box">
             <div class="image">
-              <img src="image/book-9.png" alt="" />
+              <img src="image/9.png" alt="" />
             </div>
             <div class="content">
               <h3>new arrivals</h3>
@@ -469,7 +469,7 @@
 
           <a href="#" class="swiper-slide box">
             <div class="image">
-              <img src="image/book-10.png" alt="" />
+              <img src="image/10.png" alt="" />
             </div>
             <div class="content">
               <h3>new arrivals</h3>

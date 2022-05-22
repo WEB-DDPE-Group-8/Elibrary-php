@@ -944,7 +944,7 @@ textarea.form-control {
 .navbar {
   position: relative;
   display: flex;
-  padding: 1rem 1rem;
+  padding: 0rem 1rem 0rem 1rem;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;

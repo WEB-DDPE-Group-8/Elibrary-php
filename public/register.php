@@ -98,7 +98,7 @@
             </div>
             <div class="field">
               <div class="label">Phone Number</div>
-              <input name="phonenumber" type="tel">
+              <input name="phonenumber" type="tel"  placeholder="03333333333">
             </div>
             <div class="field btns">
               <button class="prev-1 prev">Previous</button>
@@ -117,7 +117,7 @@
               <select name="gender">
                 <option value="M">Male</option>
                 <option value="F">Female</option>
-                <option value="Other">Other</option>
+                <option value="O">Other</option>
               </select>
             </div>
             <div class="field btns">

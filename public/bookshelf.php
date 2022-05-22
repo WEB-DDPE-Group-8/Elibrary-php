@@ -20,7 +20,7 @@
     />
 
     <!-- custom css file link  -->
-    <!-- <link rel="stylesheet" href="../css/style.css" /> -->
+    <link rel="stylesheet" href="../css/style.css" />
 
     <script src="user.js" defer></script>
     <style>
@@ -43,7 +43,7 @@
       <!-- custom js file link  -->
   <script src="../js/script.js" defer></script> 
 
-    <section class="featured" id="featured">
+  <section class="featured" id="featured">
 
       <div class="swiper featured-slider">
         <div class="swiper-wrapper">
@@ -61,9 +61,9 @@
               ?> class="fas fa-eye"></a>
             </div>
             <div class="image">
-              <img src="
+              <img src="image/
               <?php 
-              echo $book["Cover"];
+              echo $book["BookID"];
                 ?>
                 " alt="" />
             </div>
@@ -84,14 +84,14 @@
               </div>
           </div>
           <?php 
-}
-?>  
+            }
+            ?>  
           </div>
           </div>
           </div>
           <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
-</div>
+    </div>
 
 
 </section>
