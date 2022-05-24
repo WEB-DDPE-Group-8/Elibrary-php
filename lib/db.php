@@ -216,6 +216,7 @@ if(isset($_POST["log_user"]))
     if(count($errors)==0)
  {
     $querycheck =" SELECT * from user where Email='$cred' OR UserName='$cred' ";
+   
     
     $result = mysqli_query($db, $querycheck);
     // $result = mysqli_fetch_assoc($result);
@@ -228,6 +229,12 @@ if(isset($_POST["log_user"]))
        {
         // if($userData["Password"] == $pass)
         // {
+            $uploads = "SELECT COUNT(UserID) from books where UserID = $userData[UserID]";
+            $uplds = mysqli_query($db,$uploads);
+            $uplds  = mysqli_fetch_assoc($uplds);
+            
+            $_SESSION["uploads"] = $uplds["COUNT(UserID)"];
+            
             foreach($userData as $e)
             {
                 //iterate the results object to get the values needed
@@ -241,6 +248,10 @@ if(isset($_POST["log_user"]))
                 $_SESSION["cart_id"]     =   $userData["Cart_Id"];
                 $_SESSION["creditcard"]  =   $userData["CreditCard"];
                 $_SESSION["role"]        =   $userData["IsAdmin"];
+                $_SESSION["about"]        =   $userData["About"];
+                
+               
+
             }      
             // echo $_SESSION["role"];
                 header("location:../public/profile.php");

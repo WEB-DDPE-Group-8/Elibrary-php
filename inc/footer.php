@@ -2,6 +2,36 @@
         <link rel="stylesheet" type="text/css" href="../css/footer.css"/>
         
         <link rel="stylesheet" type="text/css" href="css/footer.css"/>
+        <style>
+#myBtn:hover
+{
+    background-color: white;
+    color: #27ad60;
+    transition: 1s;
+}
+
+#myBtn
+{
+    /* display: none; */
+    position: fixed;
+    bottom: 10px;
+    right: 30px;
+    z-index: 99;
+    font-size: 26px;
+    border:  solid ;
+    outline: none;
+    background-color: #27ad60;
+    color: white;
+    cursor: pointer;
+    padding: 20px;
+    padding-left:30px;
+    padding-right:30px ;
+    border-radius: 100px;
+  }
+
+</style>
+
+        <button onclick="topFunction()" id="myBtn">&#8593;</button>
     <div class="space"></div>
     <section class="footer">
       <div class="box-container">
@@ -69,6 +99,27 @@
     </div> -->
 
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+        
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 500) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
 
     <!-- custom js file link  -->
     <!-- <script src="js/script.js"></script> -->

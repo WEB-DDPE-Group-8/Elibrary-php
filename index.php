@@ -112,7 +112,7 @@
 
     <!-- featured section starts  -->
 
-  
+    <!-- <section class="featured" id="featured">
       <h1 class="heading"><span>featured books</span></h1>
 
       <div class="swiper featured-slider">
@@ -281,7 +281,12 @@
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
       </div>
-    </section>
+    </section> -->
+
+        <?php  
+        include 'lib/featured.php';
+        include 'inc/bookslider.php';
+        ?>
 
     <!-- featured section ends -->
 
@@ -305,187 +310,13 @@
 
     <!-- arrivals section starts  -->
 
-    <section class="arrivals" id="arrivals">
-      <h1 class="heading"><span>new arrivals</span></h1>
 
-      <div class="swiper arrivals-slider">
-        <div class="swiper-wrapper">
-          <a href="#" class="swiper-slide box">
-            <div class="image">
-              <img src="image/1.png" alt="" />
-            </div>
-            <div class="content">
-              <h3>new arrivals</h3>
-              <div class="price">$15.99 <span>$20.99</span></div>
-              <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-              </div>
-            </div>
-          </a>
 
-          <a href="#" class="swiper-slide box">
-            <div class="image">
-              <img src="image/2.png" alt="" />
-            </div>
-            <div class="content">
-              <h3>new arrivals</h3>
-              <div class="price">$15.99 <span>$20.99</span></div>
-              <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-              </div>
-            </div>
-          </a>
+          <?php
+            include 'lib/newarrivals.php';
+            include 'inc/newarrivalsection.php';
+          ?>
 
-          <a href="#" class="swiper-slide box">
-            <div class="image">
-              <img src="image/3.png" alt="" />
-            </div>
-            <div class="content">
-              <h3>new arrivals</h3>
-              <div class="price">$15.99 <span>$20.99</span></div>
-              <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-              </div>
-            </div>
-          </a>
-
-          <a href="#" class="swiper-slide box">
-            <div class="image">
-              <img src="image/4.png" alt="" />
-            </div>
-            <div class="content">
-              <h3>new arrivals</h3>
-              <div class="price">$15.99 <span>$20.99</span></div>
-              <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-              </div>
-            </div>
-          </a>
-
-          <a href="#" class="swiper-slide box">
-            <div class="image">
-              <img src="image/5.png" alt="" />
-            </div>
-            <div class="content">
-              <h3>new arrivals</h3>
-              <div class="price">$15.99 <span>$20.99</span></div>
-              <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <div class="swiper arrivals-slider">
-        <div class="swiper-wrapper">
-          <a href="#" class="swiper-slide box">
-            <div class="image">
-              <img src="image/6.png" alt="" />
-            </div>
-            <div class="content">
-              <h3>new arrivals</h3>
-              <div class="price">$15.99 <span>$20.99</span></div>
-              <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-              </div>
-            </div>
-          </a>
-
-          <a href="#" class="swiper-slide box">
-            <div class="image">
-              <img src="image/7.png" alt="" />
-            </div>
-            <div class="content">
-              <h3>new arrivals</h3>
-              <div class="price">$15.99 <span>$20.99</span></div>
-              <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-              </div>
-            </div>
-          </a>
-
-          <a href="#" class="swiper-slide box">
-            <div class="image">
-              <img src="image/8.png" alt="" />
-            </div>
-            <div class="content">
-              <h3>new arrivals</h3>
-              <div class="price">$15.99 <span>$20.99</span></div>
-              <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-              </div>
-            </div>
-          </a>
-
-          <a href="#" class="swiper-slide box">
-            <div class="image">
-              <img src="image/9.png" alt="" />
-            </div>
-            <div class="content">
-              <h3>new arrivals</h3>
-              <div class="price">$15.99 <span>$20.99</span></div>
-              <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-              </div>
-            </div>
-          </a>
-
-          <a href="#" class="swiper-slide box">
-            <div class="image">
-              <img src="image/10.png" alt="" />
-            </div>
-            <div class="content">
-              <h3>new arrivals</h3>
-              <div class="price">$15.99 <span>$20.99</span></div>
-              <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
 
     <!-- arrivals section ends -->
 
@@ -705,72 +536,16 @@
 
     <!-- blogs section ends -->
 
-    <!-- footer section starts 
-
-    <section class="footer">
-      <div class="box-container">
-        <div class="box">
-          <h3>our locations</h3>
-          <a href="#"> <i class="fas fa-map-marker-alt"></i> india </a>
-          <a href="#"> <i class="fas fa-map-marker-alt"></i> USA </a>
-          <a href="#"> <i class="fas fa-map-marker-alt"></i> russia </a>
-          <a href="#"> <i class="fas fa-map-marker-alt"></i> france </a>
-          <a href="#"> <i class="fas fa-map-marker-alt"></i> japan </a>
-          <a href="#"> <i class="fas fa-map-marker-alt"></i> africa </a>
-        </div>
-
-        <div class="box">
-          <h3>quick links</h3>
-          <a href="#"> <i class="fas fa-arrow-right"></i> home </a>
-          <a href="#"> <i class="fas fa-arrow-right"></i> featured </a>
-          <a href="#"> <i class="fas fa-arrow-right"></i> arrivals </a>
-          <a href="#"> <i class="fas fa-arrow-right"></i> reviews </a>
-          <a href="#"> <i class="fas fa-arrow-right"></i> blogs </a>
-        </div>
-
-        <div class="box">
-          <h3>extra links</h3>
-          <a href="#"> <i class="fas fa-arrow-right"></i> account info </a>
-          <a href="#"> <i class="fas fa-arrow-right"></i> ordered items </a>
-          <a href="#"> <i class="fas fa-arrow-right"></i> privacy policy </a>
-          <a href="#"> <i class="fas fa-arrow-right"></i> payment method </a>
-          <a href="#"> <i class="fas fa-arrow-right"></i> our serivces </a>
-        </div>
-
-        <div class="box">
-          <h3>contact info</h3>
-          <a href="#"> <i class="fas fa-phone"></i> +123-456-7890 </a>
-          <a href="#"> <i class="fas fa-phone"></i> +111-222-3333 </a>
-          <a href="#"> <i class="fas fa-envelope"></i> shaikhanas@gmail.com </a>
-          <img src="image/worldmap.png" class="map" alt="" />
-        </div>
-      </div>
-
-      <div class="share">
-        <a href="#" class="fab fa-facebook-f"></a>
-        <a href="#" class="fab fa-twitter"></a>
-        <a href="#" class="fab fa-instagram"></a>
-        <a href="#" class="fab fa-linkedin"></a>
-        <a href="#" class="fab fa-pinterest"></a>
-      </div>
-
-      <div class="credit">
-        created by <span>mr. web designer</span> | all rights reserved!
-      </div>
-    </section>
-
-     footer section ends -->
-
     <!-- loader  -->
 <!-- 
     <div class="loader-container">
       <img src="image/loader-img.gif" alt="" />
     </div>  -->
-
   
     <?php
      include("./inc/footer.php") ;
     ?>
+
      </body>
      </html>
 

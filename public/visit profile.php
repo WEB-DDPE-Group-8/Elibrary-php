@@ -71,15 +71,15 @@ include "../lib/visit.php";
                 <div class="col">
                   <div class="card-profile-stats d-flex justify-content-center mt-md-5">
                     <div>
-                      <span class="heading">22</span>
-                      <span class="description">Uplods</span>
+                      <span class="heading"><?php echo $visit["uploads"] ?></span>
+                      <span class="description">Uploads</span>
                     </div>
                     <div>
                       <span class="heading"> 
                         <?php  
                         
-                        if($visit["isAdmin"]==1) echo "Admin"; 
-                          else if($visit["isAdmin"]==0) echo "user";
+                        echo  $visit["isAdmin"]; 
+                          
                        ?>
                       </span>
                       <span class="description">Role</span>
@@ -105,7 +105,7 @@ include "../lib/visit.php";
                   <i class="ni education_hat mr-2"></i>University of Computer Science
                 </div>
                 <hr class="my-4">
-                <p>Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music.</p>
+                <p><?php echo $_SESSION['about']  ?></p>
                 <a href="#">Show more</a>
               </div>
             </div>
@@ -126,13 +126,13 @@ include "../lib/visit.php";
                     <div class="col-lg-6">
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-username">Username</label>
-                        <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value=<?php echo $visit["UserName"] ?> >
+                        <input type="text" id="input-username" class="form-control form-control-alternative"readonly  placeholder="Username" value=<?php echo $visit["UserName"] ?> >
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-email">Email address</label>
-                        <input type="email" id="input-email" class="form-control form-control-alternative" placeholder= <?php echo $visit["Email"]?> >
+                        <input type="email" id="input-email" class="form-control form-control-alternative"readonly  placeholder= <?php echo $visit["Email"]?> >
                       </div>
                     </div>
                   </div>
@@ -140,13 +140,13 @@ include "../lib/visit.php";
                     <div class="col-lg-6">
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-first-name">First name</label>
-                        <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value=<?php echo $visit["FirstName"] ?>>
+                        <input type="text" id="input-first-name" class="form-control form-control-alternative"readonly  placeholder="First name" value=<?php echo $visit["FirstName"] ?>>
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-last-name">Last name</label>
-                        <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" value= <?php echo $visit["LastName"]?>>
+                        <input type="text" id="input-last-name" class="form-control form-control-alternative"readonly  placeholder="Last name" value= <?php echo $visit["LastName"]?>>
                       </div>
                     </div>
                   </div>
@@ -186,8 +186,8 @@ include "../lib/visit.php";
                 </div> -->
                 <hr class="my-4">
                 <!-- Description -->
-                <h6 class="heading-small text-muted mb-4">About <?php  ?></h6>
-                <div class="pl-lg-4">
+                <!-- <h6 class="heading-small text-muted mb-4">About <?php  ?></h6>
+                <div class="pl-lg-4"> -->
                   
                 
                 </div>

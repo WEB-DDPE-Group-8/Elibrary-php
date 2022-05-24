@@ -20,7 +20,7 @@
     />
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="../css/style.css" />
+    <!-- <link rel="stylesheet" href="../css/style.css" /> -->
 
     <script src="user.js" defer></script>
     <style>
@@ -37,18 +37,21 @@
 <body background=./multimedia/resources/banner-bg.jpg>
           <!-- header -->
          
-    <?php include("../inc/nav_bar.php"); ?>
+    <?php include("../inc/nav_bar.php");
+          include '../lib/searchfunction.php';
+          include '../inc/bookslider.php';
+    ; ?>
 
 
       <!-- custom js file link  -->
   <script src="../js/script.js" defer></script> 
 
-  <section class="featured" id="featured">
+  <!-- <section class="featured" id="featured">
 
       <div class="swiper featured-slider">
         <div class="swiper-wrapper">
         <?php
-        include '../lib/cart-inc.php';
+        // include '../lib/cart-inc.php';
                 foreach($books as $book)
                 {
             ?>
@@ -88,13 +91,12 @@
             ?>  
           </div>
           </div>
-          </div>
-          <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-    </div>
+        <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      </div>
+        </div>
 
-
-</section>
+</section> -->
 
 <div align="center">
     <br />
@@ -105,17 +107,6 @@
       ");
     $page_query->execute();
     $page_result = $page_query->fetchColumn();
-
-    // $page_query = "SELECT * FROM books ORDER BY BookID DESC";
-    // $page_result = mysqli_query($db, $page_query);
-    // include "../config/dbconfig.php";
-
-    // $page_query = "SELECT * FROM books ORDER BY BookID DESC";
-    // $page_result = mysqli_query($db, $page_query);
-    // $total_records = mysqli_num_rows($page_result);
-    // $total_pages = ceil($total_records/$record_per_page);
-
-    // $total_records = mysql_num_rows($page_result);
     $total_records = $page_result;
     
     $total_pages = ceil($total_records/$record_per_page);

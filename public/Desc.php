@@ -23,6 +23,7 @@
         <div class="product-imgs">
           <div class="img-display">
             <div class="img-showcase">
+            <img src="../image/1.png" alt="shoe image" />
               <img src="shoes_images/shoe_1.jpg" alt="shoe image" />
               
             </div>
@@ -49,7 +50,7 @@
               </a>
             </div>
           </div>
-        </div> -->
+        </div>
         <!-- card right -->
         <?php  
    
@@ -67,8 +68,8 @@
         <div class="product-content">
           <h2 class="product-title"><?php echo $row["Title"] ?> </h2>
           <div class="product-rating">
-            <i class="fas fa-star">Likes</i>
-            <i class="fas fa-star">DisLikes</i>
+            <i class="fas fa-star"><?php echo $row["Likes"]?></i>
+            <i class="fas fa-star"><?php echo $row["Dislikes"] ?></i>
             
           </div>
 
@@ -108,25 +109,6 @@
             <button type="button" class="btn">
               Add to Cart <i class="fas fa-shopping-cart"></i>
             </button>
-          </div>
-
-          <div class="social-links">
-            <p>Share At:</p>
-            <a href="#">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#">
-              <i class="fab fa-whatsapp"></i>
-            </a>
-            <a href="#">
-              <i class="fab fa-pinterest"></i>
-            </a>
           </div>
         </div>
       </div>

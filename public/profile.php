@@ -35,7 +35,7 @@ include "../inc/nav_bar.php";
           <div class="col-lg-7 col-md-10">
             <h1 class="display-2 text-white">Hello <?php echo $_SESSION["username"] ?></h1>
             <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>
-            <a href="#!" class="btn btn-info">Edit profile</a>
+            <!-- <a href="#!" class="btn btn-info">Edit profile</a> -->
           </div>
         </div>
       </div>
@@ -66,7 +66,7 @@ include "../inc/nav_bar.php";
             </div>
             <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
               <div class="d-flex justify-content-between">
-                <a href="mailto: <?php echo $_SESSION["email"] ?>" class="btn btn-sm btn-default float-right">Message</a>
+                <button class="btn btn-sm">Edit profile</button>
               </div>
             </div>
             <div class="card-body pt-0 pt-md-4">
@@ -74,8 +74,8 @@ include "../inc/nav_bar.php";
                 <div class="col">
                   <div class="card-profile-stats d-flex justify-content-center mt-md-5">
                     <div>
-                      <span class="heading">22</span>
-                      <span class="description">Uplods</span>
+                      <span class="heading"><?php echo $_SESSION["uploads"] ?></span>
+                      <span class="description">Uploads</span>
                     </div>
                     <div>
                       <span class="heading"> 
@@ -106,7 +106,7 @@ include "../inc/nav_bar.php";
                   <i class="ni education_hat mr-2"></i>University of Computer Science
                 </div>
                 <hr class="my-4">
-                <p>Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music.</p>
+                <p><?php echo $_SESSION['about']  ?></p>
                 <a href="#">Show more</a>
               </div>
             </div>
@@ -125,6 +125,7 @@ include "../inc/nav_bar.php";
               </div>
             </div>
             <div class="card-body">
+              
               <form action="../lib/db.php" method="POST">
                 <h6 class="heading-small text-muted mb-4">User information</h6>
                 <div class="pl-lg-4">
@@ -132,13 +133,13 @@ include "../inc/nav_bar.php";
                     <div class="col-lg-6">
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-username">Username</label>
-                        <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value=<?php echo $_SESSION["username"] ?> >
+                        <input type="text" id="input-username" class="form-control form-control-alternative" readonly placeholder="Username" value=<?php echo $_SESSION["username"] ?> >
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-email">Email address</label>
-                        <input type="email" id="input-email" class="form-control form-control-alternative" placeholder= <?php echo $_SESSION["email"]?> >
+                        <input type="email" id="input-email" readonly  class="form-control  form-control-alternative" placeholder= <?php echo $_SESSION["email"]?> >
                       </div>
                     </div>
                   </div>
@@ -146,13 +147,13 @@ include "../inc/nav_bar.php";
                     <div class="col-lg-6">
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-first-name">First name</label>
-                        <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value=<?php echo $_SESSION["firstname"] ?>>
+                        <input type="text" id="input-first-name" readonly  class="form-control form-control-alternative" placeholder="First name" value=<?php echo $_SESSION["firstname"] ?>>
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-last-name">Last name</label>
-                        <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" value= <?php echo $_SESSION["lastname"]?>>
+                        <input type="text" id="input-last-name" readonly  class="form-control form-control-alternative" placeholder="Last name" value= <?php echo $_SESSION["lastname"]?>>
                       </div>
                     </div>
                   </div>
@@ -163,31 +164,26 @@ include "../inc/nav_bar.php";
                 <div class="pl-lg-4">
                   <div class="form-group focused">
                     <label>About Me</label>
-                    <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about you ...">A few words about you ....</textarea>
+                    <textarea rows="4" class="form-control form-control-alternative" readonly placeholder="A few words about you ..."><?php echo $_SESSION['about']  ?></textarea>
                   </div>
                   <div>
                     <button type="submit" name="log_out" class="btn">Log out<button>
-                      <a class=btn href="upload page.php">Upload a Book</a>
+                      <a class="btn" href="upload page.php">Upload a Book</a>
                   </div>
                 </div>
               </form>
             </div>
           </div>
         </div>
-           <?php include '../admin/tasks.php';  ?>
       </div>
     </div>
   </div>
 
-
- 
-
-
   <?php
-  include "../inc/footer.php";
-  ?>
-
-
-
+  if($_SESSION["role"]=="Admin"){
+  include '../admin/tasks.php' ;
+}
+   ?>
+  <?php include '../inc/footer.php'; ?>
 </body>
 </html>
