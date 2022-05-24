@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./multimedia/resources/logo/logo.png"/>
+<<<<<<< Updated upstream:bookshelf.php
     <script src="user.js" defer></script>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <link rel="stylesheet" type="text/css" href="css/bookshelf.css"/>
@@ -13,6 +14,16 @@
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
 
     <script src="addtocart.js" defer></script>
+=======
+    <script src="./user.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="./css/style.css"/>
+    <!-- <link rel="stylesheet" type="text/css" href="css/bookshelf.css"/> -->
+     <!-- <link rel="stylesheet" type="text/css" href="css/footer.css"/> -->
+    <link rel="stylesheet" type="text/css" href="./css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="sidenav.css"/>
+    <script src="sidenav.js"></script>
+    <!-- <script src="addtocart.js" defer></script> -->
+>>>>>>> Stashed changes:public/bookshelf.php
 
     <link
       rel="stylesheet"
@@ -47,12 +58,42 @@ include("./config/dbconfig.php");
 
 $query = $db->query("Select * from books");
 
+<<<<<<< Updated upstream:bookshelf.php
 if($query->num_rows > 0)
 {
     while($row = $query->fetch_assoc())
     {
         $imageURL = 'uploads/'.$row["Cover"];
         ?>
+=======
+ 
+        
+    ?>
+      <!-- custom js file link  -->
+  <script src="../js/script.js" defer></script> 
+  
+  <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <p>Categories</p>
+      <ul>
+        
+
+            
+                <li ><a href="?g=Adventure" name="Adventure">Adventure</a></li>
+                <li><a href="?g=Comedy" name="Comedy">Comedy</a></li>
+                <li><a href="?g=Fantasy" name="Fantasy">Fantasy</a></li>
+                <li><a href="?g=Crime" name="Crime">Crime</a></li>
+                <li><a href="?g=Romance" name="Romance">Romance</a></li>
+                <li><a href="?g=Horror" name="Horror" >Horror</a></li>
+                <li><a href="?g=History" name="History">History</a></li>
+            
+</ul>
+      
+    </div>
+    
+    <span style="font-size:20px;cursor:pointer" onclick="openNav()">&#9776; Filter By</span>
+                 
+>>>>>>> Stashed changes:public/bookshelf.php
 
     <section class="featured" id="featured">
   
@@ -72,8 +113,23 @@ if($query->num_rows > 0)
               </div>
               <a href="#" class="btn">Buy Now</a>
               <a href="#" class="btn">Add to Cart</a>
+<<<<<<< Updated upstream:bookshelf.php
             </div>
           </div>
+=======
+              </div>
+    
+          </div>
+          <?php 
+}
+?>  
+          </div>
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        
+>>>>>>> Stashed changes:public/bookshelf.php
 </div>
 </section>
 <?php 

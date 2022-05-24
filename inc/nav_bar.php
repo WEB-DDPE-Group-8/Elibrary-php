@@ -204,4 +204,45 @@ echo  <<<_END
          </script>
 _END; 
 }
+<<<<<<< Updated upstream
 ?>
+=======
+?>
+
+<?php
+/**@var \PDO $pdo*/
+
+
+    $pdo = new PDO('mysql:host=localhost;dbname=a2zlibrary', 'root');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $books = [];
+    $search = $_GET['search']?? '';
+    $name = $_GET['g']??'';
+    //echo $_GET['g'];
+
+
+
+    if($search){
+        $statement = $pdo->prepare('SELECT * FROM books WHERE Title LIKE :title');
+        $statement->bindValue('title', "%$search%");
+        $statement->execute();
+        $books = $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+ 
+    else if($name) {
+      $query= $pdo->prepare("Select * FROM books WHERE Genre LIKE '%$name%'");
+      $query->execute();
+      $books = $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+    else{
+      $statement= $pdo->prepare('SELECT * FROM books');
+      $statement->execute();
+      $books = $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    
+      
+
+    
+
+>>>>>>> Stashed changes
