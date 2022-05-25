@@ -11,16 +11,14 @@ header("location:login.php");
 
 @include '../config/dbconfig.php';
 
-
-
 if(isset($_GET['remove'])){
    $remove_id = $_GET['remove'];
-   mysqli_query($db, "DELETE FROM cart WHERE Id = '$remove_id'");
+   mysqli_query($db, "DELETE FROM cart WHERE BookID = '$remove_id'");
    header('location:cart.php');
 };
 
 if(isset($_GET['delete_all'])){
-   mysqli_query($db, "DELETE FROM cart");
+   mysqli_query($db, "DELETE  FROM cart WHERE UserID = $_SESSION[UserID]");
    header('location:cart.php');
 }
 
@@ -58,9 +56,9 @@ if(isset($_GET['delete_all'])){
   <table>
      <thead>
       <div class="cart-row">
-        <span class="cart-item cart-header cart-column">ITEM</span>
-         <span class="cart-price cart-header cart-column">price</span>
-         <span class="cart-price cart-header cart-column">DELETE</span>
+        <span class="btn" class="cart-item cart-header cart-column">ITEM</span>
+         <span class="btn" class="cart-price cart-header cart-column">price</span>
+         <span class="btn" class="cart-price cart-header cart-column">DELETE</span>
          
        </thead>  
 <tbody>
@@ -74,10 +72,10 @@ if(mysqli_num_rows($select_cart) > 0){
 ?>
 
 <tr>
-   <td><?php echo $fetch_cart['BookID']; ?></td>
-   <td>$<?php echo number_format($fetch_cart['Price']); ?>/-</td>
+   <td class="btn"><?php echo $fetch_cart['BookID']; ?></td>
+   <td class="btn">$ <?php echo number_format($fetch_cart['Price']); ?>/-</td>
  
-   <td><a href="cart.php?remove=<?php echo $fetch_cart['Id']; ?>" onclick="return confirm('remove item from cart?')" class="delete-btn"> <i class="fas fa-trash"></i> remove</a></td>
+   <td><a class="btn" href="cart.php?remove=<?php echo $fetch_cart['BookID']; ?>" onclick="return confirm('remove item from cart?')" class="delete-btn"> <i class="fas fa-trash"></i> Remove</a></td>
 </tr>
 <?php
   $grand_total += $fetch_cart['Price'];  
@@ -85,10 +83,10 @@ if(mysqli_num_rows($select_cart) > 0){
 };
 ?>
 <tr class="table-bottom">
-   <td><a href="index.php" class="option-btn" style="margin-top: 0;">continue shopping</a></td>
-   <td colspan="3">grand total</td>
-   <td>$<?php echo $grand_total; ?>/-</td>
-   <td><a href="cart.php?" onclick="return confirm('are you sure you want to delete all?');" class="delete-btn"> <i class="fas fa-trash"></i> Remove all </a></td>
+   <td><a class="btn" href="../index.php" class="option-btn" style="margin-top: 0;">continue shopping</a></td>
+   <td class="btn" colspan="3">grand total</td>
+   <td class="btn">$<?php echo $grand_total; ?>/-</td>
+   <td><a class="btn" href="cart.php?" onclick="return confirm('are you sure you want to delete all?');" class="delete-btn"> <i class="fas fa-trash"></i> Remove all </a></td>
 </tr>
 </div>
 </tbody>

@@ -537,15 +537,15 @@
     <!-- blogs section ends -->
 
     <!-- loader  -->
-<!-- 
-    <div class="loader-container">
+
+    <!-- <div class="loader-container">
       <img src="image/loader-img.gif" alt="" />
     </div>  -->
   
     <?php
      include("./inc/footer.php") ;
     ?>
-
+<!-- <link rel="stylesheet" href="./css/main.css" /> -->
      </body>
      </html>
 
