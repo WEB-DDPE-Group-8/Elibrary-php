@@ -49,6 +49,18 @@ $root = $root."/html";
                ?>
             class="fas fa-heart">
           </a>
+          <?php
+           $uri = $_SERVER['REQUEST_URI']; 
+           if(str_contains($uri,"index"))
+           {
+            include "inc/counter.php";
+           }
+           else{
+            include "../inc/counter.php";
+           }
+     
+      
+        ?>
 
           <a href=
           <?php
@@ -57,10 +69,10 @@ $root = $root."/html";
             else
                {echo "/html/public/login.php";}
           ?>
-          class="fas fa-shopping-cart"><br></a>
+          class="fas fa-shopping-cart"><?php  if(isset($_SESSION["UserID"])) echo "[".$row_count."]"; ?><br></a>
                
     <div id="login-btn" class="fas fa-user">
-                  <br>
+    <br>
                 </div>
                 <?php
             if(isset($_SESSION["username"]))

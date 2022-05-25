@@ -1,7 +1,27 @@
+
+
 <?php
 if(isset($_SESSION["username"]))
 {
 header("location:login.php");
+}
+
+?>
+<?php
+
+@include '../config/dbconfig.php';
+
+
+
+if(isset($_GET['remove'])){
+   $remove_id = $_GET['remove'];
+   mysqli_query($db, "DELETE FROM cart WHERE Id = '$remove_id'");
+   header('location:cart.php');
+};
+
+if(isset($_GET['delete_all'])){
+   mysqli_query($db, "DELETE FROM cart");
+   header('location:cart.php');
 }
 
 ?>
@@ -13,9 +33,10 @@ header("location:login.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="../multimedia/resources/logo/logo.png" />
-    <link rel="stylesheet" type="text/css" href="../css/style.css" />
-    <link rel="stylesheet" type="text/css" href="../css/carrt.css" async />
-    <link rel="stylesheet" type="text/css" href="../css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/carrt.css" async />
+    <link rel="stylesheet" type="text/css" href="css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
 
     <script src="../js/user.js"></script>
     <script src="../js/addtocart.js"></script>
@@ -25,31 +46,63 @@ header("location:login.php");
 
   <body background="resources/banner-bg.jpg">
     <!-- header -->
-    <?php include("../inc/nav_bar.php") ?>
+    <?php include("../inc/nav_bar.php");
+          include ("../config/dbconfig.php");
+    ?>
+    <?php// include("config/cart.inc.php") ?>
     
     <div id="outer" class="shop-items"></div>
 
     <section class="container content-section">
       <h2 class="section-header">CART</h2>
+  <table>
+     <thead>
       <div class="cart-row">
         <span class="cart-item cart-header cart-column">ITEM</span>
-        <span class="cart-price cart-header cart-column">PRICE</span>
-      </div>
-      <div class="cart-items"></div>
-      <div class="cart-total">
-        <strong class="cart-total-title">Total</strong>
-        <span class="cart-total-price"> ETB 0</span>
-      </div>
+         <span class="cart-price cart-header cart-column">price</span>
+         <span class="cart-price cart-header cart-column">DELETE</span>
+         
+       </thead>  
+<tbody>
+<div class="cart-row">
+<?php 
 
-      <button class="btn btn-primary btn-purchase" type="button">
+$select_cart = mysqli_query($db, "SELECT * FROM cart WHERE UserID =$_SESSION[UserID]");
+$grand_total = 0;
+if(mysqli_num_rows($select_cart) > 0){
+   while($fetch_cart = mysqli_fetch_assoc($select_cart)){
+?>
+
+<tr>
+   <td><?php echo $fetch_cart['BookID']; ?></td>
+   <td>$<?php echo number_format($fetch_cart['Price']); ?>/-</td>
+ 
+   <td><a href="cart.php?remove=<?php echo $fetch_cart['Id']; ?>" onclick="return confirm('remove item from cart?')" class="delete-btn"> <i class="fas fa-trash"></i> remove</a></td>
+</tr>
+<?php
+  $grand_total += $fetch_cart['Price'];  
+   };
+};
+?>
+<tr class="table-bottom">
+   <td><a href="index.php" class="option-btn" style="margin-top: 0;">continue shopping</a></td>
+   <td colspan="3">grand total</td>
+   <td>$<?php echo $grand_total; ?>/-</td>
+   <td><a href="cart.php?" onclick="return confirm('are you sure you want to delete all?');" class="delete-btn"> <i class="fas fa-trash"></i> Remove all </a></td>
+</tr>
+</div>
+</tbody>
+       </div>     
+		    </table>
+      <a href="index.php" <?= ($grand_total > 1)?'':'disabled'; ?>>
+   
+       <button class="btn btn-primary btn-purchase" type="button">
         PURCHASE
       </button>
+      </a>
     </section>
-    <button class="btn" onclick="clean()">Empty my cart</button>
-    
-    <?php include("../inc/footer.php") ?>
 
-    <script src="cart.js" defer></script>
+    <script src="../js/cart.js" defer></script>
+    <?php include("../inc/footer.php") ?>
   </body>
 </html>
-<?php?>
