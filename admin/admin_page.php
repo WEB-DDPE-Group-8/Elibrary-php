@@ -61,7 +61,7 @@ include 'config.php';
          var_dump($fetch_pendings);
          //   echo $fetch_pendings['total_price']; ?>/-</h3>
          echo ($fetch_pendings['SUM(total_price)']);
-         <p>pending payment</p> 
+         <p>pending bookst</p> 
 
          
       </div>
@@ -78,7 +78,7 @@ include 'config.php';
             };
          ?>
          <h3><?php echo $total_completed; ?>/-</h3>
-         <p>Approved payment</p>
+         <p>Approved Books</p>
       </div>
 
       <div class="box">
