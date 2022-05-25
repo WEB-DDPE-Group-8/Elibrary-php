@@ -1,6 +1,31 @@
 <?php
 
-include 'config.php';
+include '../config/dbconfig.php';
+
+if(isset($_POST['add_product'])){
+   //if(!empty($_POST['name'] && !empty($_POST['description'] && !empty($_POST['image'])))){
+      $name = $_POST['name'];
+      $description = $_POST['description'] ;
+      $image = $_POST['image'];
+
+
+      $query = "INSERT INTO events(NAME, DESCRIPTION, IMAGE) VALUES ('$name', '$description', '$image')";
+      $run = mysqli_query($db, $query);
+
+      if($run){
+         echo "Event add";
+      }
+      else{
+         echo "form not submitted";
+      }
+
+      $query = "SELECT * FROM events";
+   $results = mysqli_query($db,$query);
+  // }
+   // else{
+   //    echo "all fields required";
+   // }
+}
 
 // session_start();
 
@@ -105,9 +130,10 @@ include 'config.php';
 
    <form action="" method="post" enctype="multipart/form-data">
       <h3>add product</h3>
-      <input type="text" name="name" class="box" placeholder="enter product name" required>
-      <input type="number" min="0" name="price" class="box" placeholder="enter product price" required>
-      <input type="file" name="image" accept="image/jpg, image/jpeg, image/png" class="box" required>
+      <input type="text" name="name" class="box" placeholder="add event name" required>
+      <input type="text" min="0" name="description" class="box" placeholder="description of event" required>
+      <!-- <input type="file" name="image" accept="image/jpg, image/jpeg, image/png" class="box" required> -->
+      <input type="text" name="image" class="box" required>
       <input type="submit" value="add product" name="add_product" class="btn">
    </form>
 
@@ -122,9 +148,9 @@ include 'config.php';
    <div class="box-container">
 
       <?php
-         $select_products = mysqli_query($conn, "SELECT * FROM `products`") or die('query failed');
-         if(mysqli_num_rows($select_products) > 0){
-            while($fetch_products = mysqli_fetch_assoc($select_products)){
+         // $select_products = mysqli_query($conn, "SELECT * FROM `products`") or die('query failed');
+         // if(mysqli_num_rows($select_products) > 0){
+         //    while($fetch_products = mysqli_fetch_assoc($select_products)){
       ?>
       <div class="box">
          <img src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
@@ -134,10 +160,10 @@ include 'config.php';
          <a href="admin_products.php?delete=<?php echo $fetch_products['id']; ?>" class="delete-btn" onclick="return confirm('delete this product?');">delete</a>
       </div>
       <?php
-         }
-      }else{
-         echo '<p class="empty">no products added yet!</p>';
-      }
+      //    // }
+      // }else{
+      //    echo '<p class="empty">no products added yet!</p>';
+      // }
       ?>
    </div>
 
