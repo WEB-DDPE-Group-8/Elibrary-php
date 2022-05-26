@@ -76,7 +76,7 @@
             <a href="../index.php">home</a>
             <a href="admin_page.php">DashBoard</a>
             <a href="admin_products.php">Book upload</a>
-            <a href="admin_orders.php">Orders</a>
+            <a href="admin_users.php">Orders</a>
             <a href="admin_users.php">Users</a>
             <a href="admin_contacts.php">Messages</a>
 

@@ -38,6 +38,34 @@ include '../config/dbconfig.php';
 
    <div class="box-container">
 
+   <div class="box">
+         <?php 
+            $select_users = mysqli_query($db, "SELECT * FROM user WHERE IsAdmin = 'user'") or die('query failed');
+            $number_of_users = mysqli_num_rows($select_users);
+         ?>
+         <h3><?php echo $number_of_users; ?></h3>
+         <p>normal users</p>
+      </div>
+
+      <div class="box">
+         <?php 
+            $select_users = mysqli_query($db, "SELECT * FROM user WHERE IsAdmin = 'ADMIN'") or die('query failed');
+            $number_of_users = mysqli_num_rows($select_users);
+         ?>
+         <h3><?php echo $number_of_users; ?></h3>
+         <p>ADMIN</p>
+      </div>
+
+      <div class="box">
+         <?php 
+            $select_users = mysqli_query($db, "SELECT * FROM user") or die('query failed');
+            $number_of_users = mysqli_num_rows($select_users);
+         ?>
+         <h3><?php echo $number_of_users; ?></h3>
+         <p>TOTAL USERS</p>
+      </div>
+
+      
 
 
       <div class="box">

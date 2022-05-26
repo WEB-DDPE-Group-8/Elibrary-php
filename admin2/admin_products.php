@@ -2,6 +2,10 @@
 
 include '../config/dbconfig.php';
 
+
+$query = "SELECT * FROM events";
+$results = mysqli_query($db,$query);
+
 if(isset($_POST['add_product'])){
    //if(!empty($_POST['name'] && !empty($_POST['description'] && !empty($_POST['image'])))){
       $name = $_POST['name'];
@@ -19,8 +23,6 @@ if(isset($_POST['add_product'])){
          echo "form not submitted";
       }
 
-      $query = "SELECT * FROM events";
-      $results = mysqli_query($db,$query);
 
    
   // }
@@ -66,14 +68,14 @@ if(isset($_POST['add_product'])){
 //    }
 // }
 
-// if(isset($_GET['delete'])){
-//    $delete_id = $_GET['delete'];
-//    $delete_image_query = mysqli_query($conn, "SELECT image FROM `products` WHERE id = '$delete_id'") or die('query failed');
-//    $fetch_delete_image = mysqli_fetch_assoc($delete_image_query);
-//    unlink('uploaded_img/'.$fetch_delete_image['image']);
-//    mysqli_query($conn, "DELETE FROM `products` WHERE id = '$delete_id'") or die('query failed');
-//    header('location:admin_products.php');
-// }
+if(isset($_GET['delete'])){
+    $delete_id = $_GET['delete'];
+   // $delete_image_query = mysqli_query($conn, "SELECT image FROM `products` WHERE id = '$delete_id'") or die('query failed');
+   // $fetch_delete_image = mysqli_fetch_assoc($delete_image_query);
+   // unlink('uploaded_img/'.$fetch_delete_image['image']);
+   mysqli_query($db, "DELETE FROM `events` WHERE id = '$delete_id'") or die('query failed');
+   header('location:admin_products.php');
+}
 
 // if(isset($_POST['update_product'])){
 
@@ -158,11 +160,13 @@ while($rows = mysqli_fetch_assoc($results)){
    
       <div class="box">
          <!-- <img src="uploaded_img/<?php// echo $fetch_products['image']; ?>" alt=""> -->
-         <div class="name"><?php echo $rows["name"]; ?></div>
+         <div class="name"><?php echo $rows["NAME"]; 
+         
+         ?></div>
        
-         <div class="price"><?php echo $rows["description"]; ?></div>
-         <a href="admin_products.php?update=<?php// echo $fetch_products['id']; ?>" class="option-btn">update</a>
-         <a href="admin_products.php?delete=<?php //echo $fetch_products['id']; ?>" class="delete-btn" onclick="return confirm('delete this product?');">delete</a>
+         <div class="price"><?php echo $rows["DESCRIPTION"]; ?></div>
+         <a href="admin_products.php?update=<?php echo $rows['ID']; ?>" class="option-btn">update</a>
+         <a href="admin_products.php?delete=<?php echo $rows['ID']; ?>" class="delete-btn" onclick="return confirm('delete this product?');">delete</a>
       </div>
       <?php
       }
@@ -178,7 +182,7 @@ while($rows = mysqli_fetch_assoc($results)){
    <?php
       if(isset($_GET['update'])){
          $update_id = $_GET['update'];
-         $update_query = mysqli_query($conn, "SELECT * FROM `products` WHERE id = '$update_id'") or die('query failed');
+         $update_query = mysqli_query($db, "SELECT * FROM 'events' WHERE id = '$update_id'") or die('query failed');
          if(mysqli_num_rows($update_query) > 0){
             while($fetch_update = mysqli_fetch_assoc($update_query)){
    ?>
