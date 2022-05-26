@@ -1,6 +1,35 @@
 <?php
 
-include 'config.php';
+include '../config/dbconfig.php';
+
+
+$query = "SELECT * FROM event";
+$results = mysqli_query($db,$query);
+
+if(isset($_POST['add_product'])){
+   //if(!empty($_POST['name'] && !empty($_POST['description'] && !empty($_POST['image'])))){
+      $name = $_POST['name'];
+      $description = $_POST['description'] ;
+      $image = $_POST['image'];
+
+
+      $query = "INSERT INTO event(NAME, DESCRIPTION, IMAGE) VALUES ('$name', '$description', '$image')";
+      $run = mysqli_query($db, $query);
+
+      if($run){
+         echo "Event add";
+      }
+      else{
+         echo "form not submitted";
+      }
+
+
+   
+  // }
+   // else{
+   //    echo "all fields required";
+   // }
+}
 
 // session_start();
 
@@ -39,14 +68,14 @@ include 'config.php';
 //    }
 // }
 
-// if(isset($_GET['delete'])){
-//    $delete_id = $_GET['delete'];
-//    $delete_image_query = mysqli_query($conn, "SELECT image FROM `products` WHERE id = '$delete_id'") or die('query failed');
-//    $fetch_delete_image = mysqli_fetch_assoc($delete_image_query);
-//    unlink('uploaded_img/'.$fetch_delete_image['image']);
-//    mysqli_query($conn, "DELETE FROM `products` WHERE id = '$delete_id'") or die('query failed');
-//    header('location:admin_products.php');
-// }
+if(isset($_GET['delete'])){
+    $delete_id = $_GET['delete'];
+   // $delete_image_query = mysqli_query($conn, "SELECT image FROM `products` WHERE id = '$delete_id'") or die('query failed');
+   // $fetch_delete_image = mysqli_fetch_assoc($delete_image_query);
+   // unlink('uploaded_img/'.$fetch_delete_image['image']);
+   mysqli_query($db, "DELETE FROM `event` WHERE id = '$delete_id'") or die('query failed');
+   header('location:admin_products.php');
+}
 
 // if(isset($_POST['update_product'])){
 
@@ -104,10 +133,11 @@ include 'config.php';
    <h1 class="title">shop products</h1>
 
    <form action="" method="post" enctype="multipart/form-data">
-      <h3>add product</h3>
-      <input type="text" name="name" class="box" placeholder="enter product name" required>
-      <input type="number" min="0" name="price" class="box" placeholder="enter product price" required>
-      <input type="file" name="image" accept="image/jpg, image/jpeg, image/png" class="box" required>
+      <h3>Add Events</h3>
+      <input type="text" name="name" class="box" placeholder="add event name" required>
+      <input type="text" min="0" name="description" class="box" placeholder="description of event" required>
+      <!-- <input type="file" name="image" accept="image/jpg, image/jpeg, image/png" class="box" required> -->
+      <input type="text" name="image" class="box" required>
       <input type="submit" value="add product" name="add_product" class="btn">
    </form>
 
@@ -121,24 +151,28 @@ include 'config.php';
 
    <div class="box-container">
 
-      <?php
-         $select_products = mysqli_query($conn, "SELECT * FROM `products`") or die('query failed');
-         if(mysqli_num_rows($select_products) > 0){
-            while($fetch_products = mysqli_fetch_assoc($select_products)){
-      ?>
+
+<?php
+
+while($rows = mysqli_fetch_assoc($results)){
+   ?>
+
+   
       <div class="box">
-         <img src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
-         <div class="name"><?php echo $fetch_products['name']; ?></div>
-         <div class="price">$<?php echo $fetch_products['price']; ?>/-</div>
-         <a href="admin_products.php?update=<?php echo $fetch_products['id']; ?>" class="option-btn">update</a>
-         <a href="admin_products.php?delete=<?php echo $fetch_products['id']; ?>" class="delete-btn" onclick="return confirm('delete this product?');">delete</a>
+         <!-- <img src="uploaded_img/<?php// echo $fetch_products['image']; ?>" alt=""> -->
+         <div class="name"><?php echo $rows["NAME"]; 
+         
+         ?></div>
+       
+         <div class="price"><?php echo $rows["DESCRIPTION"]; ?></div>
+         <a href="admin_products.php?update=<?php echo $rows['ID']; ?>" class="option-btn">update</a>
+         <a href="admin_products.php?delete=<?php echo $rows['ID']; ?>" class="delete-btn" onclick="return confirm('delete this product?');">delete</a>
       </div>
       <?php
-         }
-      }else{
-         echo '<p class="empty">no products added yet!</p>';
       }
+       
       ?>
+      
    </div>
 
 </section>
@@ -148,7 +182,7 @@ include 'config.php';
    <?php
       if(isset($_GET['update'])){
          $update_id = $_GET['update'];
-         $update_query = mysqli_query($conn, "SELECT * FROM `products` WHERE id = '$update_id'") or die('query failed');
+         $update_query = mysqli_query($db, "SELECT * FROM 'event' WHERE id = '$update_id'") or die('query failed');
          if(mysqli_num_rows($update_query) > 0){
             while($fetch_update = mysqli_fetch_assoc($update_query)){
    ?>

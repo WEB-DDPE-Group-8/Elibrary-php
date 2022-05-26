@@ -95,10 +95,10 @@ $root = $root."/html";
             <a href="/html/index.php#blogs">blogs</a>
             <a href="/html/public/report.php">Statistics</a>
             <?php
-             if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]=="1") 
+             if(isset($_SESSION["role"]) && $_SESSION["role"]=="Admin") 
              {
              ?>
-            <a href="/html/admin/admin page.php">Dashboard</a>
+            <a href="/html/admin/admin_page.php">Dashboard</a>
            <?php 
             };
            ?>
