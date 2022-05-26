@@ -23,14 +23,12 @@ $results = mysqli_query($db,$query);
               <p> <?php 
                    while($rows = mysqli_fetch_assoc($results)){
                       ?>
-                      <?php   echo $rows['EVENT-IMAGE']; ?>
-                     
-                     
+                      <?php   echo $rows['IMAGE']; ?>                
              </p>
             </div>
             <div class="content">
               <h3> 
-                      <?php   echo $rows['EVENT-NAME']; ?>
+                      <?php   echo $rows['NAME']; ?>
                      
                       <?php       }
                     ?></h3>
