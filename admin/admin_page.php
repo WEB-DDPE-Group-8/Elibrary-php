@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include '../config/dbconfig.php';
 
 // session_start();
@@ -53,7 +53,7 @@ include '../config/dbconfig.php';
             $number_of_users = mysqli_num_rows($select_users);
          ?>
          <h3><?php echo $number_of_users; ?></h3>
-         <p>ADMIN</p>
+         <p>Total Admins</p>
       </div>
 
       <div class="box">
@@ -62,7 +62,7 @@ include '../config/dbconfig.php';
             $number_of_users = mysqli_num_rows($select_users);
          ?>
          <h3><?php echo $number_of_users; ?></h3>
-         <p>TOTAL USERS</p>
+         <p>Total Accounts</p>
       </div>
 
       
@@ -106,7 +106,7 @@ include '../config/dbconfig.php';
             // };
          ?>
          <h3><?php  echo $data['total']; ?></h3>
-         <p>Add event</p>
+         <p>Events</p>
       </div>
 
    </div>

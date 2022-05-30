@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include '../config/dbconfig.php';
 
 
@@ -7,7 +7,8 @@ $query = "SELECT * FROM event";
 $results = mysqli_query($db,$query);
 
 if(isset($_POST['add_product'])){
-   //if(!empty($_POST['name'] && !empty($_POST['description'] && !empty($_POST['image'])))){
+
+   if(!empty($_POST['name'] && !empty($_POST['description'] && !empty($_POST['image'])))){
       $name = $_POST['name'];
       $description = $_POST['description'] ;
       $image = $_POST['image'];
@@ -18,17 +19,17 @@ if(isset($_POST['add_product'])){
 
       if($run){
          echo "Event add";
+         unset($_POST['add_product']);
       }
       else{
          echo "form not submitted";
+         unset($_POST['add_product']);
       }
-
-
-   
-  // }
-   // else{
-   //    echo "all fields required";
-   // }
+  }
+   else{
+      echo "all fields required";
+      unset($_POST['add_product']);
+   }
 }
 
 // session_start();
@@ -73,8 +74,8 @@ if(isset($_GET['delete'])){
    // $delete_image_query = mysqli_query($conn, "SELECT image FROM `products` WHERE id = '$delete_id'") or die('query failed');
    // $fetch_delete_image = mysqli_fetch_assoc($delete_image_query);
    // unlink('uploaded_img/'.$fetch_delete_image['image']);
-   mysqli_query($db, "DELETE FROM `event` WHERE id = '$delete_id'") or die('query failed');
-   header('location:admin_products.php');
+   mysqli_query($db, "DELETE FROM `event` WHERE ID = '$delete_id'") or die('query failed');
+   header('location:admin_events.php');
 }
 
 // if(isset($_POST['update_product'])){
@@ -138,7 +139,7 @@ if(isset($_GET['delete'])){
       <input type="text" min="0" name="description" class="box" placeholder="description of event" required>
       <!-- <input type="file" name="image" accept="image/jpg, image/jpeg, image/png" class="box" required> -->
       <input type="text" name="image" class="box" required>
-      <input type="submit" value="add product" name="add_product" class="btn">
+      <input type="submit" value="add event" name="add_product" class="btn">
    </form>
 
 </section>
@@ -161,20 +162,15 @@ while($rows = mysqli_fetch_assoc($results)){
       <div class="box">
          <!-- <img src="uploaded_img/<?php// echo $fetch_products['image']; ?>" alt=""> -->
          <div class="name"><?php echo $rows["NAME"]; 
-         
          ?></div>
-       
          <div class="price"><?php echo $rows["DESCRIPTION"]; ?></div>
-         <a href="admin_products.php?update=<?php echo $rows['ID']; ?>" class="option-btn">update</a>
-         <a href="admin_products.php?delete=<?php echo $rows['ID']; ?>" class="delete-btn" onclick="return confirm('delete this product?');">delete</a>
+         <a href="admin_events.php?update=<?php echo $rows['ID']; ?>" class="option-btn">update</a>
+         <a href="admin_events.php?delete=<?php echo $rows['ID']; ?>" class="delete-btn" onclick="return confirm('Remove this Event?');">delete</a>
       </div>
       <?php
       }
-       
       ?>
-      
    </div>
-
 </section>
 
 <section class="edit-product-form">
@@ -182,19 +178,19 @@ while($rows = mysqli_fetch_assoc($results)){
    <?php
       if(isset($_GET['update'])){
          $update_id = $_GET['update'];
-         $update_query = mysqli_query($db, "SELECT * FROM 'event' WHERE id = '$update_id'") or die('query failed');
+         $update_query = mysqli_query($db, "SELECT * FROM event WHERE ID = '$update_id'") or die('query failed');
          if(mysqli_num_rows($update_query) > 0){
             while($fetch_update = mysqli_fetch_assoc($update_query)){
    ?>
    <form action="" method="post" enctype="multipart/form-data">
-      <input type="hidden" name="update_p_id" value="<?php echo $fetch_update['id']; ?>">
-      <input type="hidden" name="update_old_image" value="<?php echo $fetch_update['image']; ?>">
-      <img src="uploaded_img/<?php echo $fetch_update['image']; ?>" alt="">
-      <input type="text" name="update_name" value="<?php echo $fetch_update['name']; ?>" class="box" required placeholder="enter product name">
-      <input type="number" name="update_price" value="<?php echo $fetch_update['price']; ?>" min="0" class="box" required placeholder="enter product price">
+      <input type="hidden" name="update_p_id" value="<?php echo $fetch_update['ID']; ?>">
+      <input type="hidden" name="update_old_image" value="<?php echo $fetch_update['IMAGE']; ?>">
+      <img src="uploaded_img/<?php echo $fetch_update['IMAGE']; ?>" alt="">
+      <input type="text" name="update_name" value="<?php echo $fetch_update['NAME']; ?>" class="box" required placeholder="enter product name">
+     
       <input type="file" class="box" name="update_image" accept="image/jpg, image/jpeg, image/png">
       <input type="submit" value="update" name="update_product" class="btn">
-      <input type="reset" value="cancel" id="close-update" class="option-btn">
+      <input type="reset" value="cancel" id="close-update" class="delete-btn">
    </form>
    <?php
          }
@@ -213,7 +209,7 @@ while($rows = mysqli_fetch_assoc($results)){
 
 
 <!-- custom admin js file link  -->
-<script src="js/admin_script.js"></script>
+<script src="../js/admin_script.js"></script>
 
 </body>
 </html>

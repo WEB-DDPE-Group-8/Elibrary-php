@@ -8,4 +8,3 @@
     if(!$db){
         die('Could not Connect MySql Server:' .mysql_error());
       }
-?>

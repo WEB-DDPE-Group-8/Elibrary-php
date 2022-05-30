@@ -37,18 +37,6 @@ $root = $root."/html";
             <div class="icons">
               <div id="search-btn" class="fas fa-search"></div>
             
-            <a href=
-            <?php
-              if(isset($_SESSION['username'])) 
-              {
-                echo "/html/public/cart.php";
-              }
-              else{
-                echo "/html/public/login.php";
-              };
-               ?>
-            class="fas fa-heart">
-          </a>
           <?php
            $uri = $_SERVER['REQUEST_URI']; 
            if(str_contains($uri,"index"))
@@ -98,6 +86,7 @@ $root = $root."/html";
              if(isset($_SESSION["role"]) && $_SESSION["role"]=="Admin") 
              {
              ?>
+             <i class="fas fa-user-gear"></i>
             <a href="/html/admin/admin_page.php">Dashboard</a>
            <?php 
             };
@@ -111,14 +100,26 @@ $root = $root."/html";
       <!-- bottom navbar  -->
 
       <nav class="bottom-navbar">
-      <a href="/html/index.php" class="fas fa-home">home</a>
-            <a href="/html/index.php#featured" class="fas fa-list">featured</a>
-            <a href="/html/public/bookshelf.php" >BookShelf</a>
-            <a href="/html/index.php#arrivals" class="fas fa-tags"> arrivals</a>
-            <a href="/html/index.php#reviews" class="fas fa-comments" >reviews</a>
-            <a href="/html/public/file_manipulation.php" >File Manipulation</a>
-            <a href="/html/index.php#blogs" class="fas fa-blog">blogs</a>
-            <a href="/html/public/report.php" >Statistics</a>
+      <a href="/html/index.php" class="fas fa-home"></a>
+            <a href="/html/public/bookshelf.php" class="fas fa-list"></a>
+
+            <!-- <a href="/html/public/bookshelf.php" >BookShelf</a> -->
+
+            <a href="/html/index.php#arrivals" class="fas fa-tags"></a>
+            <a href="/html/index.php#reviews" class="fas fa-comments"></a>
+            
+            <!-- <a href="/html/public/file_manipulation.php" >File Manipulation</a> -->
+            <a href="/html/index.php#blogs" class="fas fa-blog"></a>
+            
+            <?php
+             if(isset($_SESSION["role"]) && $_SESSION["role"]=="Admin") 
+             {
+             ?>
+            <a href="/html/admin/admin_page.php" class="fas fa-columns"></a>
+           <?php 
+            };
+           ?>
+            <!-- <a href="/html/public/report.php" >Statistics</a> -->
       </nav>
 
       <!-- login form  -->

@@ -32,12 +32,15 @@ class UserModel
                     if ($this->hasEmptyRow($column)) {
                         continue;
                     }
-                    if (isset($column[1], $column[3], $column[4])) {
+                    if (isset($column[1], $column[3], $column[7])) {
                         $userName = $column[1];
                         $password = $column[2];
                         $firstName = $column[3];
                         $lastName = $column[4];
-                        $insertId = $this->insertUser($userName, $password, $firstName, $lastName);
+                        $Email = $column[5];
+                        $IsAdmin =$column[6];
+                        $Status = $column[7];
+                        $insertId = $this->insertUser($userName, $password, $firstName, $lastName, $Email,$IsAdmin,$Status);
                         if (! empty($insertId)) {
                             $output["type"] = "success";
                             $output["message"] = "Import completed.";
@@ -69,7 +72,7 @@ class UserModel
         return $isEmpty;
     }
 
-    function insertUser($userName, $password, $firstName, $lastName)
+    function insertUser($userName, $password, $firstName, $lastName, $Email,$IsAdmin,$Status)
     {
         $sql = "SELECT UserName FROM user WHERE UserName = ?";
         $paramType = "s";
@@ -80,14 +83,17 @@ class UserModel
         $insertId = 0;
         if (empty($result)) {
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-            $sql = "INSERT into user (UserName,password,FirstName,LastName)
-                       values (?,?,?,?)";
-            $paramType = "ssss";
+            $sql = "INSERT into user (UserName,password,FirstName,LastName,Email,IsAdmin,Status)
+                       values (?,?,?,?,?,?,?)";
+            $paramType = "sssssss";
             $paramArray = array(
                 $userName,
                 $hashedPassword,
                 $firstName,
-                $lastName
+                $lastName,
+                $Email,
+                $IsAdmin,
+                $Status
             );
             $insertId = $this->conn->insert($sql, $paramType, $paramArray);
         }

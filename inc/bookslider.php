@@ -22,18 +22,18 @@
 
       <?php
           if (isset($_GET['addtocart'])) {
-        
+              
             $book_id = $_GET['id'];
 	          $price= $_GET['price'];
 
             $select_cart = mysqli_query($db, "SELECT * FROM cart WHERE BookID= '$book_id' AND UserID=$_SESSION[UserID]");
 
             if(mysqli_num_rows($select_cart) > 0){
-                echo 'product already added to cart';
+                echo 'product already added to WishList';
             }else{
                 $insert_product= mysqli_query($db, "INSERT INTO cart(BookID,UserID,Price) VALUES ( '$book_id','$_SESSION[UserID]', '$price')");
 
-                  echo 'product added to cart succesfully';
+                  echo 'product added to WishList succesfully';
             }
 
           }
@@ -75,7 +75,6 @@
           {
         ?>
           <div class="icons">
-            <a href="cart.php" class="fas fa-heart"></a>
             <a href="<?php echo $desc.'desc.php'?>?bookid=<?php 
             echo $book["BookID"]?>" class="fas fa-eye">
             </a>
@@ -111,8 +110,8 @@
             } 
             else{
               ?>
-              <a href="<?php echo $book["Book"]?>" class="btn">Buy Now</a>
-              <a href="?addtocart=true&<?php echo 'id='.$book["BookID"]?>&<?php echo 'price='.$book['Price']?>" class="btn">Add to Cart</a>
+              <a href="<?php echo $book["Book"]?>" class="btn">Get Book</a>
+              <a href="?addtocart=true&<?php echo 'id='.$book["BookID"]?>&<?php echo 'price='.$book['Price']?>" class="btn">Add to WishList</a>
             <?php  
             }
             ?>

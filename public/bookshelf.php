@@ -46,58 +46,6 @@
       <!-- custom js file link  -->
   <script src="../js/script.js" defer></script> 
 
-  <!-- <section class="featured" id="featured">
-
-      <div class="swiper featured-slider">
-        <div class="swiper-wrapper">
-        <?php
-        // include '../lib/cart-inc.php';
-                foreach($books as $book)
-                {
-            ?>
-          <div class="swiper-slide box">
-           
-            <div class="icons">
-              <a href="cart.php" class="fas fa-heart"></a>
-              <a href=../public/desc.php?bookid=<?php 
-              echo $book["BookID"] ;
-              ?> class="fas fa-eye"></a>
-            </div>
-            <div class="image">
-              <img src="image/
-              <?php 
-              echo $book["BookID"];
-                ?>
-                " alt="" />
-            </div>
-            <div class="content">
-              <h3>
-                <?php 
-              echo $book["Title"];
-               ?>
-               </h3>
-
-              <div class="price"><?php
-               echo "\$".$book["Price"].".00" ;
-               ?>
-              </div>
-
-              <a href="<?php echo $book["Book"]?>" class="btn">Buy Now</a>
-              <a href="?<?php echo 'BookID='.$book["BookID"]?>?<?php echo 'Price='.$book['Price']?>" class="btn">Add to Cart</a>
-              </div>
-          </div>
-          <?php 
-            }
-            ?>  
-          </div>
-          </div>
-        <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      </div>
-        </div>
-
-</section> -->
-
 <div align="center">
     <br />
     <?php

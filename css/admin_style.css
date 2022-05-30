@@ -108,7 +108,7 @@ section{
    margin-top: 1rem;
    padding:1rem 3rem;
    cursor: pointer;
-   color:var(--green);
+   color:var(--white);
    font-size: 1.8rem;
    border-radius: .5rem;
    text-transform: capitalize;
@@ -408,7 +408,7 @@ section{
 }
 
 .orders .box-container .box p span{
-   color:var(--purple);
+   color:var(--white);
 }
 
 .orders .box-container .box form{
@@ -452,7 +452,7 @@ section{
 }
 
 .users .box-container .box p span{
-   color:var(--purple);
+   color:var(--white);
 }
 
 .users .box-container .box .delete-btn{
@@ -485,7 +485,7 @@ section{
 }
 
 .messages .box-container .box p span{
-   color:var(--purple);
+   color:var(--white);
 }
 
 .messages .box-container .box .delete-btn{

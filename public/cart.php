@@ -70,7 +70,7 @@ $grand_total = 0;
                 <div class="col-md-8 cart">
                     <div class="title">
                         <div class="row">
-                            <div class="col"><h4><b>Shopping Cart</b></h4></div>
+                            <div class="col"><h4><b>Wish List</b></h4></div>
                             <div class="col align-self-center text-right text-muted"><p><?php echo mysqli_num_rows($select_cart)?> Items<p></div>
                         </div>
                     </div> 
@@ -87,33 +87,53 @@ if(mysqli_num_rows($select_cart) > 0){
                                 <div class="row"><?php echo $fetch_cart['BookID']; ?></div>
                             </div>
                             <div class="col">
-                                <a class="btn" href="">Buy </a>
+                                <a class="btn" href=<?php   ?>>Download </a>
                             </div>
-                            <div class="col"> &dollar; <?php echo number_format($fetch_cart['Price']); ?> <span class="close" style="color:red"> <a  href="cart.php?remove=<?php echo $fetch_cart['BookID']; ?>" onclick="return confirm('remove item from cart?')" class="delete-btn" > <i class="fas fa-trash" style="color:red"></i></a></span></div>
+                            <div class="col"> <?php 
+                            // echo number_format($fetch_cart['Price']); 
+                            ?> <span class="close" style="color:red"> <a  href="cart.php?remove=<?php echo $fetch_cart['BookID']; ?>" onclick="return confirm('remove item from WishList?')" class="delete-btn" > <i class="fas fa-trash" style="color:red"></i></a></span></div>
                         </div>
                     </div>
 <?php
 $grand_total += $fetch_cart['Price'];  
    }}
+   else{
+       ?>
+
+<div class="row border-top border-bottom">
+                        <div class="row main align-items-center">
+                            <div class="col-2"></div>
+                            <div class="col">
+                                <div class="row text-muted"></div>
+                                <div class="row"></div>
+                            </div>
+                            <div class="col">
+                                <P>No items found in cart </P>
+                            </div>
+                            <div class="col"> <span class="close" style="color:red"> <a> </a></span></div>
+                        </div>
+                    </div>
+  <?php
+   }
 ?>
                 </div>
                 <div class="col-md-4 summary">
                     <div><h5><b>Summary</b></h5></div>
                     <hr>
                     <div class="row">
-                        <div class="col" style="padding-left:0;">ITEMS 3</div>
-                        <div class="col text-right">&dollar;<?php echo $grand_total; ?></div>
+                        <div class="col" style="padding-left:0;">ITEMS <?php   ?></div>
+                        <div class="col text-right"><?php echo "count" ?></div>
                     </div>
-                    <form>
+                    <!-- <form>
                       
                         <p>GIVE CODE</p>
                         <input id="code" placeholder="Enter your code">
-                    </form>
+                    </form> -->
                     <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-                        <div class="col">TOTAL PRICE</div>
-                        <div class="col text-right">&dollar;<?php echo $grand_total; ?></div>
+                        <!-- <div class="col">TOTAL PRICE</div>
+                        <div class="col text-right">&dollar;<?php echo "count" ?></div> -->
                     </div>
-                    <button class="btn">CHECKOUT</button>
+                    <!-- <button class="btn">CHECKOUT</button> -->
                 </div>
             </div>
             
