@@ -74,6 +74,8 @@ while($rows = mysqli_fetch_assoc($results)){
       ?>
    </div>
 
+   <button class = "btn" style = "color: #f2f2f2; margin-left: 372px;"> print to an Excel</button>
+
 </section>
 
 
