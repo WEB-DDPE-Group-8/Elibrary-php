@@ -27,7 +27,7 @@ $result = $statement->fetchAll();
    <body>
      <div class="container">
       <br />
-      <h3 align="center">Convert HTML Table to Excel using PHPSpreadsheet</h3>
+      <h3 align="center">All users of the website</h3>
       <br />
       <div class="table-responsive">
        <form method="POST" id="convert_form" action="export.php">
