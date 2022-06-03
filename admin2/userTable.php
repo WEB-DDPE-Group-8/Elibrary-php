@@ -15,6 +15,8 @@ $result = $statement->fetchAll();
 
 ?>
 
+
+
 <!DOCTYPE html>
 <html>
    <head>
@@ -33,8 +35,9 @@ $result = $statement->fetchAll();
               <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Created At</th>
-                <th>Updated At</th>
+                <th>Email</th>
+                <th>User Type</th>
+                <th>Status</th>
               </tr>
               <?php
               foreach($result as $row)
@@ -45,6 +48,7 @@ $result = $statement->fetchAll();
                   <td>'.$row["LastName"].'</td>
                   <td>'.$row["Email"].'</td>
                   <td>'.$row["IsAdmin"].'</td>
+                  
                   <td>'.$row["Status"].'</td>
                 </tr>
                 ';
@@ -52,7 +56,7 @@ $result = $statement->fetchAll();
               ?>
             </table>
             <input type="hidden" name="file_content" id="file_content" />
-            <button type="button" name="convert" id="convert" class="btn btn-primary">Convert</button>
+            <!-- <button type="button" name="convert" id="convert" class="btn btn-primary">Convert</button> -->
           </form>
           <br />
           <br />
