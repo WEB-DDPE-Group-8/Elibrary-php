@@ -3,14 +3,6 @@
 include '../inc/admin-nav.php';
 include '../config/dbconfig.php';
 
-
-//  session_start();
-
-// $admin_id = $_SESSION['admin_id'];
-
-// if(!isset($admin_id)){
-//     header('location:login.php');
-//  }
 $query = "SELECT * FROM user";
 $results = mysqli_query($db,$query);
 if(isset($_GET['delete'])){
@@ -75,7 +67,7 @@ while($rows = mysqli_fetch_assoc($results)){
       ?>
    </div>
 
-   <button class = "btn" style = "color: #f2f2f2; margin-left: 372px;"> <a href="userTable.php">see on table</a></button>
+   <a href="userTable.php"><button class = "btn" style = "color: #f2f2f2; margin-left: 372px;">  Export to spreadsheet</button> </a>
 
 </section>
 

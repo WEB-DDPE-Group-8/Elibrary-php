@@ -2,13 +2,6 @@
 
 include '../config/dbconfig.php';
 
-// session_start();
-
-// $admin_id = $_SESSION['admin_id'];
-
-// if(!isset($admin_id)){
-//    header('location:login.php');
-// }
 
 ?>
 
@@ -70,40 +63,11 @@ include '../config/dbconfig.php';
 
       <div class="box">
          <?php 
-            // $select_pending = mysqli_query($db, "SELECT * FROM 'events'") or die('query failed');
-
-            // $fetch_pendings = mysqli_fetch_assoc($select_pending);
-
-            // $total_pendings = 0;
-            // $events = mysqli_query($db, "SELECT * FROM 'events'") or die('query failed');
-            // $number_of_events = mysqli_num_rows($select_messages);
-
-            // $count = 0;
-
-            // $select_pending = mysqli_query($db, "SELECT COUNT(*) AS TOTAL FROM 'events") or die('query failed');
 
             $sql = "SELECT COUNT(*) AS total from events";
             $result = $db->query($sql);
             $data =  $result->fetch_assoc();
-           
 
-
-            // if(mysqli_num_rows($select_pending) > 0){
-            //        while($fetch_pendings = mysqli_fetch_assoc($select_pending)){
-            //          // $total_price = $fetch_pendings['total_price'];
-            //          // $total_pendings += $total_price;
-            //          $count++;
-            //       };
-            //    };
-
-            // $total_pendings = 0;
-            // $select_pending = mysqli_query($conn, "SELECT total_price FROM `orders` WHERE payment_status = 'pending'") or die('query failed');
-            // if(mysqli_num_rows($select_pending) > 0){
-            //    while($fetch_pendings = mysqli_fetch_assoc($select_pending)){
-            //       $total_price = $fetch_pendings['total_price'];
-            //       $total_pendings += $total_price;
-            //    };
-            // };
          ?>
          <h3><?php  echo $data['total']; ?></h3>
          <p>Add Events</p>
