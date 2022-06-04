@@ -23,11 +23,13 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
+    <link rel="stylesheet" href="../css/sidenav.css">
 
     <!-- custom css file link  -->
     <!-- <link rel="stylesheet" href="../css/style.css" /> -->
 
-    <script src="user.js" defer></script>
+    <script src="../js/script.js" defer></script> 
+    <script src="../js/sidenav.js"></script>
   <style>
     .pagination{
       padding:8px 16px;
@@ -48,9 +50,39 @@
           include '../inc/bookslider.php';
     ?>
 
+<?php
+$fetch = "SELECT DISTINCT Genre FROM books";
+$genre_show = mysqli_query($db, $fetch);
+$genres = mysqli_fetch_assoc($genre_show);
 
+    ?>
+
+<div id = "navv">
+  <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <p>Categories <?php  
+   count($genre);
+      ?></p>
+    <ul>
+
+          <?php
+          foreach ($genres as $genre){
+            ?>
+            <li><a href="?g=<?php echo $genre?>"><?php echo $genre?></a></li>          
+          <?php
+          }
+          ?>
+          
+            
+
+</ul>
+      
+    </div>
+    
+    <span style="font-size:20px;cursor:pointer" onclick="openNav()">&#9776; Filter By</span>
+</div>
       <!-- custom js file link  -->
-  <script src="../js/script.js" defer></script> 
+ 
 
 <div align="center">
     <br />
@@ -79,20 +111,20 @@
     {
      $start_loop = $total_pages - 5;
     }
-    else if($difference=0){
-      $start_loop = -4;
-    }
+    // else if($difference=0){
+    //   $start_loop = -4;
+    // }
     $end_loop = $start_loop + 4;
     if($page > 1)
     {
      echo "<a class=pagination href='bookshelf.php?page=1'>First</a>";
      echo "<a class=pagination href='bookshelf.php?page=".($page - 1)."'> << </a>";
     }
-    else if($page = 1){
-      echo "<a class=pagination href='bookshelf.php?page=1'>First</a>";
-      return 0;
-      // echo "<a class=pagination href='bookshelf.php?page=".($page - 1)."'> << </a>";
-     }
+    // else if($page = 1){
+    //   echo "<a class=pagination href='bookshelf.php?page=1'>First</a>";
+    //   return 0;
+    //   // echo "<a class=pagination href='bookshelf.php?page=".($page - 1)."'> << </a>";
+    //  }
     for($i=$start_loop; $i<=$end_loop; $i++)
     {     
      echo "<a class=pagination href='bookshelf.php?page=".$i."'>".$i."</a>";

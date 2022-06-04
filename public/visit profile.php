@@ -1,11 +1,4 @@
-<?php 
-             
-if(!$_SESSION["loggedin"] === true)
-{
-header("location:login.php");
-return 0;
-}           
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,12 +8,16 @@ return 0;
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
    <link rel="stylesheet" href="../css/profile2.css">
-    <title>Profile 2</title>
+    <title>Profile</title>
 </head>
 
 <body>
 <?php
-include "../inc/nav_bar.php";
+include "../inc/nav_bar.php";     
+if(!$_SESSION["loggedin"] === true)
+{
+header("location:login.php");
+}           
 ?>
 
   <div class="main-content">

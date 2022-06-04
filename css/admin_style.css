@@ -61,6 +61,9 @@ section{
    color:var(--white);
    font-size: 4rem;
 }
+.export_import{
+   display:grid;
+   }
 
 .empty{
    padding:1.5rem;

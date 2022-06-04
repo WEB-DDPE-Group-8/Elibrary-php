@@ -265,6 +265,7 @@ if(isset($_POST["log_user"]))
 if(isset($_POST["log_out"]))
   {   
       echo "huston we ahve a problem";
+    //   $_SESSION["loggedin"] = false;
       session_unset();
       session_destroy();
       header('Location:../index.php');

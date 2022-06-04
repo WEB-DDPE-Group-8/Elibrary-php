@@ -8,6 +8,10 @@
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // $books = [];
     $search = $_GET['search'] ?? '';
+    $user = $_GET['user'] ?? '';
+    $event = $_GET['event'] ?? '';
+
+
 
     if($search){
       $record_per_page = 10;
@@ -42,7 +46,7 @@
       $start_from = ($page-1)*$record_per_page;
       $statement= $pdo->prepare(
         "
-              SELECT * FROM books order by BookID ASC LIMIT $start_from, $record_per_page 
+              SELECT * FROM books order by BookID DESC LIMIT $start_from, $record_per_page 
         ");
       $statement->execute();
       $books = $statement->fetchAll(PDO::FETCH_ASSOC);

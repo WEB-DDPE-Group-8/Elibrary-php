@@ -2,6 +2,7 @@
 session_start();
 include '../config/dbconfig.php';
 
+
 $query = "SELECT * FROM event";
 $results = mysqli_query($db,$query);
 
@@ -149,14 +150,88 @@ if(isset($_GET['delete'])){
 
    <!-- custom admin css file link  -->
    <link rel="stylesheet" href="../css/admin_style.css">
+   <style>
+      
+      .search-form{
+          position: relative;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+          transition: all 1s;
+          width: 50px;
+          height: 50px;
+          background: white;
+          box-sizing: border-box;
+          border-radius: 25px;
+          border: 4px solid white;
+          padding: 5px;
+      }
+      
+      .search-box{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;;
+          height: 42.5px;
+          line-height: 30px;
+          outline: 0;
+          border: 0;
+          display: none;
+          font-size: 1em;
+          border-radius: 20px;
+          padding: 0 20px;
+      }
+      
+      .fa{
+          box-sizing: border-box;
+          padding: 10px;
+          width: 42.5px;
+          height: 42.5px;
+          position: absolute;
+          top: 0;
+          right: 0;
+          border-radius: 50%;
+          color: #07051a;
+          text-align: center;
+          font-size: 1.2em;
+          transition: all 1s;
+      }
+      
+      .search-form:hover{
+          width: 300px;
+          cursor: pointer;
+      }
+      
+      .search-form:hover input{
+          display: block;
+      }
+      
+      .search-form:hover .fa{
+          background: #27ae60;
+          color: white;
+      }
+         </style>
+      
 
 </head>
 <body>
    
 <?php include '../inc/admin-nav.php'; ?>
 
-<!-- product CRUD section starts  -->
 
+<h1 class="title" style="color:black"> Events </h1>
+<form action="" class="search-form" method="GET">
+          <input
+            type="search"
+            name="event"
+            placeholder="search here..."
+            class="search-box"
+          />
+          <button type=submit class="fa fa-search"></button>
+</form>
+
+<!-- product CRUD section ends -->
+<!-- product CRUD section starts  -->
 <section class="add-products">
    <?php
 if(isset($message) && count($message)>0){
@@ -164,6 +239,7 @@ if(isset($message) && count($message)>0){
       echo  $key;
 }
    ?>
+   
    <form action="" method="post" enctype="multipart/form-data">
       <h3>Add Events</h3>
       <input type="text" name="name" class="box" placeholder="add event name" required>
@@ -174,9 +250,6 @@ if(isset($message) && count($message)>0){
    </form>
 
 </section>
-
-<!-- product CRUD section ends -->
-
 <!-- show products  -->
 
 <section class="show-products">
@@ -185,8 +258,8 @@ if(isset($message) && count($message)>0){
 
 
 <?php
-
-while($rows = mysqli_fetch_assoc($results)){
+  include "search.php";
+while($rows = mysqli_fetch_assoc($select_events)){
    ?>
       <div class="box">
          <img width=150px height=auto src="<?php echo $rows['IMAGE']; ?>" alt="">
@@ -233,6 +306,8 @@ while($rows = mysqli_fetch_assoc($results)){
 
 <!-- custom admin js file link  -->
 <script src="../js/admin_script.js"></script>
-
+<?php
+include '../inc/footer.php';
+?>
 </body>
 </html>

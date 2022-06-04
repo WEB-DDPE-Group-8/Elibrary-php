@@ -100,5 +100,9 @@ include '../config/dbconfig.php';
 <!-- custom admin js file link  -->
 <script src="../js/admin_script.js"></script>
 
+<?php
+include '../inc/footer.php';
+?>
+
 </body>
 </html>

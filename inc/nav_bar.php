@@ -32,13 +32,14 @@
           <div id="search-btn" class="fas fa-search"></div>
       <?php
         $uri = $_SERVER['REQUEST_URI']; 
-        if(str_contains($uri,"index"))
+        if(!str_contains($uri,"index")){
+          include "../inc/counter.php";
+          }
+        else if(str_contains($uri,"index")||str_contains($uri,"html/") )
         {
         include "inc/counter.php";
         }
-        else{
-        include "../inc/counter.php";
-        }
+       
       ?>
 
       <a href=
@@ -176,7 +177,4 @@ echo
          </script>
 _END; 
 }
-?>
-
-
 

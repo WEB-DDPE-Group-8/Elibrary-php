@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<?php 
+include '../config/dbconfig.php';
+include("../inc/nav_bar.php") ;
+if(isset($_GET['q']))
+{
+  $events = $_GET['q'];
+  $sql = "SELECT * FROM `event` WHERE NAME='$events' ";
+  $ev = mysqli_query($db,$sql);
+  $event = mysqli_fetch_assoc($ev);
+}
+ ?> 
+
+<img src="<?php  echo $event["IMAGE"]  ?>" alt="event picture" srcset="">
+
+<h1><?php  echo $event["NAME"]  ?></h1>
+  
+<p> <?php  echo $event["DESCRIPTION"]  ?></p>
+<?php 
+include("../inc/footer.php");
+ ?> 
+</body>
+</html>
