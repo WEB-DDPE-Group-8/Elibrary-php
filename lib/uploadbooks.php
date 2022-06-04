@@ -25,13 +25,6 @@ $targetDir = "../uploads/";
     $description = $_POST['description'];
     $lang = $_POST['lang'];
     $price=$_POST['price'];
-    //   $sql_query="INSERT INTO books(Title,Author,Year,Genre,Description,Language,Price)
-    //   VALUES('$Title','$Author','$date',' $genre','$description',$lang','$price)";
-    //   if(mysqli_query($conn,$sql_query))
-    //   {
-    //       echo "new detais entry inserted succesfully!";
-    //   }  
-    //   mysqli_close($conn);
   }
 
 
@@ -82,7 +75,7 @@ if(isset ($_POST["upload_book" ]))
         $fileName = basename($_FILES["bookpdf"]["name"]);
 
         $targetFileBook = $targetDir.$bookname."/".$fileName;
-    
+        $fileName = basename($_FILES["bookpdf"]["name"]);
         $filetype= pathinfo($targetFileBook, PATHINFO_EXTENSION);
 
         // Allow certain file formats

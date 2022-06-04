@@ -65,48 +65,28 @@ include '../config/dbconfig.php';
          <p>Total Accounts</p>
       </div>
 
-      
-
-
       <div class="box">
          <?php 
-            // $select_pending = mysqli_query($db, "SELECT * FROM 'event'") or die('query failed');
-
-            // $fetch_pendings = mysqli_fetch_assoc($select_pending);
-
-            // $total_pendings = 0;
-            // $event = mysqli_query($db, "SELECT * FROM 'event'") or die('query failed');
-            // $number_of_event = mysqli_num_rows($select_messages);
-
-            // $count = 0;
-
-            // $select_pending = mysqli_query($db, "SELECT COUNT(*) AS TOTAL FROM 'event") or die('query failed');
 
             $sql = "SELECT COUNT(*) AS total from event";
             $result = $db->query($sql);
             $data =  $result->fetch_assoc();
            
-
-
-            // if(mysqli_num_rows($select_pending) > 0){
-            //        while($fetch_pendings = mysqli_fetch_assoc($select_pending)){
-            //          // $total_price = $fetch_pendings['total_price'];
-            //          // $total_pendings += $total_price;
-            //          $count++;
-            //       };
-            //    };
-
-            // $total_pendings = 0;
-            // $select_pending = mysqli_query($conn, "SELECT total_price FROM `orders` WHERE payment_status = 'pending'") or die('query failed');
-            // if(mysqli_num_rows($select_pending) > 0){
-            //    while($fetch_pendings = mysqli_fetch_assoc($select_pending)){
-            //       $total_price = $fetch_pendings['total_price'];
-            //       $total_pendings += $total_price;
-            //    };
-            // };
          ?>
          <h3><?php  echo $data['total']; ?></h3>
          <p>Events</p>
+      </div>
+
+      <div class="box">
+         <?php 
+
+            $sql = "SELECT COUNT(*) AS total from books";
+            $result = $db->query($sql);
+            $data =  $result->fetch_assoc();
+           
+         ?>
+         <h3><?php  echo $data['total']; ?></h3>
+         <p>Books</p>
       </div>
 
    </div>

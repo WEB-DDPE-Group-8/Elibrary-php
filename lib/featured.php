@@ -14,6 +14,8 @@ include ('config/dbconfig.php');
     ASC
     LIMIT 8";
     $books = $db->query($feat);
+    if(!str_contains($uri,"index"))
+    $books = mysqli_fetch_assoc($books)
 // }
 
 ?>

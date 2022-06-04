@@ -1,12 +1,11 @@
 <?php 
              
-              if(isset($_SESSION["username"]))
-              {
-                  header("location:login.php");
-                  return 0;
-              }
-           
-            ?>
+if(!$_SESSION["loggedin"] === true)
+{
+header("location:login.php");
+return 0;
+}           
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

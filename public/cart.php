@@ -1,7 +1,3 @@
-<?php
-// include '../inc/nav_bar.php';
-?>
-
 <link rel="stylesheet" href="../css/cart final.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -12,13 +8,6 @@
 
 
 <?php
-// if(isset($_SESSION["username"]))
-// {
-// header("location:login.php");
-// }
-
-// ?>
- <?php
 
 @include '../config/dbconfig.php';
 
@@ -55,13 +44,18 @@ if(isset($_GET['delete_all'])){
 
   <body background="resources/banner-bg.jpg">
     <!-- header -->
-    <?php include("../inc/nav_bar.php");
-        //   include ("../config/dbconfig.php");
+    <?php include("../inc/nav_bar.php");include "../lib/cartadder.php";
+
+        if(!$_SESSION["loggedin"] == true)
+        {
+        header("location:login.php");
+        return 0;
+        }
     ?>
  <!-- final cart -->
 <?php 
 
-$select_cart = mysqli_query($db, "SELECT * FROM cart WHERE UserID =$_SESSION[UserID]");
+$select_cart = mysqli_query($db, "SELECT books.Book,books.Title,books.Author,cart.UserID,cart.BookID,cart.Price FROM cart INNER JOIN BOOKS ON books.BookID = cart.BookID WHERE CART.UserID =$_SESSION[UserID]");
 $grand_total = 0;
 ?>
 
@@ -83,11 +77,11 @@ if(mysqli_num_rows($select_cart) > 0){
                         <div class="row main align-items-center">
                             <div class="col-2"><img class="img-fluid" src='../image/<?php echo $fetch_cart['BookID']; ?>.png'></div>
                             <div class="col">
-                                <div class="row text-muted"><?php echo $fetch_cart['BookID']; ?></div>
-                                <div class="row"><?php echo $fetch_cart['BookID']; ?></div>
+                                <div class="row text-muted"><?php echo $fetch_cart['Title']; ?></div>
+                                <div class="row">By <?php echo $fetch_cart['Author']; ?></div>
                             </div>
                             <div class="col">
-                                <a class="btn" href=<?php   ?>>Download </a>
+                                <a class="btn" href=<?php echo $fetch_cart['Book']  ?>>Download </a>
                             </div>
                             <div class="col"> <?php 
                             // echo number_format($fetch_cart['Price']); 
@@ -108,7 +102,7 @@ $grand_total += $fetch_cart['Price'];
                                 <div class="row"></div>
                             </div>
                             <div class="col">
-                                <P>No items found in cart </P>
+                                <P>No items found in Wishlist </P>
                             </div>
                             <div class="col"> <span class="close" style="color:red"> <a> </a></span></div>
                         </div>

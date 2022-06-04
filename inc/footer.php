@@ -58,18 +58,29 @@
         <div class="box">
           <h3>extra links</h3>
           <a href="/html/public/profile.php"> <i class="fas fa-arrow-right"></i> account info </a>
-          <a href="cart.php"> <i class="fas fa-arrow-right"></i> items in cart</a>
+          <a href="cart.php"> <i class="fas fa-arrow-right"></i> Wishlist</a>
           <a href="/html/public/privacypolicyonly.php"> <i class="fas fa-arrow-right"></i> privacy policy </a>
-          <a href="#"> <i class="fas fa-arrow-right"></i> payment method </a>
-          <a href="#"> <i class="fas fa-arrow-right"></i> our serivces </a>
+          <!-- <a href="#"> <i class="fas fa-arrow-right"></i> payment method </a>
+          <a href="#"> <i class="fas fa-arrow-right"></i> our serivces </a> -->
         </div>
+
+        <?php 
+          $uri = $_SERVER['REQUEST_URI']; 
+          if(str_contains($uri,"index")){
+            $impath = "image/worldmap.png";
+          }
+          else{
+            $impath = "../image/worldmap.png";
+          }
+          ?>
 
         <div class="box">
           <h3>contact info</h3>
           <a href="#"> <i class="fas fa-phone"></i> +251 19988342</a>
           <a href="#"> <i class="fas fa-phone"></i> +251 19988342 </a>
           <a href="#"> <i class="fas fa-envelope"></i> group8@gmail.com </a>
-          <img src="image/worldmap.png" class="map" alt="" />
+          
+           <img src=<?php echo $impath ?> class="map" alt="" />
         </div>
       </div>
 

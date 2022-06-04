@@ -1,7 +1,8 @@
 <?php
-if(isset($_SESSION["username"]))
+if(!$_SESSION["loggedin"] === true)
 {
 header("location:login.php");
+return 0;
 }
 ?>
 <!DOCTYPE html>
@@ -37,7 +38,7 @@ header("location:login.php");
 
 <?php  include '../inc/nav_bar.php' ?>
 
-<form action method="post">
+<form action="upload_page_admin.php" method="post" enctype="multipart/form-data">
   
   <h1>This page is for a user to <strong>upload books </strong> in a pdf format</h1>
 <div class=whole>
@@ -64,14 +65,47 @@ header("location:login.php");
   <div class="form-group">
     <label for="cat">Category <span>Use title case to get a better result</span></label>
     <select name="genre"  id="cat" class="form-controll">
+    <?php
+$Genres = array("Action",
+"Adventure",
+"Comedy",
+"Crime ",
+"Fantasy",
+"Historical",
+"Horror",
+"Romance",
+"Classics",
+"Graphic Novel",
+"Detective ",
+"Historical Fiction",
+"Literary Fiction",
+"Science Fiction",
+"Short Storie",
+"Thriller",
+"Women's Fiction",
+"Biographies" ,
+"Cookbook",
+"Essay",
+"History",
+"Memoir",
+"Poetry",
+"Self-help",
+"True-Crime");
+
+foreach($Genres AS $genre){
+?>
+    <option value=<?php echo $genre?>><?php echo $genre?> </option>
+<?php
+
+}
+?>
+    <!-- <option value=""> </option>
     <option value=""> </option>
     <option value=""> </option>
     <option value=""> </option>
     <option value=""> </option>
     <option value=""> </option>
-    <option value=""> </option>
-    <option value=""> </option>
-    <option value=""> </option>
+    <option value=""> </option> -->
     <option value="Other">Other</option>
 </select>
   </div>
@@ -80,25 +114,16 @@ header("location:login.php");
   <div class="form-group">
     <label for="lang">Language <span>Select from the below options</span></label>
     <select name="lang"  id="lang" class="form-controll">
-    <option value=""> </option>
-    <option value=""> </option>
-    <option value=""> </option>
-    <option value=""> </option>
-    <option value=""> </option>
-    <option value=""> </option>
-    <option value=""> </option>
-    <option value=""> </option>
+    <option value="English"> English</option>
+    <option value="French">Francais</option>
+    <option value="Spanish">Espanol</option>
+    <option value="Amharic">Amharic  </option>
+    <option value="Dutch">Deutsch</option>
     <option value="Other">Other</option>
     </select>
     
   </div>
 
-
-  <!-- Price -->
-  <div class="form-group">
-    <label for="price">Price <span>Skip if book is FREE</span></label>
-    <input type="number" name="price" min=0  id="price" class="form-controll"/>
-  </div>
 
   <!-- Description -->
   <div class="form-group">
@@ -108,11 +133,12 @@ header("location:login.php");
   </div>
   </div>
   <!-- cont1 -->
+
 <div class=cont2>
   <!-- image upload -->
   <div class="form-group file-area">
         <label for="images">Image(s) <span>Your images should be at least 400x300 wide</span></label>
-    <input type="file" name="images" id="images" required="required" multiple="multiple"/>
+    <input type="file" name="file" id="images" required="required" accept="*.jpg"/>
     <div class="file-dummy">
       <div class="success">Great, your files are selected. Keep on.</div>
       <div class="default">Please select some files</div>
@@ -122,7 +148,7 @@ header("location:login.php");
   <!-- file upload -->
   <div class="form-group file-area">
         <label for="file">File <span>Your file should be in pdf format</span></label>
-    <input type="file" name="images" id="file" required="required" multiple="multiple"/>
+    <input type="file"  name="bookpdf" id="file" required="required" multiple="multiple"/>
     <div class="file-dummy">
       <div class="success">Great, your files are selected. Keep on.</div>
       <div class="default">Please select some files</div>

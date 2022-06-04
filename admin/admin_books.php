@@ -1,58 +1,27 @@
 <?php
 session_start();
 include '../config/dbconfig.php';
-   if(false){
-      $getbooks = "SELECT Title,Downloads,Author,Description,Genre,Language,Price,Likes,Dislikes,Status FROM books";
-      $books =mysqli_query($db,$getbooks);
-      $report='"Title","Downloads","Author","Description","Genre","Language","Price","Likes","Dislikes","Status"'."\n";
-      $count = 1;
-      if(mysqli_num_rows($books)>0)
-    {
-       while ($q = mysqli_fetch_assoc($books)) {
-        $report .= $count++.",";
-    foreach($q AS $key => $value){
-      // $pos = strpos($value, '"');
-      // if ($pos !== false) {
-      //     $value = str_replace('"', '\"', $value);
-         // echo $value;
-         $report .= '"'.$value.'",';
-      // }
-      }
-      $report .= "\n";
-    }
-   }
-    else
-    {
-       $report='"no file",';
-    }
-    date_default_timezone_set('Africa/Addis_Ababa');
-    $curr_date=date('d-m-y');;
-    $fileName="Bsook List Report(".$curr_date.").csv";
-    header("Content-type: text/x-csv");
-    header("Content-Disposition: attachment; filename=".$fileName);
-   echo $report;
-    exit;
-    header("Location:admin_events.php");
-   }
+include 'export books.php';
 include '../inc/admin-nav.php'; 
 
 $query = "SELECT * FROM books";
 $results = mysqli_query($db,$query);
+
 if(isset($_GET["delete"])){
 
 while($rows = mysqli_fetch_assoc($results)){
    
-   if($rows['Status'] == 'Active' && $rows['UserID'] ==  $_GET['delete']){
+   if($rows['Status'] == 'Approved' && $rows['BookID'] ==  $_GET['delete']){
       $delete_id = $_GET['delete'];
-      mysqli_query($db, "UPDATE user SET Status ='Deactivated' WHERE UserID = '$delete_id'") or die('query failed');
+      mysqli_query($db, "UPDATE books SET Status ='Rejected' WHERE BookID = '$delete_id'") or die('query failed');
       unset($_GET['delete']);
-      header('location:admin_users.php');
+      header('location:admin_books.php');
    }
-   else if($rows['Status'] == 'Deactivated' && $rows['UserID'] ==  $_GET['delete']){
+   else if($rows['Status'] == 'Rejected' && $rows['BookID'] ==  $_GET['delete']){
    $delete_id = $_GET['delete'];
-   mysqli_query($db, "UPDATE user SET Status ='Active' WHERE UserID = '$delete_id'") or die('query failed');
+   mysqli_query($db, "UPDATE books SET Status ='Approved' WHERE BookID = '$delete_id'") or die('query failed');
    unset($_GET['delete']);
-   header('location:admin_users.php');
+   header('location:admin_books.php');
 }
    
 }
@@ -74,13 +43,24 @@ while($rows = mysqli_fetch_assoc($results)){
    <!-- custom admin css file link  -->
    <link rel="stylesheet" href="../css/admin_style.css">
    <link rel="stylesheet" href="../css/style.css">
-
+   <style>
+.export_import{
+display:flex;
+}
+   </style>
 </head>
 <body>
+
+<div class="export_import"> 
+   <form action="" method="post">
+<button class=btn type="submit" name="export_book">Export</button>
+</form>
+      <?php
+         include "import books.php";
+      ?>
+   </div>
    
-<?php 
-include 'import books.php';
-?>
+
 
 
 <section class="users">
@@ -97,7 +77,9 @@ include 'import books.php';
          <p> Title : <span  style="color:black"><?php echo $fetch_books['Title']; ?></span> </p>
          <p> Author : <span  style="color:black">   <?php echo $fetch_books['Author']; ?></span> </p>
          <p> Lang : <span style="color:black"><?php echo $fetch_books['Language']; ?></span> </p>
-         <a href="admin_users.php?delete=<?php echo $fetch_books['UserID']; ?>" onclick="return confirm('Make Changes to <?php echo $fetch_books['Title']; ?>')" class="btn"><?php echo $fetch_books['Status']; ?></a>
+         <a href="<?php echo $fetch_books["Book"]?>" class="btn">Get Book</a>
+       
+         <a href="admin_books.php?delete=<?php echo $fetch_books['BookID']; ?>" onclick="return confirm('Make Changes to <?php echo $fetch_books['Title']; ?>')" class="btn"><?php echo $fetch_books['Status']; ?></a>
       </div>
       <?php
          };

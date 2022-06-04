@@ -23,6 +23,32 @@ window.onload = () => {
 
   fadeOut();
 };
+function myFunction() {
+
+  var checker=document.querySelector('#checkdark').checked;
+  var element = document.querySelector(":root");
+  
+  if (checker) {
+      element.style.setProperty('--black','#2f2f2f');
+      element.style.setProperty('--light-color','#2f2f2f');
+      element.style.setProperty('--white','#212121');
+      element.style.setProperty('--shadow','#525151');
+      element.style.setProperty('--bgp','#212121');
+      element.style.setProperty('--dark-lbl','#fff');
+      
+  } else {
+      element.style.setProperty('--black','#444');
+      element.style.setProperty('--light-color','#666');
+      element.style.setProperty('--white','#fff');
+      element.style.setProperty('--shadow','#eee');
+      element.style.setProperty('--bgp','url(../image/banner-bg.jpg)');
+      element.style.setProperty('--dark-lbl','#000000');
+      
+  }
+
+
+}
+
 
 function loader() {
   document.querySelector(".loader-container").classList.add("active");
@@ -33,11 +59,11 @@ function fadeOut() {
 }
 
 var swiper = new Swiper(".books-slider", {
-  loop: false,
+  loop: true,
   centeredSlides: true,
   autoplay: {
     delay: 9500,
-    disableOnInteraction: true,
+    disableOnInteraction: false,
   },
   breakpoints: {
     0: {

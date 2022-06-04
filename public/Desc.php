@@ -1,3 +1,17 @@
+<?php  
+   
+   include("../config/dbconfig.php");
+ 
+
+  if( isset($_GET["bookid"]))
+  {
+     $Id = $_GET["bookid"];
+     $query = $db->query("Select * from books where BookID= $Id ");
+             
+ if($query->num_rows > 0)
+ {
+   $GLOBALS['row'] = $query->fetch_assoc()
+  ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -13,9 +27,15 @@
       integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
       crossorigin="anonymous"
     />
+
+    
   </head>
   <body>
-    <?php include("../inc/nav_bar.php") ?>
+    <?php 
+    include("../inc/nav_bar.php");
+      include "../lib/cartadder.php";
+    
+    ?>
 
     <div class="card-wrapper">
       <div class="card">
@@ -23,94 +43,83 @@
         <div class="product-imgs">
           <div class="img-display">
             <div class="img-showcase">
-            <img src="../image/1.png" alt="shoe image" />
-              <img src="shoes_images/shoe_1.jpg" alt="shoe image" />
+            <!-- <img src="../image/<?php echo $row["BokID"] ?>.jpg" alt="shoe image" /> -->
+              <img src="/html/image/<?php echo $row["BookID"].".png"?>" alt="<?php echo $row["BookID"]."png"?>" />
               
             </div>
           </div>
-          <!-- <div class="img-select">
-            <div class="img-item">
-              <a href="#" data-id="1">
-                <!-- <img src="shoes_images/shoe_1.jpg" alt="shoe image" /> -->
-              </a>
-            </div>
-            <div class="img-item">
-              <a href="#" data-id="2">
-                <!-- <img src="shoes_images/shoe_2.jpg" alt="shoe image" /> -->
-              </a>
-            </div>
-            <div class="img-item">
-              <a href="#" data-id="3">
-                <!-- <img src="shoes_images/shoe_3.jpg" alt="shoe image" /> -->
-              </a>
-            </div>
-            <div class="img-item">
-              <a href="#" data-id="4">
-                <!-- <img src="shoes_images/shoe_4.jpg" alt="shoe image" /> -->
-              </a>
+ 
+           </div>
+            <div class="product-content">
+              <h2 class="product-title"><?php echo $row["Title"] ?> </h2>
+              <div class="product-rating">
+                <i class="fas fa-thumbs-up"><span><?php echo number_format($row["Likes"])?></span></i>
+                <i class="fas fa-thumbs-down"><span><?php echo  number_format($row["Dislikes"]) ?></span></i>
+                
+              </div>
+    
+              <div class="product-price">
+                <p class="new-price">Price: <span>$<?php echo $row["Price"] ?></span></p>
+              </div>
+    
+              <div class="product-detail">
+                <h2>Description:</h2>
+                <ul>
+                  <?php echo $row["Description"] ?><br>
+                  <li>Title: <span><?php echo $row["Title"] ?> </span></li>
+                  <li>Author: <span><?php echo $row["Author"] ?> </span></li>
+                  <li>Language: <span><?php echo $row["Language"] ?></span></li>
+                  <li>Genre: <span><?php echo $row["Genre"] ?></span></li>
+                </ul>
+                <?php
+            }
+            else
+            {
+    ?>
+    <P> No book Found matching the ID </P>
+    <?php
+            }
+    ?>
+    <?php
+            }
+            else{
+    ?>
+    <p> no book id </p>
+    <?php
+            }
+    ?>
+              </div>
+    
+              <div class="purchase-info">
+              <!-- <a href="?addtocart=true&<?php echo 'id='.$row["BookID"]?>&<?php echo 'price='.$row['Price']?>" class="btn">Add to WishList</a> -->
+              
+              <a href=<?php
+          if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+           echo "/html/public/cart.php?addtocart=true&id=$row[BookID]&price=$row[Price]";
+           else{
+             if (str_contains($uri,"index"))
+           echo 'public/login.php';
+           else
+           echo '../public/login.php';
+           }
+           ?> class="btn">Add to WishList</a>
+
+              <a href=<?php
+          if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+           echo $row["Book"];
+           else{
+             if (str_contains($uri,"index"))
+           echo 'public/login.php';
+           else
+           echo '../public/login.php';
+           }
+           ?> class="btn">Get Book</a>
+
+              </div>
             </div>
           </div>
         </div>
         <!-- card right -->
-        <?php  
-   
-          include("../config/dbconfig.php");
- 
-         if( isset($_GET["bookid"]))
-         {
-            $Id = $_GET["bookid"];
-            $query = $db->query("Select * from books where BookID= $Id ");
-                    
-        if($query->num_rows > 0)
-        {
-          $GLOBALS['row'] = $query->fetch_assoc()
-         ?>
-        <div class="product-content">
-          <h2 class="product-title"><?php echo $row["Title"] ?> </h2>
-          <div class="product-rating">
-            <i class="fas fa-star"><?php echo $row["Likes"]?></i>
-            <i class="fas fa-star"><?php echo $row["Dislikes"] ?></i>
-            
-          </div>
-
-          <div class="product-price">
-            <p class="new-price">Price: <span>$<?php echo $row["Price"] ?></span></p>
-          </div>
-
-          <div class="product-detail">
-            <h2>Description:</h2>
-            <?php echo $row["Description"] ?>
-            <ul>
-              <li>Title: <span><?php echo $row["Title"] ?> </span></li>
-              <li>Author: <span><?php echo $row["Author"] ?> </span></li>
-              <li>Language: <span><?php echo $row["Language"] ?></span></li>
-              <li>Genre: <span><?php echo $row["Genre"] ?></span></li>
-            </ul>
-            <?php
-        }
-        else
-        {
-?>
-<P> No book Found  </P>
-<?php
-        }
-?>
-<?php
-        }
-        else{
-?>
-<p> no book id </p>
-<?php
-        }
-?>
-          </div>
-
-          <div class="purchase-info">
-            <button type="button" class="btn">
-              Add to Cart <i class="fas fa-shopping-cart"></i>
-            </button>
-          </div>
-        </div>
       </div>
     </div>
 

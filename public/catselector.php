@@ -1,4 +1,10 @@
-<?php  
+
+<?php
+
+// if(!$_SESSION["loggedin"] === true)
+// {
+// header("location:login.php");
+// }
 include "../config/globals.php" 
 ?>
 

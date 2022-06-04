@@ -1,5 +1,8 @@
 <?php
-
+if(!$_SESSION["loggedin"] === true)
+{
+    header("locaiton:login.php");
+}
 include "../config/globals.php";
 ?>
 <!DOCTYPE html>

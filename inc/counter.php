@@ -9,7 +9,7 @@
     include '../config/dbconfig.php';
  }
 
- $select_rows = mysqli_query($db, "SELECT * FROM cart where UserID = $_SESSION[UserID]") or die('query failed');
+ $select_rows = mysqli_query($db, "SELECT * FROM cart where UserID = '$_SESSION[UserID]'") or die('query failed');
  $row_count = mysqli_num_rows($select_rows);
 }
 ?>

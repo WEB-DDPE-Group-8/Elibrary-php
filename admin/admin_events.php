@@ -2,34 +2,62 @@
 session_start();
 include '../config/dbconfig.php';
 
-
 $query = "SELECT * FROM event";
 $results = mysqli_query($db,$query);
 
 if(isset($_POST['add_product'])){
+   unset($_POST['add_product']);
 
-   if(!empty($_POST['name'] && !empty($_POST['description'] && !empty($_POST['image'])))){
-      $name = $_POST['name'];
+
+   if(!empty($_POST['name'] && !empty($_POST['description'] && !empty($_FILES['image']['name'])))){
+      // $name = $_POST['name'];
       $description = $_POST['description'] ;
-      $image = $_POST['image'];
+      // $image = $_POST['image'];
+   $name = mysqli_real_escape_string($db, $_POST['name']);
+//    $price = $_POST['price'];
+   $fileName = basename($_FILES['image']['name']);
+   $filetype= pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
 
+   // $image = $_FILES['image']['name'];
+   $fileName = mysqli_num_rows($results) + 1;
+   $image = $fileName.".$filetype";
+   $image_size = $_FILES['image']['size'];
+   $image_tmp_name = $_FILES['image']['tmp_name'];
+   $image_folder = "../multimedia/events/$image";
+   $select_event_name = mysqli_query($db, "SELECT name FROM `event` WHERE name = '$name'") or die('query failed');
 
-      $query = "INSERT INTO event(NAME, DESCRIPTION, IMAGE) VALUES ('$name', '$description', '$image')";
+   if(mysqli_num_rows($select_event_name) > 0){
+         $message[] = 'event already exists';
+         
+   header('location:admin_events.php');
+   }else{
+      // $img_path = $image_folder.$image;
+      $query = "INSERT INTO event (NAME, DESCRIPTION, IMAGE) VALUES ('$name', '$description', '$image_folder')";
       $run = mysqli_query($db, $query);
 
       if($run){
-         echo "Event add";
+         move_uploaded_file($image_tmp_name, $image_folder);
+         $message[] = 'Event added successfully!';
          unset($_POST['add_product']);
+      
+   header('location:admin_events.php');
       }
       else{
-         echo "form not submitted";
+         $message[] = "form not submitted";
          unset($_POST['add_product']);
+         
+
+   header('location:admin_events.php');
       }
   }
-   else{
-      echo "all fields required";
-      unset($_POST['add_product']);
    }
+   else{
+      $message[] = "all fields required";
+      unset($_POST['add_product']);
+      
+
+   header('location:admin_events.php');
+}
 }
 
 // session_start();
@@ -47,12 +75,12 @@ if(isset($_POST['add_product'])){
 //    $image = $_FILES['image']['name'];
 //    $image_size = $_FILES['image']['size'];
 //    $image_tmp_name = $_FILES['image']['tmp_name'];
-//    $image_folder = 'uploaded_img/'.$image;
+//    $image_folder = '/html/multimedia/events/'.$image;
 
 //    $select_product_name = mysqli_query($conn, "SELECT name FROM `products` WHERE name = '$name'") or die('query failed');
 
 //    if(mysqli_num_rows($select_product_name) > 0){
-//       $message[] = 'product name already added';
+//       $message[] = 'event already added';
 //    }else{
 //       $add_product_query = mysqli_query($conn, "INSERT INTO `products`(name, price, image) VALUES('$name', '$price', '$image')") or die('query failed');
 
@@ -130,15 +158,18 @@ if(isset($_GET['delete'])){
 <!-- product CRUD section starts  -->
 
 <section class="add-products">
-
-   <h1 class="title">shop products</h1>
-
+   <?php
+if(isset($message) && count($message)>0){
+   foreach($message as $key)
+      echo  $key;
+}
+   ?>
    <form action="" method="post" enctype="multipart/form-data">
       <h3>Add Events</h3>
       <input type="text" name="name" class="box" placeholder="add event name" required>
-      <input type="text" min="0" name="description" class="box" placeholder="description of event" required>
-      <!-- <input type="file" name="image" accept="image/jpg, image/jpeg, image/png" class="box" required> -->
-      <input type="text" name="image" class="box" required>
+      <textarea  min="0" name="description" class="box" placeholder="description of event" required></textarea>
+      <input type="file" name="image" accept="image/jpg, image/jpeg, image/png" class="box" required>
+      <!-- <input type="file" name="image" class="box" required> -->
       <input type="submit" value="add event" name="add_product" class="btn">
    </form>
 
@@ -157,10 +188,8 @@ if(isset($_GET['delete'])){
 
 while($rows = mysqli_fetch_assoc($results)){
    ?>
-
-   
       <div class="box">
-         <!-- <img src="uploaded_img/<?php// echo $fetch_products['image']; ?>" alt=""> -->
+         <img width=150px height=auto src="<?php echo $rows['IMAGE']; ?>" alt="">
          <div class="name"><?php echo $rows["NAME"]; 
          ?></div>
          <div class="price"><?php echo $rows["DESCRIPTION"]; ?></div>
@@ -178,7 +207,7 @@ while($rows = mysqli_fetch_assoc($results)){
    <?php
       if(isset($_GET['update'])){
          $update_id = $_GET['update'];
-         $update_query = mysqli_query($db, "SELECT * FROM event WHERE ID = '$update_id'") or die('query failed');
+         $update_query = mysqli_query($db, "SELECT * FROM event WHERE ID = '$update_id' AND Status = active") or die('query failed');
          if(mysqli_num_rows($update_query) > 0){
             while($fetch_update = mysqli_fetch_assoc($update_query)){
    ?>
@@ -186,7 +215,7 @@ while($rows = mysqli_fetch_assoc($results)){
       <input type="hidden" name="update_p_id" value="<?php echo $fetch_update['ID']; ?>">
       <input type="hidden" name="update_old_image" value="<?php echo $fetch_update['IMAGE']; ?>">
       <img src="uploaded_img/<?php echo $fetch_update['IMAGE']; ?>" alt="">
-      <input type="text" name="update_name" value="<?php echo $fetch_update['NAME']; ?>" class="box" required placeholder="enter product name">
+      <input type="text" name="update_name" value="<?php echo $fetch_update['NAME']; ?>" class="box" required placeholder="enter event">
      
       <input type="file" class="box" name="update_image" accept="image/jpg, image/jpeg, image/png">
       <input type="submit" value="update" name="update_product" class="btn">
@@ -201,12 +230,6 @@ while($rows = mysqli_fetch_assoc($results)){
    ?>
 
 </section>
-
-
-
-
-
-
 
 <!-- custom admin js file link  -->
 <script src="../js/admin_script.js"></script>

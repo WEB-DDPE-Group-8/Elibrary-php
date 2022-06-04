@@ -28,7 +28,7 @@ if (isset($_POST["import"]))
 }
 ?>
 
-    <h2>Import User CSV file into Mysql using PHP</h2>
+    <!-- <h2>Import User CSV file into Mysql using PHP</h2> -->
     <div class="outer-scontainer">
         <div class="row">
             <form class="form-horizontal" action="" method="post"
@@ -36,11 +36,11 @@ if (isset($_POST["import"]))
                 enctype="multipart/form-data"
                 onsubmit="return validateFile()">
                 <div Class="input-row">
-                    <input type="file" name="file" id="file"
+                    <input style="border: 1px solid " type="file" name="file" id="file"
                         class="file" accept=".csv,.xls,.xlsx">
                     <div class="import">
                         <button type="submit" id="submit" name="import"
-                            class="btn-submit">Import</button>
+                            class="btn">Import</button>
                     </div>
                 </div>
             </form>

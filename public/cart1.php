@@ -1,11 +1,10 @@
 
 
 <?php
-if(isset($_SESSION["username"]))
+if(!$_SESSION["loggedin"] === true)
 {
 header("location:login.php");
 }
-
 ?>
 <?php
 

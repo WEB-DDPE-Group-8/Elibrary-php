@@ -8,7 +8,13 @@
   --border: 0.1rem solid rgba(0, 0, 0, 0.1);
   --border-hover: 0.1rem solid var(--black);
   --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  --white:#fff;
+  --shadow:#eee;
+  --bgp:url(../image/banner-bg.jpg);
+  --dark-lbl:#000000;
+  
 }
+
 
 * {
   font-family: "Poppins", sans-serif;
@@ -28,6 +34,7 @@ html {
   overflow-x: hidden;
   scroll-padding-top: 5rem;
   scroll-behavior: smooth;
+  background-color: var(--white);
 }
 
 html::-webkit-scrollbar {
@@ -40,6 +47,62 @@ html::-webkit-scrollbar-track {
 
 html::-webkit-scrollbar-thumb {
   background: var(--black);
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 37px;
+  height: 15px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 2px;
+  bottom: 1px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+  
+}
+#dark{
+  color: var(--dark-lbl);
 }
 
 section {
@@ -68,7 +131,7 @@ section {
   font-size: 3rem;
   padding: 0.5rem 2rem;
   color: var(--black);
-  background: #fff;
+  background: var(--white);
   border: var(--border);
 }
 
@@ -77,7 +140,7 @@ section {
   display: inline-block;
   padding: 0.9rem 3rem;
   border-radius: 0.5rem;
-  color: #fff;
+  color: var(--white);
   background: var(--green);
   font-size: 1.7rem;
   cursor: pointer;
@@ -89,7 +152,7 @@ section {
 }
 
 .header .header-1 {
-  background: #fff;
+  background: var(--white);
   padding: 1.5rem 9%;
   display: flex;
   /* align-items: center; */
@@ -111,7 +174,7 @@ section {
   height: 5rem;
   border: var(--border);
   overflow: hidden;
-  background: #fff;
+  background: var(--white);
   display: flex;
   align-items: center;
   border-radius: 0.5rem;
@@ -126,15 +189,14 @@ section {
   color: var(--black);
 }
 
-.header .header-1 .search-form button {
+.header .header-1 .search-form label {
   font-size: 2.5rem;
   padding-right: 1.5rem;
   color: var(--black);
   cursor: pointer;
-  background-color: #ffffff00;
 }
 
-.header .header-1 .search-form button:hover {
+.header .header-1 .search-form label:hover {
   color: var(--green);
 }
 
@@ -164,7 +226,7 @@ section {
 }
 
 .header .header-2 .navbar a {
-  color: #fff;
+  color: var(--white);
   display: inline-block;
   padding: 1.2rem;
   font-size: 1.7rem;
@@ -196,7 +258,7 @@ section {
 .bottom-navbar a {
   font-size: 2.5rem;
   padding: 2rem;
-  color: #fff;
+  color: var(--white);
 }
 
 .bottom-navbar a:hover {
@@ -207,7 +269,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--white);
   position: fixed;
   top: 0;
   right: -105%;
@@ -221,7 +283,7 @@ section {
 }
 
 .login-form-container form {
-  background: #fff;
+  background: var(--white);
   border: var(--border);
   width: 40rem;
   padding: 2rem;
@@ -294,7 +356,7 @@ section {
 }
 
 .home {
-  background: url(../image/banner-bg.jpg) no-repeat;
+  background: var(--bgp) no-repeat;
   background-size: cover;
   background-position: center;
 }
@@ -345,6 +407,7 @@ section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   gap: 1.5rem;
+  background-color: var(--white);
 }
 
 .icons-container .icons {
@@ -371,8 +434,7 @@ section {
 }
 
 .featured .featured-slider .box {
-  margin: 0rem ;
-  margin: bottom -20px;
+  margin: 2rem 0;
   position: relative;
   overflow: hidden;
   border: var(--border);
@@ -384,14 +446,14 @@ section {
 }
 
 .featured .featured-slider .box .image {
-  padding: 0rem;
-  background: linear-gradient(15deg, #eee 30%, #fff 30.1%);
+  padding: 1rem;
+  background: linear-gradient(15deg, var(--shadow) 30%, var(--white) 30.1%);
 }
 
-/* .featured .featured-slider .box:hover .image { */
-  /* transform: translateY(6rem); */
+.featured .featured-slider .box:hover .image {
+  transform: translateY(6rem);
   /* makes the image slide down  */
-/* } */
+}
 
 .featured .featured-slider .box .image img {
   height: 25rem;
@@ -403,7 +465,7 @@ section {
   top: 0;
   left: 0;
   right: 0;
-  background: #fff;
+  background: var(--white);
   z-index: 1;
   transform: translateY(-105%);
 }
@@ -414,7 +476,7 @@ section {
   top: 0;
   left: 0;
   right: 0;
-  background: #fff;
+  background: var(--white);
   z-index: 1;
   /* transform: translateY(-105%); */
 }
@@ -435,11 +497,11 @@ section {
 
 .featured .featured-slider .box .icons a:hover {
   background: var(--green);
-  color: #fff;
+  color: var(--white);
 }
 
 .featured .featured-slider .box .content {
-  background: #eee;
+  background: var(--shadow);
   padding: 1.5rem;
 }
 
@@ -466,7 +528,7 @@ section {
   height: 4rem;
   width: 4rem;
   color: var(--black);
-  background: #fff;
+  background: var(--white);
 }
 
 .swiper-button-next::after,
@@ -477,7 +539,7 @@ section {
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
   background: var(--black);
-  color: #fff;
+  color: var(--white);
 }
 
 .newsletter {
@@ -496,7 +558,7 @@ section {
 
 .newsletter form h3 {
   font-size: 2.2rem;
-  color: #fff;
+  color: var(--white);
   padding-bottom: 0.7rem;
   font-weight: normal;
 }
@@ -551,7 +613,7 @@ section {
 }
 
 .deal {
-  background: #f3f3f3;
+  background: var(--white);
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -711,7 +773,7 @@ section {
   width: 5rem;
   line-height: 5rem;
   font-size: 2rem;
-  color: #fff;
+  color: var(--white);
   background: var(--green);
   margin: 0 0.3rem;
   border-radius: 50%;
@@ -742,7 +804,7 @@ section {
   height: 100%;
   width: 100%;
   z-index: 10000;
-  background: #f7f7f7;
+  background: var(--shadow);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -769,6 +831,7 @@ section {
 
   section {
     padding: 3rem 2rem;
+    background-color: var(--white);
   }
 }
 
@@ -779,7 +842,13 @@ section {
 
   body {
     padding-bottom: 6rem;
+    background-color: var(--white);
   }
+ 
+ .header{
+  background-color: var(--white);
+
+ }
 
   .header .header-2 {
     display: none;
@@ -808,7 +877,6 @@ section {
 
   .header .header-1 .search-form.active {
     top: 115%;
-    z-index:100000;
   }
 
   .home .row .content {

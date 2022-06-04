@@ -1,36 +1,8 @@
 <?php
 session_start();
 include '../config/dbconfig.php';
-   if(false){
-      $getusers = "SELECT UserName,Email,PhoneNumber,Status,FirstName,LastName,IsAdmin,Interests,Status FROM user";
-      $users =mysqli_query($db,$getusers);
-      $report='"No","User Name","Email","Phone","Status","First Name","Last Name","Is Admin","Interests","Status"'."\n";
-      $count = 1;
-    while ($q = mysqli_fetch_assoc($users)) {
-      $report .= $count++.",";
-    foreach($q AS $key => $value){
-      // $pos = strpos($value, '"');
-      // if ($pos !== false) {
-      //     $value = str_replace('"', '\"', $value);
-         // echo $value;
-         $report .= '"'.$value.'",';
-      // }
-      }
-      $report .= "\n";
-    }
-    echo $report;
-    date_default_timezone_set('Africa/Addis_Ababa');
-    $curr_date=date('d-m-y');;
-    $fileName="User List Report(".$curr_date.").csv";
-    header("Content-type: application/csv");
-   header("Content-Disposition: attachment; filename=".$fileName);
-    exit;
-    header("Location:index.php");
-   }
-
+include "export users.php";
 include '../inc/admin-nav.php';
-
-
 
 $query = "SELECT * FROM user";
 $results = mysqli_query($db,$query);
@@ -57,7 +29,6 @@ while($rows = mysqli_fetch_assoc($results))
          
       }
    }
-// if(isset($_POST["ulist"])){
 
 ?>
 
@@ -76,17 +47,27 @@ while($rows = mysqli_fetch_assoc($results))
    <link rel="stylesheet" href="../css/admin_style.css">
    <link rel="stylesheet" href="../css/style.css">
 
+   <style>
+.export_import{
+display:flex;
+}
+   </style>
+
 </head>
 <body>
-   
-<?php //include '../inc/admin-nav.php'; 
-include 'import users.php';
-?>
-
 
 <section class="users">
 
    <h1 class="title" style="color:black"> user accounts </h1>
+   
+   <div class="export_import"> 
+   <form action="" method="post">
+<button class=btn type="submit" name="export_user">Export</button>
+</form>
+      <?php
+         include "import users.php";
+      ?>
+   </div>
 
    <div class="box-container">
       <?php
@@ -97,7 +78,18 @@ include 'import users.php';
          <p> username : <span  style="color:black"><?php echo $fetch_users['UserName']; ?></span> </p>
          <p> email : <span  style="color:black">   <?php echo $fetch_users['Email']; ?></span> </p>
          <p> user type : <span style="color:black"><?php echo $fetch_users['IsAdmin']; ?></span> </p>
-         <a href="admin_users.php?delete=<?php echo $fetch_users['UserID']; ?>" onclick="return confirm('Make Changes to <?php echo $fetch_users['UserName']; ?>')" class="btn"><?php echo $fetch_users['Status']; ?></a>
+         <?php 
+         if($fetch_users['IsAdmin'] == 'Admin'){
+         ?>
+         <a href="#" onclick="return confirm('You Cant Make Changes to <?php echo $fetch_users['UserName']; ?>, they are an admin')" class="btn"><?php echo $fetch_users['Status']; ?></a>
+         <?php 
+         }
+         else{
+            ?>
+            <a href="admin_users.php?delete=<?php echo $fetch_users['UserID']; ?>" onclick="return confirm('Make Changes to <?php echo $fetch_users['UserName']; ?>')" class="btn"><?php echo $fetch_users['Status']; ?></a>
+            <?php 
+         }
+         ?>
       </div>
       <?php
          };

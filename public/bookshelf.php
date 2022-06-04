@@ -1,4 +1,9 @@
-<html>
+       
+    <?php 
+          include '../lib/searchfunction.php';
+    ?>
+    
+    <html>
     <head>
     <title>Book Shelf</title>
     <meta charset="UTF-8">
@@ -23,24 +28,25 @@
     <!-- <link rel="stylesheet" href="../css/style.css" /> -->
 
     <script src="user.js" defer></script>
-    <style>
-  .pagination{
-   padding:8px 16px;
-   border:1px solid #ccc;
-   color:#333;
-   font-weight:bold;
+  <style>
+    .pagination{
+      padding:8px 16px;
+      border:1px solid #ccc;
+      color:#333;
+      font-weight:bold;
   }
   </style>
+  
 
 </head>
 
 <body background=./multimedia/resources/banner-bg.jpg>
           <!-- header -->
          
-    <?php include("../inc/nav_bar.php");
-          include '../lib/searchfunction.php';
+    <?php 
+          include("../inc/nav_bar.php");
           include '../inc/bookslider.php';
-    ; ?>
+    ?>
 
 
       <!-- custom js file link  -->
@@ -49,14 +55,23 @@
 <div align="center">
     <br />
     <?php
-    $page_query= $pdo->prepare(
-      "
-      SELECT * FROM books ORDER BY BookID DESC
-      ");
-    $page_query->execute();
-    $page_result = $page_query->fetchColumn();
-    $total_records = $page_result;
+    // $page_query= $pdo->prepare(
+    //   "
+    //   SELECT * FROM books ORDER BY BookID DESC
+    //   ");
+
+    $uri = $_SERVER['REQUEST_URI']; 
+    if(str_contains($uri,"search") && str_contains($uri,"bookshelf")){
+    $statementsearch->execute();
+    $page_result = $statementsearch->fetchColumn();
+    }
+    else if(!str_contains($uri,"search") && str_contains($uri,"bookshelf")){
+      $statement->execute();
+      $page_result = $statement->fetchColumn();
+      }
     
+    
+    $total_records = $page_result;
     $total_pages = ceil($total_records/$record_per_page);
     $start_loop = $page;
     $difference = $total_pages - $page;
@@ -64,12 +79,20 @@
     {
      $start_loop = $total_pages - 5;
     }
+    else if($difference=0){
+      $start_loop = -4;
+    }
     $end_loop = $start_loop + 4;
     if($page > 1)
     {
      echo "<a class=pagination href='bookshelf.php?page=1'>First</a>";
      echo "<a class=pagination href='bookshelf.php?page=".($page - 1)."'> << </a>";
     }
+    else if($page = 1){
+      echo "<a class=pagination href='bookshelf.php?page=1'>First</a>";
+      return 0;
+      // echo "<a class=pagination href='bookshelf.php?page=".($page - 1)."'> << </a>";
+     }
     for($i=$start_loop; $i<=$end_loop; $i++)
     {     
      echo "<a class=pagination href='bookshelf.php?page=".$i."'>".$i."</a>";
@@ -77,7 +100,7 @@
     if($page <= $end_loop)
     {
      echo "<a class=pagination href='bookshelf.php?page=".($page + 1)."'> >></a>";
-     echo "<a class=pagination href='bookshelf.php?page=".$total_pages."'>Last</a>";
+     echo "<a class=pagination href='bookshelf.php?page=".($total_pages)."'>Last</a>";
     }
     ?>
     </div>

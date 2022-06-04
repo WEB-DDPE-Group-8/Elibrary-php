@@ -42,7 +42,7 @@ if (isset($_POST["import_book"]))
 
 </script>
 
-    <h2>Import Book CSV file into Mysql using PHP</h2>
+    <!-- <h2>Import Book CSV file into Mysql using PHP</h2> -->
     <div class="outer-scontainer">
         <div class="row">
             <form class="form-horizontal" action="" method="post"
@@ -54,7 +54,7 @@ if (isset($_POST["import_book"]))
                         class="file" accept=".csv,.xls,.xlsx">
                     <div class="import">
                         <button type="submit" id="submit" name="import_book"
-                            class="btn-submit">Import</button>
+                            class="btn">Import</button>
                     </div>
                 </div>
             </form>
