@@ -1,5 +1,20 @@
 <section class="featured" id="featured">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+// $(document).ready(function(){
+//   $("#cart").onclick(function(){
+//     $.ajax({
+//       url:
+//       type:'GET'
+//       data:
+//       success:function()
+//       {
+//         console.log("it works")
+//       }
+//     })
+//   })
+// })
+</script>
 <div class="swiper featured-slider">
    <div class="swiper-wrapper">
   <?php
@@ -39,7 +54,17 @@ foreach($books as $book)
           }
       ?>
       <div class="image">
-        <img src="<?php echo($imgpath).$book["BookID"]?>.png" alt="Cover page missing" />
+        <?php
+        if($book["BookID"]<=43){
+        ?>
+        <img src="<?php echo($imgpath).$book["BookID"]?>.png" alt="Cover page" />
+        <?php
+        }else{
+        ?>
+        <img src="<?php echo $book["Cover"]?>" alt="Cover page" />
+        <?php
+        }
+        ?>
       </div>
 
       <div class="content">
@@ -53,7 +78,7 @@ foreach($books as $book)
           if(str_contains($uri,"profile") && $_SESSION["role"]=="Admin"){
             include '../lib/taskhandler.php' ;
         ?>
-            <a href="<?php echo $book["Book"]?>" class="btn">Get Book</a>
+            <a  href="<?php echo $book["Book"]?>" class="btn">Get Book</a>
             <a href="?approvebook=<?php echo $book["BookID"]?>" class="btn">Approve</a>
             <a href="?rejectbook=<?php echo $book["BookID"]?>" class="btn">Reject</a>
               
@@ -61,7 +86,7 @@ foreach($books as $book)
         } 
         else{
           ?>
-          <a href=<?php
+          <a href="<?php
           if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
            echo $book["Book"];
            else{
@@ -70,7 +95,7 @@ foreach($books as $book)
            else
            echo '../public/login.php';
            }
-           ?> class="btn">Get Book</a>
+           ?>" class="btn">Get Book</a>
           <a href="?addtocart=true&<?php echo 'id='.$book["BookID"]?>&<?php echo 'price='.$book['Price']?>" class="btn">Add to WishList</a>
         <?php  
         }

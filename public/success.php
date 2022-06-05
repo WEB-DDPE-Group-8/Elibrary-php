@@ -1,8 +1,9 @@
 <?php
-if(isset($_SESSION["username"]))
-{
-header("location:login.php");
-}
+ if(!isset($_SESSION["loggedin"]) )
+ {
+   
+ header("location:login.php");
+ } 
 ?>
 <!DOCTYPE html>
 

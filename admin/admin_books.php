@@ -156,7 +156,7 @@ display:flex;
             //  var_dump($fetch_books);
       ?>
       <div class="box">
-         <p> Title : <span  style="color:black"><?php echo $fetch_books['Title']; ?></span> </p>
+         <p> Title : <a href="../public/Desc.php?bookid=<?php ECHO $fetch_books['BookID'];  ?>"><span  style="color:black"><?php echo $fetch_books['Title']; ?></span></a> </p>
          <p> Author : <span  style="color:black">   <?php echo $fetch_books['Author']; ?></span> </p>
          <p> Lang : <span style="color:black"><?php echo $fetch_books['Language']; ?></span> </p>
          <a href="<?php echo $fetch_books["Book"]?>" class="btn">Get Book</a>

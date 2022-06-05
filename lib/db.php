@@ -174,6 +174,7 @@ if(isset($_POST["register"]))
         
         $_SESSION["UserID"] =$user_id["UserID"];
         $_SESSION["loggedin"] = true;
+        setcookie("loggedin", "true",time()+60*60,"/html");
 
         header("location:../public/catSelector.php");
 
@@ -232,17 +233,14 @@ if(isset($_POST["log_user"]))
                 $_SESSION["lastname"]    =   $userData["LastName"];
                 $_SESSION["phonenumber"] =   $userData["PhoneNumber"];
                 $_SESSION["interests"]   =   $userData["Interests"];
-                $_SESSION["cart_id"]     =   $userData["Cart_Id"];
+                // $_SESSION["cart_id"]     =   $userData["Cart_Id"];
                 $_SESSION["creditcard"]  =   $userData["CreditCard"];
                 $_SESSION["role"]        =   $userData["IsAdmin"];
                 $_SESSION["about"]       =   $userData["About"];
                 $_SESSION["loggedin"]    =    true;
-
-
+                setcookie("loggedin", "true",time()+60*60,"/html");
             }      
-    
                 header("location:../public/profile.php");
-            // exit;
         }
         else
         {
@@ -265,9 +263,10 @@ if(isset($_POST["log_user"]))
 if(isset($_POST["log_out"]))
   {   
       echo "huston we ahve a problem";
+      setcookie("loggedin", "false",time()+60*60,"/html");
     //   $_SESSION["loggedin"] = false;
       session_unset();
-      session_destroy();
+     session_destroy();
       header('Location:../index.php');
        exit();
   }

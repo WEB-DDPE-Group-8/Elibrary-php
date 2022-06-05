@@ -38,6 +38,9 @@ if(isset ($_POST["upload_book" ]))
         {
             mkdir($path, 0777 , true);
         }
+        else{
+            echo  $statustsg ='Sorry,file already exists.';
+        }
         $targetFileCover = $targetDir.$bookname."/".$fileName;
     
         $filetype= pathinfo($targetFileCover, PATHINFO_EXTENSION);
@@ -100,17 +103,17 @@ if(isset ($_POST["upload_book" ]))
     }
     }
 
-$insert= $db->query("INSERT INTO books(Title,Author,Year,Genre,Description,Language,Price,Cover,UserID,Book)
-VALUES('$Title','$Author','$date',' $genre','$description','$lang','$price','$targetFileCover',$_SESSION[UserID],'$targetFileBook')");
- if($insert)
- {
-     // echo must be removed used only for debudding purposes only
- echo  $statusmsg="\n The file ".$fileName. " has been uploaded successfully";
- }
- else{
-     echo  $statustsg="File upload failed, please try again.";
- }
-}
+        $insert= $db->query("INSERT INTO books(Title,Author,Year,Genre,Description,Language,Price,Cover,UserID,Book)
+        VALUES('$Title','$Author','$date',' $genre','$description','$lang','$price','$targetFileCover',$_SESSION[UserID],'$targetFileBook')");
+    if($insert)
+    {
+        // echo must be removed used only for debudding purposes only
+        echo  $statusmsg="\n The file ".$fileName. " has been uploaded successfully";
+    }
+    else{
+        echo  $statustsg="File upload failed, please try again.";
+    }
+    }
     else{
         echo  $statusmsg="Please select a file to upload.";
     }

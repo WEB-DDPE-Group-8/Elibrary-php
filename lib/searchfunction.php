@@ -26,7 +26,7 @@
       }
 
         $start_from = ($page-1)*$record_per_page;
-        $statementsearch = $pdo->prepare("SELECT * FROM books WHERE Title LIKE :title order by BookID ASC LIMIT $start_from, $record_per_page ");
+        $statementsearch = $pdo->prepare("SELECT * FROM books WHERE Title LIKE :title and Status = 'Approved' order by BookID ASC LIMIT $start_from, $record_per_page ");
         $statementsearch->bindValue('title',"%$search%");
         $statementsearch->execute();
         $books = $statementsearch->fetchAll(PDO::FETCH_ASSOC);
@@ -46,7 +46,7 @@
       $start_from = ($page-1)*$record_per_page;
       $statement= $pdo->prepare(
         "
-              SELECT * FROM books order by BookID DESC LIMIT $start_from, $record_per_page 
+              SELECT * FROM books where Status = 'Approved' order by BookID DESC LIMIT $start_from, $record_per_page 
         ");
       $statement->execute();
       $books = $statement->fetchAll(PDO::FETCH_ASSOC);

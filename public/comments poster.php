@@ -5,8 +5,13 @@
 
 <form class="comments__form" action="comments poster.php" method="POST">
   <?php 
+  
   if(isset($_POST["submit"]))
 {
+  if(!isset($_SESSION["loggedin"]) )
+  {
+  header("location:login.php");
+  } 
   include "../config/dbconfig.php";
 
   $Content = mysqli_real_escape_string($db,$_POST["author"]);

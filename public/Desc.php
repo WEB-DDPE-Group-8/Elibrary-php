@@ -43,9 +43,17 @@
         <div class="product-imgs">
           <div class="img-display">
             <div class="img-showcase">
-            <!-- <img src="../image/<?php echo $row["BokID"] ?>.jpg" alt="shoe image" /> -->
-              <img src="/html/image/<?php echo $row["BookID"].".png"?>" alt="<?php echo $row["BookID"]."png"?>" />
-              
+            <?php
+              if($row["BookID"]<=43){
+        ?>
+          <img src="../image/<?php echo $row['BookID']?>.png" alt="Cover page" />
+        <?php
+        }else{
+        ?>
+        <img src="<?php echo $row['Cover']?>" alt="Covert page" />
+        <?php
+        }
+        ?>
             </div>
           </div>
  

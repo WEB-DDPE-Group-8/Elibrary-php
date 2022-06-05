@@ -10,26 +10,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../multimedia/resources/logo/logo.png"/>
-    
-    <!-- <link rel="stylesheet" type="text/css" href="css/style.css"/> -->
-    <!-- <link rel="stylesheet" type="text/css" href="css/index.css"/> -->
-    <!-- <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
-      /> -->
-
-    <!-- font awesome cdn link  -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
     <link rel="stylesheet" href="../css/sidenav.css">
 
-    <!-- custom css file link  -->
-    <!-- <link rel="stylesheet" href="../css/style.css" /> -->
-
-    <script src="../js/script.js" defer></script> 
-    <script src="../js/sidenav.js"></script>
+    <!-- <script src="../js/script.js" defer></script>  -->
+    <script src="../js/sidenav.js" defer></script>
   <style>
     .pagination{
       padding:8px 16px;
@@ -39,10 +27,9 @@
   }
   </style>
   
-
 </head>
 
-<body background=./multimedia/resources/banner-bg.jpg>
+<body>
           <!-- header -->
          
     <?php 
@@ -51,7 +38,7 @@
     ?>
 
 <?php
-$fetch = "SELECT DISTINCT Genre FROM books";
+$fetch = "SELECT DISTINCT Genre FROM books where Status = 'Approved'";
 $genre_show = mysqli_query($db, $fetch);
 $genres = mysqli_fetch_assoc($genre_show);
 
@@ -64,7 +51,6 @@ $genres = mysqli_fetch_assoc($genre_show);
    count($genre);
       ?></p>
     <ul>
-
           <?php
           foreach ($genres as $genre){
             ?>
@@ -72,9 +58,6 @@ $genres = mysqli_fetch_assoc($genre_show);
           <?php
           }
           ?>
-          
-            
-
 </ul>
       
     </div>
@@ -87,11 +70,6 @@ $genres = mysqli_fetch_assoc($genre_show);
 <div align="center">
     <br />
     <?php
-    // $page_query= $pdo->prepare(
-    //   "
-    //   SELECT * FROM books ORDER BY BookID DESC
-    //   ");
-
     $uri = $_SERVER['REQUEST_URI']; 
     if(str_contains($uri,"search") && str_contains($uri,"bookshelf")){
     $statementsearch->execute();

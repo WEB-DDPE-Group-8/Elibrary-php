@@ -1,5 +1,27 @@
 <?php
  session_start();
+ if(isset($_GET["addto"])){
+  $id = $_GET["addto"];
+  $sql = "SELECT BOOK FROM books where BookID=$id";
+  $book = $db->query($sql);
+  $book = mysqli_fetch_assoc($book);
+
+  
+  $dwnld = "UPDATE books SET Downloads = Downloads + 1 where BookID = $id";
+  $remove = "DELETE FROM cart where BookID = '$id' AND UserID = $_SESSION[UserID]";
+  header('Content-Type: application/octet-stream');
+  header("Content-Disposition: attachment; filename= $book[BOOK]");
+
+  // sleep(1);
+// header("location: cart.php");
+  $db->query($dwnld);
+  $db->query($remove);
+    
+}
+  ?>
+<!-- final cart -->
+<?php 
+
 ?>
     <link
     rel="stylesheet"

@@ -1,10 +1,4 @@
-<?php
-if(!$_SESSION["loggedin"] === true)
-{
-header("location:login.php");
-return 0;
-}
-?>
+
 <!DOCTYPE html>
 
 <html>
@@ -136,7 +130,14 @@ textarea
 
 <body background="../multimedia/resources/banner-bg.jpg">
              <!-- header -->
-           <?php include("../inc/nav_bar.php")  ?>
+           <?php include("../inc/nav_bar.php") ; ?>
+           <?php
+if(!$_SESSION["loggedin"] === true)
+{
+header("location:login.php");
+return 0;
+}
+?>
  <div id="cont">    
 <center>
         <p>This page is for a user to upload any file in a pdf format to our servers</p><br/>

@@ -1,10 +1,4 @@
-<?php
-if(!$_SESSION["loggedin"] === true)
-{
-header("location:login.php");
-return 0;
-}
-?>
+
 <!DOCTYPE html>
 
 <html>
@@ -36,9 +30,14 @@ return 0;
 <body background="../multimedia/resources/banner-bg.jpg">
 
 
-<?php  include '../inc/nav_bar.php' ?>
+<?php  include '../inc/nav_bar.php';
+if(!isset($_SESSION["loggedin"]) )
+{
+header("location:login.php");
+} 
+ ?>
 
-<form action="upload_page_admin.php" method="post" enctype="multipart/form-data">
+<form action="upload page.php" method="post" enctype="multipart/form-data">
   
   <h1>This page is for a user to <strong>upload books </strong> in a pdf format</h1>
 <div class=whole>
@@ -161,12 +160,11 @@ foreach($Genres AS $genre){
 <!-- whole -->
   <!-- submit -->
   <div class="form-group">
-    <button type="submit">Upload Book</button>
+    <button type="submit" name="upload_book">Upload Book</button>
   </div>
   
 </form>
-
-
+<?php include("../lib/uploadbooks.php") ?> 
 <?php  include '../inc/footer.php' ?>
 </body>
 </html>

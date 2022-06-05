@@ -18,10 +18,11 @@ if(isset($_GET['q']))
   $event = mysqli_fetch_assoc($ev);
 }
  ?> 
-
+<center>
 <img src="<?php  echo $event["IMAGE"]  ?>" alt="event picture" srcset="">
 
-<h1><?php  echo $event["NAME"]  ?></h1>
+<h1> <u><?php  echo $event["NAME"]  ?> </u></h1>
+  </center>
   
 <p> <?php  echo $event["DESCRIPTION"]  ?></p>
 <?php 

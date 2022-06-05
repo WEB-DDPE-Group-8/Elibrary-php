@@ -1,3 +1,10 @@
+
+
+<?php
+// session_start();
+include '../config/dbconfig.php';
+
+?>
 <link rel="stylesheet" href="../css/cart final.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -9,18 +16,6 @@
 
 <?php
 
-@include '../config/dbconfig.php';
-
-if(isset($_GET['remove'])){
-   $remove_id = $_GET['remove'];
-   mysqli_query($db, "DELETE FROM cart WHERE BookID = '$remove_id'");
-   header('location:cart.php');
-};
-
-if(isset($_GET['delete_all'])){
-   mysqli_query($db, "DELETE  FROM cart WHERE UserID = $_SESSION[UserID]");
-   header('location:cart.php');
-}
 
 ?>
 <!DOCTYPE html>
@@ -44,18 +39,43 @@ if(isset($_GET['delete_all'])){
 
   <body background="resources/banner-bg.jpg">
     <!-- header -->
-    <?php include("../inc/nav_bar.php");include "../lib/cartadder.php";
+    <?php include("../inc/nav_bar.php");
+    include "../lib/cartadder.php";
+
 
         if(!$_SESSION["loggedin"] == true)
         {
         header("location:login.php");
         return 0;
         }
+        
+@include '../config/dbconfig.php';
+
+if(isset($_GET['remove'])){
+   $remove_id = $_GET['remove'];
+   mysqli_query($db, "DELETE FROM cart WHERE BookID = '$remove_id'");
+   header('location:cart.php');
+};
+
+if(isset($_GET['delete_all'])){
+   mysqli_query($db, "DELETE  FROM cart WHERE UserID = $_SESSION[UserID]");
+   header('location:cart.php');
+}
+if(isset($_GET["addto"])){
+    $id = $_GET["addto"];
+    header("Content-Type: application/octet-stream");
+    header('Content-Disposition: attachment; filename="downloaded.pdf"');
+    
+    $sql = "UPDATE books SET Downloads = Downloads + 1 where BookID = $id";
+    $remove = "DELETE FROM cart where BookID = '$id' AND UserID = $_SESSION[UserID]";
+    $db->query($sql);
+    $db->query($remove);
+}
     ?>
  <!-- final cart -->
 <?php 
 
-$select_cart = mysqli_query($db, "SELECT books.Book,books.Title,books.Author,cart.UserID,cart.BookID,cart.Price FROM cart INNER JOIN BOOKS ON books.BookID = cart.BookID WHERE CART.UserID =$_SESSION[UserID]");
+$select_cart = mysqli_query($db, "SELECT books.Cover,books.Book,books.Title,books.Author,cart.UserID,cart.BookID,cart.Price FROM cart INNER JOIN BOOKS ON books.BookID = cart.BookID WHERE CART.UserID =$_SESSION[UserID]");
 $grand_total = 0;
 ?>
 
@@ -75,21 +95,30 @@ if(mysqli_num_rows($select_cart) > 0){
 ?>
                     <div class="row border-top border-bottom">
                         <div class="row main align-items-center">
-                            <div class="col-2"><img class="img-fluid" src='../image/<?php echo $fetch_cart['BookID']; ?>.png'></div>
-                            <div class="col">
+                        <?php
+                        if($fetch_cart["BookID"]<=43){
+                        ?>
+                                <div class="col-2"><img class="img-fluid" src='../image/<?php echo $fetch_cart['BookID']; ?>.png'></div>
+                        <?php
+                        }else{
+                        ?>
+                                <div class="col-2"><img class="img-fluid" src='<?php echo $fetch_cart["Cover"];?>'></div>
+                        <?php
+                        }
+                        ?>
+                                    <div class="col">
                                 <div class="row text-muted"><?php echo $fetch_cart['Title']; ?></div>
-                                <div class="row">By <?php echo $fetch_cart['Author']; ?></div>
-                            </div>
-                            <div class="col">
-                                <a class="btn" href=<?php echo $fetch_cart['Book']  ?>>Download </a>
-                            </div>
-                            <div class="col"> <?php 
-                            // echo number_format($fetch_cart['Price']); 
-                            ?> <span class="close" style="color:red"> <a  href="cart.php?remove=<?php echo $fetch_cart['BookID']; ?>" onclick="return confirm('remove item from WishList?')" class="delete-btn" > <i class="fas fa-trash" style="color:red"></i></a></span></div>
+                            <div class="row">By <?php echo $fetch_cart['Author']; ?></div>
                         </div>
+                        <div class="col">
+                            <a class="btn" href="?addto=<?php echo $fetch_cart['BookID']?>">Download </a>
+                        </div>
+                        <div class="col"> <?php 
+                        // echo number_format($fetch_cart['Price']); 
+                        ?> <span class="close" style="color:red"> <a  href="cart.php?remove=<?php echo $fetch_cart['BookID']; ?>" onclick="return confirm('remove item from WishList?')" class="delete-btn" > <i class="fas fa-trash" style="color:red"></i></a></span></div>
                     </div>
-<?php
-$grand_total += $fetch_cart['Price'];  
+                </div>
+<?php 
    }}
    else{
        ?>
@@ -116,7 +145,7 @@ $grand_total += $fetch_cart['Price'];
                     <hr>
                     <div class="row">
                         <div class="col" style="padding-left:0;">ITEMS <?php   ?></div>
-                        <div class="col text-right"><?php echo "count" ?></div>
+                        <div class="col text-right"><?php echo mysqli_num_rows($select_cart) ?></div>
                     </div>
                     <!-- <form>
                       

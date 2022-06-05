@@ -263,8 +263,8 @@ while($rows = mysqli_fetch_assoc($select_events)){
    ?>
       <div class="box">
          <img width=150px height=auto src="<?php echo $rows['IMAGE']; ?>" alt="">
-         <div class="name"><?php echo $rows["NAME"]; 
-         ?></div>
+         <div class="name"> <a href="../public/events.php?q=<?php   echo $rows["NAME"]; ?>"><?php echo $rows["NAME"]; 
+         ?> </a></div>
          <div class="price"><?php echo $rows["DESCRIPTION"]; ?></div>
          <a href="admin_events.php?update=<?php echo $rows['ID']; ?>" class="option-btn">update</a>
          <a href="admin_events.php?delete=<?php echo $rows['ID']; ?>" class="delete-btn" onclick="return confirm('Remove this Event?');">delete</a>
