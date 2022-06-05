@@ -38,11 +38,6 @@ $newarray = array_chunk($books,3,TRUE);
     include "sectionslider.php";
 }
   }
-  else if(str_contains($uri, "profile")){
-    include "../lib/cartadder.php";
-    include "sectionslider.php";
-
-  }
   else{ include "lib/cartadder.php";
     include "sectionslider.php";
   }

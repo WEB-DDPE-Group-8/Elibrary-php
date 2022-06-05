@@ -16,8 +16,8 @@
     />
     <link rel="stylesheet" href="../css/sidenav.css">
 
-    <!-- <script src="../js/script.js" defer></script>  -->
-    <script src="../js/sidenav.js" defer></script>
+    <script src="../js/script.js" defer></script> 
+    <script src="../js/sidenav.js" ></script>
   <style>
     .pagination{
       padding:8px 16px;
