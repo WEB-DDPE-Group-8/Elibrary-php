@@ -29,59 +29,56 @@
   
 </head>
 
-<body>
-          <!-- header -->
-         
+<body>  
+
+
     <?php 
           include("../inc/nav_bar.php");
+          
           include '../inc/bookslider.php';
-    ?>
-
-<?php
-$fetch = "SELECT DISTINCT Genre FROM books where Status = 'Approved'";
-$genre_show = mysqli_query($db, $fetch);
-$genres = mysqli_fetch_assoc($genre_show);
-
-    ?>
-
-<div id = "navv">
+    // ?>
+  <div id = "navv">
+  <span style="font-size:20px;cursor:pointer" onclick="openNav()">&#9776; Filter By</span>
+  </div>
   <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <p>Categories <?php  
-   count($genre);
-      ?></p>
-    <ul>
-          <?php
-          foreach ($genres as $genre){
-            ?>
-            <li><a href="?g=<?php echo $genre?>"><?php echo $genre?></a></li>          
-          <?php
-          }
-          ?>
-</ul>
-      
-    </div>
+    <p>CATEGORIES</p>
     
-    <span style="font-size:20px;cursor:pointer" onclick="openNav()">&#9776; Filter By</span>
-</div>
-      <!-- custom js file link  -->
- 
-
+      <ul>
+        
+          <?php
+            $fetch = "SELECT DISTINCT Genre FROM books";
+            $genre_show = mysqli_query($db, $fetch);
+            while($genres = mysqli_fetch_array($genre_show)){
+            
+            ?>
+           
+              <li ><a href="?g=<?php echo $genres[0]?>"><?php echo $genres[0]?></a></li>
+          
+            
+            <?php
+            }
+            ?>
+</ul>
+   <p>Published</p>
+      <ul>
+       <li ><a href="?m=30">Past Month</a></li>
+       <li ><a href="?hy= 180"> Past 6 monthts </a></li>
+       <li ><a href="?y= 365">Past year</a></li>
+       <li ><a href="?fy= 1825">Past 5 years</a></li>
+          </ul>
+    </div>
 <div align="center">
     <br />
     <?php
-    $uri = $_SERVER['REQUEST_URI']; 
-    if(str_contains($uri,"search") && str_contains($uri,"bookshelf")){
-    $statementsearch->execute();
-    $page_result = $statementsearch->fetchColumn();
-    }
-    else if(!str_contains($uri,"search") && str_contains($uri,"bookshelf")){
-      $statement->execute();
-      $page_result = $statement->fetchColumn();
-      }
-    
-    
+    $page_query= $pdo->prepare(
+      "
+      SELECT * FROM books ORDER BY BookID DESC
+      ");
+    $page_query->execute();
+    $page_result = $page_query->fetchColumn();
     $total_records = $page_result;
+    
     $total_pages = ceil($total_records/$record_per_page);
     $start_loop = $page;
     $difference = $total_pages - $page;
@@ -89,20 +86,12 @@ $genres = mysqli_fetch_assoc($genre_show);
     {
      $start_loop = $total_pages - 5;
     }
-    // else if($difference=0){
-    //   $start_loop = -4;
-    // }
     $end_loop = $start_loop + 4;
     if($page > 1)
     {
      echo "<a class=pagination href='bookshelf.php?page=1'>First</a>";
      echo "<a class=pagination href='bookshelf.php?page=".($page - 1)."'> << </a>";
     }
-    // else if($page = 1){
-    //   echo "<a class=pagination href='bookshelf.php?page=1'>First</a>";
-    //   return 0;
-    //   // echo "<a class=pagination href='bookshelf.php?page=".($page - 1)."'> << </a>";
-    //  }
     for($i=$start_loop; $i<=$end_loop; $i++)
     {     
      echo "<a class=pagination href='bookshelf.php?page=".$i."'>".$i."</a>";
@@ -110,18 +99,24 @@ $genres = mysqli_fetch_assoc($genre_show);
     if($page <= $end_loop)
     {
      echo "<a class=pagination href='bookshelf.php?page=".($page + 1)."'> >></a>";
-     echo "<a class=pagination href='bookshelf.php?page=".($total_pages)."'>Last</a>";
+     echo "<a class=pagination href='bookshelf.php?page=".$total_pages."'>Last</a>";
     }
     ?>
     </div>
  
-<!--         
-<div class="loader-container">
+      <!-- custom js file link  -->
+ 
+
+      <?php 
+include("../inc/footer.php")
+ ?>  
+ 
+
+<!-- <div class="loader-container">
       <img src="image/loader-img.gif" alt="" />
 </div> -->
 
 
-<?php include("../inc/footer.php") ?>
 
 </body>
 

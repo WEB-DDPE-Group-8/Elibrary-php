@@ -103,7 +103,7 @@ if(isset($_GET['delete'])){
    // $delete_image_query = mysqli_query($conn, "SELECT image FROM `products` WHERE id = '$delete_id'") or die('query failed');
    // $fetch_delete_image = mysqli_fetch_assoc($delete_image_query);
    // unlink('uploaded_img/'.$fetch_delete_image['image']);
-   mysqli_query($db, "DELETE FROM `event` WHERE ID = '$delete_id'") or die('query failed');
+   mysqli_query($db, "Update `event` set Status='inactive' WHERE ID = '$delete_id'") or die('query failed');
    header('location:admin_events.php');
 }
 

@@ -20,7 +20,7 @@
     <title>Product Card/Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../css/desc.css" />
-    <link rel="stylesheet" href="../css/style.css">
+    <!-- <link rel="stylesheet" href="../css/style.css"> -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
@@ -28,12 +28,30 @@
       crossorigin="anonymous"
     />
 
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      $(".cart").click(function (){
+        var price = $(this).data("price");
+        var id = $(this).data("id");
+        console.log(price);
+
+        $.ajax({
+          url:'/html/lib/cartadder.php',
+          type:'GET',
+          data:{addtocart:true,price:price,id:id},
+          success:function(status)
+          {
+           alert(status);
+          }
+        })
+      })
+    })
+    </script>
   </head>
   <body>
     <?php 
     include("../inc/nav_bar.php");
-      include "../lib/cartadder.php";
     
     ?>
 
@@ -101,18 +119,23 @@
               <div class="purchase-info">
               <!-- <a href="?addtocart=true&<?php echo 'id='.$row["BookID"]?>&<?php echo 'price='.$row['Price']?>" class="btn">Add to WishList</a> -->
               
-              <a href=<?php
-          if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
-           echo "/html/public/cart.php?addtocart=true&id=$row[BookID]&price=$row[Price]";
+
+              <?php
+          if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
+            ?>
+ <button class="btn cart" data-id=<?php echo $row['BookID']?> data-price=<?php echo $row['Price']?>>Add to WishList</button>;
+          <?php
+          }
            else{
              if (str_contains($uri,"index"))
-           echo 'public/login.php';
+           echo '<a class="btn" href=public/login.php>Add to WishList</a>
+           ';
            else
-           echo '../public/login.php';
+           echo '<a class="btn" href=../public/login.php>Add to WishList</a>';
            }
-           ?> class="btn">Add to WishList</a>
+           ?>
 
-              <a href=<?php
+              <a href="<?php
           if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
            echo $row["Book"];
            else{
@@ -121,7 +144,7 @@
            else
            echo '../public/login.php';
            }
-           ?> class="btn">Get Book</a>
+           ?>" class="btn">Get Book</a>
 
               </div>
             </div>

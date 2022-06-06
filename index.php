@@ -23,7 +23,7 @@
     <!-- custom css file link  -->
     <!-- <link rel="stylesheet" href="style.css" /> -->
     <link rel="stylesheet" href="css/style.css" />
-    <script src="js/script.js" defer></script> 
+    <script src="./js/script.js" defer></script> 
     <!-- <script src="script.js" defer></script>   -->
     
     <!-- <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script> -->

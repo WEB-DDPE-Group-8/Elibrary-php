@@ -1,18 +1,21 @@
 
 <?php
-    if (isset($_GET['addtocart'])) {
+    include '../config/dbconfig.php';
+    session_start();
+    if (isset($_GET['addtocart']) && $_GET['addtocart']== true) {
         
       $book_id = $_GET['id'];
       $price= $_GET['price'];
 
       $select_cart = mysqli_query($db, " SELECT * FROM cart WHERE BookID= '$book_id' AND UserID=$_SESSION[UserID]");
-
+       
       if(mysqli_num_rows($select_cart) > 0){
-          echo 'product already added to WishList';
+        $status = 'product already added to WishList';
+          echo $status;
       }else{
           $insert_product= mysqli_query($db, "INSERT INTO cart(BookID,UserID,Price) VALUES ( '$book_id','$_SESSION[UserID]', '$price')");
-            echo 'product added to WishList succesfully';
+          $status = 'product  added to WishList';
+          echo $status;
       }
     }
-    return 0;
 ?>

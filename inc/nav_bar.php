@@ -1,28 +1,32 @@
 <?php
  session_start();
- if(isset($_GET["addto"])){
-  $id = $_GET["addto"];
-  $sql = "SELECT BOOK FROM books where BookID=$id";
-  $book = $db->query($sql);
-  $book = mysqli_fetch_assoc($book);
+//  if(isset($_GET["addto"])){
+//   $id = $_GET["addto"];
+//   $sql = "SELECT BOOK FROM books where BookID=$id";
+//   $book = $db->query($sql);
+//   $book = mysqli_fetch_assoc($book);
 
   
-  $dwnld = "UPDATE books SET Downloads = Downloads + 1 where BookID = $id";
-  $remove = "DELETE FROM cart where BookID = '$id' AND UserID = $_SESSION[UserID]";
-  header('Content-Type: application/octet-stream');
-  header("Content-Disposition: attachment; filename= $book[BOOK]");
+//   $dwnld = "UPDATE books SET Downloads = Downloads + 1 where BookID = $id";
+//   $remove = "DELETE FROM cart where BookID = '$id' AND UserID = $_SESSION[UserID]";
+//   header('Content-Type: application/octet-stream');
+//   header("Content-Disposition: attachment; filename= $book[BOOK]");
 
-  // sleep(1);
-// header("location: cart.php");
-  $db->query($dwnld);
-  $db->query($remove);
+//   // sleep(1);
+// // header("location: cart.php");
+//   $db->query($dwnld);
+//   $db->query($remove);
     
-}
+// }
   ?>
+
+  
 <!-- final cart -->
 <?php 
 
 ?>
+
+
     <link
     rel="stylesheet"
     href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
@@ -94,7 +98,7 @@
         <a href=/html/index.php#arrivals>arrivals</a>
         <a href="/html/index.php#reviews">reviews</a>
         <!-- <a href="/html/public/file_manipulation.php">File Manipulation</a> -->
-        <a href="/html/index.php#blogs">blogs</a>
+        <a href="/html/index.php#blogs">events</a>
         <!-- <a href="/html/public/report.php">Statistics</a> -->
         <?php
           if(isset($_SESSION["role"]) && $_SESSION["role"]=="Admin") 
@@ -131,7 +135,12 @@
 
   <div class="login-form-container">
     <div id="close-login-btn" class="fas fa-times"></div>
-    
+    <?php  
+if(isset($errors))
+foreach($errors as $error){
+  echo $error;
+}
+    ?>
     <form action="/html/lib/db.php" method="POST">
       <h3>sign in</h3>
       <span>username</span>
@@ -155,10 +164,9 @@
         <label for="remember-me">remember me</label>
       </div>
       <input type="submit" value="sign in" name="log_user" class="btn" />
-      <p>forgot password ? <a href="#">click here</a></p>
-      <p id="register">don't have an account ?
-        <!-- <button id= "reg-btn"> click here to register</button> -->
-        <a href="/html/public/register.php">create one</a></p>
+     
+      <p id="register">don't have an account?<a href="/html/public/register.php">create one</a></p>
+        <p id = "forget">forgot password ? <a href="/html/public/change_pass.php">click here</a></p>
     </form>
   </div>
 

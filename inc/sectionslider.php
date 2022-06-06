@@ -1,19 +1,23 @@
 <section class="featured" id="featured">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>
-// $(document).ready(function(){
-//   $("#cart").onclick(function(){
-//     $.ajax({
-//       url:
-//       type:'GET'
-//       data:
-//       success:function()
-//       {
-//         console.log("it works")
-//       }
-//     })
-//   })
-// })
+<script >
+$(document).ready(function(){
+  $(".cart").click(function (){
+    var price = $(this).data("price");
+    var id = $(this).data("id");
+    console.log(price);
+
+    $.ajax({
+      url:'/html/lib/cartadder.php',
+      type:'GET',
+      data:{addtocart:true,price:price,id:id},
+      success:function(status)
+      {
+        alert(status);
+      }
+    })
+  })
+})
 </script>
 <div class="swiper featured-slider">
    <div class="swiper-wrapper">
@@ -96,7 +100,7 @@ foreach($books as $book)
            echo '../public/login.php';
            }
            ?>" class="btn">Get Book</a>
-          <a href="?addtocart=true&<?php echo 'id='.$book["BookID"]?>&<?php echo 'price='.$book['Price']?>" class="btn">Add to WishList</a>
+          <button class="btn cart" data-id="<?php echo $book["BookID"]?>" data-price="<?php echo $book['Price']?>" >Add to WishList</button>
         <?php  
         }
         ?>
@@ -110,6 +114,6 @@ foreach($books as $book)
 <div class="swiper-button-next"></div>
 <div class="swiper-button-prev"></div>
 </div>
-</div>
-</div>
+<!-- </div>
+</div> -->
 </section>

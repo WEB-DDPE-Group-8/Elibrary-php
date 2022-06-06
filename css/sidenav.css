@@ -2,14 +2,17 @@
   li {
     list-style-image: url('try.png');
    }
-  #navv {
-position: top;
+   #navv {
+    padding-top: 50px;
+    top: 140;
+position: absolute;
 z-index: 11;
+
    }
    .sidenav {
      width: 0;
      height: 100%;
-     position: fixed;
+     position: absolute;
      z-index: 24;
      top: 140;
      left: 0;
@@ -19,7 +22,11 @@ z-index: 11;
      padding-top: 50px;
      font-size: 20px;
      color: #818181;
+
    }
+     
+   
+ 
    .sidenav a {
      padding: 8px 8px 8px;
      text-decoration:none;
@@ -40,7 +47,7 @@ z-index: 11;
    }
    .closebtn {
      right: 25px;
-     margin-left: 150px;
+     margin-left: 200px;
    }
  
    p, ul  {
@@ -49,4 +56,11 @@ z-index: 11;
    @media screen and (max-height: 450px) {
      .sidenav {padding-top: 15px;}
      .sidenav a {font-size: 18px;}
+   }
+   ul {
+     padding-top: 20px;
+   }
+   p {
+     color: rgb(57, 87, 12);
+     font-size: 25px;
    }

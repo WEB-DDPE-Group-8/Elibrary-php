@@ -1,5 +1,7 @@
 
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
 <?php
 // session_start();
 include '../config/dbconfig.php';
@@ -11,28 +13,64 @@ include '../config/dbconfig.php';
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script >
+    $(document).ready(function(){
+    $(".del").click(function (){
+        var id = $(this).data("id");
+        console.log(id);
 
+        $.ajax({
+        url:'/html/lib/cartfunctions.php',
+        type:'GET',
+        data:{remove:id},
+        success:function()
+        {
+            $('div#'+id+'').css('display','none');
+            alert("Item removed from cart");
+            // location.href="/HTML/uploads/Adler-Mortimer-How-To-Read-A-Book.pdf"
+        },
+        error:function(e)
+        {
+            $('div#'+id+'').fadeOut('slow');
+            $('div#'+id+'').css('display','none');
+        
+        }
+        })
+    })
 
+    $(".dwnld").click(function (){
+        var id = $(this).data("id");
+        var url = $(this).data("url");
+    
+        // $(this).css('display','none');
 
-<?php
+        $.ajax({
+        url:'/html/lib/cartfunctions.php',
+        type:'GET',
+        data:{addto:id},
+        success:function()
+        {
+                location.href=url;
+                $('div#'+id+'').css('display','none');
+            // alert("Item removed from cart");
+        },
+        error:function(e)
+        {
+            // $('div#'+id+'').css('display','none');
+            // $('div#'+id+'').fadeOut('slow');
+            alert(" error Item removing from cart");
+        }
+        })
+    })
+    })
+</script>
 
-
-?>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="../multimedia/resources/logo/logo.png" />
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" type="text/css" href="css/carrt.css" async />
-    <link rel="stylesheet" type="text/css" href="css/footer.css" />
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-
-    <script src="../js/user.js"></script>
-    <script src="../js/addtocart.js"></script>
 
     <title>Cart</title>
   </head>
@@ -40,37 +78,7 @@ include '../config/dbconfig.php';
   <body background="resources/banner-bg.jpg">
     <!-- header -->
     <?php include("../inc/nav_bar.php");
-    include "../lib/cartadder.php";
 
-
-        if(!$_SESSION["loggedin"] == true)
-        {
-        header("location:login.php");
-        return 0;
-        }
-        
-@include '../config/dbconfig.php';
-
-if(isset($_GET['remove'])){
-   $remove_id = $_GET['remove'];
-   mysqli_query($db, "DELETE FROM cart WHERE BookID = '$remove_id'");
-   header('location:cart.php');
-};
-
-if(isset($_GET['delete_all'])){
-   mysqli_query($db, "DELETE  FROM cart WHERE UserID = $_SESSION[UserID]");
-   header('location:cart.php');
-}
-if(isset($_GET["addto"])){
-    $id = $_GET["addto"];
-    header("Content-Type: application/octet-stream");
-    header('Content-Disposition: attachment; filename="downloaded.pdf"');
-    
-    $sql = "UPDATE books SET Downloads = Downloads + 1 where BookID = $id";
-    $remove = "DELETE FROM cart where BookID = '$id' AND UserID = $_SESSION[UserID]";
-    $db->query($sql);
-    $db->query($remove);
-}
     ?>
  <!-- final cart -->
 <?php 
@@ -93,7 +101,7 @@ $grand_total = 0;
 if(mysqli_num_rows($select_cart) > 0){
    while($fetch_cart = mysqli_fetch_assoc($select_cart)){
 ?>
-                    <div class="row border-top border-bottom">
+                    <div id=<?php echo $fetch_cart['BookID'] ?> class="row border-top border-bottom">
                         <div class="row main align-items-center">
                         <?php
                         if($fetch_cart["BookID"]<=43){
@@ -111,11 +119,11 @@ if(mysqli_num_rows($select_cart) > 0){
                             <div class="row">By <?php echo $fetch_cart['Author']; ?></div>
                         </div>
                         <div class="col">
-                            <a class="btn" href="?addto=<?php echo $fetch_cart['BookID']?>">Download </a>
+                            <button class="dwnld btn" data-id="<?php echo $fetch_cart['BookID']?>" data-url="<?php echo $fetch_cart['Book']?>">Download </button>
                         </div>
                         <div class="col"> <?php 
-                        // echo number_format($fetch_cart['Price']); 
-                        ?> <span class="close" style="color:red"> <a  href="cart.php?remove=<?php echo $fetch_cart['BookID']; ?>" onclick="return confirm('remove item from WishList?')" class="delete-btn" > <i class="fas fa-trash" style="color:red"></i></a></span></div>
+                        
+                        ?> <span class="close" style="color:red"> <button data-id=<?php echo $fetch_cart['BookID']; ?> class="fas fa-trash del" style="color:red"  ></button> </span></div>
                     </div>
                 </div>
 <?php 
@@ -166,10 +174,3 @@ if(mysqli_num_rows($select_cart) > 0){
     <?php include("../inc/footer.php") ?>
   </body>
 </html>
-
-
-
-    
-        <!-- <?php
-// include '../inc/footer.php'
-        ?> -->

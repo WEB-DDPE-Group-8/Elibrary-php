@@ -191,6 +191,7 @@ header("location:login.php");
     </div>
   </div>
 <script src="../js/edit.js"></script>
+<?php include '../shared/myuploads.php'; ?>
   <?php
   if($_SESSION["role"]=="Admin"){
   include '../admin/tasks.php' ;
