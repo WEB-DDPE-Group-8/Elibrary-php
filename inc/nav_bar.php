@@ -46,10 +46,6 @@
 ?>
     class="fas fa-heart"></a>
 
-
-
-
-    <a href=
     <?php
     if(isset($_SESSION["username"]))
     echo "cart.php" ;

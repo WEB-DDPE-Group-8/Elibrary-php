@@ -53,17 +53,28 @@ INSERT INTO `admin` (`UserID`, `UserName`, `Email`, `PhoneNumber`, `FirstName`, 
 --
 -- Table structure for table `books`
 --
-
 CREATE TABLE `books` (
-  `BookID` int(11) NOT NULL,
   `Author` varchar(50) DEFAULT NULL,
-  `Title` varchar(100) NOT NULL,
   `Year` year(4) NOT NULL,
   `Genre` tinytext NOT NULL,
   `Description` longtext NOT NULL,
-  `Publisher` varchar(80) NOT NULL,
-  `Language` varchar(50) NOT NULL
+  `Language` varchar(50) NOT NULL,
+  `Title` varchar(87) NOT NULL,
+  `Price` varchar(100) NOT NULL,
+  `Cover` varchar(66) NOT NULL,
+  `Book` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `books`
+--
+
+INSERT INTO `books` (`Author`, `Year`, `Genre`, `Description`, `Language`, `Title`, `Price`, `Cover`, `Book`) VALUES
+('ተክለጻድቅ_መኩሪያ', 2020, ' Biography', '        qadasd', 'Amharic', 'w', '23', 'uploads/w/51EG8AyJiQL._AC_SY780_.jpg', 'uploads/w/አልወለድም አቤ ጉበኛ.pdf'),
+('herbert', 2020, ' Educational', '        good book', 'English', 'Java', '100', 'uploads/Java/photo_2022-04-22_00-32-11.jpg', 'uploads/Java/Advanced-java.pdf'),
+('yared', 2020, ' Business', '        we the people', 'Dutch', 'yared', '1000', 'uploads/yared/photo_2022-04-22_00-29-12.jpg', 'uploads/yared/Adler-Mortimer-How-To-Read-A-Book.pdf'),
+('pp', 2020, ' ', 'oooo', 'English', 'ppp', '123', 'uploads/ppp/26250484.jpg', 'uploads/ppp/Adler-Mortimer-How-To-Read-A-Book.pdf');
+
 
 -- --------------------------------------------------------
 

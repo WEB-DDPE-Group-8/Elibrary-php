@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 
 :root {
   --green: #27ae60;
@@ -93,7 +92,7 @@ section {
   background: #fff;
   padding: 1.5rem 9%;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: space-between;
 }
 
@@ -292,89 +291,6 @@ section {
   color: var(--black);
   cursor: pointer;
 }
-/* 
-.registration-form-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background:rgba(255,255,255,.9);
-    position:fixed;
-    top:0; right:-155%;
-    z-index: 10000;
-    height:100%;
-    width:100%;
-}
-
-.register-form-container.active-reg{
-    right:0;
-}
-
-.registration-form-container form{
-    background:#fff;
-    border:var(--border);
-    width:40rem;
-    padding:2rem;
-    box-shadow: var(--box-shadow);
-    border-radius: .5rem;
-    margin:2rem;
-}
-.registration-form-container form h3{
-    font-size: 2.5rem;
-    text-transform: uppercase;
-    color:var(--black);
-    text-align: center;
-}
-.registration-form-container form span{
-    display: block;
-    font-size: 1.5rem;
-    padding-top: 1rem;
-}
-.registration-form-container form .box{
-    width: 100%;
-    margin:.7rem 0;
-    font-size: 1.6rem;
-    border:var(--border);
-    border-radius: .5rem;
-    padding:1rem 1.2rem;
-    color:var(--black);
-    text-transform: none;
-}
-.registration-form-container form .checkbox{
-    display:flex;
-    align-items: center;
-    gap:.5rem;
-    padding:1rem 0;
-}
-.registration-form-container form .checkbox label{
-    font-size: 1.5rem;
-    color:var(--light-color);
-    cursor: pointer;
-}
-
-.registration-form-container form .btn{
-    text-align: center;
-    width:100%;
-    margin:1.5rem 0;
-}
-
-.registration-form-container form p{
-    padding-top: .8rem;
-    color:var(--light-color);
-    font-size: 1.5rem;
-}
-
-.registration-form-container form p a{
-    color:var(--green);
-    text-decoration: underline;
-}
-
-.registration-form-container #close-login-btn{
-    position: absolute;
-    top:1.5rem; right:2.5rem;
-    font-size: 5rem;
-    color:var(--black);
-    cursor: pointer;
-} */
 
 .home {
   background: url(../image/banner-bg.jpg) no-repeat;

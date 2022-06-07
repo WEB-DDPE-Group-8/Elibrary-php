@@ -35,8 +35,7 @@
           <!-- header -->
          
     <?php 
-
-  include("./inc/nav_bar.php");
+ include("./inc/footer.php") ;
 
   foreach($books as $book)
   {
@@ -65,13 +64,17 @@
                 <?php 
               echo $book["Title"];
                ?>
+             
                </h3>
               <div class="price"><?php
                echo "\$".$book["Price"].".00" ;
                ?>
               </div>
-              <a href="#" class="btn">Buy Now</a>
-              <a href="#" class="btn">Add to Cart</a>
+
+              
+             
+             <a href="<?php echo $book["Book"];?>" class="btn">Buy Now</a>
+              <a href="?<?php 'echo BookId= '.$book["BookId"] ?>?<?php echo 'Price='.$book['Price']?>" class="btn">Add to Cart</a>
             </div>
           </div>
 </div>
@@ -87,3 +90,8 @@
 </body>
 
 </html>
+
+<?php 
+
+
+ 

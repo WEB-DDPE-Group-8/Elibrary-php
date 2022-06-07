@@ -1,10 +1,5 @@
 <?php 
 include("./inc/nav_bar.php");
-include("./config/dbconfig.php");
-// $query = "SELECT * FROM events";
-// $results = mysqli_query($db,$query);
-
-
  ?> 
 <div id="section5" width = 1000px align = center>
     <marquee behavior="" direction="right"><h2> Upcoming Events</h2></marquee>
@@ -19,19 +14,10 @@ include("./config/dbconfig.php");
               <a href="#" class="fas fa-eye"></a>
             </div>
             <div class="image">
-              <!-- <img src="image/bookreading.jpg" alt="" /> -->
-              <p> <?php 
-                   while($rows = mysqli_fetch_assoc($results)){
-                       ?>
-                       <?php   echo $rows['IMAGE']; ?>                
-             </p>
+              <img src="image/bookreading.jpg" alt="" />
             </div>
             <div class="content">
-              <h3> 
-                      <?php   echo $rows['NAME']; ?>
-                     
-                      <?php       }
-                    ?></h3>
+              <h3>book reading event</h3>
               <a href="#" class="btn">Read more</a>
             </div>
           </div>

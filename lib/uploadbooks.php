@@ -1,5 +1,6 @@
 <?php
-    include('./config/dbconfig.php');
+   include_once ("config/dbconfig.php");
+    
 
 if(isset($_POST["upload_book"])) 
 {
