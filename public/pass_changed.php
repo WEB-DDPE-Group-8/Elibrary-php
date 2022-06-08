@@ -21,6 +21,7 @@ if($_SESSION['info'] == false){
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/pass.css">
+    <link rel="icon" href="../multimedia/logo.png" type="image/icon type">
     <script src="../js/toggle.js" defer></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 

@@ -70,6 +70,7 @@ if(isset($_POST['check_email']) && $_POST['email']) {
     <meta charset="utf-8">
     <title>Change Password</title>
     <link rel="stylesheet" href="../css/register.css">
+    <link rel="icon" href="../multimedia/logo.png" type="image/icon type">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/pass.css">

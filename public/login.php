@@ -11,6 +11,7 @@ include("../lib/db.php");
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/pass.css">
     <link rel="stylesheet" href="../css/error.css">
+    <link rel="icon" href="../multimedia/logo.png" type="image/icon type">
 
 </head>
 <body>

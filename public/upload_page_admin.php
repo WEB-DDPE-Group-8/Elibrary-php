@@ -11,7 +11,7 @@
 
   <link rel="stylesheet" href="../css/upld.css" />
 
-  <link rel="shortcut icon" href="./resources/logo/logo.png" />
+  <link rel="icon" href="../multimedia/logo.png" type="image/icon type">
   <link rel="stylesheet" type="text/css" href="css/style.css" />
   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" href="css/min.css" />
   <!-- font awesome cdn link  -->
