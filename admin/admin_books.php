@@ -114,22 +114,6 @@ while($rows = mysqli_fetch_assoc($results)){
 </head>
 
 <body>
-
-
-
-
-   <div>
-
-   </div>
-
-
-
-
-   <!-- <div class="icons">
-          <div id="search-btn" class="fas fa-search"></div> 
-  </div> -->
-
-
    <section class="users">
 
       <h1 class="title" style="color:black"> Books </h1>
@@ -176,7 +160,7 @@ while($rows = mysqli_fetch_assoc($results)){
 
    <?php
 include '../inc/footer.php';
-?>
+   ?>
 
 </body>
 

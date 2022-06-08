@@ -34,18 +34,24 @@ class BookModel
                     if ($this->hasEmptyRow($column)) {
                         continue;
                     }
-                    if (isset($column[2], $column[3], $column[9])) {
-                        $Downloads = $column[1];
-                        $Author = $column[2];
+                    if (isset($column[2], $column[3], $column[13])) {
+                        
+                        $id = $column[0];
+                        $Cover = $column[1];
+                        $Book = $column[2];
                         $Title = $column[3];
-                        $Year = $column[4];
-                        $Genre = $column[5];
-                        $Description = $column[6];
-                        $Publisher = $column[7];
+                        $Downloads = $column[4];           
+                        $Author = $column[5];
+                        $Description = $column[6]; 
+                        $Genre = $column[7];
                         $Language = $column[8];
-                        $Status = $column[9];
+                        $Price = $column[9];
+                        $Likes = $column[10];
+                        $Dislikes = $column[11];
+                        $Status = $column[12];
+                        $Year = $column[13];
 
-                        $insertId = $this->insertBook($Downloads,$Author,$Title,$Year,$Genre,$Description,$Publisher,$Language,$Status);
+                        $insertId = $this->insertBook($id, $Cover,$Book,$Title,$Downloads,$Author,$Description,$Genre,$Language,$Price,$Likes,$Dislikes,$Status,$Year);
                         if (! empty($insertId)) {
                             $output["type"] = "success";
                             $output["message"] = "Import completed.";
@@ -77,11 +83,9 @@ class BookModel
         return $isEmpty;
     }
 
-    function insertBook($Downloads,$Author,$Title,$Year,$Genre,$Description,$Publisher,$Language,$Status)
+    function insertBook($id, $Cover,$Book,$Title,$Downloads,$Author,$Description,$Genre,$Language,$Price,$Likes,$Dislikes,$Status,$Year)
     {
-        // $sql = "SELECT Title FROM books WHERE Author = ?";
         $sql = "SELECT Title FROM books WHERE Title = ?";
-
         $paramType = "s";
         $paramArray = array(
            $Title
@@ -90,21 +94,11 @@ class BookModel
         $result = $this->conn->select($sql, $paramType, $paramArray);
         $insertId = 0;
         if (empty($result)) {
-            $sql = "INSERT into books (Downloads,Author,Title,Year,Genre,Description,Publisher,Language,Status,UserID)
-                       values (?,?,?,?,?,?,?,?,?,?)";
-            $paramType = "ssssssssss";
+            $sql = "INSERT into books (BookID,Cover,Book,Title,Downloads,Author,Description,Genre,Language,Price,Likes,Dislikes,Status,Year,UserID)
+                       values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            $paramType = "sssssssssssssss";
             $paramArray = array(
-                $Downloads,
-                $Author,
-                $Title,
-                $Year,
-                $Genre,
-                $Description,
-                $Publisher,
-                $Language,
-                $Status,
-                1
-            );
+                $id, $Cover,$Book,$Title,$Downloads,$Author,$Description,$Genre,$Language,$Price,$Likes,$Dislikes,$Status,$Year,1);
             $insertId = $this->conn->insert($sql, $paramType, $paramArray);
         }
         return $insertId;

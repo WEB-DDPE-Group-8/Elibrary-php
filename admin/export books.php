@@ -1,10 +1,11 @@
 <?php 
 
 if(isset($_POST['export_book'])){
-      $getbooks = "SELECT Title,Downloads,Author,Description,Genre,Language,Price,Likes,Dislikes,Status FROM books";
+      $getbooks = "SELECT Cover,Book,Title,Downloads,Author,Description,Genre,Language,Price,Likes,Dislikes,Status,Year FROM books";
       $books =mysqli_query($db,$getbooks);
-      $report='"Title","Downloads","Author","Description","Genre","Language","Price","Likes","Dislikes","Status"'."\n";
+      // $report='"BookID","Cover","Book","Title","Downloads","Author","Description","Genre","Language","Price","Likes","Dislikes","Status","Year"'."\n";
       $count = 1;
+      $report="";
       if(mysqli_num_rows($books)>0)
     {
        while ($q = mysqli_fetch_assoc($books)) {
@@ -26,6 +27,6 @@ if(isset($_POST['export_book'])){
     header("Content-Disposition: attachment; filename=".$fileName);
    echo $report;
     exit;
-    header("Location:admin_events.php");
+    header("Location:admin_books.php");
    }
    ?>

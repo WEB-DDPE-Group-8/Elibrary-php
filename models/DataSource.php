@@ -26,10 +26,7 @@ class DataSource
 
     const PASSWORD = '';
 
-    // const DATABASENAME = 'blog_eg';
-
-    // const DATABASENAME = 'a2zlibrary';
-    const DATABASENAME = 'a';
+    const DATABASENAME = 'a2zlibrary';
 
     private $conn;
 
