@@ -1,7 +1,5 @@
 <?php
 include ('config/dbconfig.php');
-
-// function fetch_featured(){
     $feat = "SELECT 
     *
     FROM 
@@ -16,6 +14,4 @@ include ('config/dbconfig.php');
     $books = $db->query($feat);
     if(!str_contains($uri,"index"))
     $books = mysqli_fetch_assoc($books)
-// }
-
 ?>

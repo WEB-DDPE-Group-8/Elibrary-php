@@ -4,8 +4,6 @@ $cat=[];
 
 include ("../config/globals.php");
 
-// include "$root/config/dbconfig.php";
-
 $USER = $_SESSION["username"];
 
 if($_SERVER['REQUEST_METHOD'] == 'GET')

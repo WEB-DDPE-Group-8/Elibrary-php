@@ -12,30 +12,29 @@ if($_SESSION['info'] == false){
     header('Location: bookshelf.php');
 }
     ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Log in form</title>
-    
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/pass.css">
     <script src="../js/toggle.js" defer></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
- 
-  </head>
+
+</head>
+
 <body>
-<div class="container">
+    <div class="container">
         <div class="row">
             <div class="col-md-4 offset-md-4 form login-form">
-            <?php 
+                <?php 
             if(isset($_SESSION['info'])){
                 ?>
                 <div class="alert alert-success text-center">
-                <?php echo $_SESSION['info']; ?>
+                    <?php echo $_SESSION['info']; ?>
                 </div>
                 <?php
             }
@@ -50,4 +49,5 @@ if($_SESSION['info'] == false){
     </div>
 
 </body>
+
 </html>

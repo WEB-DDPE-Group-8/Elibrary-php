@@ -1,53 +1,27 @@
-
-
 <script src="../js/script.js" defer></script>
 <!-- trial -->
 <style>
-  .title
-  {
-    display:none;
-    width:100px;
-    height:auto;
-    position:relative;
+  .title {
+    display: none;
+    width: 100px;
+    height: auto;
+    position: relative;
     /* background:green; */
   }
- img:hover +  .title {
-  /* content: attr(data-title); */
-  display:block;
-  position: absolute;
 
-  transform: translateY(-50px);
-}
-  </style>
+  img:hover+.title {
+    /* content: attr(data-title); */
+    display: block;
+    position: absolute;
 
-       <?php 
+    transform: translateY(-50px);
+  }
+</style>
 
-    // include "../inc/sectionslider.php";
-    //   return 0;
-
-
-?>
 <section class="featured" id="featured">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-  $("#cart").click(function(){
-    console.log("it works")
-  //   $.ajax({
-  //     url:
-  //     type:'GET'
-  //     data:
-  //     success:function()
-  //     {
-  //       console.log("it works")
-  //     }
-  //   })
-  })
-})
-</script>
-<div class="swiper featured-slider">
-   <div class="swiper-wrapper">
-  <?php
+  <div class="swiper featured-slider">
+    <div class="swiper-wrapper">
+      <?php
 
     $imgpath = "../image/";
     $desc = "../public/";
@@ -57,57 +31,57 @@ $(document).ready(function(){
 foreach($books as $book)
           {
       ?>
-    <div class="swiper-slide box">
-    <?php 
+      <div class="swiper-slide box">
+        <?php 
       if(!str_contains($uri,"profile") )
       {
     ?>
-      <div class="icons">
-        <a href="<?php echo $desc.'desc.php'?>?bookid=<?php 
+        <div class="icons">
+          <a href="<?php echo $desc.'desc.php'?>?bookid=<?php 
         echo $book["BookID"]?>" class="fas fa-eye">
-        </a>
-      </div>
-      <?php
+          </a>
+        </div>
+        <?php
           }
       ?>
-      <div class="image">
-        <?php
+        <div class="image">
+          <?php
         if($book["BookID"]<=43){
         ?>
-        <img src="<?php echo($imgpath).$book["BookID"]?>.png" alt="Cover page" />
-        <?php
+          <img src="<?php echo($imgpath).$book["BookID"]?>.png" alt="Cover page" />
+          <?php
         }else{
         ?>
-        <img src="<?php echo $book["Cover"]?>" alt="Cover page" />
-        <?php
+          <img src="<?php echo $book["Cover"]?>" alt="Cover page" />
+          <?php
         }
         ?>
-      </div>
+        </div>
 
-      <div class="content">
-        <h3>
-          <?php 
+        <div class="content">
+          <h3>
+            <?php 
         echo $book["Title"];
         ?>
-        </h3>
+          </h3>
 
-   
-      <p class="btn">
-        <?php
+
+          <p class="btn">
+            <?php
             echo $book["Status"];
         ?>
-      </p>
+          </p>
 
-        
+
         </div>
-    </div>
-    <?php 
+      </div>
+      <?php 
       }
-      ?>  
+      ?>
     </div>
-<div class="swiper-button-next"></div>
-<div class="swiper-button-prev"></div>
-</div>
-</div>
-</div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+  </div>
+  </div>
 </section>

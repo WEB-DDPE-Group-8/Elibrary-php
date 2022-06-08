@@ -1,4 +1,3 @@
-
 <?php
 
 include "../config/dbconfig.php";
@@ -23,45 +22,47 @@ $result = mysqli_query($connect, $query);
 
 <!DOCTYPE html>
 <html>
- <head>
-  <title>Webslesson Tutorial | PHP Pagination with Next Previous First Last page Link</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <style>
-  a {
-   padding:8px 16px;
-   border:1px solid #ccc;
-   color:#333;
-   font-weight:bold;
-  }
-  </style>
- </head>
- <body>
-  <br /><br />
-  <div class="container">
-   <h3 align="center">PHP Pagination with Next Previous First Last page Link</h3><br />
-   <div class="table-responsive">
-    <table class="table table-bordered">
-     <tr>
-      <td>Title</td>
-      <td>Author</td>
-     </tr>
-     <?php
+
+<head>
+    <title>Webslesson Tutorial | PHP Pagination with Next Previous First Last page Link</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <style>
+        a {
+            padding: 8px 16px;
+            border: 1px solid #ccc;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <br /><br />
+    <div class="container">
+        <h3 align="center">PHP Pagination with Next Previous First Last page Link</h3><br />
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr>
+                    <td>Title</td>
+                    <td>Author</td>
+                </tr>
+                <?php
      while($row = mysqli_fetch_array($result))
      {
      ?>
-     <tr>
-      <td><?php echo $row["Title"]; ?></td>
-      <td><?php echo $row["Author"]; ?></td>
-     </tr>
-     <?php
+                <tr>
+                    <td><?php echo $row["Title"]; ?></td>
+                    <td><?php echo $row["Author"]; ?></td>
+                </tr>
+                <?php
      }
      ?>
-    </table>
-    <div align="center">
-    <br />
-    <?php
+            </table>
+            <div align="center">
+                <br />
+                <?php
     $page_query = "SELECT * FROM books ORDER BY BookID DESC";
     $page_result = mysqli_query($connect, $page_query);
     $total_records = mysqli_num_rows($page_result);
@@ -90,10 +91,10 @@ $result = mysqli_query($connect, $query);
     
     
     ?>
+            </div>
+            <br /><br />
+        </div>
     </div>
-    <br /><br />
-   </div>
-  </div>
- </body>
-</html>
+</body>
 
+</html>

@@ -1,4 +1,3 @@
-
 <?php
     include '../config/dbconfig.php';
     session_start();

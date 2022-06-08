@@ -1,7 +1,4 @@
-
-
 <?php
-
 if($_GET["visit"])
 {
     include "../config/dbconfig.php";
@@ -14,7 +11,5 @@ if($_GET["visit"])
    $uplds = mysqli_query($db,$uploads);
    $uplds  = mysqli_fetch_assoc($uplds);
    $visit["uploads"] = $uplds["COUNT(UserID)"];
-
-   
 }
 ?>

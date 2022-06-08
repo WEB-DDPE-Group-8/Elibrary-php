@@ -10,12 +10,7 @@ if(isset($_POST['export_book'])){
        while ($q = mysqli_fetch_assoc($books)) {
         $report .= $count++.",";
     foreach($q AS $key => $value){
-      // $pos = strpos($value, '"');
-      // if ($pos !== false) {
-      //     $value = str_replace('"', '\"', $value);
-         // echo $value;
          $report .= '"'.$value.'",';
-      // }
       }
       $report .= "\n";
     }

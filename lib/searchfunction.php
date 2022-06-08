@@ -1,12 +1,9 @@
 <?php
-/**@var \PDO $pdo*/
-    // $connect =$db;
     $record_per_page = 5;
     $page = '';
 
     $pdo = new PDO('mysql:host=localhost;dbname=a2zlibrary', 'root');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    // $books = [];
     $search = $_GET['search'] ?? '';
     $GENRE = $_GET['g'] ?? '';
     $month = $_GET['m'] ?? '';

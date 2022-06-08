@@ -1,5 +1,4 @@
 <?php
-// session_start();
 include ("../config/dbconfig.php");
 
 function test_input($data) {

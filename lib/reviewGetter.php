@@ -1,8 +1,5 @@
-
 <?php
-    // $review = $db->query("Select * from reviews where BookID = $row[BookID]");
-
-    $reviews = $db->query("SELECT 
+ $reviews = $db->query("SELECT 
    user.UserID,user.UserName,reviews.UserID, reviews.Content,reviews.reaction
     FROM 
         reviews
@@ -13,7 +10,6 @@
     Where
     BookID =$Id
     "
-                        );
-    // $reviews = mysqli_fetch_assoc($review);
+);
     $reviews->fetch_assoc();
    

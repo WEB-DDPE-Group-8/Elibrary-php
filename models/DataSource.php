@@ -28,7 +28,8 @@ class DataSource
 
     // const DATABASENAME = 'blog_eg';
 
-    const DATABASENAME = 'a2zlibrary';
+    // const DATABASENAME = 'a2zlibrary';
+    const DATABASENAME = 'a';
 
     private $conn;
 

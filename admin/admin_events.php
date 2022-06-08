@@ -139,6 +139,7 @@ if(isset($_GET['delete'])){
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -151,150 +152,148 @@ if(isset($_GET['delete'])){
    <!-- custom admin css file link  -->
    <link rel="stylesheet" href="../css/admin_style.css">
    <style>
-      
-      .search-form{
-          position: relative;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%,-50%);
-          transition: all 1s;
-          width: 50px;
-          height: 50px;
-          background: white;
-          box-sizing: border-box;
-          border-radius: 25px;
-          border: 4px solid white;
-          padding: 5px;
+      .search-form {
+         position: relative;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         transition: all 1s;
+         width: 50px;
+         height: 50px;
+         background: white;
+         box-sizing: border-box;
+         border-radius: 25px;
+         border: 4px solid white;
+         padding: 5px;
       }
-      
-      .search-box{
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;;
-          height: 42.5px;
-          line-height: 30px;
-          outline: 0;
-          border: 0;
-          display: none;
-          font-size: 1em;
-          border-radius: 20px;
-          padding: 0 20px;
+
+      .search-box {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         ;
+         height: 42.5px;
+         line-height: 30px;
+         outline: 0;
+         border: 0;
+         display: none;
+         font-size: 1em;
+         border-radius: 20px;
+         padding: 0 20px;
       }
-      
-      .fa{
-          box-sizing: border-box;
-          padding: 10px;
-          width: 42.5px;
-          height: 42.5px;
-          position: absolute;
-          top: 0;
-          right: 0;
-          border-radius: 50%;
-          color: #07051a;
-          text-align: center;
-          font-size: 1.2em;
-          transition: all 1s;
+
+      .fa {
+         box-sizing: border-box;
+         padding: 10px;
+         width: 42.5px;
+         height: 42.5px;
+         position: absolute;
+         top: 0;
+         right: 0;
+         border-radius: 50%;
+         color: #07051a;
+         text-align: center;
+         font-size: 1.2em;
+         transition: all 1s;
       }
-      
-      .search-form:hover{
-          width: 300px;
-          cursor: pointer;
+
+      .search-form:hover {
+         width: 300px;
+         cursor: pointer;
       }
-      
-      .search-form:hover input{
-          display: block;
+
+      .search-form:hover input {
+         display: block;
       }
-      
-      .search-form:hover .fa{
-          background: #27ae60;
-          color: white;
+
+      .search-form:hover .fa {
+         background: #27ae60;
+         color: white;
       }
-         </style>
-      
+   </style>
+
 
 </head>
+
 <body>
-   
-<?php include '../inc/admin-nav.php'; ?>
+
+   <?php include '../inc/admin-nav.php'; ?>
 
 
-<h1 class="title" style="color:black"> Events </h1>
-<form action="" class="search-form" method="GET">
-          <input
-            type="search"
-            name="event"
-            placeholder="search here..."
-            class="search-box"
-          />
-          <button type=submit class="fa fa-search"></button>
-</form>
+   <h1 class="title" style="color:black"> Events </h1>
+   <form action="" class="search-form" method="GET">
+      <input type="search" name="event" placeholder="search here..." class="search-box" />
+      <button type=submit class="fa fa-search"></button>
+   </form>
 
-<!-- product CRUD section ends -->
-<!-- product CRUD section starts  -->
-<section class="add-products">
-   <?php
+   <!-- product CRUD section ends -->
+   <!-- product CRUD section starts  -->
+   <section class="add-products">
+      <?php
 if(isset($message) && count($message)>0){
    foreach($message as $key)
       echo  $key;
 }
    ?>
-   
-   <form action="" method="post" enctype="multipart/form-data">
-      <h3>Add Events</h3>
-      <input type="text" name="name" class="box" placeholder="add event name" required>
-      <textarea  min="0" name="description" class="box" placeholder="description of event" required></textarea>
-      <input type="file" name="image" accept="image/jpg, image/jpeg, image/png" class="box" required>
-      <!-- <input type="file" name="image" class="box" required> -->
-      <input type="submit" value="add event" name="add_product" class="btn">
-   </form>
 
-</section>
-<!-- show products  -->
+      <form action="" method="post" enctype="multipart/form-data">
+         <h3>Add Events</h3>
+         <input type="text" name="name" class="box" placeholder="add event name" required>
+         <textarea min="0" name="description" class="box" placeholder="description of event" required></textarea>
+         <input type="file" name="image" accept="image/jpg, image/jpeg, image/png" class="box" required>
+         <!-- <input type="file" name="image" class="box" required> -->
+         <input type="submit" value="add event" name="add_product" class="btn">
+      </form>
 
-<section class="show-products">
+   </section>
+   <!-- show products  -->
 
-   <div class="box-container">
+   <section class="show-products">
+
+      <div class="box-container">
 
 
-<?php
+         <?php
   include "search.php";
 while($rows = mysqli_fetch_assoc($select_events)){
    ?>
-      <div class="box">
-         <img width=150px height=auto src="<?php echo $rows['IMAGE']; ?>" alt="">
-         <div class="name"> <a href="../public/events.php?q=<?php   echo $rows["NAME"]; ?>"><?php echo $rows["NAME"]; 
+         <div class="box">
+            <img width=150px height=auto src="<?php echo $rows['IMAGE']; ?>" alt="">
+            <div class="name"> <a href="../public/events.php?q=<?php   echo $rows["NAME"]; ?>"><?php echo $rows["NAME"]; 
          ?> </a></div>
-         <div class="price"><?php echo $rows["DESCRIPTION"]; ?></div>
-         <a href="admin_events.php?update=<?php echo $rows['ID']; ?>" class="option-btn">update</a>
-         <a href="admin_events.php?delete=<?php echo $rows['ID']; ?>" class="delete-btn" onclick="return confirm('Remove this Event?');">delete</a>
-      </div>
-      <?php
+            <div class="price"><?php echo $rows["DESCRIPTION"]; ?></div>
+            <a href="admin_events.php?update=<?php echo $rows['ID']; ?>" class="option-btn">update</a>
+            <a href="admin_events.php?delete=<?php echo $rows['ID']; ?>" class="delete-btn"
+               onclick="return confirm('Remove this Event?');">delete</a>
+         </div>
+         <?php
       }
       ?>
-   </div>
-</section>
+      </div>
+   </section>
 
-<section class="edit-product-form">
+   <section class="edit-product-form">
 
-   <?php
+      <?php
       if(isset($_GET['update'])){
          $update_id = $_GET['update'];
          $update_query = mysqli_query($db, "SELECT * FROM event WHERE ID = '$update_id' AND Status = active") or die('query failed');
          if(mysqli_num_rows($update_query) > 0){
             while($fetch_update = mysqli_fetch_assoc($update_query)){
    ?>
-   <form action="" method="post" enctype="multipart/form-data">
-      <input type="hidden" name="update_p_id" value="<?php echo $fetch_update['ID']; ?>">
-      <input type="hidden" name="update_old_image" value="<?php echo $fetch_update['IMAGE']; ?>">
-      <img src="uploaded_img/<?php echo $fetch_update['IMAGE']; ?>" alt="">
-      <input type="text" name="update_name" value="<?php echo $fetch_update['NAME']; ?>" class="box" required placeholder="enter event">
-     
-      <input type="file" class="box" name="update_image" accept="image/jpg, image/jpeg, image/png">
-      <input type="submit" value="update" name="update_product" class="btn">
-      <input type="reset" value="cancel" id="close-update" class="delete-btn">
-   </form>
-   <?php
+      <form action="" method="post" enctype="multipart/form-data">
+         <input type="hidden" name="update_p_id" value="<?php echo $fetch_update['ID']; ?>">
+         <input type="hidden" name="update_old_image" value="<?php echo $fetch_update['IMAGE']; ?>">
+         <img src="uploaded_img/<?php echo $fetch_update['IMAGE']; ?>" alt="">
+         <input type="text" name="update_name" value="<?php echo $fetch_update['NAME']; ?>" class="box" required
+            placeholder="enter event">
+
+         <input type="file" class="box" name="update_image" accept="image/jpg, image/jpeg, image/png">
+         <input type="submit" value="update" name="update_product" class="btn">
+         <input type="reset" value="cancel" id="close-update" class="delete-btn">
+      </form>
+      <?php
          }
       }
       }else{
@@ -302,12 +301,13 @@ while($rows = mysqli_fetch_assoc($select_events)){
       }
    ?>
 
-</section>
+   </section>
 
-<!-- custom admin js file link  -->
-<script src="../js/admin_script.js"></script>
-<?php
+   <!-- custom admin js file link  -->
+   <script src="../js/admin_script.js"></script>
+   <?php
 include '../inc/footer.php';
 ?>
 </body>
+
 </html>

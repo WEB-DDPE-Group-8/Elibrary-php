@@ -117,13 +117,7 @@ if(isset ($_POST["upload_book" ]))
     else{
         echo  $statusmsg="Please select a file to upload.";
     }
-
-
-
-////////////////////////////////////////////
 }
-
-    //echo $bookname;
 ?>
 
 

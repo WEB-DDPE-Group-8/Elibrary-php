@@ -25,7 +25,7 @@ if(isset($_POST['change_pass'])){
             $update_pass = "UPDATE user SET Password = '$encpass' WHERE Email = '$email'";
             $run_query = mysqli_query($db, $update_pass);
             if($run_query){
-                $info = "Your password changed. Now you can login with your new password.";
+                $info = "Your password changed.$update_pass Now you can login with your new password.";
                 $_SESSION['info'] = $info;
                 header('Location: pass_changed.php');
             }else{
@@ -39,46 +39,48 @@ if(isset($_POST['change_pass'])){
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Create a New Password</title>
-    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/pass.css">
-    <script src="../js/toggle.js" defer></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
- 
-  </head>
 
-  <body>
+<head>
+  <meta charset="utf-8">
+  <title>Create a New Password</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/pass.css">
+  <script src="../js/toggle.js" defer></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+</head>
+
+<body>
   <div class="container">
-      <div  class="row">
+    <div class="row">
       <div class="col-md-4 offset-md-4 form">
-      <?php  
+        <?php  
             foreach($errors as $error)
             {
               ?>
-          <p class="error"><?php echo $error;
+        <p class="error"><?php echo $error;
             }
        ?>
-            </p>
+        </p>
 
-      <form method = "post" action="new_pass.php">
-        <h2>Change Password</h2>
-        <div class = "form-group">
-        <span>Password</span>
-        <input name="password" class="form-control" placeholder="Creat new Password" />
-        </div>
-        <div class = "form-group">
-        <span>Comfirm Password</span>
-        <input name="cpassword" class="form-control" placeholder="Confirm Password" />
-        <input name = "change_pass" type="submit" value="Change" class="btn form-control" />
-        </div>
-      </form>
+        <form method="post" action="new_pass.php">
+          <h2>Change Password</h2>
+          <div class="form-group">
+            <span>Password</span>
+            <input name="password" class="form-control" placeholder="Creat new Password" />
+          </div>
+          <div class="form-group">
+            <span>Comfirm Password</span>
+            <input name="cpassword" class="form-control" placeholder="Confirm Password" />
+            <input name="change_pass" type="submit" value="Change" class="btn form-control" />
+          </div>
+        </form>
+      </div>
     </div>
-        </div>
-        </div>
+  </div>
 
 
 </body>
+
 </html>

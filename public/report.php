@@ -1,10 +1,9 @@
-
 <?php include("../inc/nav_bar.php") ?>
 
-<link rel="stylesheet" type="text/css" href="css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="css/index.css"/>
-    <!-- <link rel="stylesheet" type="text/css" href="css/footer.css"/> -->
-    <link rel="stylesheet" type="text/css" href="css/team.css"/>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/index.css" />
+<!-- <link rel="stylesheet" type="text/css" href="css/footer.css"/> -->
+<link rel="stylesheet" type="text/css" href="css/team.css" />
 
 <?php 
 
@@ -28,29 +27,29 @@ $myfile = fopen("report.txt", "w") or die("Unable to open file!");
     while ($download2 = $download->fetch_assoc())
     {
         ?>
-        <table>
-            <tr>
-                <td>
-        <?php
+<table>
+    <tr>
+        <td>
+            <?php
         foreach($download2 as $e)
         {
             echo $e.","."\n";
             $body = $e.",";
             fwrite($myfile, $body);
-            ?> 
-            
+            ?>
 
-            </td>
-            <td></td>
-            <td>
-                <?php
+
+        </td>
+        <td></td>
+        <td>
+            <?php
                 };
-                fwrite($myfile, "\n");?>   
-               </td> 
-            </tr>
-        </table>
-        
-        <?php   
+                fwrite($myfile, "\n");?>
+        </td>
+    </tr>
+</table>
+
+<?php   
     }
     
     }
@@ -67,23 +66,21 @@ $myfile = fopen("report.txt", "w") or die("Unable to open file!");
 // }
 ?>
 
- <link   href="../admin/csv-to-mysql/style.css" rel="stylesheet" type="text/css" />
- <script src="jquery-3.2.1.min.js"></script>
- <script type="text/javascript">
-
-function validateFile() {
-    var csvInputFile = document.forms["frmCSVImport"]["file"].value;
-    if (csvInputFile == "") {
-      error = "No source found to import";
-      $("#response").html(error).addClass("error");
-      return false;
+<link href="../admin/csv-to-mysql/style.css" rel="stylesheet" type="text/css" />
+<script src="jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+    function validateFile() {
+        var csvInputFile = document.forms["frmCSVImport"]["file"].value;
+        if (csvInputFile == "") {
+            error = "No source found to import";
+            $("#response").html(error).addClass("error");
+            return false;
+        }
+        return true;
     }
-    return true;
-  }
-
 </script>
-    <br><br><br><br><br><br>
-    <!-- <h2>Import user CSV file into Mysql using PHP</h2>
+<br><br><br><br><br><br>
+<!-- <h2>Import user CSV file into Mysql using PHP</h2>
     <div class="outer-scontainer">
         <div class="row">
             <form class="form-horizontal" action="" method="post"
@@ -120,35 +117,30 @@ if (isset($_POST["importbook"])) {
     $response = $BookModel->readBookRecords();
 }
 ?>
-        <br><br><br><br><br><br>
-    <h2>Import book CSV file into Mysql using PHP</h2>
-    <div class="outer-scontainer">
-        <div class="row">
-            <form class="form-horizontal" action="" method="post"
-                name="frmCSVImport" id="frmCSVImport"
-                enctype="multipart/form-data"
-                onsubmit="return validateFile()">
-                <div Class="input-row">
-                    <input type="file" name="file" id="file"
-                        class="file" accept=".csv,.xls,.xlsx">
-                    <div class="import">
-                        <button type="submit" id="submit" name="importbook"
-                            class="btn-submit">Import Books</button>
-                    </div>
+<br><br><br><br><br><br>
+<h2>Import book CSV file into Mysql using PHP</h2>
+<div class="outer-scontainer">
+    <div class="row">
+        <form class="form-horizontal" action="" method="post" name="frmCSVImport" id="frmCSVImport"
+            enctype="multipart/form-data" onsubmit="return validateFile()">
+            <div Class="input-row">
+                <input type="file" name="file" id="file" class="file" accept=".csv,.xls,.xlsx">
+                <div class="import">
+                    <button type="submit" id="submit" name="importbook" class="btn-submit">Import Books</button>
                 </div>
-            </form>
+            </div>
+        </form>
 
-        </div><?php  
+    </div><?php  
         // require_once '../admin/csv-to-mysql/list.php';
-        ?></div>
+        ?>
+</div>
 
-    <div id="response"
-        class="<?php
+<div id="response" class="<?php
          if(!empty($response["type"])) { echo $response["type"] ; } ?>">
-        <?php
+    <?php
          if(!empty($response["message"])) { echo $response["message"]; } ?>
-        </div>
+</div>
 
 
 <?php include("../inc/footer.php") ?>
-

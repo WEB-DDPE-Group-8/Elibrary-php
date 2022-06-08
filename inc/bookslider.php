@@ -1,13 +1,10 @@
-
-
-<script src="../js/script.js" ></script>
-       <?php 
+<script src="../js/script.js"></script>
+<?php 
 
       
   $uri = $_SERVER['REQUEST_URI']; 
  
   if(str_contains($uri, "profile")){
-    // include "../lib/cartadder.php";
     include "sectionslider.php";
       return 0;
   }

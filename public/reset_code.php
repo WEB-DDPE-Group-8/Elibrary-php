@@ -2,6 +2,7 @@
 include "../config/dbconfig.php";
 include("../lib/db.php");
 //include "change_pass.php";
+
 if(isset($_POST['check-reset-otp']) && $_POST['code']){
     $_SESSION['info'] = "";
     $otp_code = $_POST['code'];
@@ -9,7 +10,7 @@ if(isset($_POST['check-reset-otp']) && $_POST['code']){
     $code_res = mysqli_query($db, $check_code);
     if(mysqli_num_rows($code_res) > 0){
         $fetch_data = mysqli_fetch_assoc($code_res);
-        $email = $fetch_data['email'];
+        $email = $fetch_data['Email'];
         $_SESSION['email'] = $email;
         $info = "Please create a new password that you don't use on any other site.";
         $_SESSION['info'] = $info;

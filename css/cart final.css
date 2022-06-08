@@ -69,9 +69,6 @@ body{
 .col-2, .col{
     padding: 0 1vh;
 }
-a{
-    /* padding: 0 1vh; */
-}
 .close{
     margin-left: auto;
     font-size: 0.7rem;

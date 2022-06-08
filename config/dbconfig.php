@@ -2,7 +2,7 @@
     $servername='localhost';
     $usernam='root';
     $password='';
-    $dbname = "a2zlibrary";
+    $dbname = "a";
     
     $db = mysqli_connect($servername,$usernam,$password,$dbname);
     if(!$db){
