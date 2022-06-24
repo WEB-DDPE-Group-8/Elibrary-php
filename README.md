@@ -63,4 +63,4 @@ An Admin can...
   - Export books from the books database(or use the one provided in the csv folder)
   - Truncate the book table with set foreign key check to off <br>
   - import from dashboard the exported csv file(or the backup) <br>
-  - The database for the website to work can be found in `database/` folder with the filename `a2zlibrary(%n).sql`
+  - The database for the website to work can be found in `database/` folder with the filename `a2zlibrary(%d).sql`
