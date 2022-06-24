@@ -9,7 +9,7 @@
   <div class="header-1">
     <a href="#" class="logo"> AdminPanel</a>
 
-    <a href="../public/profile.php" class="fas fa-user"> </a>
+    <a class="user-icon" href="../public/profile.php" class="fas fa-user"> </a>
 
     <?php
                     // session_start();

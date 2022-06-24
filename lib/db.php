@@ -23,9 +23,9 @@ if(isset($_POST["register"]))
                 return 0;
             }
             else{
-                $firstname  =test_input($_POST["firstname"]);
+                $firstname  = test_input($_POST["firstname"]);
                 if (!preg_match("/^[a-zA-Z-']*$/",$firstname)) {
-                    array_push($errors,"Only letters and white space allowed");
+                    array_push($errors,"Only letters and no white space allowed");
                     return 0;
                 }
             }
@@ -106,28 +106,28 @@ if(isset($_POST["register"]))
                 $pass = test_input($_POST["pass"]);
                 $pass2 =  test_input($_POST["pass2"]);
                 
-                
                 if (!preg_match("/^(?=.*\d)(?=.*[a-zA-Z])(?!.*\s).{6,12}$/",$pass)) {
                     array_push($errors,"A password must contain between 6 and 12 characters, and contains at least one number.
                     ");
                     return 0;
                 }
-                    else{
-                        if($pass !== $pass2)
-                        {
-                            array_push($errors,"The two passwords you entered don't match");
-                            return 0;
-                        }     
-                    }
-            }
 
+                else{
+                    if($pass !== $pass2)
+                    {
+                        array_push($errors,"The two passwords you entered don't match");
+                        return 0;
+                    }     
+                    $pass = password_hash($pass,PASSWORD_DEFAULT);
+                }
+            }
+    
             if(empty($_POST["dob"])) {
                 array_push($errors,$_POST["dob"]."Dob field is missing");
                 return 0;
             }
 
             if(empty($_POST["role"])){ 
-
                 array_push($errors,"$_POST[role],Role cannot be empty");
                 return 0;
             }

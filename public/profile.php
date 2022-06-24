@@ -198,8 +198,7 @@ header("location:login.php");
         </div>
       </div>
     </div>
-  </div>
-  </div>
+
   <script src="../js/edit.js"></script>
   <?php include '../shared/myuploads.php'; ?>
   <?php

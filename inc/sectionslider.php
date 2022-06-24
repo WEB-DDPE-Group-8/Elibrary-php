@@ -1,6 +1,6 @@
 <section class="featured" id="featured">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script>
+<script>
     $(document).ready(function () {
       $(".cart").click(function () {
         var price = $(this).data("price");
@@ -21,7 +21,7 @@
         })
       })
     })
-  </script>
+</script>
   <div class="swiper featured-slider">
     <div class="swiper-wrapper">
       <?php
@@ -44,7 +44,7 @@
     $imgpath = "../image/";
    }
 
-foreach($books as $book)
+  foreach($books as $book)
           {
       ?>
       <div class="swiper-slide box">

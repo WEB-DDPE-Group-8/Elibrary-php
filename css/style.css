@@ -734,7 +734,9 @@ section {
 .footer .credit span {
   color: var(--green);
 }
-
+.user-icon{
+  font-size: 100px;
+}
 .loader-container {
   position: fixed;
   top: 0;
