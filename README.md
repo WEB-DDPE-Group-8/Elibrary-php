@@ -1,4 +1,6 @@
-![Image Link]('https://github.com/WEB-DDPE-Group-8/Elibrary-php/blob/main/multimedia/logo.png')
+![Image Link]('https://github.com/WEB-DDPE-Group-8/Elibrary-php/blob/main/multimedia/logo.png' | width=200)
+
+<br>
 
 # <center> A<sup>2</sup>Z Library </center>
 
