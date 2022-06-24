@@ -2,9 +2,8 @@
 
 # <center> A<sup>2</sup>Z Library </center>
 
----
 
-## To login as an admin use these credentials
+### To login as an admin use these credentials
 
 `Username`: tibex <br>
 `Password`: qwerty1234
