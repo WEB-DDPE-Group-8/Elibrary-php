@@ -1,4 +1,4 @@
-![]('https://github.com/WEB-DDPE-Group-8/Elibrary-php/blob/main/multimedia/logo.png' | width="200" height="200")
+![](https://github.com/WEB-DDPE-Group-8/Elibrary-php/blob/main/multimedia/logo.png | width="200" height="200")
 
 <img src="https://github.com/WEB-DDPE-Group-8/Elibrary-php/blob/main/multimedia/logo.png" width="200px height="200px"  />
 
