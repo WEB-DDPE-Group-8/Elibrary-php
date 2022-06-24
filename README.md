@@ -1,6 +1,6 @@
 <center> # Elibrary-php </center> <br>
 
-![Image Link]('https://github.com/WEB-DDPE-Group-8/Elibrary-php/blob/main/multimedia/logo.png')
+('https://github.com/WEB-DDPE-Group-8/Elibrary-php/blob/main/multimedia/logo.png')
 
 
 ---
