@@ -1,20 +1,22 @@
-<center> # Elibrary-php </center> <br>
+![Image Link]('https://github.com/WEB-DDPE-Group-8/Elibrary-php/blob/main/multimedia/logo.png')
 
-![Alt text]('https://github.com/WEB-DDPE-Group-8/Elibrary-php/blob/main/multimedia/logo.png')
-
+# <center> A<sup>2</sup>Z Library </center>
 
 ---
+
 ## To login as an admin use these credentials
+
 `Username`: tibex <br>
 `Password`: qwerty1234
 
-- Stay online due to icons,ajax libraries and other java script libraries used for this project.  
+- Stay online due to icons,ajax libraries and other java script libraries used for this project.
 - Check your spam for email verification and password change.
 - Files to be imported are in admin in a folder named "csv".
 - On first load, press the home on top navigation bar so that index.php needs to be displayed on the top bar in order for the landing page to properly refer to the correct files needed.
 
 - The import books featured was built as a backup feature in mind therefore its best to remove db contents for the books before importing or else a dublicate data error will occur,
-Suggested order of testing for the import and export of files
-  -export books from the books database(or use the one provided in the csv folder)
-  -truncate the book table with set foreign key check to off
-  -import from dashboard the exported csv file(or the backup)
+  Suggested order of testing for the import and export of files
+  - Export books from the books database(or use the one provided in the csv folder)
+  - Truncate the book table with set foreign key check to off <br>
+  - import from dashboard the exported csv file(or the backup) <br>
+  - The database for the website to work can be found in `database/` folder with the filename `a2zlibrary(%n).sql`
