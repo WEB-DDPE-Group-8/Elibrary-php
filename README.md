@@ -1,6 +1,6 @@
-![]('https://github.com/WEB-DDPE-Group-8/Elibrary-php/blob/main/multimedia/logo.png')
+![]('https://github.com/WEB-DDPE-Group-8/Elibrary-php/blob/main/multimedia/logo.png' | width="200" height="200")
 
-<img src="https://github.com/WEB-DDPE-Group-8/Elibrary-php/blob/main/multimedia/logo.png" width="200px  />
+<img src="https://github.com/WEB-DDPE-Group-8/Elibrary-php/blob/main/multimedia/logo.png" width="200px height="200px"  />
 
 # <center> A<sup>2</sup>Z Library </center>
 
