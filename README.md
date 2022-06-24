@@ -1,8 +1,10 @@
-# Elibrary-php
+<center> # Elibrary-php </center>
+<center>  ![Image Link]('https://github.com/WEB-DDPE-Group-8/Elibrary-php/blob/main/multimedia/logo.png') </center>
 
-##To login as an admin use these credentials
-username: tibex
-pwd: qwerty1234
+---
+## To login as an admin use these credentials
+`Username`: tibex <br>
+`Password`: qwerty1234
 
 - Stay online due to icons,ajax libraries and other java script libraries used for this project.  
 - Check your spam for email verification and password change.
