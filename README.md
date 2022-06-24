@@ -33,7 +33,7 @@ A User can...
 - See his/her own downloaded, rejected or maybe even pending books(Status of their books).
 - Have a cart supported on a cloud to persist their data for a long period of time
 
-#### User(Initial account)
+#### Admin(Advanced account)
 
 ---
 
