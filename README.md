@@ -1,5 +1,7 @@
 <center> # Elibrary-php </center> <br>
-<center>  ![Image Link](https://github.com/WEB-DDPE-Group-8/Elibrary-php/blob/main/multimedia/logo.png) </center>
+
+![Image Link]('https://github.com/WEB-DDPE-Group-8/Elibrary-php/blob/main/multimedia/logo.png')
+
 
 ---
 ## To login as an admin use these credentials
