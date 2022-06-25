@@ -470,7 +470,12 @@ a > code {
   }
 
   .col-xl-8 {
+<<<<<<< HEAD
     max-width: 66.66667%;
+=======
+    padding-top:50px;
+    /* max-width: 66.66667%; */
+>>>>>>> main
     flex: 0 0 66.66667%;
   }
 
@@ -944,7 +949,11 @@ textarea.form-control {
 .navbar {
   position: relative;
   display: flex;
+<<<<<<< HEAD
   padding: 1rem 1rem;
+=======
+  padding: 0rem 1rem 0rem 1rem;
+>>>>>>> main
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;

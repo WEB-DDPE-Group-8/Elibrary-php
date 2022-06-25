@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
    include_once ("config/dbconfig.php");
+=======
+   include_once ("../config/dbconfig.php");
+>>>>>>> main
     
 
 if(isset($_POST["upload_book"])) 
@@ -14,7 +18,7 @@ if(isset($_POST["upload_book"]))
 
     $statusmsg="";
 //  File upload directory
-$targetDir = "uploads/";
+$targetDir = "../uploads/";
 
   if(isset($_POST['upload_book']))
   {
@@ -40,10 +44,13 @@ if(isset ($_POST["upload_book" ]))
     if(!empty ($_FILES["file"]["name"]))
     {
         $fileName = basename($_FILES["file"]["name"]);
-        $path="uploads/".$bookname;
+        $path="../uploads/".$bookname;
         if(!is_dir($path.'/'.$bookname))
         {
             mkdir($path, 0777 , true);
+        }
+        else{
+            echo  $statustsg ='Sorry,file already exists.';
         }
         $targetFileCover = $targetDir.$bookname."/".$fileName;
     
@@ -58,7 +65,7 @@ if(isset ($_POST["upload_book" ]))
             //  move_uploaded_file($_FILES["file"][ "tmp_name"], $targetFilePath);
         if (move_uploaded_file($_FILES["file"][ "tmp_name"], $targetFileCover) ) {
             // insert image tile name into database
-            echo $statusMsg="moved uoloaded files";
+            echo $statusMsg="moved uploaded files";
         }
         else{
             echo  $statusMsg="sorry, there was an error uploading your file.";
@@ -82,7 +89,7 @@ if(isset ($_POST["upload_book" ]))
         $fileName = basename($_FILES["bookpdf"]["name"]);
 
         $targetFileBook = $targetDir.$bookname."/".$fileName;
-    
+        $fileName = basename($_FILES["bookpdf"]["name"]);
         $filetype= pathinfo($targetFileBook, PATHINFO_EXTENSION);
 
         // Allow certain file formats
@@ -107,6 +114,7 @@ if(isset ($_POST["upload_book" ]))
     }
     }
 
+<<<<<<< HEAD
 $insert= $db->query("INSERT INTO books(Title,Author,Year,Genre,Description,Language,Price,Cover,Book)
 VALUES('$Title','$Author','$date',' $genre','$description','$lang','$price','$targetFileCover','$targetFileBook')");
  if($insert)
@@ -125,8 +133,30 @@ VALUES('$Title','$Author','$date',' $genre','$description','$lang','$price','$ta
 
 
 ////////////////////////////////////////////
+=======
+        $insert= $db->query("INSERT INTO books(Title,Author,Year,Genre,Description,Language,Price,Cover,UserID,Book)
+        VALUES('$Title','$Author','$date',' $genre','$description','$lang','$price','$targetFileCover',$_SESSION[UserID],'$targetFileBook')");
+    if($insert)
+    {
+        // echo must be removed used only for debudding purposes only
+        echo  $statusmsg="\n The file ".$fileName. " has been uploaded successfully";
+    }
+    else{
+        echo  $statustsg="File upload failed, please try again.";
+    }
+    }
+    else{
+        echo  $statusmsg="Please select a file to upload.";
+    }
+>>>>>>> main
 }
+?>
 
+
+
+
+
+<<<<<<< HEAD
     //echo $bookname;
 ?>
 
@@ -134,3 +164,5 @@ VALUES('$Title','$Author','$date',' $genre','$description','$lang','$price','$ta
 
 
 
+=======
+>>>>>>> main

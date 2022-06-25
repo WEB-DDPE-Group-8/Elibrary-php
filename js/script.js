@@ -4,7 +4,10 @@ document.querySelector("#search-btn").onclick = () => {
   searchForm.classList.toggle("active");
 };
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 window.onscroll = () => {
   searchForm.classList.remove("active");
 
@@ -25,20 +28,20 @@ window.onload = () => {
   fadeOut();
 };
 
-function loader() {
-  document.querySelector(".loader-container").classList.add("active");
-}
+// function loader() {
+//   document.querySelector(".loader-container").classList.add("active");
+// }
 
 function fadeOut() {
   setTimeout(loader, 4000);
 }
 
 var swiper = new Swiper(".books-slider", {
-  loop: true,
+  loop: false,
   centeredSlides: true,
   autoplay: {
     delay: 9500,
-    disableOnInteraction: false,
+    disableOnInteraction: true,
   },
   breakpoints: {
     0: {
@@ -144,5 +147,9 @@ var swiper = new Swiper(".blogs-slider", {
       slidesPerView: 3,
     },
   },
+<<<<<<< HEAD
 });
 
+=======
+});
+>>>>>>> main

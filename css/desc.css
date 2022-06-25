@@ -2,6 +2,7 @@
 
 *{
     box-sizing: border-box;
+<<<<<<< HEAD
     padding: 0;
     margin: 0;
     font-family: 'Open Sans', sans-serif;
@@ -16,6 +17,19 @@ body{
 img{
     width: 100%;
     display: block;
+=======
+    font-family: 'Open Sans', sans-serif;
+}
+
+.card-wrapper{
+    max-width: 1100px;
+    margin: 0 auto;
+    margin-top:100px;
+}
+img{
+    width: 100%;
+    display: flex;
+>>>>>>> main
 }
 .img-display{
     overflow: hidden;
@@ -78,15 +92,27 @@ img{
     opacity: 0.9;
 }
 .product-rating{
+<<<<<<< HEAD
     color: #ffc107;
 }
 .product-rating span{
     font-weight: 600;
+=======
+    color: #27ae60;
+    font-size: 15px;
+}
+.product-rating span{
+    font-weight: 1000;
+>>>>>>> main
     color: #252525;
 }
 .product-price{
     margin: 1rem 0;
+<<<<<<< HEAD
     font-size: 1rem;
+=======
+    font-size:2rem;
+>>>>>>> main
     font-weight: 700;
 }
 .product-price span{
@@ -97,7 +123,11 @@ img{
     text-decoration: line-through;
 }
 .new-price span{
+<<<<<<< HEAD
     color: #256eff;
+=======
+    color: #27ae60;
+>>>>>>> main
 }
 .product-detail h2{
     text-transform: capitalize;
@@ -105,13 +135,21 @@ img{
     padding-bottom: 0.6rem;
 }
 .product-detail p{
+<<<<<<< HEAD
     font-size: 0.9rem;
+=======
+    font-size: 2rem;
+>>>>>>> main
     padding: 0.3rem;
     opacity: 0.8;
 }
 .product-detail ul{
     margin: 1rem 0;
+<<<<<<< HEAD
     font-size: 0.9rem;
+=======
+    font-size: 2rem;
+>>>>>>> main
 }
 .product-detail ul li{
     margin: 0;
