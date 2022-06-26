@@ -9,6 +9,9 @@
 `Username`: tibex <br>
 `Password`: qwerty1234
 
+## User Manual
+ - To run this web web site you need to have node installed an run the command `node app.js` or if you are using nodemon run `nodemon app.js` then on your browser enter `localhost:5000`, After this the website should launch with no issues to a loginpage and the use the credentials above to login as an admin. 
+
 ### Features
 
 ---
