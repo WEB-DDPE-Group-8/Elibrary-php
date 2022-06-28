@@ -26,7 +26,6 @@
   <?php
     include("inc/nav_bar.php") ;
 ?>
-<<<<<<< HEAD
     <script src = "js/script.js" defer></script>
     <section class="home" id="home">
       <div class="row">
@@ -39,9 +38,6 @@
           </p>
           <a href="successful purchase.php" class="btn">shop now</a>
         </div>
-=======
-  <!-- custom js file link  -->
->>>>>>> main
 
   <section class="home" id="home">
     <div class="row">
@@ -285,7 +281,6 @@
   <?php
      include("./inc/footer.php") ;
     ?>
-<<<<<<< HEAD
      </body>
      </html>
      
@@ -293,9 +288,3 @@
 
  
 
-=======
-  <!-- <link rel="stylesheet" href="./css/main.css" /> -->
-</body>
-
-</html>
->>>>>>> main

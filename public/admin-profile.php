@@ -98,12 +98,8 @@ header("location:login.php");
                                             
                                         </label>
                                         
-<<<<<<< HEAD
                                     </figure>                              
             
-=======
-                                    </figure>     
->>>>>>> main
             </div>
 
             <div id= profile>        

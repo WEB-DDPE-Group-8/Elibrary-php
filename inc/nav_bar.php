@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
  
         <link
@@ -63,10 +62,6 @@
             echo $_SESSION["username"] ;
             else
             echo "@user"
-=======
-<?php
- session_start();
->>>>>>> main
 ?>
 
 
@@ -89,7 +84,6 @@
       <button type for="search-box" class="fas fa-search"></button>
     </form>
 
-<<<<<<< HEAD
         <div>
 
         </div>
@@ -121,31 +115,6 @@
             <!-- <button id= "reg-btn"> click here to register</button> -->
             <a href="register.php">create one</a></p>
         </form>
-=======
-    <div class="icons">
-      <div id="search-btn" class="fas fa-search"></div>
-      <?php
-        $uri = $_SERVER['REQUEST_URI']; 
-        if(!str_contains($uri,"index")){
-          include "../inc/counter.php";
-          }
-        else if(str_contains($uri,"index")||str_contains($uri,"html/") )
-        {
-        include "inc/counter.php";
-        }
-       
-      ?>
-
-      <a href=<?php
-        if(isset($_SESSION["username"]))
-            echo "/html/public/cart.php" ;
-        else
-            {echo "/html/public/login.php";}
-      ?> class="fas fa-shopping-cart"><?php  if(isset($_SESSION["UserID"])) echo "[".$row_count."]"; ?><br></a>
-
-      <div id="login-btn" class="fas fa-user">
-        <br>
->>>>>>> main
       </div>
       <?php
         if(isset($_SESSION["username"]))
@@ -157,38 +126,6 @@
   </div>
   </div>
 
-<<<<<<< HEAD
-
-=======
-  <div class="header-2">
-    <nav class="navbar">
-      <a href="/html/index.php">home</a>
-      <a href="/html/index.php#featured">featured</a>
-      <a href="/html/public/bookshelf.php">BookShelf</a>
-      <a href=/html/index.php#arrivals>arrivals </a> <a href="/html/index.php#reviews">reviews</a>
-
-      <a href="/html/index.php#blogs">events</a>
-      <!-- <a href="/html/public/report.php">Statistics</a> -->
-      <?php
-          if(isset($_SESSION["role"]) && $_SESSION["role"]=="Admin") 
-          {
-          ?>
-      <i class="fas fa-user-gear"></i>
-      <a href="/html/admin/admin_page.php">Dashboard</a>
-      <?php 
-        };
-        ?>
-    </nav>
-  </div>
-</header>
-<nav class="bottom-navbar">
-  <a href="/html/index.php" class="fas fa-home"></a>
-  <a href="/html/public/bookshelf.php" class="fas fa-list"></a>
-  <a href="/html/index.php#arrivals" class="fas fa-tags"></a>
-  <a href="/html/index.php#reviews" class="fas fa-comments"></a>
-
-  <a href="/html/index.php#blogs" class="fas fa-blog"></a>
->>>>>>> main
 
   <?php
           if(isset($_SESSION["role"]) && $_SESSION["role"]=="Admin") 

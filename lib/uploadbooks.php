@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
    include_once ("config/dbconfig.php");
-=======
-   include_once ("../config/dbconfig.php");
->>>>>>> main
     
 
 if(isset($_POST["upload_book"])) 
@@ -114,7 +110,6 @@ if(isset ($_POST["upload_book" ]))
     }
     }
 
-<<<<<<< HEAD
 $insert= $db->query("INSERT INTO books(Title,Author,Year,Genre,Description,Language,Price,Cover,Book)
 VALUES('$Title','$Author','$date',' $genre','$description','$lang','$price','$targetFileCover','$targetFileBook')");
  if($insert)
@@ -133,22 +128,6 @@ VALUES('$Title','$Author','$date',' $genre','$description','$lang','$price','$ta
 
 
 ////////////////////////////////////////////
-=======
-        $insert= $db->query("INSERT INTO books(Title,Author,Year,Genre,Description,Language,Price,Cover,UserID,Book)
-        VALUES('$Title','$Author','$date',' $genre','$description','$lang','$price','$targetFileCover',$_SESSION[UserID],'$targetFileBook')");
-    if($insert)
-    {
-        // echo must be removed used only for debudding purposes only
-        echo  $statusmsg="\n The file ".$fileName. " has been uploaded successfully";
-    }
-    else{
-        echo  $statustsg="File upload failed, please try again.";
-    }
-    }
-    else{
-        echo  $statusmsg="Please select a file to upload.";
-    }
->>>>>>> main
 }
 ?>
 
@@ -156,7 +135,6 @@ VALUES('$Title','$Author','$date',' $genre','$description','$lang','$price','$ta
 
 
 
-<<<<<<< HEAD
     //echo $bookname;
 ?>
 
@@ -164,5 +142,3 @@ VALUES('$Title','$Author','$date',' $genre','$description','$lang','$price','$ta
 
 
 
-=======
->>>>>>> main

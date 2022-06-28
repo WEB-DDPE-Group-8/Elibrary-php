@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
 require_once ("config/dbconfig.php");
-=======
-session_start();
->>>>>>> main
 
 include ("../config/dbconfig.php");
 
@@ -15,13 +11,9 @@ function test_input($data) {
   }
 
 $admincodes = array(1234,5678);
-<<<<<<< HEAD
 $phonenumber = 7125020;
   
     INCLUDE("./config/dbconfig.php");
-=======
-$phonenumber = 0000000000;
->>>>>>> main
 $errors= array();
 
 if(isset($_POST["register"])) 
