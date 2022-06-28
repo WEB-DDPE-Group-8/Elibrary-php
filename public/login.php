@@ -19,7 +19,8 @@ include("../lib/db.php");
 foreach($errors as $error)
                  {
               ?>
-             <p class="error "><?php echo "please try again";}?>
+             <p style="z-index:100" class="error ">
+                <?php echo $error;}?>
             
     <div class="container">
         <div class="row">
@@ -28,15 +29,7 @@ foreach($errors as $error)
                     
                     <h2 class="text-center">Login Form</h2>
                     <p class="text-center">Login with your email/username and password.</p>
-                    <?php
-                    
-                 foreach($errors as $error)
-                 {
-              ?>
-             <p class="error "><?php echo "please try again";}?>
-            
- 
-            </p>
+                   
                     <div class="form-group">
                         <input class="form-control"  name="cred" placeholder="Email Address" required >
                     </div>

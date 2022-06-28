@@ -234,7 +234,6 @@ if(isset($_POST["log_user"]))
                 $_SESSION["phonenumber"] =   $userData["PhoneNumber"];
                 $_SESSION["interests"]   =   $userData["Interests"];
                 // $_SESSION["cart_id"]     =   $userData["Cart_Id"];
-                $_SESSION["creditcard"]  =   $userData["CreditCard"];
                 $_SESSION["role"]        =   $userData["IsAdmin"];
                 $_SESSION["about"]       =   $userData["About"];
                 $_SESSION["loggedin"]    =    true;

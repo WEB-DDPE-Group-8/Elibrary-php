@@ -131,7 +131,8 @@ foreach($errors as $error){
    
    document.querySelector('#login-btn').onclick = () =>
    {
-   loginForm.classList.toggle('active');
+    //  loginForm.classList.toggle('active');
+    location.href=(`/html/public/login.php`)
    };
    
    document.querySelector('#close-login-btn').onclick = () => {

@@ -90,9 +90,10 @@ header("location:login.php");
               </div>
               <div class="text-center">
                 <h3>
-                  <?php echo $_SESSION["username"] ?><span class="font-weight-light">, 27</span>
+                  <?php echo $_SESSION["username"] ?>
+                  <!-- <span class="font-weight-light">, 27</span> -->
                 </h3>
-                <div class="h5 font-weight-300">
+                <!-- <div class="h5 font-weight-300">
                   <i class="ni location_pin mr-2"></i>Bucharest, Romania
                 </div>
                 <div class="h5 mt-4">
@@ -100,10 +101,10 @@ header("location:login.php");
                 </div>
                 <div>
                   <i class="ni education_hat mr-2"></i>University of Computer Science
-                </div>
+                </div> -->
                 <hr class="my-4">
                 <p><?php echo $_SESSION['about']  ?></p>
-                <a href="#">Show more</a>
+                <!-- <a href="#">Show more</a> -->
               </div>
             </div>
           </div>
@@ -115,9 +116,9 @@ header("location:login.php");
                 <div class="col-8">
                   <h3 class="mb-0">My account</h3>
                 </div>
-                <div class="col-4 text-right">
+                <!-- <div class="col-4 text-right">
                   <a href="#!" class="btn btn-sm btn-primary">Settings</a>
-                </div>
+                </div> -->
               </div>
             </div>
             <div class="card-body">
